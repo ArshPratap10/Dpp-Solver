@@ -607,5 +607,5 @@ body {
 }
 
 /* ══ MathJax ══ */
-.MathJax { font-size: 1em !important; }
-mjx-container { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
+.MathJax { font-size: 1.25em !important; }
+mjx-container { overflow-x: auto; overflow-y: hidden; max-width: 100%; display: inline !important; }
