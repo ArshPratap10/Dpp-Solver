@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sequence and Series – DPP (JEE Main)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:'Inter',sans-serif;
+  font-size:14px;
+  line-height:1.6;
+  color:#1a1a1a;
+  background:#fff;
+  padding:10mm 12mm;
+  counter-reset:qnum;
+}
+
+/* ── DPP Header ── */
+.dpp-header{
+  border:2.5px solid #000;
+  margin-bottom:18px;
+  page-break-inside:avoid;
+}
+.dpp-title{
+  background:#000;
+  color:#fff;
+  text-align:center;
+  font-size:15px;
+  font-weight:800;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  padding:7px 0;
+}
+.dpp-meta{
+  display:flex;
+  justify-content:space-between;
+  padding:5px 12px;
+  font-size:11.5px;
+  font-weight:600;
+  border-top:1.5px solid #000;
+}
+.dpp-meta span{display:inline-block;}
+
+/* ── Section headers ── */
+h2{
+  font-size:11px;
+  font-weight:700;
+  background:#222;
+  color:#fff;
+  padding:4px 10px;
+  margin:22px 0 14px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  page-break-inside:avoid;
+  break-inside:avoid;
+  break-after:avoid;
+  page-break-after:avoid;
+}
+
+/* ── Question card ── */
+.q{
+  margin-bottom:20px;
+  padding:10px 12px 10px 14px;
+  border-left:3.5px solid #000;
+  border-bottom:1px solid #ddd;
+  page-break-inside:avoid;
+  break-inside:avoid;
+  counter-increment:qnum;
+}
+
+/* ── Question header line ── */
+.qh{
+  display:flex;
+  align-items:baseline;
+  gap:6px;
+  font-size:10px;
+  font-weight:600;
+  color:#666;
+  margin-bottom:5px;
+  letter-spacing:.3px;
+  text-transform:uppercase;
+}
+.qh::before{
+  content:"Q" counter(qnum);
+  font-weight:800;
+  font-size:12px;
+  color:#000;
+  min-width:28px;
+}
+
+/* ── Question body ── */
+.qb{
+  display:block;
+  font-size:14px;
+  font-weight:500;
+  line-height:1.75;
+  color:#111;
+}
+
+/* ── Options row ── */
+.opts{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px 32px;
+  margin-top:10px;
+  padding-top:6px;
+  list-style:none;
+  font-weight:400;
+  font-size:13px;
+  border-top:1px dashed #ccc;
+}
+.opts li{padding:2px 0;}
+.opts li::before{font-weight:700;color:#333;}
+.opts li:nth-child(1)::before{content:"(A)\00a0";}
+.opts li:nth-child(2)::before{content:"(B)\00a0";}
+.opts li:nth-child(3)::before{content:"(C)\00a0";}
+.opts li:nth-child(4)::before{content:"(D)\00a0";}
+.opts li:nth-child(5)::before{content:"(E)\00a0";}
+
+/* ── Sub-questions & tables ── */
+ol.subq{padding-left:20px;margin-top:6px;font-weight:400;font-size:13px;}
+ol.subq li{margin-bottom:4px;}
+table{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.5px;font-weight:400;}
+td,th{border:1px solid #999;padding:4px 8px;vertical-align:top;}
+th{font-weight:700;background:#f0f0f0;}
+
+/* ── Print rules ── */
+@page{margin:0;}
+@media print{
+  body{padding:0;margin:0;font-size:13px;}
+  .dpp-header{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  h2{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .q{break-inside:avoid !important;page-break-inside:avoid !important;margin-bottom:16px;border-left-color:#000 !important;}
+  .qb{break-inside:avoid;page-break-inside:avoid;}
+  .opts{break-inside:avoid;page-break-inside:avoid;}
+  ol.subq{break-inside:avoid;page-break-inside:avoid;}
+  table{break-inside:avoid;page-break-inside:avoid;}
+  h2{break-inside:avoid;page-break-inside:avoid;break-after:avoid;page-break-after:avoid;}
+}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<!-- DPP Header -->
+<div class="dpp-header">
+  <div class="dpp-title">Daily Practice Paper &mdash; Sequence &amp; Series</div>
+  <div class="dpp-meta">
+    <span><strong>Subject:</strong> Mathematics</span>
+    <span><strong>Topic:</strong> Sequence &amp; Series (Complete)</span>
+    <span><strong>Total Questions:</strong> 35</span>
+  </div>
+</div>
+
+<h2>Section A &mdash; Arithmetic Progression</h2>
+
+<div class="q"><div class="qh">Pg 3 | QUESTION [JEE Main 2025 (Jan.)]</div><div class="qb">If the first term of an A.P. is 3 and the sum of its first four terms is equal to one-fifth of the sum of the next four terms, then the sum of the first 20 terms is equal to<ul class="opts"><li>-1080</li><li>-1020</li><li>-200</li><li>-20</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 5 | QUESTION [JEE Main 2025 (Jan.)]</div><div class="qb">Consider an A.P. of positive integers, whose sum of the first three terms is 54 and the sum of the first twenty terms lies between 1600 and 1800. Then its 11th term is :<ul class="opts"><li>90</li><li>84</li><li>122</li><li>108</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 6 | QUESTION [JEE Main 2025 (Jan.)]</div><div class="qb">Let \( T_r \) be the \( r^{\text{th}} \) term of an A.P. If for some \( m \), \( T_m = \frac{1}{25}, T_{25} = \frac{1}{20} \), and \( 20 \sum_{r=1}^{25} T_r = 13 \), then \( 5 m \sum_{r=m}^{2m} T_r \) is equal to<ul class="opts"><li>98</li><li>126</li><li>142</li><li>112</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 7 | QUESTION [JEE Main 2025 (Jan.)] — corrected</div><div class="qb">Let \( a_1, a_2, \dots, a_{2024} \) be an Arithmetic Progression such that 
+\[
+a_1 + (a_5 + a_{10} + a_{15} + \dots + a_{2020}) + a_{2024} = 2233.
+\] 
+Then \( a_1 + a_2 + a_3 + \dots + a_{2024} \) is equal to ______.</div></div>
+
+<div class="q"><div class="qh">Pg 8 | QUESTION [JEE Main 2025 (April)]</div><div class="qb">The number of terms of an A.P. is even; the sum of all the odd terms is 24, the sum of all the even terms is 30 and the last term exceeds the first by \( \frac{21}{2} \). Then the number of terms which are integers in the A.P. is :<ul class="opts"><li>6</li><li>10</li><li>4</li><li>8</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 9 | QUESTION [JEE Main 2024 (Feb.)]</div><div class="qb">Let \( S_n \) denote the sum of the first n terms of an arithmetic progression. If \( S_{10} = 390 \) and the ratio of the 10\(^{\text{th}}\) and the 5\(^{\text{th}}\) terms is 15 : 7, then \( S_{15} - S_5 \) is equal to:<ul class="opts"><li>800</li><li>890</li><li>690</li><li>790</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 10 | QUESTION [JEE Main 2023 (Jan.)]</div><div class="qb">The sum of the common terms of the following three arithmetic progressions.<br>\( 3, 7, 11, 15, \dots 399, \)<br>\( 2, 5, 8, 11, \dots 359 \) and \( 2, 7, 12, 17, 22 \dots 197 \), is equal to __</div></div>
+
+<div class="q"><div class="qh">Pg 13 | QUESTION</div><div class="qb">If \( p \) arithmetic means inserted between 5 and 41 so that the ratio \( \frac{A_3}{A_{p-1}} = \frac{2}{5} \) then the value of \( p \), is<ul class="opts"><li>p = 11</li><li>p = 10</li><li>p = 13</li><li>p = 12</li></ul></div></div>
+
+<h2>Section B &mdash; Geometric Progression</h2>
+
+<div class="q"><div class="qh">Pg 15 | QUESTION [JEE Main 2025 (April)]</div><div class="qb">Let \( a_1, a_2, a_3, \dots \) be a G.P. of increasing positive numbers.<br>If \( a_3 a_5 = 729 \) and \( a_2 + a_4 = \frac{111}{4} \), then \( 24(a_1 + a_2 + a_3) \) is equal to<ul class="opts"><li>131</li><li>129</li><li>130</li><li>128</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 19 | QUESTION</div><div class="qb">The sum of 100 terms of the series \( .9 + .09 + .009 \dots \) will be<ul class="opts"><li>\( 1 - \left( \frac{1}{10} \right)^{100} \)</li><li>\( 1 + \left( \frac{1}{10} \right)^{106} \)</li><li>\( 1 - \left( \frac{1}{10} \right)^{106} \)</li><li>\( 1 + \left( \frac{1}{10} \right)^{100} \)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 20 | QUESTION</div><div class="qb">If the sum of first 6 terms is 9 times the sum of first 3 terms of the same G.P., then the common ratio of the series will be<ul class="opts"><li>\( -2 \)</li><li>\( 2 \)</li><li>\( 1 \)</li><li>\( \frac{1}{2} \)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 21 | QUESTION</div><div class="qb">If the sum of the series \( 1 + \frac{2}{x} + \frac{4}{x^2} + \frac{8}{x^3} + \dots \infty \) is a finite number, then<ul class="opts"><li>\( x > 2 \cup x < -2 \)</li><li>\( -2 < x < 2 \)</li><li>\( x > \frac{1}{2} \)</li><li>None of these</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 22 | QUESTION [JEE Main 2024 (Jan.)]</div><div class="qb">If in a G.P. of 64 terms, the sum of all the terms is 7 times the sum of the odd terms of the G.P, then the common ratio of the G.P. is equal to<ul class="opts"><li>7</li><li>4</li><li>5</li><li>6</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 23 | QUESTION [JEE Main 2024 (April)]</div><div class="qb">Let \( a, ar, ar^2 \dots \) be an infinite G.P. If \( \sum_{n=0}^{\infty} ar^n = 57 \) and \( \sum_{n=0}^{\infty} a^3 r^{3n} = 9747 \), then \( a + 18r \) is equal to<ul class="opts"><li>46</li><li>38</li><li>27</li><li>31</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 24 | QUESTION [JEE Main 2023 (Jan.)]</div><div class="qb">The 4\(^{\text{th}}\) term of GP is 500 and its common ratio is \( \frac{1}{m}, m \in N \). Let \( S_n \) denote the sum of the first n terms of this GP. If \( S_6 > S_5 + 1 \) and \( S_7 < S_6 + \frac{1}{2} \), then the number of possible values of \( m \) is __</div></div>
+
+<div class="q"><div class="qh">Pg 14 | QUESTION [JEE Main 2025 (Jan.)]</div><div class="qb">Let \( a_1, a_2, a_3, \dots \) be a G.P. of increasing positive terms.<br>If \( a_1 a_5 = 28 \) and \( a_2 + a_4 = 29 \), then \( a_6 \) is equal to:<ul class="opts"><li>628</li><li>812</li><li>526</li><li>784</li></ul></div></div>
+
+<h2>Section C &mdash; Harmonic Progression</h2>
+
+<div class="q"><div class="qh">Pg 28 | QUESTION</div><div class="qb">If the 3\(^{\text{rd}}\), 6\(^{\text{th}}\) and last term of a H.P. are \( \frac{1}{3}, \frac{1}{5}, \frac{3}{203} \), then the number of terms, are<ul class="opts"><li>100</li><li>110</li><li>120</li><li>200</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 29 | QUESTION</div><div class="qb">If the harmonic mean between \( a \) and \( b \) be \( H \), then \( \frac{H+a}{H-a} + \frac{H+b}{H-b} \)<ul class="opts"><li>4</li><li>2</li><li>1</li><li>\( a+b \)</li></ul></div></div>
+
+<h2>Section D &mdash; Arithmetico-Geometric &amp; Special Series</h2>
+
+<div class="q"><div class="qh">Pg 31 | QUESTION</div><div class="qb">\( 1 + 2x + 3x^2 + 4x^3 + \dots n \) terms</div></div>
+
+<div class="q"><div class="qh">Pg 32 | QUESTION</div><div class="qb">\( 1 + 3x + 6x^2 + 10x^3 + \dots \) infinite terms</div></div>
+
+<div class="q"><div class="qh">Pg 33 | QUESTION [JEE Main 2025 (Jan.)]</div><div class="qb">If \( 7 = 5 + \frac{1}{7}(5+\alpha) + \frac{1}{7^2}(5+2\alpha) + \frac{1}{7^3}(5+3\alpha) + \dots \infty \), then the value of \( \alpha \) is :<ul class="opts"><li>\( \frac{6}{7} \)</li><li>\( 6 \)</li><li>\( \frac{1}{7} \)</li><li>\( 1 \)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 34 | QUESTION [JEE Main 2024 (April)]</div><div class="qb">If \( S(x) = (1+x) + 2(1+x)^2 + 3(1+x)^3 + \dots + 60(1+x)^{60}, x \ne 0 \), and \( (60)^2 S(60) = a(b)^b + b \), where \( a, b \in \mathbb{N} \), then \( (a+b) \) equal to __</div></div>
+
+<div class="q"><div class="qh">Pg 35 | QUESTION [JEE Main 2023 (April)]</div><div class="qb">If \( (20)^{19} + 2(21)(20)^{18} + 3(21)^2(20)^{17} + \dots + 20(21)^{19} = k(20)^{19} \), then \( k \) is equal to __.</div></div>
+
+<h2>Section E &mdash; Summation of Series (Method of Differences)</h2>
+
+<div class="q"><div class="qh">Pg 37 | QUESTION</div><div class="qb">\( 1 + (1 + 2) + (1 + 2 + 3) + (1 + 2 + 3 + 4) + \dots n \) terms</div></div>
+
+<div class="q"><div class="qh">Pg 38 | QUESTION [JEE Main 2023 (April)]</div><div class="qb">Let \( S_K = \frac{1 + 2 + \dots + K}{K} \) and \( \sum_{j=1}^{n} S_j^2 = \frac{n}{A} (Bn^2 + Cn + D) \) where \( A, B, C, D \in \mathbb{N} \) and \( A \) has least value then<ul class="opts"><li>\( A + C + D \) is not divisible by \( B \)</li><li>\( A + B = 5(D - C) \)</li><li>\( A + B + C + D \) is divisible by 5</li><li>\( A + B \) is divisible by \( D \)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 39 | QUESTION [JEE Main 2023 (Jan.)]</div><div class="qb">If \( \frac{1^3 + 2^3 + 3^3 + \dots \text{ upto } n \text{ terms}}{1 \cdot 3 + 2 \cdot 5 + 3 \cdot 7 + \dots \text{ upto } n \text{ terms}} = \frac{9}{5} \), then the value of \( n \) is __</div></div>
+
+<div class="q"><div class="qh">Pg 41 | QUESTION</div><div class="qb">\( 6 + 13 + 22 + 33 + \dots n \) terms</div></div>
+
+<div class="q"><div class="qh">Pg 42 | QUESTION [JEE Main 2025 (April)]</div><div class="qb">The sum \( 1 + 3 + 11 + 25 + 45 + 71 + \dots \) upto \( 20 \) terms, is equal to<ul class="opts"><li>7240</li><li>7130</li><li>6982</li><li>8124</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 43 | QUESTION [JEE Main 2024 (Jan.)]</div><div class="qb">Let \( \alpha = 1^2 + 4^2 + 8^2 + 13^2 + 19^2 + 26^2 + \dots \) upto \( 10 \) terms and \( \beta = \sum_{n=1}^{10} n^4 \). If \( 4\alpha - \beta = 55k + 40 \), then \( k \) is equal to __</div></div>
+
+<div class="q"><div class="qh">Pg 44 | QUESTION [JEE Main 2024 (April)]</div><div class="qb">An arithmetic progression is written in the following way.<br>
+<pre style="text-align: center; font-size: 1.2em; font-family: 'Inter', sans-serif; font-weight: bold;">
+          2
+        5   8
+     11  14  17
+  20  23  26  29
+</pre>
+The sum of all the terms of the 10\(^{\text{th}}\) row is __</div></div>
+
+<h2>Section F &mdash; Miscellaneous Sequences (Telescoping)</h2>
+
+<div class="q"><div class="qh">Pg 46 | QUESTION</div><div class="qb">\( \frac{1}{1 \cdot 3 \cdot 5} + \frac{1}{3 \cdot 5 \cdot 7} + \frac{1}{5 \cdot 7 \cdot 9} + \dots \)</div></div>
+
+<div class="q"><div class="qh">Pg 47 | QUESTION [JEE Main 2025 (April)]</div><div class="qb">If the sum of the first \( 20 \) terms of the series<br><br>\( \frac{4 \cdot 1}{4 + 3 \cdot 1^2 + 1^4} + \frac{4 \cdot 2}{4 + 3 \cdot 2^2 + 2^4} + \frac{4 \cdot 3}{4 + 3 \cdot 3^2 + 3^4} + \frac{4 \cdot 4}{4 + 3 \cdot 4^2 + 4^4} + \dots \)<br><br>is \( \frac{m}{n} \), where \( m \) and \( n \) are coprime, then \( m + n \) is equal to :<ul class="opts"><li>423</li><li>420</li><li>421</li><li>422</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 48 | QUESTION [JEE Main 2024 (April)]</div><div class="qb">If \( \left( \frac{1}{\alpha + 1} + \frac{1}{\alpha + 2} + \dots + \frac{1}{\alpha + 1012} \right) - \left( \frac{1}{2 \cdot 1} + \frac{1}{4 \cdot 3} + \frac{1}{6 \cdot 5} + \dots + \frac{1}{2024 \cdot 2023} \right) = \frac{1}{2024} \), then \( \alpha \) is equal to __</div></div>
+
+<div class="q"><div class="qh">Pg 49 | QUESTION [JEE Main 2025 (Jan.)]</div><div class="qb">If \( \sum_{r=1}^{n} T_r = \frac{(2n - 1)(2n + 1)(2n + 3)(2n + 5)}{64} \), then \( \lim_{n \to \infty} \sum_{r=1}^{n} \left( \frac{1}{T_r} \right) \) is equal to :<ul class="opts"><li>0</li><li>\( \frac{2}{3} \)</li><li>1</li><li>\( \frac{1}{3} \)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 51 | QUESTION</div><div class="qb">\( 1 \cdot 3 \cdot 5 + 3 \cdot 5 \cdot 7 + 5 \cdot 7 \cdot 9 + \dots \)</div></div>
+
+<h2>Section G &mdash; AM &ge; GM &ge; HM Inequality</h2>
+
+<div class="q"><div class="qh">Pg 53 | QUESTION</div><div class="qb">If \( x, y, z > 0 \) such that \( x + y + z = 1 \) then the greatest value of \( xyz \)<ul class="opts"><li>\( \frac{1}{8} \)</li><li>\( \frac{1}{9} \)</li><li>\( \frac{1}{3} \)</li><li>\( \frac{1}{27} \)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 54 | QUESTION</div><div class="qb">If \( x, y, z > 0 \) such that \( x + y + z = 1 \) then the greatest value of \( x^2yz \)<ul class="opts"><li>\( \frac{1}{8} \)</li><li>\( \frac{1}{16} \)</li><li>\( \frac{1}{64} \)</li><li>None of these</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 55 | QUESTION</div><div class="qb">If \( a, b, c > 0 \) and \( a + b + c = 3 \), then the maximum value of \( a^2 b^3 c^2 \)<ul class="opts"><li>\( \frac{3^{10} \cdot 2^2}{7^4} \)</li><li>\( \frac{3^{10} \cdot 2^4}{7^7} \)</li><li>\( \frac{3^4 \cdot 2^{10}}{7^7} \)</li><li>None of these</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 56 | QUESTION [JEE Main 2023 (April)]</div><div class="qb">Let \( a, b, c \) and \( d \) be positive real numbers such that \( a + b + c + d = 11 \).<br>If the maximum value of \( a^5 b^3 c^2 d \) is \( 3750\beta \), then the value of \( \beta \) is<ul class="opts"><li>90</li><li>110</li><li>55</li><li>108</li></ul></div></div>
+
+<h2>Section H &mdash; Exponential &amp; Logarithmic Series</h2>
+
+<div class="q"><div class="qh">Pg 58 | QUESTION [JEE Main 2025 (Jan.)]</div><div class="qb">The value of \( \lim_{n \to \infty} \left( \sum_{k=1}^n \frac{k^3 + 6k^2 + 11k + 5}{(k+3)!} \right) \) is:<ul class="opts"><li>\( 4/3 \)</li><li>\( 2 \)</li><li>\( 7/3 \)</li><li>\( 5/3 \)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 59 | QUESTION [JEE Main 2025 (April)]</div><div class="qb">The sum \( 1 + \frac{1 + 3}{2!} + \frac{1 + 3 + 5}{3!} + \frac{1 + 3 + 5 + 7}{4!} + \dots \) upto \( \infty \) terms, is equal to<ul class="opts"><li>\( 6e \)</li><li>\( 4e \)</li><li>\( 3e \)</li><li>\( 2e \)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 60 | QUESTION [JEE Main 2025 (April)]</div><div class="qb">If \( \frac{1}{1^4} + \frac{1}{2^4} + \frac{1}{3^4} + \dots \infty = \frac{\pi^4}{90} \), \( \frac{1}{1^4} + \frac{1}{3^4} + \frac{1}{5^4} + \dots \infty = \alpha \),<br><br>\( \frac{1}{2^4} + \frac{1}{4^4} + \frac{1}{6^4} + \dots \infty = \beta \), then \( \frac{\alpha}{\beta} \) is equal to<ul class="opts"><li>23</li><li>18</li><li>15</li><li>14</li></ul></div></div>
+
+</body>
+</html>
