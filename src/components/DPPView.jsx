@@ -3,23 +3,40 @@ import QuestionCard from './QuestionCard';
 import { useTimerEngine, formatTime } from '../hooks/useTimerEngine';
 
 const STAR_KEY = 'dpp-starred';
+const SELECTION_KEY = 'dpp-selections';
 
-function loadStarred() {
-  try { return JSON.parse(localStorage.getItem(STAR_KEY)) || {}; } catch { return {}; }
+function loadJSON(key) {
+  try { return JSON.parse(localStorage.getItem(key)) || {}; } catch { return {}; }
 }
 
 export default function DPPView({ dppData, onBack }) {
   const containerRef = useRef(null);
 
-  // Flatten all questions
+  // Load persisted selections
+  const savedSelections = useRef(loadJSON(SELECTION_KEY));
+
+  // Flatten all questions, restoring saved selections
   const [questions, setQuestions] = useState(() => {
     const all = [];
     dppData.sections.forEach(sec => all.push(...sec.questions));
-    return all;
+    // Restore saved selected options
+    return all.map(q => ({
+      ...q,
+      selectedOption: savedSelections.current[q.id] || null,
+    }));
   });
 
+  // Persist selections whenever they change
+  useEffect(() => {
+    const selections = {};
+    questions.forEach(q => {
+      if (q.selectedOption) selections[q.id] = q.selectedOption;
+    });
+    localStorage.setItem(SELECTION_KEY, JSON.stringify(selections));
+  }, [questions]);
+
   // Starred questions (persisted)
-  const [starred, setStarred] = useState(loadStarred);
+  const [starred, setStarred] = useState(() => loadJSON(STAR_KEY));
   useEffect(() => { localStorage.setItem(STAR_KEY, JSON.stringify(starred)); }, [starred]);
 
   const toggleStar = useCallback((id) => {

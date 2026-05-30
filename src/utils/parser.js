@@ -1,8 +1,8 @@
-/**
- * Parses DPP HTML and extracts structured question data.
- * Matches the specific format: .q > .qh + .qb > .opts
- */
+let _qCounter = 0;
+
+/** Reset counter before each parse run */
 export function parseDPPHtml(htmlString) {
+  _qCounter = 0;
   const parser = new DOMParser();
   const doc = parser.parseFromString(htmlString, 'text/html');
 
@@ -84,14 +84,18 @@ function parseSingleQuestion(qEl) {
     questionHtml = clone.innerHTML.trim();
   }
 
+  // Deterministic ID — stable across reloads for the same DPP
+  const id = `q-${_qCounter++}`;
+
   return {
-    id: crypto.randomUUID(),
+    id,
     header: headerText,
     questionHtml,
     options,
     selectedOption: null,
     timerDuration: 180,
     timerRemaining: 180,
-    timerState: 'idle', // idle | running | paused | expired
+    timerState: 'idle',
   };
 }
+
