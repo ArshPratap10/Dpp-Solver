@@ -12,19 +12,19 @@ export default function DPPView({ dppData, onBack }) {
     return all;
   });
 
-  // Typeset all math after questions render — simple polling approach
+  // MathJax v3: wait for startup, then typesetPromise on each data change
   useEffect(() => {
-    const timer = setInterval(() => {
-      if (window.MathJax && typeof window.MathJax.typeset === 'function') {
-        try {
-          window.MathJax.typeset();
-        } catch (e) {
-          // If typeset fails (e.g. duplicate processing), ignore
-        }
-        clearInterval(timer);
+    const run = async () => {
+      // Wait until MathJax script is loaded
+      while (!window.MathJax?.startup?.promise) {
+        await new Promise(r => setTimeout(r, 100));
       }
-    }, 300);
-    return () => clearInterval(timer);
+      await window.MathJax.startup.promise;
+      if (containerRef.current) {
+        await window.MathJax.typesetPromise([containerRef.current]);
+      }
+    };
+    run().catch(console.error);
   }, [dppData]);
 
   // Build section map
