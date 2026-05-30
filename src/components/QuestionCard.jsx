@@ -1,10 +1,15 @@
-import { useEffect, useRef } from 'react';
+import { memo, useRef } from 'react';
 import { formatTime } from '../hooks/useTimerEngine';
 
 const PRESETS = [
   { label: '3m', sec: 180 },
   { label: '5m', sec: 300 },
 ];
+
+// Memoized so timer re-renders don't wipe MathJax output
+const MathContent = memo(({ html }) => (
+  <span dangerouslySetInnerHTML={{ __html: html }} />
+));
 
 export default function QuestionCard({
   question, index,
@@ -98,7 +103,7 @@ export default function QuestionCard({
 
       {/* Question Body */}
       <div className="q-body">
-        <div dangerouslySetInnerHTML={{ __html: question.questionHtml }} />
+        <MathContent html={question.questionHtml} />
       </div>
 
       {/* Options Row */}
@@ -111,7 +116,7 @@ export default function QuestionCard({
               onClick={(e) => { e.stopPropagation(); onSelectOption(question.id, opt.label); }}
             >
               <span className="opt-label">({opt.label})</span>
-              <span dangerouslySetInnerHTML={{ __html: opt.html }} />
+              <MathContent html={opt.html} />
             </li>
           ))}
         </ul>
