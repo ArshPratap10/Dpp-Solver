@@ -2,6 +2,12 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import QuestionCard from './QuestionCard';
 import { useTimerEngine, formatTime } from '../hooks/useTimerEngine';
 
+const STAR_KEY = 'dpp-starred';
+
+function loadStarred() {
+  try { return JSON.parse(localStorage.getItem(STAR_KEY)) || {}; } catch { return {}; }
+}
+
 export default function DPPView({ dppData, onBack }) {
   const containerRef = useRef(null);
 
@@ -12,10 +18,24 @@ export default function DPPView({ dppData, onBack }) {
     return all;
   });
 
+  // Starred questions (persisted)
+  const [starred, setStarred] = useState(loadStarred);
+  useEffect(() => { localStorage.setItem(STAR_KEY, JSON.stringify(starred)); }, [starred]);
+
+  const toggleStar = useCallback((id) => {
+    setStarred(prev => {
+      const next = { ...prev };
+      if (next[id]) delete next[id]; else next[id] = true;
+      return next;
+    });
+  }, []);
+
+  // Filter mode
+  const [showStarredOnly, setShowStarredOnly] = useState(false);
+
   // MathJax v3: wait for startup, then typesetPromise on each data change
   useEffect(() => {
     const run = async () => {
-      // Wait until MathJax script is loaded
       while (!window.MathJax?.startup?.promise) {
         await new Promise(r => setTimeout(r, 100));
       }
@@ -25,7 +45,7 @@ export default function DPPView({ dppData, onBack }) {
       }
     };
     run().catch(console.error);
-  }, [dppData]);
+  }, [dppData, showStarredOnly]);
 
   // Build section map
   const sectionMap = [];
@@ -64,6 +84,7 @@ export default function DPPView({ dppData, onBack }) {
 
   const answered = questions.filter(q => q.selectedOption !== null).length;
   const total = questions.length;
+  const starredCount = questions.filter(q => starred[q.id]).length;
 
   return (
     <div className="dpp-container" ref={containerRef}>
@@ -75,6 +96,14 @@ export default function DPPView({ dppData, onBack }) {
             <span>
               <span className="answered-count">{answered}</span>/{total} answered
             </span>
+            {starredCount > 0 && (
+              <button
+                className={`star-filter-btn ${showStarredOnly ? 'active' : ''}`}
+                onClick={() => setShowStarredOnly(p => !p)}
+              >
+                ★ {starredCount} starred
+              </button>
+            )}
           </div>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -94,26 +123,37 @@ export default function DPPView({ dppData, onBack }) {
       </div>
 
       {/* Sections + Questions */}
-      {sectionMap.map((sec, si) => (
-        <div key={si}>
-          <div className="section-hdr fade-in">{sec.title}</div>
-          {questions.slice(sec.startIdx, sec.startIdx + sec.count).map((q, i) => {
-            const globalIdx = sec.startIdx + i;
-            return (
-              <QuestionCard
-                key={q.id}
-                question={q}
-                index={globalIdx}
-                onSelectOption={handleSelectOption}
-                onStartTimer={startTimer}
-                onPauseTimer={pauseTimer}
-                onResetTimer={resetTimer}
-                onSetDuration={setDuration}
-              />
-            );
-          })}
-        </div>
-      ))}
+      {sectionMap.map((sec, si) => {
+        const sectionQs = questions.slice(sec.startIdx, sec.startIdx + sec.count);
+        const visibleQs = showStarredOnly
+          ? sectionQs.filter(q => starred[q.id])
+          : sectionQs;
+
+        if (visibleQs.length === 0) return null;
+
+        return (
+          <div key={si}>
+            <div className="section-hdr fade-in">{sec.title}</div>
+            {visibleQs.map(q => {
+              const globalIdx = questions.indexOf(q);
+              return (
+                <QuestionCard
+                  key={q.id}
+                  question={q}
+                  index={globalIdx}
+                  starred={!!starred[q.id]}
+                  onSelectOption={handleSelectOption}
+                  onStartTimer={startTimer}
+                  onPauseTimer={pauseTimer}
+                  onResetTimer={resetTimer}
+                  onSetDuration={setDuration}
+                  onToggleStar={toggleStar}
+                />
+              );
+            })}
+          </div>
+        );
+      })}
     </div>
   );
 }

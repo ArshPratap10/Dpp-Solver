@@ -12,8 +12,8 @@ const MathContent = memo(({ html }) => (
 ));
 
 export default function QuestionCard({
-  question, index,
-  onSelectOption, onStartTimer, onPauseTimer, onResetTimer, onSetDuration,
+  question, index, starred,
+  onSelectOption, onStartTimer, onPauseTimer, onResetTimer, onSetDuration, onToggleStar,
 }) {
   const cardRef = useRef(null);
 
@@ -27,15 +27,14 @@ export default function QuestionCard({
 
   // Card click → start timer if idle
   const handleCardClick = (e) => {
-    // Don't start if clicking on options/buttons
-    if (e.target.closest('.opt-item') || e.target.closest('.preset-btn') || e.target.closest('.timer-ctrl')) return;
+    if (e.target.closest('.opt-item') || e.target.closest('.preset-btn') || e.target.closest('.timer-ctrl') || e.target.closest('.star-btn')) return;
     if (isIdle) {
       onStartTimer(question.id);
     }
   };
 
   // Card class
-  let cardCls = 'q-card';
+  let cardCls = 'q-card fade-in';
   if (options.length === 0) cardCls += ' no-opts';
   if (isRunning && !isWarning) cardCls += ' active-timer';
   if (isWarning) cardCls += ' warning-timer';
@@ -57,8 +56,17 @@ export default function QuestionCard({
     >
       {/* Header Row */}
       <div className="q-header-row">
-        <span className="q-num">Q{index + 1}</span>
+        <span className="q-num-badge">Q{index + 1}</span>
         <span className="q-source">{question.header}</span>
+
+        {/* Star button */}
+        <button
+          className={`star-btn ${starred ? 'starred' : ''}`}
+          onClick={(e) => { e.stopPropagation(); onToggleStar(question.id); }}
+          title={starred ? 'Unstar' : 'Star this question'}
+        >
+          {starred ? '★' : '☆'}
+        </button>
 
         {/* Timer Pill & Controls */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
