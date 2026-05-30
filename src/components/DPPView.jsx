@@ -76,11 +76,25 @@ export default function DPPView({ dppData, onBack }) {
 
   // Session timer
   const [sessionElapsed, setSessionElapsed] = useState(0);
+  const [sessionPaused, setSessionPaused] = useState(false);
+  const sessionAccum = useRef(0);
+  const sessionStart = useRef(Date.now());
+
   useEffect(() => {
-    const start = Date.now();
-    const iv = setInterval(() => setSessionElapsed(Math.floor((Date.now() - start) / 1000)), 1000);
+    if (sessionPaused) return;
+    sessionStart.current = Date.now();
+    const iv = setInterval(() => {
+      setSessionElapsed(sessionAccum.current + Math.floor((Date.now() - sessionStart.current) / 1000));
+    }, 1000);
     return () => clearInterval(iv);
-  }, []);
+  }, [sessionPaused]);
+
+  const toggleSessionPause = useCallback(() => {
+    if (!sessionPaused) {
+      sessionAccum.current += Math.floor((Date.now() - sessionStart.current) / 1000);
+    }
+    setSessionPaused(p => !p);
+  }, [sessionPaused]);
 
   // Select option (toggle)
   const handleSelectOption = useCallback((qId, label) => {
@@ -124,7 +138,13 @@ export default function DPPView({ dppData, onBack }) {
           </div>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <span className="session-timer">⏱ {formatTime(sessionElapsed)}</span>
+          <button
+            className={`session-timer ${sessionPaused ? 'paused' : ''}`}
+            onClick={toggleSessionPause}
+            title={sessionPaused ? 'Resume session timer' : 'Pause session timer'}
+          >
+            {sessionPaused ? '▶' : '⏸'} {formatTime(sessionElapsed)}
+          </button>
           <button className="btn btn-outline btn-sm" onClick={handleResetAll}>↺ Reset All</button>
         </div>
       </div>

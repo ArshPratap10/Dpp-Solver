@@ -236,6 +236,18 @@ body {
   border: 1px solid var(--border);
   padding: 5px 14px;
   border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.session-timer:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.session-timer.paused {
+  background: var(--amber-bg);
+  border-color: var(--amber);
+  color: var(--amber);
+  animation: pulse-timer 1.5s infinite;
 }
 
 /* Star filter button */
