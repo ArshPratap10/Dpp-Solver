@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Basic Mathematics — Complete Question Bank</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:'Inter',sans-serif;
+  font-size:14.5px;
+  line-height:1.7;
+  color:#000;
+  background:#fff;
+  padding:12mm 14mm;
+  counter-reset:qnum;
+}
+h1{
+  text-align:center;
+  font-size:17px;
+  font-weight:700;
+  border-top:3px solid #000;
+  border-bottom:3px solid #000;
+  padding:7px 0;
+  margin-bottom:16px;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+}
+h2{
+  font-size:13px;
+  font-weight:700;
+  background:#000;
+  color:#fff;
+  padding:3px 8px;
+  margin:18px 0 10px;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+}
+/* Each question row: number + content side by side */
+.q{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  margin-bottom:14px;
+  page-break-inside:avoid;
+  counter-increment:qnum;
+}
+/* The bold Q number on the left */
+.q::before{
+  content:counter(qnum) ".";
+  font-weight:700;
+  font-size:15px;
+  min-width:26px;
+  flex-shrink:0;
+  padding-top:1px;
+}
+/* Inner content block */
+.qinner{
+  flex:1;
+}
+/* Source tag — small, gray, float right */
+.qh{
+  font-size:10px;
+  font-weight:500;
+  color:#666;
+  font-style:italic;
+  float:right;
+  margin-left:10px;
+  white-space:nowrap;
+}
+/* Bold question text */
+.qb{
+  font-size:14.5px;
+  font-weight:600;
+  display:block;
+  overflow:hidden; /* clear float */
+}
+/* Horizontal options */
+.opts{
+  display:flex;
+  flex-wrap:wrap;
+  gap:4px 28px;
+  margin-top:8px;
+  padding-left:0;
+  list-style:none;
+  font-weight:400;
+  font-size:14px;
+}
+.opts li::before{font-weight:700;}
+.opts li:nth-child(1)::before{content:"(A)\00a0";}
+.opts li:nth-child(2)::before{content:"(B)\00a0";}
+.opts li:nth-child(3)::before{content:"(C)\00a0";}
+.opts li:nth-child(4)::before{content:"(D)\00a0";}
+.opts li:nth-child(5)::before{content:"(E)\00a0";}
+/* Sub-questions (i, ii, iii) */
+ol.subq{
+  padding-left:20px;
+  margin-top:6px;
+  font-weight:400;
+  font-size:14px;
+}
+ol.subq li{margin-bottom:4px;}
+/* Tables (match column) */
+table{width:100%;border-collapse:collapse;margin-top:8px;font-size:13px;font-weight:400;}
+td,th{border:1px solid #888;padding:4px 8px;vertical-align:top;}
+th{font-weight:700;background:#eee;}
+@media print{
+  body{padding:10mm 12mm;font-size:14px;}
+  h2{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .q{margin-bottom:12px;}
+}
+</style>
+</head>
+<body>
+<h1>Basic Mathematics — Complete Question Bank</h1>
+
+<!-- ═══════════════════════════════════════════════════════════════════ PART 01 ═══════════════════════════════════════════════════════════════════ -->
+<h2>Part 01</h2>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 1 | Q1 (KCLS)</div><div class="qb">The number of positive integers \(n\) in the set \(\{2,3,\dots,200\}\) such that \(\frac{1}{n}\) has a terminating decimal expansion is<ul class="opts"><li>16</li><li>18</li><li>40</li><li>100</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 2 | Q1 (ASRQ)</div><div class="qb">Number of real value(s) of \(x\) satisfying \(x^2-\dfrac{1}{x+3}=9-\dfrac{x-3}{x^2-9}\) is<ul class="opts"><li>1</li><li>\(\pi-3.14\)</li><li>\(\pi-\frac{22}{7}\)</li><li>0</li><li>2</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 3 | Q1 (KTK 3) — Match Column</div><div class="qb"><table><table><th>Column-I</th><th>Column-II</th></tr><tr><td>(A) A rectangular box has volume 48, sum of twelve edges = 48. Largest integer that could be the length of an edge is</td><td>(P) 1</td></tr><tr><td>(B) Number of zeroes at the end in the product of first 20 prime numbers is</td><td>(Q) 2</td></tr><tr><td>(C) Number of solutions of \(2^{2x}-3^{2y}=55\) in which \(x\) and \(y\) are integers, is</td><td>(R) 3 &nbsp;(S) 4 &nbsp;(T) 6</td></tr></table></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 5 | Q1</div><div class="qb">Solve for \(x\): \(|x-2024|+|x-2025|+|x-2026|=0\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 6 | Q1 [JEE Mains 2024 (30 Jan)] (ASRQ)</div><div class="qb">The number of real solutions of the equation \(x(x^2+3|x|+5|x-1|+6|x-2|)=0\) is</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 8 | Q1</div><div class="qb">If \(x^2+y^2+4z^2-6x-2y-4z+11=0\) then \(xyz\) equals (\(x,y,z\in\mathbb{R}\))<ul class="opts"><li>\(\frac{3}{2}\)</li><li>4</li><li>6</li><li>3</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 10 | Q1</div><div class="qb">If \(x,y,z\) are real numbers such that \(x^2+4y^2+9z^2-2x-4y-6z+3=0\), find \(\dfrac{1}{x}+\dfrac{1}{y}+\dfrac{1}{z}\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 11 | Q1 (KCLS)</div><div class="qb">Three real numbers \(x,y,z\) are such that \(x^2+6y=-17\), \(y^2+4z=1\) and \(z^2+2x=2\). Then \(x^3+y^3+z^3\) equals<ul class="opts"><li>30</li><li>-24</li><li>-36</li><li>-28</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 12 | Q1 (KCLS)</div><div class="qb">Solve in real numbers: \(\begin{cases}y^2+u^2+v^2+w^2=4x-1\\x^2+u^2+v^2+w^2=4y-1\\x^2+y^2+v^2+w^2=4u-1\\x^2+y^2+u^2+w^2=4v-1\\x^2+y^2+u^2+v^2=4w-1\end{cases}\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 14 | Q1</div><div class="qb">If \(a,b,c\) are sides of a triangle with \(9a^2+16b^2+25c^2-12ab-20bc-15ac=0\), find \(a:b:c\).<ul class="opts"><li>20:15:12</li><li>3:4:5</li><li>2:1:2</li><li>1:2:3</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 16 | Q1 (KCLS)</div><div class="qb">Smallest possible value of \(E=3a^2+27b^2+5c^2-18ab-30c+237\) for any real \(a,b,c\):<ul class="opts"><li>195</li><li>194</li><li>193</li><li>192</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 17 | Q1 (ASRQ)</div><div class="qb">Solve in real numbers: \(\sqrt{x}+\sqrt{y}+2\sqrt{z-2}+\sqrt{u}+\sqrt{v}=x+y+z+u+v\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 18 | Q1 (KCLS)</div><div class="qb">Solve in real numbers: \(\sqrt{x_1-1}+2\sqrt{x_2-4}+3\sqrt{x_3-9}+\cdots+n\sqrt{x_n-n^2}=\dfrac{1}{2}(x_1+x_2+\cdots+x_n)\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 19 | Q1 (KCLS)</div><div class="qb">Let \(a_1,a_2,a_3,a_4\) be real numbers such that \(\sqrt{a_1}+\sqrt{a_2-3}+\sqrt{a_3-5}+\sqrt{a_4-2}=\frac{1}{2}(a_1+a_2+a_3+a_4)-3\). Find \(a_1+a_2\div a_3\times a_4\).<ul class="opts"><li>3</li><li>5/2</li><li>11/9</li><li>5</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 21 | Q1 (KCLS)</div><div class="qb">Let \(a_1,\dots,a_n\) be real numbers such that \(\sqrt{a_1}+\sqrt{a_2-1}+\sqrt{a_3-2}+\cdots+\sqrt{a_n-(n-1)}=\frac{1}{2}(a_1+\cdots+a_n)-\frac{n(n-3)}{4}\). Compute \(a_1+a_2+\cdots+a_{100}\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 22 | Q1</div><div class="qb">Find \(\sqrt{7-4\sqrt{3}}+\sqrt{7+4\sqrt{3}}\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 23 | Q1 (KCLS)</div><div class="qb">Let \(x_1,\dots,x_n\) be real numbers such that \(\sqrt{x_1-1}+\sqrt{x_2-2}+\cdots+\sqrt{x_n-n}=\frac{1}{2}(x_1+\cdots+x_n)-\frac{n(n-1)}{4}\). Find \(x_1,x_2,\dots,x_n\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 25 | Q1 (Mind Bender)</div><div class="qb">If \(\sqrt{9-6\sqrt{2}}+\sqrt{9+6\sqrt{2}}=k\), find \(\dfrac{25}{\sqrt{6}}\times k\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 28 | Q1 (ASRQ)</div><div class="qb">If \(\dfrac{2(\sqrt{2}+\sqrt{6})}{2\sqrt{2}+\sqrt{3}}=\dfrac{P}{12}\), find \(P\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 29 | Q1 (ASRQ)</div><div class="qb">\(\sqrt{6+\sqrt{6+\sqrt{6+\sqrt{6+\cdots\infty}}}}=\)<ul class="opts"><li>3</li><li>2</li><li>1</li><li>\(\pm3\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 30 | Q1</div><div class="qb">If \(S_n=\frac{1}{\sqrt{1}+\sqrt{4}}+\frac{1}{\sqrt{4}+\sqrt{7}}+\frac{1}{\sqrt{7}+\sqrt{10}}+\cdots\) (\(n\) terms), then:<ul class="opts"><li>\(S_8=\frac{4}{3}\)</li><li>\(S_{16}=2\)</li><li>\(S_{33}=3\)</li><li>\(S_{40}=\frac{10}{3}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 31 | Q1 (Mind Bender)</div><div class="qb">How many ordered pairs of positive integers \((x,y)\) satisfy \(x\sqrt{y}+y\sqrt{x}+\sqrt{2006xy}-\sqrt{2006x}-\sqrt{2006y}-2006=0\)?</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 32 | Q1 (Mind Bender)</div><div class="qb">If \(\dfrac{1}{\sqrt{2011+\sqrt{2011^2-1}}}=\sqrt{m}-\sqrt{n}\) where \(m,n\) are positive integers, find \(m+n\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 34 | Q1 (ASRQ)</div><div class="qb">Let \(x=\sqrt[3]{2+\sqrt{5}}+\sqrt[3]{2-\sqrt{5}}\). Then \(x^3+3x\) equals<ul class="opts"><li>1</li><li>2</li><li>3</li><li>4</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 35 | Q1 (KCLS)</div><div class="qb">If real numbers \(x,y,z\) satisfy \(x^2+4y^2+16z^2=48\) and \(xy+4yz+2zx=24\), find \(x^2+y^2+z^2\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 37 | Q1 (Mind Bender)</div><div class="qb">Let \(a=\dfrac{1+\sqrt{2009}}{2}\). Find \((a^3-503a-500)^5\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 38 | Q1 (Mind Bender)</div><div class="qb">Find the positive integer \(n\) such that \(\dfrac{1}{9\sqrt{11}+11\sqrt{9}}+\dfrac{1}{11\sqrt{13}+13\sqrt{11}}+\cdots+\dfrac{1}{n\sqrt{n+2}+(n+2)\sqrt{n}}=\dfrac{1}{9}\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 43 | Q1</div><div class="qb">If \(m,n\in\mathbb{N}\), find the number of ordered pairs \((m,n)\) such that \(\dfrac{2}{m}+\dfrac{2}{n}=1\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 48 | Q1 (True/False)</div><div class="qb"><ol class="subq"><li>If \(a^3+b^3+c^3=3abc\) then \(a+b+c=0\). &emsp;(T / F)</li><li>If \(a+b+c=0\) then \(a^3+b^3+c^3=3abc\). &emsp;(T / F)</li></ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 49 | Q1 (Mind Bender)</div><div class="qb">Let \(x,y,z\) be non-zero reals with \(\frac{x}{y}+\frac{y}{z}+\frac{z}{x}=7\) and \(\frac{y}{x}+\frac{z}{y}+\frac{x}{z}=9\). Then \(\frac{x^3}{y^3}+\frac{y^3}{z^3}+\frac{z^3}{x^3}-3\) equals<ul class="opts"><li>152</li><li>153</li><li>154</li><li>155</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 51 | Q1 (Mind Bender)</div><div class="qb">Let \(x=\sqrt{3-\sqrt{5}}\) and \(y=\sqrt{3+\sqrt{5}}\). If \(x-y+2x^2y+2xy^2-x^4y+xy^4=\sqrt{p}+\sqrt{q}\) where \(p,q\in\mathbb{N}\), then \(p+q\) equals<ul class="opts"><li>410</li><li>610</li><li>510</li><li>540</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 53 | Q1 (ASRQ)</div><div class="qb">If \(\alpha,\beta\) are distinct positive reals with \(\alpha^3+\beta^3+3\alpha\beta=1\), find \(\alpha+\beta-3\).<ul class="opts"><li>2</li><li>-2</li><li>5</li><li>3</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 53 | Q2 [JEE Advanced 2025 Paper 2]</div><div class="qb">Vectors \(\vec{x}=\hat{i}+2\hat{j}+3\hat{k}\), \(\vec{y}=2\hat{i}+3\hat{j}+\hat{k}\), \(\vec{z}=3\hat{i}+\hat{j}+2\hat{k}\). For distinct positive reals \(\alpha,\beta\) define \(\vec{X}=\alpha\vec{x}+\beta\vec{y}-\vec{z}\), \(\vec{Y}=\alpha\vec{y}+\beta\vec{z}-\vec{x}\), \(\vec{Z}=\alpha\vec{z}+\beta\vec{x}-\vec{y}\). If \(\vec{X},\vec{Y},\vec{Z}\) lie in a plane, find \(\alpha+\beta-3\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 54 | Q1 (Mind Bender)</div><div class="qb">Let \(a_1,a_2,a_3,a_4\) be reals with \(a_1+a_2+a_3+a_4=0\) and \(a_1^2+a_2^2+a_3^2+a_4^2=1\). The smallest value of \((a_1-a_2)^2+(a_2-a_3)^2+(a_3-a_4)^2+(a_4-a_1)^2\) lies in:<ul class="opts"><li>\((0,1.5)\)</li><li>\((1.5,2.5)\)</li><li>\((2.5,3)\)</li><li>\((3,3.5)\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 55 | Q1</div><div class="qb">If \((5+2\sqrt{6})^{x^2-8}+(5-2\sqrt{6})^{x^2-8}=10\), \(x\in\mathbb{R}\). Number of solutions is<ul class="opts"><li>1</li><li>2</li><li>4</li><li>infinite</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 57 | Q1 [IIT-JEE 1980]</div><div class="qb">If \(x>y>0\), show that \(\sqrt{2(2x+\sqrt{x^2-y^2})}\cdot\sqrt{x-\sqrt{x^2-y^2}}=\sqrt{(x+y)^3}-\sqrt{(x-y)^3}\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 58 | Q1 (KTK 4)</div><div class="qb">Let \(a,b,c\in\mathbb{N}\) (\(a>b\)) with \(c^2-a^2-b^2=101\) and \(ab=72\). Which can be correct?<ul class="opts"><li>\(b\) and \(c\) are coprime</li><li>\(c\) is an odd prime</li><li>\((a+b+c)\) is even</li><li>\(a+b=c+1\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 60 | Q1</div><div class="qb">Polynomial \(p(x)\) with integer coefficients has remainder 1 when divided by \(x-1\) and remainder 10 when divided by \(x-4\). If \(r(x)\) is remainder when \(p(x)\) is divided by \((x-1)(x-4)\), find \(r(2006)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 61 | Q1</div><div class="qb">Let \(f(x)=x^{135}+x^{125}-x^{115}+x^5+1\). If \(f(x)\) is divided by \(x^3-x\), remainder is \(g(x)\). Find \(g(10)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 62 | Q1</div><div class="qb">Degree-4 polynomial \(P(x)\) with \(P(1)=1\), \(P(2)=2\), \(P(3)=3\), \(P(4)=4\) (leading coefficient 1). Find \(P(5)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 64 | Q1</div><div class="qb">Degree-4 polynomial \(P(x)\) with \(P(1)=\frac{1}{2}\), \(P(2)=\frac{2}{3}\), \(P(3)=\frac{3}{4}\), \(P(4)=\frac{4}{5}\), \(P(5)=\frac{5}{6}\). Find \(P(6)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 66 | Q1 (Mind Bender)</div><div class="qb">Factorize: \(8a^6+5a^3+1\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 67 | Q1 (ASRQ TAH 03)</div><div class="qb">If \(a+x^2=2006\), \(b+x^2=2007\), \(c+x^2=2008\) and \(abc=3\), find \(\dfrac{a}{bc}+\dfrac{b}{ca}+\dfrac{c}{ab}-\dfrac{1}{a}-\dfrac{1}{b}-\dfrac{1}{c}\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 70 | Q1 (TAH 04)</div><div class="qb">If \(a+b+c=0\) and \(a^2+b^2+c^2=1\), then \((3a+5b-8c)^2+(-8a+3b+5c)^2+(5a-8b+3c)^2\) equals<ul class="opts"><li>49</li><li>98</li><li>147</li><li>294</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 72 | Q1 [JEE Mains 2016] (ASRQ TAH 08)</div><div class="qb">Sum of all real values of \(x\) satisfying \((x^2-5x+5)^{x^2+4x-60}=1\) is<ul class="opts"><li>5</li><li>3</li><li>-4</li><li>6</li></ul></div></div></div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ PART 02 ═══════════════════════════════════════════════════════════════════ -->
+<h2>Part 02</h2>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 1 | Q1 (KTK 7)</div><div class="qb">Given \(x,y,z\) satisfy \(2000(x-y)+2001(y-z)+2002(z-x)=0\) and \(2000^2(x-y)+2001^2(y-z)+2002^2(z-x)=2001\). Find \(z-y\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 3 | Q1 (Mind Bender)</div><div class="qb">For each positive \(x\), let \(f(x)=\dfrac{\left(x+\frac{1}{x}\right)^6-\left(x^6+\frac{1}{x^6}\right)-2}{\left(x+\frac{1}{x}\right)^3+\left(x^3+\frac{1}{x^3}\right)}\). Minimum value of \(f(x)\) is<ul class="opts"><li>1</li><li>2</li><li>3</li><li>4</li><li>6</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 4 | Q9</div><div class="qb">Minimum value of \(y=x^2+\dfrac{1}{x^2+1}+4\) is _______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 6 | Q1 (Mind Bender)</div><div class="qb">Solve the inequality: \(\dfrac{1}{x-1}-\dfrac{4}{x-2}+\dfrac{4}{x-3}-\dfrac{1}{x-4}<\dfrac{1}{30}\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 8 | Q1 (ASRQ)</div><div class="qb">If \(a,b,c>0\) with \(a^{\log_3 7}=27\), \(b^{\log_7 11}=49\) and \(c^{\log_{11}25}=\sqrt{11}\), find \(a^{(\log_3 7)^2}+b^{(\log_7 11)^2}+c^{(\log_{11}25)^2}\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 10 | Q1 [JEE Advanced 2013] (Mind Bender)</div><div class="qb">If \(3^x=4^{x-1}\), then \(x=\)<ul class="opts"><li>\(\dfrac{2\log_3 2}{2\log_3 2-1}\)</li><li>\(\dfrac{2}{2-\log_2 3}\)</li><li>\(\dfrac{1}{1-\log_4 3}\)</li><li>\(\dfrac{2\log_2 3}{2\log_2 3-1}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 11 | Q1 (ASRQ)</div><div class="qb">If \(\log_{x-1}4=1+\log_2(x-1)\), then \(x\) is<ul class="opts"><li>3</li><li>2</li><li>5/4</li><li>4/5</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 12 | Q1 (ASRQ)</div><div class="qb">If \((x+1)^{\log_{10}(x+1)}=100(x+1)\), then \(x\) is<ul class="opts"><li>99</li><li>\(-0.9\)</li><li>0.9</li><li>10</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 14 | Q1 (ASRQ)</div><div class="qb">If \(\log_5\!\left(5^{1/x}+125\right)=\log_5 6+1+\dfrac{1}{2x}\), then \(x\) is<ul class="opts"><li>\(-1\)</li><li>\(\frac{1}{2}\)</li><li>\(\frac{1}{16}\)</li><li>\(\frac{1}{4}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 16 | Q1 (ASRQ)</div><div class="qb">If \(\log_5\!\left(\sqrt[x]{5}+125\right)=\log_5 6+1+\dfrac{1}{2x}\) (\(x\in\mathbb{N},x\ge2\)), then \(x\) is<ul class="opts"><li>\(-1\)</li><li>\(\frac{1}{2}\)</li><li>\(\frac{1}{16}\)</li><li>No Solution</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 18 | Q1 (Mind Bender)</div><div class="qb">Let \(y=\sqrt{\log_2 3\cdot\log_2 12\cdot\log_2 48\cdot\log_2 192+16-\log_2 12\cdot\log_2 48+10}\). Find \(y\in\mathbb{N}\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 19 | Q1 (ASRQ — TAH 01)</div><div class="qb">If \(\dfrac{(e^x-1)(2x-3)(x^2+x+2)}{(\sin x-2)(x+1)x}\le0\), then \(x\in\)<ul class="opts"><li>\((-\infty,-1)\)</li><li>\([\frac{3}{2},\infty)\)</li><li>\((-1,0)\)</li><li>\((0,\frac{3}{2})\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 21 | Q1 (Mind Bender)</div><div class="qb">Find the square of the sum of the roots of \(\log_3 x\cdot\log_4 x\cdot\log_5 x=\log_3 x\cdot\log_4 x+\log_4 x\cdot\log_5 x+\log_5 x\cdot\log_3 x\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 22 | Q1 [JEE Advanced 2012] (ASRQ)</div><div class="qb">Find the value of \(6+\log_{\frac{3}{2}}\!\left(\dfrac{1}{3\sqrt{2}}\sqrt{4-\dfrac{1}{3\sqrt{2}}\sqrt{4-\dfrac{1}{3\sqrt{2}}\sqrt{4-\cdots}}}\right)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 23 | Q1 [JEE Advanced 2011] (ASRQ)</div><div class="qb">Let \((x_0,y_0)\) satisfy \((2x)^{\ln2}=(3y)^{\ln3}\) and \(3^{\ln x}=2^{\ln y}\). Then \(x_0\) is<ul class="opts"><li>\(\frac{1}{6}\)</li><li>\(\frac{1}{3}\)</li><li>\(\frac{1}{2}\)</li><li>6</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 24 | Q1 (ASRQ)</div><div class="qb">If \(5^{1+\log_4 x}+5^{\log_{1/4}x-1}=\dfrac{26}{5}\), then \(x\) is<ul class="opts"><li>1</li><li>\(\frac{1}{16}\)</li><li>\(\frac{1}{2}\)</li><li>16</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 25 | Q1 (Mind Bender)</div><div class="qb">Solve for \(x\): \(\log^2(4-x)+\log(4-x)\cdot\log\!\left(x+\tfrac{1}{2}\right)-2\log^2\!\left(x+\tfrac{1}{2}\right)=0\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 27 | Q1 (ASRQ)</div><div class="qb">Positive integers \(a,b\) satisfy \(\log_2\!\left[\log_{2a}\!\left(\log_{2b}(2^{1000})\right)\right]=0\). Possible values of \(a+b\) are:<ul class="opts"><li>501</li><li>252</li><li>128</li><li>66</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 29 | Q1 (ASRQ)</div><div class="qb">If \(\log_{12}27=a\), then \(\log_6 16\) equals<ul class="opts"><li>\(4\!\left(\frac{3+a}{3-a}\right)\)</li><li>\(4\!\left(\frac{3-a}{3+a}\right)\)</li><li>\(2\!\left(\frac{3-a}{3+a}\right)\)</li><li>\(2\!\left(\frac{3+a}{3-a}\right)\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 31 | Q1 (TAH 06)</div><div class="qb">If \(\log_{10}5=a\) and \(\log_{10}3=b\), which are correct?<ul class="opts"><li>\(\log_{30}8=\frac{3(1+a)}{b+1}\)</li><li>\(\log_{30}8=\frac{3(1-a)}{b+1}\)</li><li>\(\log_{243}(32)=\frac{(1-a)}{b}\)</li><li>\(\log_{40}(15)=\frac{a+b}{3-2a}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 32 | Q1</div><div class="qb">If \(2\log_8(2x)+\log_8(x^2+1-2x)=\dfrac{4}{3}\), then \(x\) is<ul class="opts"><li>\(-1\)</li><li>2</li><li>\(-2\)</li><li>1</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 34 | Q1</div><div class="qb">Solve: \(|x-1|^{\log_3 x^2-2\log_x 9}=(x-1)^7\)<ul class="opts"><li>3</li><li>2</li><li>27</li><li>81</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 36 | Q1 (Revisited)</div><div class="qb">Solve (full solution): \(|x-1|^{\log_3 x^2-2\log_x 9}=(x-1)^7\)<ul class="opts"><li>3</li><li>2</li><li>27</li><li>81</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 40 | Q1 (Mind Bender)</div><div class="qb">Find the square of the sum of the roots of \(\log_3 x\cdot\log_4 x\cdot\log_5 x=\log_3 x\cdot\log_4 x+\log_4 x\cdot\log_5 x+\log_5 x\cdot\log_3 x\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 43 | Q1 [JEE Advanced 2012] (ASRQ)</div><div class="qb">Find: \(6+\log_{\frac{3}{2}}\!\left(\dfrac{1}{3\sqrt{2}}\sqrt{4-\dfrac{1}{3\sqrt{2}}\sqrt{4-\dfrac{1}{3\sqrt{2}}\sqrt{4-\cdots}}}\right)\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 47 | Q1 (Mind Bender)</div><div class="qb">\(\left(\displaystyle\sum_{r=1}^{160}\dfrac{(\log_{r+1}3)(\log_{r+2}3)}{\log_{\frac{r+2}{r+1}}3}\right)(\log_3 162)(\log_3 2)\) equals</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 49 | Q1 (Mind Bender ★★★★)</div><div class="qb">Solve: \((x^2+x-57)^{3x^2+3}=(x^2+x-57)^{10x}\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 52 | Q1 (ASRQ ★★★★)</div><div class="qb">Solve: \(\log_{2x+3}(x^2)<\log_{2x+3}(2x+3)\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 54 | Q1 [JEE Mains 2023] (TAH 05, ASRQ ★★★★)</div><div class="qb">Number of integral solutions \(x\) of \(\log_{\left(x+\frac{7}{2}\right)}\!\left(\dfrac{x-7}{2x-3}\right)^2\ge0\) is<ul class="opts"><li>8</li><li>7</li><li>5</li><li>6</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 55 | Q1 (Mind Bender ★★★★)</div><div class="qb">Solve: \(\log_{\log_2\!\left(\frac{x}{2}\right)}(x^2-10x+22)>0\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 60 | Q1 (Mind Bender ★★★)</div><div class="qb">Let \(x,y,z>1\) such that \(\dfrac{\log_2^2 x}{\log_2 x+\log_3 y}=\dfrac{\log_2^2 x}{\log_2 x+\log_5 z}-75\), \(\dfrac{\log_3^2 y}{\log_3 y+\log_5 z}=\dfrac{\log_3^2 y}{\log_3 y+\log_2 x}+36\) and \(\dfrac{\log_5^2 z}{\log_5 z+\log_2 x}=\dfrac{\log_5^2 z}{\log_5 z+\log_3 y}+P\). Which can be true?<ul class="opts"><li>\(\log_2 P>4\)</li><li>\(\log_3 P<4\)</li><li>\(P>50\)</li><li>\(P<50\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 62 | Q1 (Mind Bender ★★★)</div><div class="qb">\(\left(\displaystyle\sum_{r=1}^{160}\dfrac{(\log_{r+1}3)(\log_{r+2}3)}{\log_{\frac{r+2}{r+1}}3}\right)(\log_3 162)(\log_3 2)\) equals</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 64 | Q1 [JEE Mains 2023] (ASRQ ★★★★)</div><div class="qb">Number of integral solutions \(x\) of \(\log_{\left(x+\frac{7}{2}\right)}\!\left(\dfrac{x-7}{2x-3}\right)^2\ge0\) is<ul class="opts"><li>8</li><li>7</li><li>5</li><li>6</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 69 | Q1</div><div class="qb">If \(|x-2|\le x^2-x-1\), find all values of \(x\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 70 | Q1 [JEE Mains 2022 (28 July)]</div><div class="qb">Let \(S=\{x\in[-6,3]-\{-2,2\}:\dfrac{|x+3|-1}{|x|-2}\ge0\}\) and \(T=\{x\in\mathbb{Z}:x^2-7|x|+9\le0\}\). Number of elements in \(S\cap T\) is<ul class="opts"><li>7</li><li>5</li><li>4</li><li>3</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 73 | Q1 (Mind Bender ★★★★)</div><div class="qb">Solve: \(\sqrt{x+2\sqrt{x-1}}+\sqrt{x-2\sqrt{x-1}}=2\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 75 | Q1–4 (Modulus Equations)</div><div class="qb">Solve each:<ol class="subq"><li>\(|3x-2|+|4x-3|=|7x-5|\)</li><li>\(|2x-3|+|x-7|=|x+4|\)</li><li>\(|x-1|+|7x-3|=|8x-4|\)</li><li>\(|x+5|+|5-4x|=|5x|\)</li></ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 76 | Q5–7 (Modulus Inequalities)</div><div class="qb">Solve each:<ol class="subq" start="5"><li>\(|x-2|+|x-3|>|2x-5|\)</li><li>\(|2x-3|+|x-7|>|x+4|\)</li><li>\(\big||x-5|-|x-2|\big|=|2x-7|\)</li></ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 78 | Q1 (TAH 01, ASRQ ★★★★)</div><div class="qb">Number of solutions of \(|x-3|^{\frac{x^2-8x+15}{x-2}}=1\) is/are</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 80 | Q1 (TAH 02, ASRQ ★★★★)</div><div class="qb">Find all solutions of \(|x-1|^{(\log x)^2-\log x^2}=|x-1|^3\) (base 10).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 83 | Q1 [JEE Advanced 2024] (TAH 03)</div><div class="qb">Let \(a=3\sqrt{2}\) and \(b=\dfrac{1}{5^{1/6}\sqrt{6}}\). If \(3x+2y=\log_a(18)^{5/4}\) and \(2x-y=\log_b(\sqrt{1080})\), find \(4x+5y\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 87 | Q5–7 (Recap — Modulus Inequalities)</div><div class="qb">Solve each:<ol class="subq" start="5"><li>\(|x^2-4x+7|\ge|x^2-6x+5|\)</li><li>\(|x^2+x-1|=\big||x^2+2x|-|x+1|\big|\)</li><li>\(|x+2|+|x^2-5x+1|\le|x^2-4x+3|\)</li></ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 89 | Q1</div><div class="qb">Draw the graph of \(y=|x-2|+3\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 91 | Q1</div><div class="qb">Draw the graph of \(y=|x-1|+|x-2|+|x-3|\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 92 | Q1 (ASRQ ★★★★)</div><div class="qb">Given \(y=|x-1|+|x-2|+|x-3|\), find \(y_{\min}\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 93 | Q1 (ASRQ ★★★★)</div><div class="qb">Given \(f(x)=|x|+2|x-1|+|x-2|+|x-4|+|x-6|+2|x-10|\), find the minimum value of \(f\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 95 | Q1 (ASRQ ★★★★)</div><div class="qb">If \(|x-5|-|x-7|=k\), then:<ul class="opts"><li>\(k=2\): infinitely many solutions</li><li>\(k=-2\): infinitely many solutions</li><li>\(k\in(2,\infty)\): no solution</li><li>\(k\in(-2,2)\): exactly one solution</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 100 | Q1 [JEE Mains 2023 (31 Jan)]</div><div class="qb">Number of real roots of \(\sqrt{x^2-4x+3}+\sqrt{x^2-9}=\sqrt{4x^2-14x+6}\) is<ul class="opts"><li>0</li><li>1</li><li>3</li><li>2</li></ul></div></div></div>
+
+<!-- ═══════════════════════════════════════════════════════════════════ LEC 16 ═══════════════════════════════════════════════════════════════════ -->
+<h2>Lec 16 — Exponential Inequalities &amp; Characteristic/Mantissa</h2>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 3 | Q1 (Exponential Inequality)</div><div class="qb">Solve: \(|x|^{x^2-x-2}<1\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 5 | Q1 (Mind Bender ★★★★ — Challenge)</div><div class="qb">Find \(x\) satisfying: \(\sqrt{\!\left(\log_3\sqrt[3]{3x}+\log_x\sqrt[3]{3x}\right)\cdot\log_3 x^3}+\sqrt{\!\left(\log_3\sqrt[3]{\dfrac{x}{3}}+\log_x\sqrt[3]{\dfrac{3}{x}}\right)\cdot\log_3 x^3}=2\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 10 | Q1 (TAH 10)</div><div class="qb">Using \(\log2=0.3010\), \(\log3=0.4771\), find number of digits in:<ol class="subq"><li>\((2)^{200}\)</li><li>\(3^{12}\times2^8\)</li></ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 11 | Q1 (TAH 10)</div><div class="qb">Using \(\log2=0.3010\), \(\log3=0.4771\), \(\log7=0.8451\), find zeroes after decimal before significant figures start in:<ol class="subq"><li>\(\left(\dfrac{9}{8}\right)^{-100}\)</li><li>\((0.35)^{12}\)</li><li>\(\dfrac{1}{2^{40}}\)</li></ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 13 | Q1 (Mind Bender ★★★★ — TAH 10)</div><div class="qb">Let \(\log_3 N=\alpha_1+\beta_1\), \(\log_5 N=\alpha_2+\beta_2\) and \(\log_7 N=\alpha_3+\beta_3\) where \(\alpha_i\in\mathbb{Z}\) and \(\beta_i\in[0,1)\).<ol class="subq"><li>Find number of integral values of \(N\) if \(\alpha_1=4\) and \(\alpha_2=2\).</li><li>Find largest integral value of \(N\) if \(\alpha_1=5\), \(\alpha_2=3\) and \(\alpha_3=2\).</li></ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg — | Q5 [JEE Mains 2021] (TAH 05)</div><div class="qb">Let \(f(x)\) be a polynomial of degree 3 such that \(f(k)=\dfrac{-2}{k}\) for \(k=2,3,4,5\). Then the value of \(52-10f(10)\) is equal to</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg — | Q6 [JEE Mains 2019] ★★★★</div><div class="qb">The number of all possible positive integral values of \(\alpha\) for which the roots of the quadratic equation \(6x^2-11x+\alpha=0\) are rational numbers is:<ul class="opts"><li>2</li><li>5</li><li>3</li><li>4</li></ul></div></div></div>
+
+</body>
+</html>

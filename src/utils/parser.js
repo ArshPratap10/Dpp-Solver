@@ -6,8 +6,8 @@ export function parseDPPHtml(htmlString) {
   const parser = new DOMParser();
   const doc = parser.parseFromString(htmlString, 'text/html');
 
-  // Extract title
-  const titleEl = doc.querySelector('.dpp-title');
+  // Extract title — support both .dpp-title and plain h1
+  const titleEl = doc.querySelector('.dpp-title') || doc.querySelector('h1');
   const title = titleEl ? titleEl.textContent.trim() : 'Untitled DPP';
 
   // Extract metadata

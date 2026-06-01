@@ -11,6 +11,15 @@ const CHAPTERS = [
     questionCount: 35,
     tags: ['AP', 'GP', 'HP', 'AGP', 'Telescoping'],
   },
+  {
+    id: 'basic-math',
+    icon: '🧮',
+    title: 'Basic Mathematics',
+    subject: 'Mathematics',
+    file: '/dpps/basic_mathematics.html',
+    questionCount: 78,
+    tags: ['Surds', 'Logarithms', 'Modulus', 'Polynomials', 'Inequalities'],
+  },
 ];
 
 export default function HomePage({ onLoadDPP, loadedChapters }) {
