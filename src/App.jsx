@@ -25,7 +25,7 @@ export default function App() {
       });
     }
 
-    setActiveDPP(parsed);
+    setActiveDPP({ ...parsed, id: chapterId });
   }, []);
 
   const handleBack = useCallback(() => {
