@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quadratic Equations – DPP (JEE Main)</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:'Inter',sans-serif;
+  font-size:14px;
+  line-height:1.6;
+  color:#1a1a1a;
+  background:#fff;
+  padding:10mm 12mm;
+  counter-reset:qnum;
+}
+
+/* ── DPP Header ── */
+.dpp-header{
+  border:2.5px solid #000;
+  margin-bottom:18px;
+  page-break-inside:avoid;
+}
+.dpp-title{
+  background:#000;
+  color:#fff;
+  text-align:center;
+  font-size:15px;
+  font-weight:800;
+  letter-spacing:2.5px;
+  text-transform:uppercase;
+  padding:7px 0;
+}
+.dpp-meta{
+  display:flex;
+  justify-content:space-between;
+  padding:5px 12px;
+  font-size:11.5px;
+  font-weight:600;
+  border-top:1.5px solid #000;
+}
+.dpp-meta span{display:inline-block;}
+
+/* ── Section headers ── */
+h2{
+  font-size:11px;
+  font-weight:700;
+  background:#222;
+  color:#fff;
+  padding:4px 10px;
+  margin:22px 0 14px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  page-break-inside:avoid;
+  break-inside:avoid;
+  break-after:avoid;
+  page-break-after:avoid;
+}
+
+/* ── Question card ── */
+.q{
+  margin-bottom:20px;
+  padding:10px 12px 10px 14px;
+  border-left:3.5px solid #000;
+  border-bottom:1px solid #ddd;
+  page-break-inside:avoid;
+  break-inside:avoid;
+  counter-increment:qnum;
+}
+
+/* ── Question header line ── */
+.qh{
+  display:flex;
+  align-items:baseline;
+  gap:6px;
+  font-size:10px;
+  font-weight:600;
+  color:#666;
+  margin-bottom:5px;
+  letter-spacing:.3px;
+  text-transform:uppercase;
+}
+.qh::before{
+  content:"Q" counter(qnum);
+  font-weight:800;
+  font-size:12px;
+  color:#000;
+  min-width:28px;
+}
+
+/* ── Question body ── */
+.qb{
+  display:block;
+  font-size:14px;
+  font-weight:500;
+  line-height:1.75;
+  color:#111;
+}
+
+/* ── Options row ── */
+.opts{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px 32px;
+  margin-top:10px;
+  padding-top:6px;
+  list-style:none;
+  font-weight:400;
+  font-size:13px;
+  border-top:1px dashed #ccc;
+}
+.opts li{padding:2px 0;}
+.opts li::before{font-weight:700;color:#333;}
+.opts li:nth-child(1)::before{content:"(A)\00a0";}
+.opts li:nth-child(2)::before{content:"(B)\00a0";}
+.opts li:nth-child(3)::before{content:"(C)\00a0";}
+.opts li:nth-child(4)::before{content:"(D)\00a0";}
+.opts li:nth-child(5)::before{content:"(E)\00a0";}
+
+/* ── Sub-questions & tables ── */
+ol.subq{padding-left:20px;margin-top:6px;font-weight:400;font-size:13px;}
+ol.subq li{margin-bottom:4px;}
+table{width:100%;border-collapse:collapse;margin-top:8px;font-size:12.5px;font-weight:400;}
+td,th{border:1px solid #999;padding:4px 8px;vertical-align:top;}
+th{font-weight:700;background:#f0f0f0;}
+
+/* ── Print rules ── */
+@page{margin:0;}
+@media print{
+  body{padding:0;margin:0;font-size:13px;}
+  .dpp-header{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  h2{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .q{break-inside:avoid !important;page-break-inside:avoid !important;margin-bottom:16px;border-left-color:#000 !important;}
+  .qb{break-inside:avoid;page-break-inside:avoid;}
+  .opts{break-inside:avoid;page-break-inside:avoid;}
+  ol.subq{break-inside:avoid;page-break-inside:avoid;}
+  table{break-inside:avoid;page-break-inside:avoid;}
+  h2{break-inside:avoid;page-break-inside:avoid;break-after:avoid;page-break-after:avoid;}
+}
+</style>
+<script>
+MathJax = {
+  tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+</head>
+<body>
+
+<!-- DPP Header -->
+<div class="dpp-header">
+  <div class="dpp-title">Daily Practice Paper &mdash; Quadratic Equations</div>
+  <div class="dpp-meta">
+    <span><strong>Subject:</strong> Mathematics</span>
+    <span><strong>Topic:</strong> Quadratic Equations (Complete)</span>
+    <span><strong>Total Questions:</strong> —</span>
+  </div>
+</div>
+
+<!-- QUESTIONS START -->
+
+<h2>Section A &mdash; Symmetric Functions of Roots</h2>
+
+<div class="q"><div class="qh">Pg 1 | QUESTION [ASRQ]</div><div class="qb">Let \( a, b, c \in \mathbb{R}_0 \) and 1 be a root of \( ax^2 + bx + c = 0 \) then comment on nature of roots of \( 4ax^2 + 3bx + 2c = 0 \).</div></div>
+
+<div class="q"><div class="qh">Pg 3 | QUESTION</div><div class="qb">If \( \alpha \) &amp; \( \beta \) are roots of equation \( x^2 - 4x - 8 = 0 \) then find value of following:
+<ol class="subq">
+
+<li>\( \frac{1}{(\alpha - 4)^2} + \frac{1}{(\beta - 4)^2} \)</li>
+<li>\( \frac{\beta}{\alpha^2 - 8} + \frac{\alpha}{\beta^2 - 8} \)</li>
+<li>\( \frac{1}{(\alpha+1)(\beta+1)} + \frac{1}{(\alpha-2)(\beta-2)} \)</li>
+</ol></div></div>
+
+<div class="q"><div class="qh">Pg 5 | QUESTION [ASRQ]</div><div class="qb">If \( \alpha \) and \( \beta \) be the roots of the equation \( x^2 + 3x + 1 = 0 \) then the value of \( \left(\frac{\alpha}{1+\beta}\right)^2 + \left(\frac{\beta}{\alpha+1}\right)^2 \) is equal to
+<ul class="opts"><li>15</li><li>18</li><li>21</li><li>none</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 6 | QUESTION [MindBender]</div><div class="qb">If \( \alpha \) and \( \beta \) are the roots of the equation \( x^2 - x + 11 = 0 \), then the value of \( 3\alpha^3 - 3\alpha^2 + 2\beta^3 - 2\beta^2 + 11\alpha \) is:
+<ul class="opts"><li>33</li><li>\(-33\)</li><li>22</li><li>\(-22\)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 7 | QUESTION [MindBender]</div><div class="qb">If \( p, q \) are two real numbers satisfying the relations \( 2p^2 - 3p - 1 = 0 \) and \( q^2 + 3q - 2 = 0 \) and \( pq \ne 1 \). Find the value of \( \dfrac{pq + p + 1}{q} \).</div></div>
+
+<div class="q"><div class="qh">Pg 9 | QUESTION</div><div class="qb">If \( \alpha \) and \( \beta \) are roots of the equation \( x^2 + px + \frac{3p}{4} = 0 \), such that \( |\alpha - \beta| = \sqrt{10} \), then \( p \) belongs to the set
+<ul class="opts"><li>\(\{2, -5\}\)</li><li>\(\{-3, 2\}\)</li><li>\(\{3, -5\}\)</li><li>\(\{-2, 5\}\)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 10 | QUESTION [MindBender]</div><div class="qb">Prove that: \( 2\left(\sqrt{\log_a \sqrt[4]{ab} + \log_b \sqrt[4]{ab}} - \sqrt{\log_a \sqrt[4]{\frac{b}{a}} + \log_b \sqrt[4]{\frac{a}{b}}}\right) \cdot \sqrt{\log_a b} = \begin{cases} 2 & \text{if } b \ge a > 1 \\ 2^{\log_a b} & \text{if } 1 < b < a \end{cases} \)</div></div>
+
+<div class="q"><div class="qh">Pg 12 | QUESTION [MindBender]</div><div class="qb">Let \( x, y \) and \( z \) be real numbers satisfying the system of equations
+\[ \log_2(xyz - 3 + \log_5 x) = 5 \]
+\[ \log_3(xyz - 3 + \log_5 y) = 4 \]
+\[ \log_4(xyz - 3 + \log_5 z) = 4 \]
+then find the value of \( |\log_5 z| - |\log_5 x| - |\log_5 y| \).</div></div>
+
+<div class="q"><div class="qh">Pg 14 | QUESTION [MindBender]</div><div class="qb">Solve the system
+\[ \log(2xy) = \log x \cdot \log y \]
+\[ \log(yz) = \log y \cdot \log z \]
+\[ \log(2zx) = \log z \cdot \log x \]
+(base of log is 10).</div></div>
+
+<div class="q"><div class="qh">Pg 15 | QUESTION [ASRQ]</div><div class="qb">If roots of \( x^2 - 2x + 5 = 0 \) are \( \alpha \) and \( \beta \) then form a quadratic whose roots are:
+<ol class="subq">
+<li>\( \alpha^2 + 5 \) &amp; \( \beta^2 + 5 \)</li>
+<li>\( \dfrac{5}{2 - \alpha} \) &amp; \( \dfrac{5}{2 - \beta} \)</li>
+<li>\( \alpha^3 + \alpha^2 - \alpha + 22 \) &amp; \( \beta^3 + \beta^2 - 7\beta + 35 \)</li>
+</ol></div></div>
+
+<h2>Section B &mdash; Formation of Equations &amp; Advanced Problems</h2>
+
+<div class="q"><div class="qh">Pg 17 | QUESTION [KCLS]</div><div class="qb">Given that the equation \( (x - 19)(x - 97) = p \) has real roots \( \alpha \) and \( \beta \). Then the minimum real root of the equation \( (x - \alpha)(x - \beta) = -p \) is
+<ul class="opts"><li>13</li><li>16</li><li>18</li><li>19</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 18 | QUESTION [JEE Advanced 2016]</div><div class="qb">Let \( S \) be the set of all non-zero numbers \( \alpha \) such that the quadratic equation \( \alpha x^2 - x + \alpha = 0 \) has two distinct real roots \( x_1 \) and \( x_2 \) satisfying the inequality \( |x_1 - x_2| < 1 \). Which of the following intervals is(are) a subset(s) of \( S \)?
+<ul class="opts"><li>\( \left(-\dfrac{1}{2},\, -\dfrac{1}{\sqrt{5}}\right) \)</li><li>\( \left(-\dfrac{1}{\sqrt{5}},\, 0\right) \)</li><li>\( \left(0,\, \dfrac{1}{\sqrt{5}}\right) \)</li><li>\( \left(\dfrac{1}{\sqrt{5}},\, \dfrac{1}{2}\right) \)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 19 | QUESTION [AIEEE 2011]</div><div class="qb">Let for \( a \ne a_1 \ne 0 \),<br>
+\( f(x) = ax^2 + bx + c \), \( g(x) = a_1 x^2 + b_1 x + c_1 \) and \( p(x) = f(x) - g(x) \).<br>
+If \( p(x) = 0 \) only for \( x = -1 \) and \( p(-2) = 2 \), then the value of \( p(2) \) is:
+<ul class="opts"><li>18</li><li>3</li><li>9</li><li>6</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 20 | QUESTION</div><div class="qb">Let \( p \) &amp; \( q \) be the two roots of the equation, \( mx^2 + x(2 - m) + 3 = 0 \). Let \( m_1, m_2 \) be the two values of \( m \) satisfying \( \dfrac{p}{q} + \dfrac{q}{p} = \dfrac{2}{3} \). Determine the numerical value of \( \dfrac{m_1}{m_2^2} + \dfrac{m_2}{m_1^2} \).</div></div>
+
+<div class="q"><div class="qh">Pg 22 | QUESTION</div><div class="qb">Kallu and Lallu solve a quadratic equation. Kallu reads its constant term wrongly and finds its roots as 8 and 2, whereas Lallu reads the coefficient of \( x \) wrongly and finds its roots as \( -11 \) and 1. The correct roots of the equation are
+<ul class="opts"><li>11, 1</li><li>\( -11, 1 \)</li><li>\( 11, -1 \)</li><li>None of these</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 29 | QUESTION</div><div class="qb">If the equation \( (6a + 3b + 4c)x^2 + (11a + 8b + 7c)x + (3c + 5a + 5b) = 0 \) has equal real roots, where \( a, b, c \) are positive real numbers, then \( a, b, c \) are in
+<ul class="opts"><li>A.P.</li><li>G.P.</li><li>H.P.</li><li>Nothing can be said</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 30 | QUESTION [KCLS]</div><div class="qb">If both the roots of the quadratic equation \( x^2 - (2n + 18)x - n - 11 = 0 \), \( n \in \mathbb{Z} \), are rational, then the values of \( n \) are \( n_1 \) &amp; \( n_2 \). Which of the following is CORRECT?
+<ul class="opts"><li>\( |n_1 - n_2| = 9 \)</li><li>\( |n_1 - n_2| = 3 \)</li><li>\( n_1^2 + n_2^2 = 185 \)</li><li>\( n_1^2 + n_2^2 = 175 \)</li></ul></div></div>
+
+
+<div class="q"><div class="qh">Pg 32 | QUESTION [JEE Advanced 2020]</div><div class="qb">Suppose \( a, b \) denote the distinct real roots of the quadratic polynomial \( x^2 + 20x - 2020 \) and suppose \( c, d \) denote the distinct complex roots of the quadratic polynomial \( x^2 - 20x + 2020 \). Then the value of \( ac(a - c) + ad(a - d) + bc(b - c) + bd(b - d) \) is
+<ul class="opts"><li>0</li><li>8000</li><li>8080</li><li>16000</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 33 | QUESTION [JEE Advanced 2016]</div><div class="qb">Let \( \dfrac{-\pi}{6} < \theta < \dfrac{-\pi}{12} \). Suppose \( \alpha_1 \) and \( \beta_1 \) are the roots of the equation \( x^2 - 2x\sec\theta + 1 = 0 \) and \( \alpha_2 \) and \( \beta_2 \) are the roots of the equation \( x^2 + 2x\tan\theta - 1 = 0 \). If \( \alpha_1 > \beta_1 \) and \( \alpha_2 > \beta_2 \), then \( \alpha_1 + \beta_2 \) equals
+<ul class="opts"><li>\( 2(\sec\theta - \tan\theta) \)</li><li>\( 2\sec\theta \)</li><li>\( -2\tan\theta \)</li><li>0</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 34 | QUESTION [Mind Bender]</div><div class="qb">Given that the quadratic equation \( ax^2 + bx + c = 0 \) has no real roots, but Mr. X got two roots 2 and 4 since he wrote down a wrong value of '\( a \)'. Mr. Y also got two roots \( -1 \) and 4 because he wrote the sign of a term wrongly. Then the value of \( \dfrac{2b + 3c}{a} \) is equal to</div></div>
+
+<div class="q"><div class="qh">Pg 36 | QUESTION [KCLS]</div><div class="qb">Find the number of integral values of \( \alpha \) for which the quadratic equation \( x^2 + \alpha x + \alpha + 1 = 0 \) has integral roots.</div></div>
+
+<div class="q"><div class="qh">Pg 37 | QUESTION [Mind Bender]</div><div class="qb">The number of integral roots of the equation \( x^8 - 24x^7 - 18x^5 + 39x^2 + 1155 = 0 \) is
+<ul class="opts"><li>0</li><li>2</li><li>4</li><li>6</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 38 | QUESTION [JEE Mains 2021]</div><div class="qb">If \( \alpha \) and \( \beta \) are the distinct roots of the equation \( x^2 + (3)^{1/4}x + 3^{1/2} = 0 \), then the value of \( \alpha^{96}(\alpha^{12} - 1) + \beta^{96}(\beta^{12} - 1) \) is equal to
+<ul class="opts"><li>\( 56 \times 3^{25} \)</li><li>\( 56 \times 3^{24} \)</li><li>\( 52 \times 3^{24} \)</li><li>\( 28 \times 3^{25} \)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 40 | QUESTION [JEE Mains 2023 (31 Jan)]</div><div class="qb">The equation \( e^{4x} + 8e^{3x} + 13e^{2x} - 8e^x + 1 = 0 \), \( x \in \mathbb{R} \) has:
+<ul class="opts"><li>two solutions and both are negative</li><li>no solution</li><li>four solutions two of which are negative</li><li>two solutions and only one of them is negative</li></ul></div></div>
+
+
+<div class="q"><div class="qh">Pg 42 | QUESTION [ASRQ]</div><div class="qb">Let \( \alpha, \beta, \gamma \) be roots of \( x^3 + 2x^2 - 4x + 5 = 0 \). Find the value of \( \dfrac{(\alpha^3 + 5)(\beta^3 + 5)(\gamma^3 + 5)}{13\alpha\beta\gamma} \).</div></div>
+
+<div class="q"><div class="qh">Pg 43 | QUESTION [ASRQ]</div><div class="qb">If \( \alpha, \beta, \gamma \) are roots of \( 5x^3 - qx - 1 = 0 \), \( (q \in \mathbb{R}) \), find the value of \( \dfrac{\alpha^2 - 3}{\beta\gamma} + \dfrac{\beta^2 - 3}{\alpha\gamma} + \dfrac{\gamma^2 - 3}{\alpha\beta} \).</div></div>
+
+<div class="q"><div class="qh">Pg 44 | QUESTION [Mind Bender]</div><div class="qb">If \( \alpha, \beta \) and \( \gamma \) are roots of cubic equation \( x^3 + 3x - 1 = 0 \), then find value of:<br>
+(i) \( (2 - \alpha)(2 - \beta)(2 - \gamma) \)<br>
+(ii) \( (3 + \alpha)(3 + \beta)(3 + \gamma) \)<br>
+(iii) \( (4 - \alpha^2)(4 - \beta^2)(4 - \gamma^2) \)<br>
+(iv) \( (1 + \alpha^2)(1 + \beta^2)(1 + \gamma^2) \)</div></div>
+
+<div class="q"><div class="qh">Pg 48 | QUESTION [JEE Mains 2020]</div><div class="qb">Let \( \alpha \) and \( \beta \) be the roots of the equation \( x^2 - x - 1 = 0 \). If \( P_k = (\alpha)^k + (\beta)^k \), \( k \geq 1 \), then which one of the following statements is not true?
+<ul class="opts"><li>\( P_3 = P_5 - P_4 \)</li><li>\( (P_1 + P_2 + P_3 + P_4 + P_5) = 26 \)</li><li>\( P_5 = 11 \)</li><li>\( P_5 = P_2 \cdot P_3 \)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 49 | QUESTION [JEE Mains 2025 (2 April)]</div><div class="qb">Let \( P_n = \alpha^n + \beta^n \), \( n \in \mathbb{N} \). If \( P_{10} = 123 \), \( P_9 = 76 \), \( P_8 = 47 \) and \( P_1 = 1 \), then the quadratic equation having roots \( \dfrac{1}{\alpha} \) and \( \dfrac{1}{\beta} \) is:
+<ul class="opts"><li>\( x^2 + x - 1 = 0 \)</li><li>\( x^2 - x + 1 = 0 \)</li><li>\( x^2 + x + 1 = 0 \)</li><li>\( x^2 - x - 1 = 0 \)</li></ul></div></div>
+
+
+<div class="q"><div class="qh">Pg 51 | QUESTION [JEE Mains 2022 (26 June)]</div><div class="qb">Let \( p \) and \( q \) be two real numbers such that \( p + q = 3 \) and \( p^4 + q^4 = 369 \). Then \( \left(\dfrac{1}{p} + \dfrac{1}{q}\right)^{-2} \) is equal to ______.</div></div>
+
+<div class="q"><div class="qh">Pg 52 | QUESTION [JEE Mains 2023 (11 April)]</div><div class="qb">If \( a \) and \( b \) are the roots of equation \( x^2 - 7x - 1 = 0 \), then the value of \( \dfrac{a^{21} + b^{21} + a^{17} + b^{17}}{a^{19} + b^{19}} \) is equal to ______.</div></div>
+
+<div class="q"><div class="qh">Pg 54 | QUESTION [ASRQ]</div><div class="qb">If \( a, b, c \) are roots of \( x^3 - x^2 + 1 = 0 \), then find the value of \( a^{-2} + b^{-2} + c^{-2} \).</div></div>
+
+<div class="q"><div class="qh">Pg 55 | QUESTION [TAH 07]</div><div class="qb">If the roots of \( p(x) = x^3 + 3x^2 + 4x - 8 \) are \( a, b \) and \( c \), what is the value of \( a^2(1 + a^2) + b^2(1 + b^2) + c^2(1 + c^2) \)?</div></div>
+
+<div class="q"><div class="qh">Pg 56 | QUESTION [ASRQ]</div><div class="qb">If \( \alpha, \beta \) and \( \gamma \) are roots of \( 3x^3 - 4x^2 - 3x + 2 = 0 \) and \( (\alpha^5 + \beta^5 + \gamma^5) - (\alpha^3 + \beta^3 + \gamma^3) = \dfrac{2}{m}\Big(2(\alpha^4 + \beta^4 + \gamma^4) - (\alpha^2 + \beta^2 + \gamma^2)\Big) \), then the value of \( m \) is ______.</div></div>
+
+<div class="q"><div class="qh">Pg 57 | QUESTION</div><div class="qb">The roots of the equation \( 4x^4 - 24x^3 + 57x^2 + 18x - 45 = 0 \). If one of them is \( 3 + i\sqrt{6} \), then the other roots are:
+<ul class="opts"><li>\( 3 - i\sqrt{6},\; \pm\sqrt{\dfrac{3}{2}} \)</li><li>\( 3 - i\sqrt{6},\; \pm\dfrac{3}{\sqrt{2}} \)</li><li>\( 3 - i\sqrt{6},\; \pm\dfrac{\sqrt{3}}{2} \)</li><li>None of these</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 59 | QUESTION</div><div class="qb">If \( \alpha, \beta \) are roots of a quadratic equation, form a quadratic equation whose roots are \( \dfrac{\alpha - 1}{\alpha + 1} \) and \( \dfrac{\beta - 1}{\beta + 1} \).</div></div>
+
+
+<div class="q"><div class="qh">Pg 61 | QUESTION [KCLS]</div><div class="qb">The length of sides of a triangle are the 3 distinct roots of the equation \( 4x^3 - 24x^2 + 47x - 30 = 0 \). If the area of the triangle is \( \Delta \), find \( 100\Delta \).</div></div>
+
+<div class="q"><div class="qh">Pg 64 | QUESTION [Mind Bender]</div><div class="qb">Let \( a, b \) and \( c \) be the roots of \( x^3 - x + 1 = 0 \), then the value of \( \left(\dfrac{1}{a+1} + \dfrac{1}{b+1} + \dfrac{1}{c+1}\right) \) equals:
+<ul class="opts"><li>\( 1 \)</li><li>\( -1 \)</li><li>\( 2 \)</li><li>\( -2 \)</li></ul></div></div>
+
+
+<div class="q"><div class="qh">Pg 73 | QUESTION [JEE Mains 2022 (25 June)]</div><div class="qb">Let \( a, b \in \mathbb{R} \) be such that the equation \( ax^2 - 2bx + 15 = 0 \) has a repeated root \( \alpha \). If \( \alpha \) and \( \beta \) are the roots of the equation \( x^2 - 2bx + 21 = 0 \), then \( \alpha^2 + \beta^2 \) is equal to:
+<ul class="opts"><li>\( 37 \)</li><li>\( 58 \)</li><li>\( 68 \)</li><li>\( 92 \)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 76 | QUESTION [AIEEE 2008]</div><div class="qb">The quadratic equations \( x^2 - 6x + a = 0 \) and \( x^2 - cx + 6 = 0 \) have one root in common. The other roots of the first and second equations are integers in the ratio \( 4 : 3 \). Then the common root is:
+<ul class="opts"><li>\( 1 \)</li><li>\( 4 \)</li><li>\( 3 \)</li><li>\( 2 \)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 77 | QUESTION [JEE Mains 2021 (26 Aug)]</div><div class="qb">Let \( \lambda \neq 0 \) be in \( \mathbb{R} \). If \( \alpha \) and \( \beta \) are the roots of the equation \( x^2 - x + 2\lambda = 0 \), and \( \alpha \) and \( \gamma \) are the roots of the equation \( 3x^2 - 10x + 27\lambda = 0 \), then \( \dfrac{\beta\gamma}{\lambda} \) is equal to ________.</div></div>
+
+<div class="q"><div class="qh">Pg 78 | QUESTION</div><div class="qb">The equations \( kx^2 + x + k = 0 \) and \( kx^2 + kx + 1 = 0 \) have exactly one root in common for:
+<ul class="opts"><li>\( k = -1/2, \; 1 \)</li><li>\( k = 1 \)</li><li>\( k = -1/2 \)</li><li>\( k = 1/2 \)</li></ul></div></div>
+
+
+<div class="q"><div class="qh">Pg 81 | QUESTION [Subjective]</div><div class="qb">If the quadratic equations \( x^2 + bx + c = 0 \) and \( x^2 + cx + b = 0 \;\; (b \neq c) \) have a common root, then prove that their uncommon roots are the roots of the equation \( x^2 + x + bc = 0 \).</div></div>
+
+<div class="q"><div class="qh">Pg 82 | QUESTION</div><div class="qb">If the equations \( x^3 + x^2 - 4x = 4 \) and \( x^2 + px + 2p = 0 \;\; (p \in \mathbb{R}) \) have two roots common, then the value of \( p \) is:
+<ul class="opts"><li>\( -2 \)</li><li>\( -1 \)</li><li>\( 1 \)</li><li>\( 3 \)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 83 | QUESTION [KCLS]</div><div class="qb">The equations \( x^3 + 4x^2 + px + q = 0 \) and \( x^3 + 6x^2 + px + r = 0 \) have two common roots, where \( p, q, r \in \mathbb{R} \). If their uncommon roots are the roots of the equation \( x^2 + 2ax + 8c = 0 \), then:
+<ul class="opts"><li>\( a + c = 8 \)</li><li>\( a + c = 2 \)</li><li>\( 3q = 2r \)</li><li>\( 3r = 2q \)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 84 | QUESTION [Mind Bender]</div><div class="qb">If \( x^2 + 3x + 5 \) is the greatest common divisor of \( (x^3 + ax^2 + bx + 1) \) and \( (2x^3 + 7x^2 + 13x + 5) \), then find the value of \( [a + b] \).<br>[Note: \( [k] \) denotes the greatest integer less than or equal to \( k \).]</div></div>
+
+<div class="q"><div class="qh">Pg 85 | QUESTION [Mind Bender]</div><div class="qb">If \( Q_1(x) = x^2 + (k-29)x - k \) and \( Q_2(x) = 2x^2 + (2k-43)x + k \) both are factors of a cubic polynomial, then the largest value of \( k \) is (where \( Q_1(x) \) &amp; \( Q_2(x) \) are not perfect squares):
+<ul class="opts"><li>\( 0 \)</li><li>\( 33 \)</li><li>\( 23 \)</li><li>\( 30 \)</li></ul></div></div>
+
+
+<h2>Section C &mdash; Part 02: Graph of Quadratic &amp; Applications (Pages 1–21)</h2>
+
+<div class="q"><div class="qh">Pg 1 | QUESTION [Mind Bender]</div><div class="qb">If roots of the equation \( (x - \alpha)(x - 4 + \beta) + (x - 2 + \alpha)(x + 2 - \beta) = 0 \) are \( p \) and \( q \), then find the absolute value of the sum of the roots of the equations<br>
+(I) \( 2(x - p)(x - q) - (x - \alpha)(x - 4 + \beta) = 0 \)<br>
+(II) \( 2(x - p)(x - q) - (x - 2 + \alpha)(x + 2 - \beta) = 0 \).</div></div>
+
+<div class="q"><div class="qh">Pg 2 | QUESTION [Mind Bender]</div><div class="qb">If \( \alpha_1, \alpha_2, \alpha_3, \alpha_4, \alpha_5 \) are roots of the equation \( x^5 - 5x^4 - 1 = 0 \), then
+<ul class="opts"><li>\( \displaystyle\sum_{r=1}^{5} \frac{1}{\alpha_r^4} = -\frac{1}{20} \)</li><li>\( \displaystyle\sum_{r=1}^{5} \frac{1}{\alpha_r^4} = -20 \)</li><li>\( \displaystyle\prod_{r=1}^{5} \left(\frac{1}{\alpha_r^4} + 5\right)^5 = 1 \)</li><li>\( \displaystyle\prod_{r=1}^{5} \left(\frac{1}{\alpha_r^4} + 5\right)^3 = \frac{1}{5} \)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 4 | QUESTION [JEE Advanced 2017, TAH 08]</div><div class="qb">Let \( p, q \) be integers and let \( \alpha, \beta \) be the roots of the equation \( x^2 - x - 1 = 0 \) where \( \alpha \neq \beta \). For \( n = 0, 1, 2, \ldots \), let \( a_n = p\alpha^n + q\beta^n \).<br>
+FACT: If \( a \) and \( b \) are rational numbers and \( a + b\sqrt{5} = 0 \), then \( a = 0 = b \).<br>
+\( a_{12} = \) ?
+<ul class="opts"><li>\( a_{11} + 2a_{10} \)</li><li>\( 2a_{11} + a_{10} \)</li><li>\( a_{11} - a_{10} \)</li><li>\( a_{11} + a_{10} \)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 5 | QUESTION [JEE Advanced 2017, TAH 09]</div><div class="qb">Let \( p, q \) be integers and let \( \alpha, \beta \) be the roots of the equation \( x^2 - x - 1 = 0 \) where \( \alpha \neq \beta \). For \( n = 0, 1, 2, \ldots \), let \( a_n = p\alpha^n + q\beta^n \).<br>
+FACT: If \( a \) and \( b \) are rational numbers and \( a + b\sqrt{5} = 0 \), then \( a = 0 = b \).<br>
+If \( a_4 = 28 \), then \( p + 2q = \)
+<ul class="opts"><li>14</li><li>7</li><li>21</li><li>12</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 6 | QUESTION [IIT-JEE 2006]</div><div class="qb">Let \( a \) and \( b \) be the roots of the equation \( x^2 - 10cx - 11d = 0 \) and those of \( x^2 - 10ax - 11b = 0 \) are \( c, d \), then the value of \( a + b + c + d \), when \( a \neq b \neq c \neq d \), is ______.</div></div>
+
+<div class="q"><div class="qh">Pg 7 | QUESTION</div><div class="qb">If two roots of the equation \( (x - 1)(2x^2 - 3x + 4) = 0 \) coincide with roots of the equation \( x^3 + (a + 1)x^2 + (a + b)x + b = 0 \) where \( a, b \in \mathbb{R} \), then \( 2(a + b) \) equals
+<ul class="opts"><li>4</li><li>2</li><li>1</li><li>0</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 15 | QUESTION</div><div class="qb">Consider the graph of quadratic polynomial \( y = ax^2 + bx + c \) as shown below. Which of the following is(are) correct?
+<ul class="opts"><li>\( \dfrac{a - b + c}{abc} = 0 \)</li><li>\( abc(9a + 3b + c) < 0 \)</li><li>\( \dfrac{a + 3b + 9c}{abc} < 0 \)</li><li>\( ab(a - 3b + 9c) > 0 \)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 16 | QUESTION [Mind Bender]</div><div class="qb">If \( ax^2 + bx + c = 0 \) has no real root and \( a + b + c < 0 \), then
+<ul class="opts"><li>\( 4a - 2b + c > 0 \)</li><li>\( 4a - 2b + c < 0 \)</li><li>\( 13a + 5b + 2c < 0 \)</li><li>\( 5b - 25a - c > 0 \)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 17 | QUESTION</div><div class="qb">Find the set of values of \( a \) for which \( (a - 1)x^2 - (a + 1)x + a + 1 > 0 \) for all \( x \in \mathbb{R} \).</div></div>
+
+<div class="q"><div class="qh">Pg 19 | QUESTION</div><div class="qb">If \( f(x) = x^2 + bx + c \) and \( f(2 + t) = f(2 - t) \) for all real numbers \( t \), then which of the following is true?
+<ul class="opts"><li>\( f(1) < f(2) < f(4) \)</li><li>\( f(2) < f(1) < f(4) \)</li><li>\( f(2) < f(4) < f(1) \)</li><li>\( f(2.1) < f(1.5) < f(3) \)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 21 | QUESTION [Mind Bender]</div><div class="qb">If the roots of the equation \( x^2 + (p + 1)x + 2q - q^2 + 3 = 0 \) are real and unequal \( \forall\, p \in \mathbb{R} \), then find the minimum integral value of \( (q^2 - 2q) \).</div></div>
+
+<div class="q"><div class="qh">Pg 24 | QUESTION [JEE Mains 2023]</div><div class="qb">Let \( \alpha \) and \( \beta \) be roots of \( x^2 - 6(t^2 - 2t + 2)x - 2 = 0 \) with \( \alpha > \beta \). If \( a_n = \alpha^n - \beta^n \) for \( n \geq 1 \), then find the minimum value of \( \dfrac{a_{100} - 2a_{98}}{a_{99}} \) (where \( t \in \mathbb{R} \)).</div></div>
+
+<div class="q"><div class="qh">Pg 26 | QUESTION [JEE Advanced 2026]</div><div class="qb">Let \( a, b, c \) be positive integers in arithmetic progression such that the equation \( ax^2 + bx + c = 0 \) has only integer solutions. Then which of the following statements is (are) TRUE?
+<ul class="opts"><li>\( c - b \) is an integer multiple of \( a \)</li><li>Both the roots of the equation \( ax^2 + bx + c = 0 \) are odd integers</li><li>If \( c = 15 \), then \( ab = 8 \)</li><li>If \( b = 8 \), then \( x = 3 \) is a root of the equation \( ax^2 + bx + c = 0 \)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 30 | QUESTION [Mind Bender]</div><div class="qb">Find all numbers \( p \) for each of which the least value of the quadratic trinomial \( 4x^2 - 4px + p^2 - 2p + 2 \) on the interval \( 0 \leq x \leq 2 \) is equal to 3.</div></div>
+
+
+<div class="q"><div class="qh">Pg 37 | QUESTION</div><div class="qb">Find the domain and range of \( f(x) = \dfrac{x^2 + x + 1}{x^2 - x + 1} \).</div></div>
+
+<div class="q"><div class="qh">Pg 41 | QUESTION</div><div class="qb">Find the domain and range of \( f(x) = \dfrac{2x}{1 + x^2} \).</div></div>
+
+<div class="q"><div class="qh">Pg 43 | QUESTION [Mind Bender]</div><div class="qb">If the range of the function \( f(x) = \dfrac{x^2 + ax + b}{x^2 + 2x + 3} \) is \( [-5,\; 4] \), \( a, b \in \mathbb{N} \), then find the value of \( a^2 + b^2 \).</div></div>
+
+<div class="q"><div class="qh">Pg 45 | QUESTION [Mind Bender]</div><div class="qb">Find the values of \( a \) for which \( -3 < \dfrac{x^2 + ax - 2}{x^2 + x + 1} < 2 \) is valid for all real \( x \).</div></div>
+
+<div class="q"><div class="qh">Pg 47 | QUESTION [Mind Bender]</div><div class="qb">Complete set of values of \( a \) such that \( y = \dfrac{x^2 - x}{1 - ax}\; (x \in \mathbb{R}) \) attains all real values is-
+<ul class="opts"><li>\( [1, \infty) \)</li><li>\( (0, 4] \)</li><li>\( (0, 1] \)</li><li>\( (1, \infty) \)</li></ul></div></div>
+
+
+<div class="q"><div class="qh">Pg 49 | QUESTION [KCLS]</div><div class="qb">The set of all values of \( K > -1 \), for which the equation \( (3x^2+4x+3)^2 - (k+1)(3x^2+4x+3)(3x^2+4x+2) + k(3x^2+4x+2)^2 = 0 \) has real roots, is:
+<ul class="opts"><li>\( \left(1,\;\dfrac{5}{2}\right] \)</li><li>\( [2,\;3) \)</li><li>\( \left[-\dfrac{1}{2},\;1\right) \)</li><li>\( \left(\dfrac{1}{2},\;\dfrac{3}{2}\right] - \{1\} \)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 51 | QUESTION [TAH 05]</div><div class="qb">The set of values of \( a \) for which the equation \( (x^2+x+2)^2 - (a-3)(x^2+x+2)(x^2+x+1) + (a-4)(x^2+x+1)^2 = 0 \) has at least one real root is:
+<ul class="opts"><li>\( \left(5,\;\dfrac{19}{3}\right) \)</li><li>\( \left[5,\;\dfrac{19}{3}\right] \)</li><li>\( \left[5,\;\dfrac{19}{3}\right) \)</li><li>\( \left(5,\;\dfrac{19}{3}\right] \)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 53 | QUESTION</div><div class="qb">Find all the values of the parameter \( d \) for which both roots of the equation \( x^2 - 6dx + (2 - 2d + 9d^2) = 0 \) exceed the number 3.</div></div>
+
+<div class="q"><div class="qh">Pg 57 | QUESTION</div><div class="qb">If \( \alpha, \beta \) are roots of the quadratic equation \( x^2 + 2(k-3)x + 9 = 0 \;\;(\alpha \neq \beta) \). If \( \alpha, \beta \in (-6,\;1) \), find \( k \).</div></div>
+
+<div class="q"><div class="qh">Pg 60 | QUESTION</div><div class="qb">Find all possible values of \( a \) for which exactly one root of the equation \( x^2 - (a+1)x + 2a = 0 \) lies in \( (0,\;3) \).</div></div>
+
+
+<div class="q"><div class="qh">Pg 61 | QUESTION [Mind Bender]</div><div class="qb">If \( x^3 - ax^2 + bx + c = 0 \) has the roots \( \alpha^2 + \beta^3 + \gamma^4,\; \beta^2 + \gamma^3 + \alpha^4 \) and \( \gamma^2 + \alpha^3 + \beta^4 \), where \( \alpha, \beta, \gamma \) are the roots of \( x^3 - x^2 - 1 = 0 \), then the value of \( a + b + c \) is equal to</div></div>
+
+<div class="q"><div class="qh">Pg 61 | QUESTION [Mind Bender]</div><div class="qb">Let \( \alpha_1, \alpha_2, \alpha_3 \) and \( \alpha_4 \) are the roots of equation \( x^4 - 7x + 1 = 0 \), then
+<ul class="opts"><li>\( \displaystyle\sum_{i=1}^{4} \dfrac{\alpha_i}{1+\alpha_i} = \dfrac{25}{9} \)</li><li>\( \displaystyle\prod_{i=1}^{4} \dfrac{\alpha_i}{1+\alpha_i} = 1 \)</li><li>\( \displaystyle\prod_{i=1}^{4} \dfrac{\alpha_i}{1+\alpha_i} = \dfrac{1}{9} \)</li><li>\( \displaystyle\sum_{i=1}^{4} \dfrac{\alpha_i}{1+\alpha_i} = \dfrac{23}{9} \)</li></ul></div></div>
+
+
+<h2>Section D &mdash; Part 03: Location of Roots &amp; Interval Problems (Pages 36–59)</h2>
+
+<div class="q"><div class="qh">Pg 36 (P3) | QUESTION [JEE Advanced 2009]</div><div class="qb">The smallest value of \( k \), for which both the roots of the equation, \( x^2 - 8kx + 16(k^2 - k + 1) = 0 \) are real, distinct and have values at least 4, is</div></div>
+
+<div class="q"><div class="qh">Pg 38 (P3) | QUESTION</div><div class="qb">The values of \( k \), for which the equation \( x^2 + 2(k - 1)x + k + 5 = 0 \) possess atleast one positive root, are
+<ul class="opts"><li>\( [4, \infty) \)</li><li>\( (-\infty, -1] \cup [4, \infty) \)</li><li>\( [-1, 4] \)</li><li>\( (-\infty, -1] \)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 40 (P3) | QUESTION</div><div class="qb">Find all possible values of \( m \) for which exactly one root of the equation \( x^2 + mx + m^2 + 6m = 0 \), lies in \( (-2, 0) \).</div></div>
+
+<div class="q"><div class="qh">Pg 41 (P3) | QUESTION [JEE Mains 2020]</div><div class="qb">The set of all real values of \( \lambda \) for which the quadratic equations, \( (\lambda^2 + 1)x^2 - 4\lambda x + 2 = 0 \) always have exactly one root in the interval \( (0, 1) \) is:
+<ul class="opts"><li>\( (-3, -1) \)</li><li>\( (2, 4] \)</li><li>\( (0, 2) \)</li><li>\( (1, 3] \)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 44 (P3) | QUESTION [JEE Mains 2023]</div><div class="qb">The number of integral values of \( k \), for which one root of the equation \( 2x^2 - 8x + k = 0 \) lies in the interval \( (1, 2) \) and its other root lies in the interval \( (2, 3) \), is:
+<ul class="opts"><li>2</li><li>0</li><li>1</li><li>3</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 44 (P3) | QUESTION [JEE Mains 2019]</div><div class="qb">Consider the quadratic equation \( (c - 5)x^2 - 2cx + (c - 4) = 0 \), \( c \neq 5 \). Let \( S \) be the set of all integral values of \( c \) for which one root of the equation lies in the interval \( (0, 2) \) and its other root lies in the interval \( (2, 3) \). Then the number of elements in \( S \) is:
+<ul class="opts"><li>18</li><li>12</li><li>10</li><li>11</li></ul></div></div>
+
+
+<div class="q"><div class="qh">Pg 48 (P3) | QUESTION</div><div class="qb">Let \( a, b, c \in \mathbb{R} \), \( a > 0 \) such that the equation \( ax^2 + bcx + b^3 + c^3 - 4abc = 0 \) has non real roots. Let \( P(x) = ax^2 + bx + c \) &amp; \( Q(x) = ax^2 + cx + b \), then
+<ul class="opts"><li>\( P(x) > 0 \; \forall\, x \in \mathbb{R} \) &amp; \( Q(x) = ax^2 + cx + b > 0 \)</li><li>\( P(x) < 0 \; \forall\, x \in \mathbb{R} \) &amp; \( Q(x) < 0 \; \forall\, x \in \mathbb{R} \)</li><li>Neither \( P(x) \) nor \( Q(x) > 0 \; \forall\, x \in \mathbb{R} \)</li><li>Exactly one of \( P(x) \) or \( Q(x) \) is positive for all \( x \in \mathbb{R} \)</li></ul></div></div>
+
+<div class="q"><div class="qh">Pg 50 (P3) | QUESTION [Subjective]</div><div class="qb">Show that in the equation, \( x^2 - 3xy + 2y^2 - 2x - 3y - 35 = 0 \), for every real value of \( x \) there is a real value of \( y \), and for every value of \( y \) there is a real value of \( x \).</div></div>
+
+<div class="q"><div class="qh">Pg 53 (P3) | QUESTION [Mind Bender]</div><div class="qb">Prove that for any real value of \( a \) the inequality, \( (a^2 + 3)x^2 + (a + 2)x - 5 < 0 \) is true for at least one negative \( x \).</div></div>
+
+<div class="q"><div class="qh">Pg 54 (P3) | QUESTION [Mind Bender]</div><div class="qb">If \( f(x) = 4x^2 + ax + (a - 3) \) is negative for atleast one negative \( x \), find all possible values of \( a \).</div></div>
+
+<div class="q"><div class="qh">Pg 55 (P3) | QUESTION [Mind Bender]</div><div class="qb">Find all real values of \( m \) for which the inequality \( mx^2 - 4x + 3m + 1 > 0 \) is satisfied for all positive \( x \).</div></div>
+
+<div class="q"><div class="qh">Pg 56 (P3) | QUESTION [Mind Bender]</div><div class="qb">Let \( P(x) = (m^2 + 4m + 5)x^2 - 4x + 7 \), \( m \in \mathbb{R} \). If \( 3 \leq x \leq 5 \) then find the minimum of minimum value of \( P(x) \).</div></div>
+
+<div class="q"><div class="qh">Pg 58 (P3) | QUESTION [Mind Bender]</div><div class="qb">Find all values of the parameter \( a \) for which the inequality \( 4^x - a \cdot 2^x - a + 3 \leq 0 \) is satisfied for atleast one real \( x \).</div></div>
+
+</body>
+</html>

@@ -20,6 +20,15 @@ const CHAPTERS = [
     questionCount: 78,
     tags: ['Surds', 'Logarithms', 'Modulus', 'Polynomials', 'Inequalities'],
   },
+  {
+    id: 'quadratic-eq',
+    icon: '📈',
+    title: 'Quadratic Equations',
+    subject: 'Mathematics',
+    file: '/dpps/quadratic_equations.html',
+    questionCount: 67,
+    tags: ['Roots', 'Discriminant', 'Location of Roots', 'Range', 'Inequalities'],
+  },
 ];
 
 export default function HomePage({ onLoadDPP, loadedChapters }) {
