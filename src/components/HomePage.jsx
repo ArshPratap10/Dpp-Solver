@@ -35,7 +35,7 @@ const CHAPTERS = [
     title: 'Sequence and series class Dpp',
     subject: 'Mathematics',
     file: '/dpps/sequence_series_class.html',
-    questionCount: 52,
+    questionCount: 178,
     tags: ['Class Notes', 'AP', 'GP', 'Location of Roots'],
   },
 ];
