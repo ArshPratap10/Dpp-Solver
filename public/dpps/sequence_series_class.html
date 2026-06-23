@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sequence and Series Class DPP</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:'Inter',sans-serif;
+  font-size:14.5px;
+  line-height:1.7;
+  color:#000;
+  background:#fff;
+  padding:12mm 14mm;
+  counter-reset:qnum;
+}
+h1{
+  text-align:center;
+  font-size:17px;
+  font-weight:700;
+  border-top:3px solid #000;
+  border-bottom:3px solid #000;
+  padding:7px 0;
+  margin-bottom:16px;
+  text-transform:uppercase;
+  letter-spacing:1.5px;
+}
+h2{
+  font-size:13px;
+  font-weight:700;
+  background:#000;
+  color:#fff;
+  padding:3px 8px;
+  margin:18px 0 10px;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+}
+.q{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  margin-bottom:14px;
+  page-break-inside:avoid;
+  counter-increment:qnum;
+}
+.q::before{
+  content:counter(qnum) ".";
+  font-weight:700;
+  font-size:15px;
+  min-width:26px;
+  flex-shrink:0;
+  padding-top:1px;
+}
+.qinner{
+  flex:1;
+}
+.qh{
+  font-size:10px;
+  font-weight:500;
+  color:#666;
+  font-style:italic;
+  float:right;
+  margin-left:10px;
+  white-space:nowrap;
+}
+.qb{
+  font-size:14.5px;
+  font-weight:600;
+  display:block;
+  overflow:hidden;
+}
+.opts{
+  display:flex;
+  flex-wrap:wrap;
+  gap:4px 28px;
+  margin-top:8px;
+  padding-left:0;
+  list-style:none;
+  font-weight:400;
+  font-size:14px;
+}
+.opts li::before{font-weight:700;}
+.opts li:nth-child(1)::before{content:"(A)\00a0";}
+.opts li:nth-child(2)::before{content:"(B)\00a0";}
+.opts li:nth-child(3)::before{content:"(C)\00a0";}
+.opts li:nth-child(4)::before{content:"(D)\00a0";}
+.opts li:nth-child(5)::before{content:"(E)\00a0";}
+ol.subq{
+  padding-left:20px;
+  margin-top:6px;
+  font-weight:400;
+  font-size:14px;
+}
+ol.subq li{margin-bottom:4px;}
+table{width:100%;border-collapse:collapse;margin-top:8px;font-size:13px;font-weight:400;}
+td,th{border:1px solid #888;padding:4px 8px;vertical-align:top;}
+th{font-weight:700;background:#eee;}
+@media print{
+  body{padding:10mm 12mm;font-size:14px;}
+  h2{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .q{margin-bottom:12px;}
+}
+</style>
+</head>
+<body>
+<h1>Sequence and Series Class DPP</h1>
+
+<h2>Part 01</h2>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 1 | Mind Bender</div><div class="qb">Suppose a cubic polynomial \( f(x) = x^3 + px^2 + qx + 72 \) is divisible by both \( x^2 + ax + b \) and \( x^2 + bx + a \) (where \( a, b, p, q \) are constants and \( a \neq b \)). Find the sum of the squares of the roots of the cubic polynomial.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 3 | TAH MCQ</div><div class="qb">If \( x \) is real, then \( \frac{x^2 - x + c}{x^2 + x + 2c} \) can take all real values if:<ul class="opts"><li>\( c \in [0, 6] \)</li><li>\( c \in [-6, 0] \)</li><li>\( c \in (-\infty, -6) \cup (0, \infty) \)</li><li>\( c \in (-6, 0) \)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 5</div><div class="qb">Find the values of a so that the equation \( x^2 + (3 - 2a)x + a = 0 \) has exactly one root in<br>(a) \( (-1, 2) \)<br>(b) \( [-1, 2] \)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq1 Pg 15</div><div class="qb">Prove that the expression \( 2x^2 + 3xy + y^2 + 2y + 3x + 1 \) can be factorised into two linear factors. Find them.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq1 Pg 17</div><div class="qb">If the equation \( x^2 + 16y^2 - 3x + 2 = 0 \) is satisfied by real values of \( x \) and \( y \) then prove that \( 1 \le x \le 2 \) and \( -1/8 \le y \le 1/8 \).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq1 Pg 18 | Mind Bender</div><div class="qb">Find 'a' for which the inequality \( (a^2 + 3)x^2 + (\sqrt{5a + 3})x - \frac{1}{4} < 0 \) is satisfied for atleast one real \( x \).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq1 Pg 20 | Mind Bender</div><div class="qb">If \( f(x) = 4x^2 + ax + (a - 3) \) is negative for atleast one negative \( x \), find all possible values of a.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq1 Pg 21 | [JEE Mains 2022 (26 July)]</div><div class="qb">Different A.P.'s are constructed with the first term 100, the last term 199, and integral common differences. The sum of the common differences of all such A.P.'s having at least 3 terms and at most 33 terms is ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq2 Pg 4</div><div class="qb">If \( m^{\text{th}} \) term of an A.P. is \( n \) & \( n^{\text{th}} \) term is \( m \), then show that its \( (m + n)^{\text{th}} \) term is zero.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq2 Pg 5 | ASRQ</div><div class="qb">If \( S_1, S_2, S_3, \dots, S_p \) are the sums of \( n \) terms of \( p \) arithmetic series whose first terms are \( 1, 2, 3, 4, \dots \) and whose common differences are \( 1, 3, 5, 7, \dots \), prove that \( S_1 + S_2 + S_3 + \dots + S_p = \frac{np}{2}(np + 1) \).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq2 Pg 7 | [JEE Mains 2023 (1 Feb)]</div><div class="qb">Let \( a_1 = 8, a_2, a_3, \dots, a_n \) be an A.P. If the sum of its first four terms is 50 and the sum of its last four terms is 170, then the product of its middle two terms is ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq2 Pg 9 | [JEE Mains 2023 (Jan)]</div><div class="qb">Number of 4 digit integers less than 2800 which are either divisible by 3 or by 11 is equal to ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq2 Pg 10-12 | ASRQ</div><div class="qb">For the A.P. \( 20 + 19\frac{1}{3} + 18\frac{2}{3} + \dots \):<br>(a) How many terms of the series must be taken so that the sum is 300? Explain the reason for the double answer.<br>(b) Find the first negative term.<br>(c) Find the last non-negative term.<br>(d) Find the largest sum.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq2 Pg 21 | [JEE Mains 2025 (2 April)]</div><div class="qb">The number of terms of an A.P. is even; the sum of all the odd numbered terms is 24, the sum of all the even numbered terms is 30 and the last term exceeds the first by \( \frac{21}{2} \). Then the number of terms which are integers in the A.P. is:<ul class="opts"><li>6</li><li>4</li><li>8</li><li>10</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq2 Pg 25 | [JEE Mains 2022 (24 June)]</div><div class="qb">If \( \{a_i\}_{i=1}^n \), where \( n \) is an even integer, is an arithmetic progression with common difference 1, and \( \sum_{i=1}^n a_i = 192 \), \( \sum_{i=1}^{n/2} a_{2i} = 120 \), then \( n \) is equal to:<ul class="opts"><li>48</li><li>96</li><li>92</li><li>104</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq2 Pg 26 | [JEE Advanced 2015]</div><div class="qb">Suppose that all the terms of an arithmetic progression (A.P.) are natural numbers. If the ratio of the sum of the first seven terms to the sum of the first eleven terms is \( 6 : 11 \) and the seventh term lies in between 130 and 140, then the common difference of this A.P. is ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 2 | [JEE Mains 2025 (28 Jan)]</div><div class="qb">The interior angles of a polygon with \( n \) sides, are in an A.P. with common difference \( 6^\circ \). If the largest interior angle of the polygon is \( 219^\circ \), then \( n \) is equal to ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 5 | [JEE Mains 2024 (1 Feb)]</div><div class="qb">Let \( 3, 7, 11, 15, \dots, 403 \) and \( 2, 5, 8, 11, \dots, 404 \) be two arithmetic progressions. Then the sum of the common terms in them is equal to ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 7 | [JEE Advanced 2019]</div><div class="qb">Let \( \text{AP}(a, d) \) denote the set of all the terms of an infinite arithmetic progression with first term \( a \) and common difference \( d > 0 \). If \( \text{AP}(1, 3) \cap \text{AP}(2, 5) \cap \text{AP}(3, 7) = \text{AP}(a, d) \), then \( a + d \) equals ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 8 | [JEE Mains 2025 (4 April)]</div><div class="qb">Let \( A = \{1, 6, 11, 16, \dots\} \) and \( B = \{9, 16, 23, 30, \dots\} \) be the sets consisting of the first 2025 terms of two arithmetic progressions. Then \( n(A \cup B) \) is:<ul class="opts"><li>3814</li><li>4003</li><li>4027</li><li>3761</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 10 | [JEE Advanced 2018]</div><div class="qb">Let \( X \) be the set consisting of the first 2018 terms of the arithmetic progression \( 1, 6, 11, \dots \), and \( Y \) be the set consisting of the first 2018 terms of the arithmetic progression \( 9, 16, 23, \dots \). Then, the number of elements in the set \( X \cup Y \) is ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 11 | [JEE Mains 2024 (27 Jan)]</div><div class="qb">The number of common terms in the progressions \( 4, 9, 14, 19, \dots \), up to \( 25^{\text{th}} \) term and \( 3, 6, 9, 12, \dots \), up to \( 37^{\text{th}} \) term is:<ul class="opts"><li>9</li><li>8</li><li>5</li><li>7</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 12 | [JEE Mains 2023 (1 Feb)]</div><div class="qb">The sum of the common terms of the following three arithmetic progressions:<br>\( 3, 7, 11, 15, \dots, 399 \),<br>\( 2, 5, 8, 11, \dots, 359 \) and<br>\( 2, 7, 12, 17, \dots, 197 \),<br>is equal to ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 14 | ASRQ</div><div class="qb">The sum of first \( n \) terms of two A.P.s are in ratio \(\frac{7n+1}{4n-27}\). Find the ratio of their \(11^{\text{th}}\) terms.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 15 | [JEE Advanced 2011] | Mind Bender</div><div class="qb">Let \( a_1, a_2, a_3, \dots, a_{100} \) be an arithmetic progression with \( a_1 = 3 \) and \( S_p = \sum_{i=1}^p a_i \), \( 1 \le p \le 100 \). For any integer \( n \) with \( 1 \le n \le 20 \), let \( m = 5n \). If \( \frac{S_m}{S_n} \) does not depend on \( n \), then \( a_2 \) is ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 16 | ASRQ</div><div class="qb">Let \( a_1, a_2, a_3, \dots \) be terms of an A.P.. If \(\frac{a_1+a_2+\dots+a_p}{a_1+a_2+\dots+a_q} = \frac{p^2}{q^2}\), where \( p \neq q \), then \(\frac{a_6}{a_{21}}\) is equal to:<ul class="opts"><li>\(\frac{4}{11}\)</li><li>\(\frac{7}{2}\)</li><li>\(\frac{11}{41}\)</li><li>\(\frac{2}{7}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 17 | [JEE Mains 2021 (31 Aug)] | TAH 14</div><div class="qb">Let \( a_1, a_2, a_3, \dots \) be an A.P.. If \(\frac{a_1+a_2+\dots+a_{10}}{a_1+a_2+\dots+a_p} = \frac{100}{p^2}\), \( p \neq 10 \), then \(\frac{a_{11}}{a_{10}}\) is equal to:<ul class="opts"><li>\(\frac{19}{21}\)</li><li>\(\frac{100}{121}\)</li><li>\(\frac{21}{19}\)</li><li>\(\frac{121}{100}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 21 | ASRQ</div><div class="qb">Insert 20 AM's between 4 and 67.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 22 | ASRQ</div><div class="qb">If \( p \) arithmetic mean are inserted between 5 and 41 so that ratio \(\frac{A_3}{A_{p-1}} = \frac{2}{5}\), then find the value of \( p \).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 25 | ASRQ</div><div class="qb">If \( A_1, A_2, A_3, \dots, A_{51} \) are arithmetic means inserted between the numbers \( a \) and \( b \), then find the value of \(\left(\frac{b+A_{51}}{b-A_{51}}\right) - \left(\frac{A_1+a}{A_1-a}\right)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 26 | TAH 15</div><div class="qb">If \( a_1, a_2, a_3, \dots, a_n \) are \( n \) arithmetic means inserted between 7 and 2015 whose sum is 56616 then:<ul class="opts"><li>\( n \) is 56</li><li>\( n \) is 28</li><li>\( a_{19} = 2029/3 \)</li><li>\( a_{19} = 36543/57 \)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 27 | [JEE Advanced 2018] | ASRQ</div><div class="qb">The sides of a right angled triangle are in arithmetic progression. If the triangle has area 24, then what is the length of its smallest side?</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 28 | [JEE Mains 2025 (4 April)] | TAH 16</div><div class="qb">Consider two sets \( A \) and \( B \), each containing three numbers in A.P. Let the sum and the product of the elements of \( A \) be 36 and \( p \) respectively and the sum and the product of the elements of \( B \) be 36 and \( q \) respectively. Let \( d \) and \( D \) be the common differences of A.P.'s in \( A \) and \( B \) respectively such that \( D = d + 3 \), \( d > 0 \). If \(\frac{p+q}{p-q} = \frac{19}{5}\), then \( p - q \) is equal to:<ul class="opts"><li>540</li><li>450</li><li>600</li><li>630</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 29 | [JEE Mains 2023 (31 Jan)]</div><div class="qb">Let \( a_1, a_2, \dots, a_n \) be in A.P. If \( a_5 = 2a_7 \) and \( a_{11} = 18 \), then \( S = 12 \left( \frac{1}{\sqrt{a_{10}} + \sqrt{a_{11}}} + \frac{1}{\sqrt{a_{11}} + \sqrt{a_{12}}} + \dots + \frac{1}{\sqrt{a_{17}} + \sqrt{a_{18}}} \right) \) is equal to ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 30 | ASRQ</div><div class="qb">Given \( a_1, a_2, a_3, \dots, a_n \) in A.P. prove that \( S = \frac{1}{a_1a_n} + \frac{1}{a_2a_{n-1}} + \frac{1}{a_3a_{n-2}} + \dots + \frac{1}{a_na_1} = \frac{2}{a_1+a_n}\left[\frac{1}{a_1} + \frac{1}{a_2} + \dots + \frac{1}{a_n}\right] \).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 31 | [JEE Mains 2021 (August)] | TAH 17</div><div class="qb">Let \( a_1, a_2, \dots, a_{21} \) be an A.P. such that \(\sum_{n=1}^{20} \frac{1}{a_n a_{n+1}} = \frac{4}{9}\). If the sum of this A.P. is 189, then \( a_6 \cdot a_{16} \) is equal to:<ul class="opts"><li>57</li><li>72</li><li>48</li><li>36</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 32 | [JEE Mains 2024 (29 Jan)]</div><div class="qb">If \(\log_e a, \log_e b, \log_e c\) are in an A.P. and \(\log_e a - \log_e 2b, \log_e 2b - \log_e 3c, \log_e 3c - \log_e a\) are also in an A.P., then \( a : b : c \) is equal to:<ul class="opts"><li>\( 6:3:2 \)</li><li>\( 9:6:4 \)</li><li>\( 25:10:4 \)</li><li>\( 16:4:1 \)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 33 | [JEE Mains 2021 (27 July)] | TAH 18</div><div class="qb">If \(\log_3 2, \log_3(2^x - 5), \log_3\left(2^x - \frac{7}{2}\right)\) are in an arithmetic progression, then the value of \( x \) is equal to ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 34 | [JEE Mains 2022 (26 July)]</div><div class="qb">Different A.P.'s are constructed with the first term 100, the last term 199, and integral common differences. The sum of the common differences of all such A.P.'s having at least 3 terms and at most 33 terms is ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 36 | [JEE Advanced 2009]</div><div class="qb">The smallest value of \( k \), for which both the roots of the equation, \( x^2 - 8kx + 16(k^2 - k + 1) = 0 \) are real, distinct and have values at least 4, is ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 38 | ASRQ</div><div class="qb">The values of \( k \), for which the equation \( x^2 + 2(k - 1)x + k + 5 = 0 \) possess atleast one positive root, are:<ul class="opts"><li>\( [4, \infty) \)</li><li>\( (-\infty, -1] \cup [4, \infty) \)</li><li>\( [-1, 4] \)</li><li>\( (-\infty, -1] \)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 40 | ASRQ</div><div class="qb">Find all possible values of \( m \) for which exactly one root of the equation \( x^2 + mx + m^2 + 6m = 0 \), lies in \( (-2, 0) \).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 41 | [JEE Mains 2020]</div><div class="qb">The set of all real values of \( \lambda \) for which the quadratic equations, \( (\lambda^2 + 1)x^2 - 4\lambda x + 2 = 0 \) always have exactly one root in the interval \( (0, 1) \) is:<ul class="opts"><li>\( (-3, -1) \)</li><li>\( (2, 4] \)</li><li>\( (0, 2) \)</li><li>\( (1, 3] \)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 45 | [JEE Mains 2023 (11 Apr)]</div><div class="qb">The number of integral values of \(k\), for which one root of the equation \(2x^2 - 8x + k = 0\) lies in the interval \((1, 2)\) and its other root lies in the interval \((2, 3)\), is:<ul class="opts"><li>2</li><li>0</li><li>1</li><li>3</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 45 | ASRQ</div><div class="qb">Consider the quadratic equation \((c - 5)x^2 - 2cx + (c - 4) = 0, c \neq 5\). Let \(S\) be the set of all integral values of \(c\) for which one root of the equation lies in the interval \((0, 2)\) and its other root lies in the interval \((2, 3)\). Then the number of elements in \(S\) is:<ul class="opts"><li>18</li><li>12</li><li>10</li><li>11</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 48 | ASRQ</div><div class="qb">Let \(a,b,c \in R, a > 0\) such that the equation \(ax^2 + bcx + b^3 + c^3 - 4abc = 0\) has non real roots. Let \(P(x) = ax^2 + bx + c\) & \(Q(x) = ax^2 + cx + b\), then:<ul class="opts"><li>\(P(x) > 0 \; \forall x \in R\) & \(Q(x) = ax^2 + cx + b > 0\)</li><li>\(P(x) < 0 \; \forall x \in R\) & \(Q(x) < 0 \; \forall x \in R\)</li><li>Neither \(P(x)\) nor \(Q(x) > 0 \; \forall x \in R\)</li><li>Exactly one of \(P(x)\) or \(Q(x)\) is positive for all \(x \in R\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 50 | ASRQ</div><div class="qb">Show that in the equation, \(x^2 - 3xy + 2y^2 - 2x - 3y - 35 = 0\), for every real value of \(x\) there is a real value of \(y\), and for every value of \(y\) there is a real value of \(x\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 53 | ASRQ</div><div class="qb">Prove that for any real value of \(a\) the inequality, \((a^2 + 3)x^2 + (a + 2)x - 5 < 0\) is true for at least one negative \(x\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 54 | ASRQ</div><div class="qb">If \(f(x) = 4x^2 + ax + (a - 3)\) is negative for atleast one negative \(x\), find all possible values of \(a\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 55 | ASRQ</div><div class="qb">Find all real values of \(m\) for which the inequality \(mx^2 - 4x + 3m + 1 > 0\) is satisfied for all positive \(x\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 56 | ASRQ</div><div class="qb">Let \(P(x) = (m^2 + 4m + 5)x^2 - 4x + 7, m \in R\). If \(3 \le x \le 5\) then find the minimum of minimum value of \(P(x)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq3 Pg 58 | ASRQ</div><div class="qb">Find all values of the parameter \(a\) for which the inequality \(4^x - a \cdot 2^x - a + 3 \le 0\) is satisfied for atleast one real \(x\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq4 Pg 19 | [JEE Mains 2025 (22 Jan)]</div><div class="qb">Let \(a_1, a_2, a_3, \dots\) be a G.P. of increasing positive terms. If \(a_1a_5 = 28\) and \(a_2 + a_4 = 29\), then \(a_6\) is equal to:<ul class="opts"><li>812</li><li>784</li><li>628</li><li>526</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq4 Pg 21 | [JEE Mains 2024 (29 Jan)]</div><div class="qb">If in a G.P. of 64 terms, the sum of all the terms is 7 times the sum of the odd terms of the G.P., then the common ratio of the G.P. is equal to:<ul class="opts"><li>7</li><li>6</li><li>5</li><li>4</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq4 Pg 22 | [JEE Mains 2023 (24 Jan)]</div><div class="qb">The \(4^{\text{th}}\) term of G.P. is 500 and its common ratio is \(\frac{1}{m}, m \in N\). Let \(S_n\) denote the sum of the first \(n\) terms of this G.P. If \(S_6 > S_5 + 1\) and \(S_7 < S_6 + \frac{1}{2}\), then the number of possible values of \(m\) is ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq4 Pg 24 | [JEE Advanced 2014]</div><div class="qb">If \(a, b, c\) be positive integers such that \(\frac{b}{a}\) is an integer. If \(a, b, c\) are in geometric progression and the arithmetic mean of \(a, b, c\) is \(b + 2\), then the value of \(\frac{a^2 + a - 14}{a + 1}\) is ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq4 Pg 26 | [JEE Mains 2023 (10 April)]</div><div class="qb">Let the first term \(\alpha\) and the common ratio \(r\) of a geometric progression be positive integers. If the sum of squares of its first three terms is 33033, then the sum of these three terms is equal to:<ul class="opts"><li>241</li><li>231</li><li>220</li><li>210</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq4 Pg 28 | [JEE Mains 2024 (30 Jan)]</div><div class="qb">Let \(a\) and \(b\) be two distinct positive real numbers. Let \(11^{\text{th}}\) term of a G.P., whose first term is \(a\) and third term is \(b\), is equal to \(p^{\text{th}}\) term of another G.P., whose first term is \(a\) and fifth term is \(b\). Then \(p\) is equal to:<ul class="opts"><li>20</li><li>24</li><li>21</li><li>25</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq4 Pg 30 | [JEE Mains 2024 (31 Jan)]</div><div class="qb">Let \(2^{\text{nd}}\), \(8^{\text{th}}\) and \(44^{\text{th}}\) terms of a non-constant A.P. be respectively the \(1^{\text{st}}\), \(2^{\text{nd}}\) and \(3^{\text{rd}}\) terms of a G.P. If the first term of the A.P. is 1, then the sum of its first 20 terms is equal to:<ul class="opts"><li>990</li><li>980</li><li>960</li><li>970</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq5 Pg 3 | [JEE Mains 2019]</div><div class="qb">The product of three consecutive terms of a G.P. is 512. If 4 is added to each of the first and the second of these terms, the three terms now form an A.P. Then the sum of the original three terms of the given G.P. is:<ul class="opts"><li>36</li><li>32</li><li>24</li><li>28</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq5 Pg 4 | TAH 07</div><div class="qb">If \(a, b, c, d, e\) be 5 numbers such that \(a, b, c\) are in A.P.; \(b, c, d\) are in G.P. & \(\frac{1}{c}, \frac{1}{d}, \frac{1}{e}\) are in A.P., then:<br>(i) Prove that \(a, c, e\) are in G.P.<br>(ii) Prove that \(e = \frac{(2b-a)^2}{a}\)<br>(iii) If \(a = 2\) & \(e = 18\), find all possible values of \(b, c, d\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq5 Pg 5 | [JEE Mains 2025 (7 April)] | ASRQ</div><div class="qb">Let \(x_1, x_2, x_3, x_4\) be in a geometric progression. If 2, 7, 9, 5 are subtracted respectively from \(x_1, x_2, x_3, x_4\), then the resulting numbers are in an arithmetic progression. Then the value of \(\frac{1}{24}(x_1x_2x_3x_4)\) is:<ul class="opts"><li>18</li><li>216</li><li>36</li><li>72</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq5 Pg 7 | [JEE Mains 2024 (29 Jan)] | ASRQ</div><div class="qb">If each term of a geometric progression \(a_1, a_2, a_3, \dots\) with \(a_1 = \frac{1}{8}\) and \(a_2 \neq a_1\), is the arithmetic mean of the next two terms and \(S_n = a_1 + a_2 + \dots + a_n\), then \(S_{20} - S_{18}\) is equal to:<ul class="opts"><li>\(-2^{15}\)</li><li>\(2^{15}\)</li><li>\(-2^{18}\)</li><li>\(2^{18}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq5 Pg 8 | [JEE Mains 2023 (15 April)] | KCLS</div><div class="qb">Let \(A_1\) and \(A_2\) be two arithmetic means and \(G_1, G_2, G_3\) be three geometric means of two distinct positive numbers. Then \(G_1^4 + G_2^4 + G_3^4 + G_1^2G_3^2\) is equal to:<ul class="opts"><li>\((A_1 + A_2)^2G_1G_3\)</li><li>\((A_1 + A_2)G_1^2G_3^2\)</li><li>\(2(A_1 + A_2)G_1^2G_3^2\)</li><li>\(2(A_1 + A_2)G_1G_3\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq5 Pg 11 | [JEE Mains 2017] | KCLS</div><div class="qb">For any three positive real numbers \(a, b\) and \(c\), if \(9(25a^2 + b^2) + 25(c^2 - 3ac) = 15b(3a + c)\), then:<ul class="opts"><li>\(b, c\) and \(a\) are in G.P.</li><li>\(b, c\) and \(a\) are in A.P.</li><li>\(a, b\) and \(c\) are in A.P.</li><li>\(a, b\) and \(c\) are in G.P.</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq5 Pg 12 | [IIT-JEE 1987] | KCLS</div><div class="qb">If \(a, b, c, d\) and \(p\) are distinct real numbers such that \((a^2 + b^2 + c^2)p^2 - 2(ab + bc + cd)p + (b^2 + c^2 + d^2) \le 0\), then \(a, b, c, d\):<ul class="opts"><li>are in A.P.</li><li>are in G.P.</li><li>are in H.P.</li><li>satisfy \(ab = cd\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq5 Pg 13 | [JEE Mains 2023 (30 Jan)] | KCLS</div><div class="qb">The parabolas: \(ax^2 + 2bx + cy = 0\) and \(dx^2 + 2ex + fy = 0\) intersect on the line \(y = 1\). If \(a, b, c, d, e, f\) are positive real numbers and \(a, b, c\) are in G.P., then:<ul class="opts"><li>\(d, e, f\) are in A.P.</li><li>\(\frac{d}{a}, \frac{e}{b}, \frac{f}{c}\) are in G.P.</li><li>\(\frac{d}{a}, \frac{e}{b}, \frac{f}{c}\) are in A.P.</li><li>\(d, e, f\) are in G.P.</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq5 Pg 14 | [JEE Mains 2021 (26 Aug)] | TAH 11</div><div class="qb">Let \(a_1, a_2, \dots, a_{10}\) be an A.P. with common difference \(-3\) and \(b_1, b_2, \dots, b_{10}\) be a G.P. with common ratio 2. Let \(c_k = a_k + b_k\), \(k = 1, 2, \dots, 10\). If \(c_2 = 12\) and \(c_3 = 13\), then \(\sum_{k=1}^{10} c_k\) is equal to ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq5 Pg 15 | TAH 12</div><div class="qb">Let \(a, b, c > 1\), \(a^3, b^3\) and \(c^3\) be in A.P., and \(\log_a b, \log_c a\) and \(\log_b c\) be in G.P. If the sum of first 20 terms of an A.P., whose first term is \(\frac{a+4b+c}{3}\) and the common difference is \(\frac{a-8b+c}{10}\) is \(-444\), then \(abc\) is equal to:<ul class="opts"><li>343</li><li>16</li><li>\(\frac{343}{8}\)</li><li>\(\frac{125}{8}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq5 Pg 17 | [JEE Mains 2024 (8 April)]</div><div class="qb">Let \(ABC\) be an equilateral triangle. A new triangle is formed by joining the middle points of all sides of the triangle \(ABC\) and the same process is repeated infinitely many times. If \(P\) is the sum of perimeters and \(Q\) is the sum of areas of all the triangles formed in this process, then:<ul class="opts"><li>\(P^2 = 72\sqrt{3}Q\)</li><li>\(P^2 = 36\sqrt{3}Q\)</li><li>\(P = 36\sqrt{3}Q^2\)</li><li>\(P^2 = 6\sqrt{3}Q\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq5 Pg 19 | [JEE Mains 2024 (1 Feb)]</div><div class="qb">If three successive terms of a G.P. with common ratio \(r(r > 1)\) are the lengths of the sides of a triangle and \([r]\) denotes the greatest integer less than or equal to \(r\), then \(3[r] + [-r]\) is equal to ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq5 Pg 22 | [JEE Mains 2024 (31 Jan)]</div><div class="qb">A software company sets up \(m\) number of computer systems to finish an assignment in 17 days. If 4 computer systems crashed on the start of the second day, 4 more computer systems crashed on the start of the third day and so on, then it took 8 more days to finish the assignment. The value of \(m\) is equal to:<ul class="opts"><li>125</li><li>160</li><li>150</li><li>180</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq5 Pg 24</div><div class="qb">The sum of the series \(3 + 33 + 333 + \dots + n\) terms is:<ul class="opts"><li>\(\frac{1}{27}(10^{n+1} + 9n - 28)\)</li><li>\(\frac{1}{27}(10^{n+1} - 9n - 10)\)</li><li>\(\frac{1}{27}(10^{n+1} + 10n - 9)\)</li><li>None of these</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq5 Pg 25 | [JEE Mains 2018 (15 April)]</div><div class="qb">The sum of the first 20 terms of the series \(1 + \frac{3}{2} + \frac{7}{4} + \frac{15}{8} + \frac{31}{16} + \dots\) is:<ul class="opts"><li>\(38 + \frac{1}{2^{20}}\)</li><li>\(39 + \frac{1}{2^{19}}\)</li><li>\(39 + \frac{1}{2^{20}}\)</li><li>\(38 + \frac{1}{2^{19}}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq5 Pg 26 | Mind Bender</div><div class="qb">Let \(N = \frac{\overbrace{999\dots9}^{16\text{ digits}} - \overbrace{5555\dots5}^{8\text{ digits}}}{\underbrace{9000\dots04}_{9\text{ digits}}}\), then sum of digits of \(N\) is ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq6 Pg 1 | [JEE Mains 2026]</div><div class="qb">If \(\frac{\tan(A-B)}{\tan A} + \frac{\sin^2 C}{\sin^2 A} = 1\), \(A, B, C \in \left(0, \frac{\pi}{2}\right)\), then:<ul class="opts"><li>\(\tan A, \tan B, \tan C\) are in G.P.</li><li>\(\tan A, \tan C, \tan B\) are in G.P.</li><li>\(\tan A, \tan B, \tan C\) are in A.P.</li><li>\(\tan A, \tan C, \tan B\) are in A.P.</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq6 Pg 4 | [JEE Mains 2021]</div><div class="qb">Let \(A_1, A_2, A_3, \dots\) be squares such that for each \(n \ge 1\), the length of the side of \(A_n\) equals the length of diagonal of \(A_{n+1}\). If the length of \(A_1\) is 12 cm, then the smallest value of \(n\) for which area of \(A_n\) is less than one, is ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq6 Pg 5 | [JEE Mains 2026]</div><div class="qb">In a G.P., if the product of the first three terms is 27 and the set of all possible values for the sum of its first three terms is \(\mathbb{R} - (a, b)\), then \(a^2 + b^2\) is equal to ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq6 Pg 7 | [JEE Mains 2020] | ASRQ</div><div class="qb">If \(|x| < 1\), \(|y| < 1\) and \(x \neq y\), then the sum to infinity of the following series \(S = (x + y) + (x^2 + xy + y^2) + (x^3 + x^2y + xy^2 + y^3) + \dots\) is:<ul class="opts"><li>\(\frac{x + y + xy}{(1-x)(1-y)}\)</li><li>\(\frac{x + y - xy}{(1+x)(1+y)}\)</li><li>\(\frac{x + y + xy}{(1+x)(1+y)}\)</li><li>\(\frac{x + y - xy}{(1-x)(1-y)}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq6 Pg 8 | [JEE Mains 2023 (6 April)] | KCLS</div><div class="qb">If \(\gcd(m, n) = 1\) and \(1^2 - 2^2 + 3^2 - 4^2 + \dots + (2021)^2 - (2022)^2 + (2023)^2 = 1012 m^2 n\), then \(m^2 - n^2\) is equal to:<ul class="opts"><li>220</li><li>200</li><li>240</li><li>180</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq6 Pg 9 | [JEE Mains 2023 (31 Jan)]</div><div class="qb">Let \(a_1, a_2, a_3, \dots\) be an A.P. If \(a_7 = 3\), the product \(a_1a_4\) is minimum and the sum of its first \(n\) terms is zero, then \(n! - 4a_{n(n+2)}\) is equal to:<ul class="opts"><li>24</li><li>\(\frac{381}{4}\)</li><li>9</li><li>\(\frac{33}{4}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq6 Pg 11 | Mind Bender</div><div class="qb">If \(m, n\) are relatively prime positive integers such that \(\sum_{\substack{i, j \ge 0 \\ i+j = \text{odd}}} \frac{1}{3^i \cdot 5^j} = \frac{m}{n}\), then \((5n - 4m)\) is equal to ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq6 Pg 16 | [JEE Mains 2023]</div><div class="qb">If \((20)^{19} + 2(21)(20)^{18} + 3(21)^2(20)^{17} + \dots + 20(21)^{19} = k(20)^{19}\), then \(k\) is equal to ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq6 Pg 17</div><div class="qb">The sum of the series \(S = 1 + \left(1 + \frac{1}{5}\right)\cdot\frac{1}{2} + \left(1 + \frac{1}{5} + \frac{1}{5^2}\right)\cdot\frac{1}{2^2} + \left(1 + \frac{1}{5} + \frac{1}{5^2} + \frac{1}{5^3}\right)\cdot\frac{1}{2^3} + \dots \infty\) is ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq6 Pg 19 | [JEE Mains 2021] | Mind Bender</div><div class="qb">Let \(\{a_n\}_{n=1}^{\infty}\) be a sequence such that \(a_1 = 1\), \(a_2 = 1\) and \(a_{n+2} = 2a_{n+1} + a_n\) for all \(n \ge 1\). Then the value of \(47 \sum_{n=1}^{\infty} \frac{a_n}{8^n}\) is equal to ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq6 Pg 24 | [JEE Mains 2022 (25 July)]</div><div class="qb">Let \(a_1 = b_1 = 1\), \(a_n = a_{n-1} + 2\) and \(b_n = a_n + b_{n-1}\) for every natural number \(n \ge 2\). Then \(\sum_{n=1}^{15} a_n \cdot b_n\) is equal to ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq6 Pg 27 | TAH 08 | KCLS</div><div class="qb">If \(m\) is the A.M. of two distinct real numbers \(l\) and \(n\) (\(l, n > 1\)) and \(G_1, G_2\) and \(G_3\) are three geometric means between \(l\) and \(n\), then \(G_1^4 + 2G_2^4 + G_3^4\) equals:<ul class="opts"><li>\(4 l m n^2\)</li><li>\(4 l^2 m^2 n^2\)</li><li>\(4 l^2 m n\)</li><li>\(4 l m^2 n\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq6 Pg 29 | [JEE Mains 2021 (26 Aug)] | TAH 11</div><div class="qb">Let \(a_1, a_2, \dots, a_{10}\) be an A.P. with common difference \(-3\) and \(b_1, b_2, \dots, b_{10}\) be a G.P. with common ratio 2. Let \(c_k = a_k + b_k\), \(k = 1, 2, \dots, 10\). If \(c_2 = 12\) and \(c_3 = 13\), then \(\sum_{k=1}^{10} c_k\) is equal to ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq6 Pg 31 | TAH 12</div><div class="qb">Let \(a, b, c > 1\), \(a^3, b^3\) and \(c^3\) be in A.P., and \(\log_a b, \log_c a\) and \(\log_b c\) be in G.P. If the sum of first 20 terms of an A.P., whose first term is \(\frac{a+4b+c}{3}\) and the common difference is \(\frac{a-8b+c}{10}\) is \(-444\), then \(abc\) is equal to:<ul class="opts"><li>343</li><li>216</li><li>\(\frac{343}{8}\)</li><li>\(\frac{125}{8}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq6 Pg 35 | [JEE Mains 2019] | TAH 14</div><div class="qb">Some identical balls are arranged in rows to form an equilateral triangle. The first row consists of one ball, the second row consists of two balls and so on. If 99 more identical balls are added to the total number of balls used in forming the equilateral triangle, then all these balls can be arranged in a square whose each side contains exactly 2 balls less than the number of balls each side of the triangle contains. Then the number of balls used to form the equilateral triangle is:<ul class="opts"><li>157</li><li>262</li><li>225</li><li>190</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq6 Pg 37 | TAH 15</div><div class="qb">The value of the sum \(\frac{3}{19} + \frac{33}{19^2} + \frac{333}{19^3} + \frac{3333}{19^4} + \dots \infty\) is ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq7 Pg 2 | [JEE Mains 2023 (April)] | TAH 06</div><div class="qb">Suppose \(a_1, a_2, 2, a_3, a_4\) be in arithmetic-geometric progression. If the common ratio of the corresponding geometric progression is 2 and the sum of all 5 terms of the arithmetic-geometric progression is \(\frac{49}{2}\), then \(a_4\) is equal to ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq7 Pg 6 | Mind Bender</div><div class="qb">Consider two fixed lines \(y - x = 0\) and \(ky + x = 0\), \(k > 1\). A particle \(P\) starts from \((1, 1)\) and moves parallel to the y-axis to hit the second line at \(P_1\), then parallel to the x-axis to hit the first line at \(P_2\), and so on, moving alternately parallel to the coordinate axes to reach the origin. If the total distance travelled by the particle is 3, then the value of \(k\) is ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq7 Pg 8 | Mind Bender | Challenger</div><div class="qb">Starting at the origin, a particle makes 40 moves. The \(n^{\text{th}}\) move is of a distance of \(\frac{n^2}{2}\) units along a straight line. Its moves are in the order of due east, then north, then west, then south, and this cycle continues till 40 moves. The particle will be at a distance of ______ units from the origin.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq7 Pg 9 | [JEE Mains 2019]</div><div class="qb">The sum \(\frac{3 \times 1^3}{1^2} + \frac{5 \times (1^3 + 2^3)}{1^2 + 2^2} + \frac{7 \times (1^3 + 2^3 + 3^3)}{1^2 + 2^2 + 3^2} + \dots\) upto \(10^{\text{th}}\) term, is:<ul class="opts"><li>680</li><li>660</li><li>600</li><li>620</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq7 Pg 11</div><div class="qb">The sum of the series \(S = 6 + 13 + 22 + 33 + \dots\) up to \(n\) terms is ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq7 Pg 16</div><div class="qb">The sum of the series \(S = 5 + 7 + 13 + 31 + 85 + \dots\) up to \(n\) terms is ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq7 Pg 20 | [JEE Mains 2024 (8 April)] | ASRQ</div><div class="qb">An arithmetic progression is written in the following way:<br>$$\begin{matrix}
+&&&2&&& \\
+&&5&&8&& \\
+&11&&14&&17& \\
+20&&23&&26&&29
+\end{matrix}$$<br>The sum of all the terms of the \(10^{\text{th}}\) row is ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq7 Pg 22 | [JEE Mains 2024 (8 April)] | Mind Bender | challenge</div><div class="qb">Let the positive integers be written in the form:<br>$$\begin{matrix}
+&&&1&&& \\
+&&2&&3&& \\
+&4&&5&&6& \\
+7&&8&&9&&10
+\end{matrix}$$<br>If the \(k^{\text{th}}\) row contains exactly \(k\) numbers for every natural number \(k\), then the row in which the number 5310 lies, is ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq7 Pg 23 | [JEE Mains 2024 (30 Jan)] | KCLS</div><div class="qb">Let \(\alpha = 1^2 + 4^2 + 8^2 + 13^2 + 19^2 + 26^2 + \dots\) upto 10 terms and \(\beta = \sum_{n=1}^{10} n^4\). If \(4\alpha - \beta = 55k + 40\), then \(k\) is equal to ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq7 Pg 27 | [JEE Mains 2014] | TAH 02</div><div class="qb">If \((10)^9 + 2(11)^1(10)^8 + 3(11)^2(10)^7 + \dots + 10(11)^9 = k(10)^9\), then \(k\) is equal to:<ul class="opts"><li>\(\frac{121}{10}\)</li><li>\(\frac{441}{100}\)</li><li>100</li><li>110</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq7 Pg 30 | [JEE Mains 2023 (11 April)] | TAH 04</div><div class="qb">For \(k \in \mathbb{N}\), if the sum of the series \(1 + \frac{4}{k} + \frac{8}{k^2} + \frac{13}{k^3} + \frac{19}{k^4} + \dots\) is 10, then the value of \(k\) is ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq7 Pg 32 | [JEE Mains 2023 (11 April)] | TAH 05</div><div class="qb">Let \(S = 109 + \frac{108}{5} + \frac{107}{5^2} + \dots + \frac{2}{5^{107}} + \frac{1}{5^{108}}\). Then the value of \((16S - (25)^{-54})\) is equal to ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq7 Pg 35 | [JEE Mains 2022] | Mind Bender</div><div class="qb">Let \(\{a_n\}_{n=0}^{\infty}\) be a sequence such that \(a_0 = a_1 = 0\) and \(a_{n+2} = 2a_{n+1} - a_n + 1\) for all \(n \geq 0\). Then \(\sum_{n=2}^{\infty} \frac{a_n}{7^n}\) is equal to:<ul class="opts"><li>\(\frac{6}{343}\)</li><li>\(\frac{7}{216}\)</li><li>\(\frac{8}{343}\)</li><li>\(\frac{49}{216}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 4 | [JEE Mains 2024] | TAH 1 to 3</div><div class="qb">Let \(S_n\) be the sum to \(n\)-terms of an arithmetic progression \(3, 7, 11, \dots\). If \(40 < \left(\frac{6}{n(n+1)} \sum_{k=1}^n S_k\right) < 42\), then \(n\) equals ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 4 | [JEE Mains 2020] | TAH 1 to 3</div><div class="qb">Five numbers are in A.P., whose sum is 25 and product is 2520. If one of these five numbers is \(-\frac{1}{2}\), then the greatest number amongst them is:<ul class="opts"><li>\(\frac{21}{2}\)</li><li>16</li><li>27</li><li>7</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 4 | [JEE Mains 2025] | TAH 1 to 3</div><div class="qb">If the first term of an A.P. is 3 and the sum of its first four terms is equal to one-fifth of the sum of the next four terms, then the sum of the first 20 terms is equal to:<ul class="opts"><li>-120</li><li>-1200</li><li>-1020</li><li>-1080</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 7</div><div class="qb">The sum of the series \(\frac{1}{1 \cdot 2 \cdot 3 \cdot 4} + \frac{1}{2 \cdot 3 \cdot 4 \cdot 5} + \frac{1}{3 \cdot 4 \cdot 5 \cdot 6} + \dots\) up to \(n\) terms is ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 9</div><div class="qb">The sum of the series \(\frac{3}{1 \cdot 2 \cdot 4} + \frac{4}{2 \cdot 3 \cdot 5} + \frac{5}{3 \cdot 4 \cdot 6} + \dots\) up to \(n\) terms is ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 12 | [JEE Mains 2021] | ASRQ</div><div class="qb">The sum of 10 terms of the series \(\frac{3}{1^2 \times 2^2} + \frac{5}{2^2 \times 3^2} + \frac{7}{3^2 \times 4^2} + \dots\) is:<ul class="opts"><li>1</li><li>\(120/121\)</li><li>\(99/100\)</li><li>\(143/144\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 13 | [JEE Mains 2024 (31 Jan)] | ASRQ</div><div class="qb">The sum of the series \(\frac{1}{1 - 3 \cdot 1^2 + 1^4} + \frac{2}{1 - 3 \cdot 2^2 + 2^4} + \frac{3}{1 - 3 \cdot 3^2 + 3^4} + \dots\) up to 10-terms is:<ul class="opts"><li>\(\frac{45}{109}\)</li><li>\(-\frac{55}{109}\)</li><li>\(\frac{55}{109}\)</li><li>\(-\frac{45}{109}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 15 | [IIT-JEE 2010] | Mind Bender</div><div class="qb">Let \(S_k\), \(k = 1, 2, \dots, 100\), denote the sum of the infinite geometric series whose first term is \(\frac{k-1}{k!}\) and the common ratio is \(\frac{1}{k}\). Then the value of \(\frac{100^2}{100!} + \sum_{k=1}^{100} |(k^2 - 3k + 1)S_k|\) is ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 19</div><div class="qb">The sum of the series \(1 \cdot 2 \cdot 3 \cdot 4 + 2 \cdot 3 \cdot 4 \cdot 5 + 3 \cdot 4 \cdot 5 \cdot 6 + \dots\) up to \(n\) terms is ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 21 | [JEE Mains 2025 (28 Jan)] | Mind Bender</div><div class="qb">Let \(\langle a_n \rangle\) be a sequence such that \(a_0 = 0\), \(a_1 = \frac{1}{2}\) and \(2a_{n+2} = 5a_{n+1} - 3a_n\), \(n = 0, 1, 2, 3, \dots\). Then \(\sum_{k=1}^{100} a_k\) is equal to:<ul class="opts"><li>\(3a_{100} + 100\)</li><li>\(3a_{100} - 100\)</li><li>\(3a_{99} - 100\)</li><li>\(3a_{99} + 100\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 25</div><div class="qb">Let \(x^2 - (m - 3)x + m = 0\) (\(m \in \mathbb{R}\)) be a quadratic equation. Find the value of \(m\) for which the roots of the equation are:<br>(a) Positive<br>(b) Negative<br>(c) such that at least one is positive<br>(d) One root is smaller than 2 and other root is greater than 2<br>(e) Both the roots are greater than 2<br>(f) Both the roots are smaller than 2<br>(g) Exactly one root lies in the interval (1, 2)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 27 | [JEE Mains 2023] | TAH 1 to 6</div><div class="qb">If the sum and product of four positive consecutive terms of a G.P. are 126 and 1296, respectively, then the sum of common ratios of all such G.P.s is:<ul class="opts"><li>\(9/2\)</li><li>\(3\)</li><li>\(7\)</li><li>\(14\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 27 | [JEE Mains 2020] | TAH 1 to 6</div><div class="qb">The product \(2^{\frac{1}{4}} \cdot 4^{\frac{1}{16}} \cdot 8^{\frac{1}{48}} \cdot 16^{\frac{1}{128}} \dots\) to \(\infty\) is equal to:<ul class="opts"><li>\(2^{\frac{1}{4}}\)</li><li>\(2^{\frac{1}{2}}\)</li><li>1</li><li>2</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 27 | [JEE Mains 2002] | TAH 1 to 6</div><div class="qb">If the sum of an infinite G.P. is 20 and sum of their square is 100, then common ratio will be:<ul class="opts"><li>\(\frac{1}{2}\)</li><li>\(\frac{1}{4}\)</li><li>\(\frac{3}{5}\)</li><li>1</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 27 | [JEE Mains 2019] | TAH 1 to 6</div><div class="qb">The sum of an infinite geometric series with positive terms is 3 and the sum of the cubes of its terms is \(\frac{27}{19}\), then the common ratio of this series is:<ul class="opts"><li>\(\frac{1}{3}\)</li><li>\(\frac{2}{3}\)</li><li>\(\frac{2}{9}\)</li><li>\(\frac{4}{9}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 32 | [JEE Mains 2022] | TAH 1 to 6</div><div class="qb">If \(n\) AMs are inserted between two numbers \(a\) and 100, such that the ratio of first mean to last mean is \(1 : 7\) and \(a + n = 33\) then find the value of \(n\)?</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 32 | [JEE Mains 2020] | TAH 1 to 6</div><div class="qb">If \(m\) arithmetic mean (AMs) and three geometric means (GMs) are inserted between 3 and 243 such that \(4^{\text{th}}\) A.M. is equal to \(2^{\text{nd}}\) G.M. Find \(m\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 36 | [JEE Mains 2023 (27 Jan)] | TAH 07</div><div class="qb">Let \(a_1, a_2, a_3, \dots\) be in an arithmetic progression of positive terms. Let \(A_k = a_1^2 - a_2^2 + a_3^2 - a_4^2 + \dots + a_{2k-1}^2 - a_{2k}^2\). If \(A_3 = -153\), \(A_5 = -435\) and \(a_1^2 + a_2^2 + a_3^2 = 66\), then \(a_{17} - A_7\) is equal to ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 39 | [JEE Mains 2023 (15 April)] | ASRQ | TAH 08</div><div class="qb">If the sum of the series \(\left(\frac{1}{2} - \frac{1}{3}\right) + \left(\frac{1}{2^2} - \frac{1}{2 \cdot 3} + \frac{1}{3^2}\right) + \left(\frac{1}{2^3} - \frac{1}{2^2 \cdot 3} + \frac{1}{2 \cdot 3^2} - \frac{1}{3^3}\right) + \left(\frac{1}{2^4} - \frac{1}{2^3 \cdot 3} + \frac{1}{2^2 \cdot 3^2} - \frac{1}{2 \cdot 3^3} + \frac{1}{3^4}\right) + \dots\) is \(\frac{\alpha}{\beta}\), where \(\alpha\) and \(\beta\) are co-prime, then \(\alpha + 3\beta\) is equal to ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 40 | Mind Bender</div><div class="qb">Starting at the origin a particle makes 40 moves the \(n^{\text{th}}\) move is of a distance of \(\frac{n^2}{2}\) unit along a straight line. Its moves are in order of due east, then north, then west and then south and continues the order till 40 moves. The particle will be at a distance of ______ from origin?</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 42 | [JEE Mains 2019] | TAH 09</div><div class="qb">The sum \(1 + \frac{1^3 + 2^3}{1+2} + \frac{1^3 + 2^3 + 3^3}{1+2+3} + \dots + \frac{1^3 + 2^3 + 3^3 + \dots + 15^3}{1+2+3+\dots+15} - \frac{1}{2}(1 + 2 + 3 + \dots + 15)\) is equal to:<ul class="opts"><li>620</li><li>1240</li><li>1860</li><li>660</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 45 | [JEE Mains 2019] | TAH 10</div><div class="qb">Let \(S_k = \frac{1+2+3+\dots+k}{k}\). If \(S_1^2 + S_2^2 + \dots + S_{10}^2 = \frac{5}{12} A\), then \(A\) is equal to:<ul class="opts"><li>303</li><li>156</li><li>283</li><li>301</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 47 | [JEE Advanced 2009] | ASRQ | TAH 11</div><div class="qb">If the sum of first \(n\) terms of an A.P. is \(cn^2\), then the sum of squares of these \(n\) terms is:<ul class="opts"><li>\(\frac{n(4n^2-1)c^2}{6}\)</li><li>\(\frac{n(4n^2+1)c^2}{3}\)</li><li>\(\frac{n(4n^2-1)c^2}{3}\)</li><li>\(\frac{n(4n^2+1)c^2}{6}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 50 | [JEE Mains 2023 (13 April)] | TAH 11</div><div class="qb">The sum to 20 terms of the series \(2 \cdot 2^2 - 3^2 + 2 \cdot 4^2 - 5^2 + 2 \cdot 6^2 - \dots\) is equal to ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 53 | [JEE Mains 2025 (3 April)] | TAH 12</div><div class="qb">The sum \(1 + 3 + 11 + 25 + 45 + 71 + \dots\) upto 20 terms, is equal to:<ul class="opts"><li>7240</li><li>8124</li><li>7130</li><li>6982</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 55 | [JEE Mains 2023 (8 April)] | TAH 12</div><div class="qb">Let \(a_n\) be the \(n^{\text{th}}\) term of the series \(5 + 8 + 14 + 23 + 35 + 50 + \dots\) and \(S_n = \sum_{k=1}^n a_k\). Then \(S_{30} - a_{40}\) is equal to:<ul class="opts"><li>11280</li><li>11290</li><li>11310</li><li>11260</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 58 | [JEE Mains 2023 (10 April)] | TAH 13</div><div class="qb">If \(S_n = 4 + 11 + 21 + 34 + 50 + \dots\) to \(n\) terms, then \(\frac{1}{60} (S_{29} - S_9)\) is equal to:<ul class="opts"><li>227</li><li>226</li><li>220</li><li>223</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 61 | TAH 14</div><div class="qb">Find the sum of the series: \(2 + 5 + 14 + 41 + 122 + \dots\) up to \(n\) terms.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 63 | [JEE Mains 2022 (26 July)] | ASRQ | TAH 15</div><div class="qb">The series of positive multiples of 3 is divided into sets: \(\{3\}\), \(\{6, 9, 12\}\), \(\{15, 18, 21, 24, 27\}\), \(\dots\). Then the sum of the elements in the \(11^{\text{th}}\) set is equal to ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq8 Pg 65 | [JEE Mains 2024 (8 April)] | Mind Bender</div><div class="qb">Let the positive integers be written in the form:
+$$ \begin{matrix} 1 \\ 2 \quad 3 \\ 4 \quad 5 \quad 6 \\ 7 \quad 8 \quad 9 \quad 10 \\ \dots \end{matrix} $$
+If the \(k^{\text{th}}\) row contains exactly \(k\) numbers for every natural number \(k\), then the row in which the number 5310 will be, is ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 1</div><div class="qb">Let \(a_0, a_1, a_2, \dots, a_n, \dots\) be a sequence of numbers satisfying \((3 - a_{n+1}) \cdot (6 + a_n) = 18\) and \(a_0 = 3\), then \(\sum_{i=0}^n \frac{1}{a_i} =\)<ul class="opts"><li>\(\frac{1}{3}(2^{n+2} + n - 3)\)</li><li>\(\frac{1}{3}(2^{n+2} - n + 3)\)</li><li>\(\frac{1}{3}(2^{n+2} - n - 3)\)</li><li>\(\frac{1}{3}(2^{n+2} + n + 3)\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 4 | Mind Bender</div><div class="qb">It is given that the sequence \(\{a_n\}\) satisfies \(a_1 = 0, a_{n+1} = a_n + 1 + 2\sqrt{1 + a_n}\) for \(n \in N\). Then:<ul class="opts"><li>\(a_{100} = 9999\)</li><li>\(a_{2001} = 4004000\)</li><li>\(a_{2001} = 4002000\)</li><li>\(a_{19} = 360\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 6 | Mind Bender</div><div class="qb">\(a_1, a_2, a_3, \dots\) is a sequence such that \(a_1 = \frac{1}{2}\) and \((3 + a_n)(4 - a_{n+1}) = 12\) then \(\sum_{n=1}^n \frac{1}{a_n} =\) ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 8 | [JEE Advanced 2023] | Mind Bender</div><div class="qb">Let \(75 \overbrace{\dots}^{r} 57\) denote the \((r + 2)\) digit number where the first and the last digits are 7 and the remaining \(r\) digits are 5. Consider the sum \(S = 77 + 757 + 7557 + \dots + 75 \overbrace{\dots}^{98} 57\). If \(S = \frac{75\overbrace{\dots}^{99}57 + m}{n}\), where \(m\) and \(n\) are natural numbers less than 3000, then the value of \(m + n\) is ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 16 | TAH 01 a</div><div class="qb">(a) The \(m^{\text{th}}\) term of a H.P. is \(n\) and the \(n^{\text{th}}\) term is \(m\). Prove that the \(p^{\text{th}}\) term is \(\frac{mn}{p}\).<br>(b) If \(m^{\text{th}}\) term of an H.P. is \(n\), and \(n^{\text{th}}\) term is equal to \(m\) then prove that \((m+n)^{\text{th}}\) term is \(\frac{mn}{m+n}\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 17</div><div class="qb">Given \(a + b = 50, a, b \in R^+\). If \(A, G\) and \(H\) are, respectively, the AM, GM and HM between the numbers \(a\) and \(b\), such that the GM exceeds HM by 4, then (where \(A > 1, G > 1, H > 1\)):<ul class="opts"><li>\(A + G = 30H\)</li><li>\(G + H = A + 11\)</li><li>\(4(G + H) = A - 1\)</li><li>\(A + G = 3(H - 1)\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 18</div><div class="qb">If \(a_1, a_2, a_3, \dots, a_n\) are in H.P. then show that \(a_1 a_2 + a_2 a_3 + a_3 a_4 + \dots + a_{n-1} a_n = (n - 1) a_1 a_n\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 21</div><div class="qb">If \(a, b, c\) are positive numbers and \(a + 2b + 3c = 7\) then find maximum value of:<br>(i) \((a b^2 c^3)\)<br>(ii) \((a^2 b^3 c^4)\)<br>(iii) \((a b^2 c)\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 27 | TAH 02</div><div class="qb">If \(x, y, z > 0\) and \(x + y + z = 1\), prove that:<br>(i) \(x^2 y z \leq \frac{1}{64}\)<br>(ii) \(x^2 + y^2 + z^2 \geq \frac{1}{3}\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 28</div><div class="qb">If \(a, b, c\) are positive then prove that \(\frac{a^3}{4b} + \frac{b}{8c^2} + \frac{1+c}{2a} \geq \frac{5}{4}\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 29</div><div class="qb">If \(a_i < 0\) for all \(i = 1, 2, \dots, n\) prove that:<br>(i) \((a_1 + a_2 + \dots + a_n) \left(\frac{1}{a_1} + \frac{1}{a_2} + \dots + \frac{1}{a_n}\right) \geq n^2\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 31</div><div class="qb">If \(x > 0, y > 0, z > 0\), then prove that \((x + y)(y + z)(z + x) \geq 8xyz\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 32</div><div class="qb">If \(\alpha_i, i \in \{1, 2, 3, \dots, 6\}\) are positive roots of the equation \(x^6 - 12x^5 + ax^4 - bx^3 + cx^2 - dx + 64 = 0\), then value of \(b\) is ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 33 | [JEE Mains 2024] | TAH 1 to 3 | Q1</div><div class="qb">Let \(S_n\) be the sum to \(n\)-terms of an arithmetic progression \(3, 7, 11, \dots\) If \(40 < \left(\frac{6}{n(n+1)} \sum_{k=1}^n S_k\right) < 42\), then \(n\) equals ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 33 | [JEE Mains 2020] | TAH 1 to 3 | Q2</div><div class="qb">Five numbers are in A.P., whose sum is 25 and product is 2520. If one of these five numbers is \(-\frac{1}{2}\), then the greatest number amongst them is:<ul class="opts"><li>\(\frac{21}{2}\)</li><li>\(16\)</li><li>\(27\)</li><li>\(7\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 33 | [JEE Mains 2025] | TAH 1 to 3 | Q3</div><div class="qb">If the first term of an A.P. is 3 and the sum of its first four terms is equal to one-fifth of the sum of the next four terms, then the sum of the first 20 terms is equal to:<ul class="opts"><li>\(-120\)</li><li>\(-1200\)</li><li>\(-1020\)</li><li>\(-1080\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 39 | [JEE Mains 2025 (23 Jan)] | TAH 05</div><div class="qb">The roots of the quadratic equation \(3x^2 - px + q = 0\) are \(10^{\text{th}}\) and \(11^{\text{th}}\) terms of an arithmetic progression with common difference \(\frac{3}{2}\). If the sum of the first 11 terms of this arithmetic progression is 88, then \(q - 2p\) is equal to ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 42 | [JEE Mains 2025 (22 Jan)] | TAH 06</div><div class="qb">Suppose that the number of terms in an A.P. is \(2k, k \in N\). If the sum of all odd terms of the A.P. is 40, the sum of all even terms is 55 and the last term of the A.P. exceeds the first term by 27, then \(k\) is equal to:<ul class="opts"><li>8</li><li>6</li><li>4</li><li>5</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 46 | TAH 10</div><div class="qb">Find \(S_n\) and \(S_\infty\) of the series: \(\frac{1}{1 \cdot 3 \cdot 5} + \frac{1}{3 \cdot 5 \cdot 7} + \frac{1}{5 \cdot 7 \cdot 9} + \dots\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 49 | [JEE Mains 2024 (9 April)] | TAH 11</div><div class="qb">If the sum of the series \(\frac{1}{1 \cdot (1+d)} + \frac{1}{(1+d)(1+2d)} + \dots + \frac{1}{(1+9d)(1+10d)}\) is equal to 5, then \(50d\) is equal to:<ul class="opts"><li>5</li><li>10</li><li>15</li><li>20</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 52 | TAH 12</div><div class="qb">Find \(S_n\) and \(S_\infty\) of the series: \(\frac{1}{1 \cdot 3} + \frac{2}{1 \cdot 3 \cdot 5} + \frac{3}{1 \cdot 3 \cdot 5 \cdot 7} + \frac{4}{1 \cdot 3 \cdot 5 \cdot 7 \cdot 9} + \dots\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 54</div><div class="qb">Find \(S_n\) and \(S_\infty\) for \(\frac{1}{2 \cdot 4} + \frac{1 \cdot 3}{2 \cdot 4 \cdot 6} + \frac{1 \cdot 3 \cdot 5}{2 \cdot 4 \cdot 6 \cdot 8} + \dots\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 56 | [JEE Mains 2021] | TAH 13</div><div class="qb">\(\frac{1}{3^2 - 1} + \frac{1}{5^2 - 1} + \frac{1}{7^2 - 1} + \dots + \frac{1}{(201)^2 - 1}\) is equal to:<ul class="opts"><li>101/404</li><li>25/101</li><li>4</li><li>6</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 59 | [JEE Mains 2023 (1 Feb)] | TAH 14</div><div class="qb">The sum of 10 terms of the series \(\frac{1}{1 + 1^2 + 1^4} + \frac{2}{1 + 2^2 + 2^4} + \frac{3}{1 + 3^2 + 3^4} + \dots\) is:<ul class="opts"><li>58/111</li><li>56/111</li><li>55/111</li><li>59/111</li></ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 62 | [JEE Mains 2025 (4 April)] | TAH 15</div><div class="qb">If the sum of the first 20 terms of the series \(\frac{4 \cdot 1}{4 + 3 \cdot 1^2 + 1^4} + \frac{4 \cdot 2}{4 + 3 \cdot 2^2 + 2^4} + \frac{4 \cdot 3}{4 + 3 \cdot 3^2 + 3^4} + \frac{4 \cdot 4}{4 + 3 \cdot 4^2 + 4^4} + \dots\) is \(\frac{m}{n}\), where \(m\) and \(n\) are coprime, then \(m + n\) is equal to:<ul class="opts"><li>423</li><li>421</li><li>422</li><li>420</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 64 | [JEE Mains 2025 (2 April)] | TAH 16</div><div class="qb">If the sum of the first 10 terms of the series \(\frac{4 \cdot 1}{1 + 4 \cdot 1^4} + \frac{4 \cdot 2}{1 + 4 \cdot 2^4} + \frac{4 \cdot 3}{1 + 4 \cdot 3^4} + \dots\) is \(\frac{m}{n}\), where \(\gcd(m, n) = 1\), then \(m + n\) is equal to ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 67 | TAH 17</div><div class="qb">Find the sum of the series: \(1 \cdot 3 \cdot 5 \cdot 7 + 3 \cdot 5 \cdot 7 \cdot 9 + 5 \cdot 7 \cdot 9 \cdot 11 + \dots\) up to \(n\) terms.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq9 Pg 70</div><div class="qb">Let \(x^2 - (m - 3)x + m = 0\) (\(m \in R\)) be a quadratic equation. Find the value of \(m\) for which the roots of the equation are:<br>(a) Positive<br>(b) Negative<br>(c) such that at least one is positive<br>(d) One root is smaller than 2 and other root is greater than 2<br>(e) Both the roots are greater than 2<br>(f) Both the roots are smaller than 2<br>(g) Exactly one root lies in the interval (1, 2)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq10 Pg 3 | TAH 18 (i)</div><div class="qb">Find the sum of following series:<br>\(S = \sum_{n=1}^{100} n(n!)\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq10 Pg 3 | TAH 18 (ii)</div><div class="qb">Find the sum of following series:<br>\(S = \sum_{n=1}^{50} \frac{n}{(n+1)!}\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq10 Pg 3 | TAH 18 (iii)</div><div class="qb">Find the sum of following series:<br>\(S = \sum_{r=1}^{100} (r^2 + 1) \cdot r!\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq10 Pg 4 | [JEE Mains 2023 (30 Jan)] | TAH 19</div><div class="qb">Let \(\sum_{n=0}^\infty \frac{n^3 ((2n)!) + (2n - 1) (n!)}{(n!) ((2n)!)} = ae + \frac{b}{e} + c\), where \(a, b, c \in \mathbb{Z}\) and \(e = \sum_{n=0}^\infty \frac{1}{n!}\). Then \(a^2 - b + c\) is equal to ______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq10 Pg 6 | [JEE Mains 2023 (1 Feb)] | TAH 20</div><div class="qb">The sum \(\sum_{n=1}^\infty \frac{2n^2 + 3n + 4}{(2n)!}\) is equal to:<ul class="opts"><li>\(\frac{11e}{2} + \frac{7}{2e}\)</li><li>\(\frac{13e}{4} + \frac{5}{4e} - 4\)</li><li>\(\frac{11e}{2} + \frac{7}{2e} - 4\)</li><li>\(\frac{13e}{4} + \frac{5}{4e}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq10 Pg 10 | [JEE Mains 2021 (Aug)] | TAH 21</div><div class="qb">If \(0 < x < 1\), then \(\frac{3}{2}x^2 + \frac{5}{3}x^3 + \frac{7}{4}x^4 \dots\), is equal to:<ul class="opts"><li>\(x\left(\frac{1+x}{1-x}\right) + \log_e(1-x)\)</li><li>\(x\left(\frac{1-x}{1+x}\right) + \log_e(1-x)\)</li><li>\(\frac{1-x}{1+x} + \log_e(1-x)\)</li><li>\(\frac{1+x}{1-x} + \log_e(1-x)\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq10 Pg 12 | TAH 22</div><div class="qb">Evaluate the sum of the series \(\frac{1}{1 \cdot 2} - \frac{1}{2 \cdot 3} + \frac{1}{3 \cdot 4} - \frac{1}{4 \cdot 5} + \dots \infty\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">seq10 Pg 14 | [JEE Mains 2024 (5 April)] | TAH 23</div><div class="qb">If \(1 + \frac{\sqrt{3} - \sqrt{2}}{2\sqrt{3}} + \frac{5 - 2\sqrt{6}}{18} + \frac{9\sqrt{3} - 11\sqrt{2}}{36\sqrt{3}} + \frac{49 - 20\sqrt{6}}{180} + \dots \text{upto } \infty = 2 + \left(\sqrt{\frac{b}{a}} + 1\right) \log_e \left(\frac{a}{b}\right)\), where \(a\) and \(b\) are integers with \(\text{gcd}(a, b) = 1\), then \(11a + 18b\) is equal to ______</div></div></div>
+
+</body>
+</html>

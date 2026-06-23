@@ -29,6 +29,15 @@ const CHAPTERS = [
     questionCount: 67,
     tags: ['Roots', 'Discriminant', 'Location of Roots', 'Range', 'Inequalities'],
   },
+  {
+    id: 'seq-series-class',
+    icon: '📚',
+    title: 'Sequence and series class Dpp',
+    subject: 'Mathematics',
+    file: '/dpps/sequence_series_class.html',
+    questionCount: 52,
+    tags: ['Class Notes', 'AP', 'GP', 'Location of Roots'],
+  },
 ];
 
 export default function HomePage({ onLoadDPP, loadedChapters }) {
