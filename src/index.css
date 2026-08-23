@@ -621,3 +621,83 @@ body {
 /* ══ MathJax ══ */
 .MathJax { font-size: 1.25em !important; }
 mjx-container { overflow-x: auto; overflow-y: hidden; max-width: 100%; display: inline !important; }
+
+/* ══ Question Badges & Tags ══ */
+.tag {
+  display: inline-block;
+  margin: 0 4px 4px 0;
+  padding: 2px 8px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: .2px;
+  vertical-align: middle;
+}
+.tag.kcls { background: #c25e17; }
+.tag.mindbender { background: #6d3ca0; }
+.tag.asrq { background: #1f6892; }
+.tag.exam { background: #2a7a54; }
+
+/* ══ Inline Options & Sub-questions in Q-Body ══ */
+.q-body .opts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 6px 16px;
+  margin: 10px 0;
+  padding: 0;
+  list-style: none;
+}
+.q-body .opts li {
+  font-size: 14px;
+  font-weight: 400;
+}
+.q-body .opts li::before {
+  font-weight: 700;
+  color: #333;
+}
+.q-body .opts li:nth-child(1)::before { content: '(A) '; }
+.q-body .opts li:nth-child(2)::before { content: '(B) '; }
+.q-body .opts li:nth-child(3)::before { content: '(C) '; }
+.q-body .opts li:nth-child(4)::before { content: '(D) '; }
+.q-body .opts li:nth-child(5)::before { content: '(E) '; }
+
+.q-body ol.subq {
+  padding-left: 24px;
+  margin: 8px 0;
+  font-size: 15px;
+}
+.q-body ol.subq li {
+  margin-bottom: 6px;
+}
+
+.q-body table {
+  width: 100%;
+  margin: 12px 0;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.q-body td, .q-body th {
+  border: 1px solid #d1d5db;
+  padding: 6px 10px;
+  vertical-align: top;
+}
+.q-body th {
+  background: #f3f4f6;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.notes {
+  clear: both;
+  margin-top: 12px;
+  padding-top: 6px;
+  border-top: 1px dashed #d1d5db;
+  color: #888;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+

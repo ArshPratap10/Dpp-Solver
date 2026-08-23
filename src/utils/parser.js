@@ -62,11 +62,13 @@ function parseSingleQuestion(qEl) {
 
   const qbEl = qEl.querySelector('.qb');
 
-  // Extract options
+  // Extract options (only extract top-level single .opts for standard MCQ)
   const options = [];
-  const optsEl = qbEl ? qbEl.querySelector('.opts') : null;
-  if (optsEl) {
-    const lis = optsEl.querySelectorAll('li');
+  const allOpts = qbEl ? qbEl.querySelectorAll('.opts') : [];
+  const isStandardMCQ = allOpts.length === 1 && !qbEl.querySelector('ol.subq .opts');
+
+  if (isStandardMCQ) {
+    const lis = allOpts[0].querySelectorAll('li');
     lis.forEach((li, i) => {
       options.push({
         label: String.fromCharCode(65 + i),
@@ -79,8 +81,10 @@ function parseSingleQuestion(qEl) {
   let questionHtml = '';
   if (qbEl) {
     const clone = qbEl.cloneNode(true);
-    const optsClone = clone.querySelector('.opts');
-    if (optsClone) optsClone.remove();
+    if (isStandardMCQ) {
+      const optsClone = clone.querySelector('.opts');
+      if (optsClone) optsClone.remove();
+    }
     questionHtml = clone.innerHTML.trim();
   }
 

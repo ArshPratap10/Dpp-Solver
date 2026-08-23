@@ -38,6 +38,15 @@ const CHAPTERS = [
     questionCount: 178,
     tags: ['Class Notes', 'AP', 'GP', 'Location of Roots'],
   },
+  {
+    id: 'circle-combined',
+    icon: '⭕',
+    title: 'Circle (Combined DPP)',
+    subject: 'Mathematics',
+    file: '/dpps/circle_combined.html',
+    questionCount: 122,
+    tags: ['Part 01', 'Part 02', 'Tangents', 'Loci', 'TAH'],
+  },
 ];
 
 export default function HomePage({ onLoadDPP, loadedChapters }) {

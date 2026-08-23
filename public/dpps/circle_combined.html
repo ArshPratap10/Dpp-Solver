@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Circle — Complete DPP (JEE Main &amp; Advanced)</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #1a1a1a;
+  background: #fff;
+  padding: 12mm 14mm;
+  counter-reset: qnum;
+}
+.dpp-header {
+  border: 2.5px solid #000;
+  margin-bottom: 20px;
+  page-break-inside: avoid;
+}
+.dpp-title {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 0;
+}
+.dpp-meta {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-top: 1.5px solid #000;
+  background: #fafafa;
+}
+.dpp-meta span { display: inline-block; }
+h2 {
+  font-size: 13px;
+  font-weight: 700;
+  background: #1e1e2e;
+  color: #fff;
+  padding: 5px 12px;
+  margin: 24px 0 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.q {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border-left: 3.5px solid #000;
+  border-bottom: 1px solid #e5e7eb;
+  page-break-inside: avoid;
+  counter-increment: qnum;
+}
+.q::before {
+  content: counter(qnum) ".";
+  font-weight: 700;
+  font-size: 14px;
+  min-width: 28px;
+  flex-shrink: 0;
+}
+.qinner { flex: 1; min-width: 0; }
+.qh {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #666;
+  float: right;
+  margin-left: 10px;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+.qb {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.75;
+  color: #111;
+  display: block;
+  overflow: hidden;
+}
+.tag {
+  display: inline-block;
+  margin: 0 4px 4px 0;
+  padding: 2px 8px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: .2px;
+  vertical-align: middle;
+}
+.tag.kcls { background: #bd651d; }
+.tag.mindbender { background: #7546a7; }
+.tag.asrq { background: #23719e; }
+.tag.exam { background: #32845e; }
+.opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 28px;
+  margin-top: 10px;
+  padding-left: 0;
+  list-style: none;
+  font-weight: 400;
+  font-size: 14px;
+  border-top: 1px dashed #ddd;
+  padding-top: 6px;
+}
+.opts li::before { font-weight: 700; color: #333; }
+.opts li:nth-child(1)::before { content: "(A) "; }
+.opts li:nth-child(2)::before { content: "(B) "; }
+.opts li:nth-child(3)::before { content: "(C) "; }
+.opts li:nth-child(4)::before { content: "(D) "; }
+.opts li:nth-child(5)::before { content: "(E) "; }
+ol.subq { padding-left: 20px; margin-top: 6px; font-weight: 400; font-size: 14px; }
+ol.subq li { margin-bottom: 4px; }
+table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 13px; font-weight: 400; }
+td, th { border: 1px solid #888; padding: 5px 8px; vertical-align: top; }
+th { font-weight: 700; background: #f3f4f6; }
+@media print {
+  body { padding: 8mm 10mm; font-size: 13px; }
+  h2 { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .q { margin-bottom: 12px; }
+}
+</style>
+</head>
+<body>
+
+<div class="dpp-header">
+  <div class="dpp-title">Daily Practice Paper &mdash; Circle</div>
+  <div class="dpp-meta">
+    <span><strong>Subject:</strong> Mathematics</span>
+    <span><strong>Topic:</strong> Circle (Combined DPP &mdash; Parts 1 &amp; 2)</span>
+    <span><strong>Total Questions:</strong> 122</span>
+  </div>
+</div>
+
+<h2>Part 01 &mdash; Foundational Concepts, Tangents, Loci &amp; Power of a Point</h2>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 21 | Q1</div><div class="qb">Find the equation of the circle
+<ol class="subq" style="list-style-type:lower-alpha;">
+<li>Centre is on the line \(y = 2x\) and passing through \((-1, 2)\) and \((3, -2)\).</li>
+<li>Passes through \((2, 3)\) and centre on the \(x\)-axis, radius being 5.</li>
+<li>Which has its centre as the point \((4, 3)\) and touching the line \(5x - 12y - 10 = 0\).</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 24 | Q1</div><div class="qb">The parabola \(y^2 = 4ax\) and the line \(y = mx + c\) meet at two distinct points \(A\) and \(B\). Find the equation of circle with \(AB\) as diameter.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 25 | Q1</div><div class="qb">Let \(ABCD\) and \(AEFG\) be squares of side \(4\) and \(2\) units, respectively. The point \(E\) is on the line segment \(AB\) and the point \(F\) is on the diagonal \(AC\). Then the radius \(r\) of the circle passing through the point \(F\) and touching the line segments \(BC\) and \(CD\) satisfies:
+<ul class="opts"><li>\(r = 1\)</li><li>\(2r^2 - 4r + 1 = 0\)</li><li>\(2r^2 - 8r + 7 = 0\)</li><li>\(r^2 - 8r + 8 = 0\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 26 | Q1</div><div class="qb">The lines \(3x - 4y + 4 = 0\) and \(6x - 8y - 7 = 0\) are tangents to the same circle. The radius of this circle is _________</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 27 | Q1</div><div class="qb">If the four distinct points \((4, 6)\), \((-1, 5)\), \((0, 0)\) and \((k, 3k)\) lie on a circle of radius \(r\), then \(10k + r^2\) is equal to
+<ul class="opts"><li>34</li><li>32</li><li>35</li><li>33</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 29 | Q1</div><div class="qb">Let \(P(a_1, b_1)\) and \(Q(a_2, b_2)\) be two distinct points on a circle with center \(C(\sqrt{2}, \sqrt{3})\). Let \(O\) be the origin and \(OC\) be perpendicular to both \(CP\) and \(CQ\). If the area of the triangle \(OCP\) is \(\frac{\sqrt{35}}{2}\), then \(a_1^2 + a_2^2 + b_1^2 + b_2^2\) is equal to:</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 30 | Q1</div><div class="qb">Find the equation of a circle which touches the positive axis of \(y\) at a distance of \(4\) unit from origin and cuts off an intercept of \(6\) units from the axis of \(x\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 32 | Q1</div><div class="qb"><span class="tag kcls">★★★ KCLS ★★★</span><br/>Find the equation of the locus of the centre of a circle which touches the positive \(y\)-axis and having intercept on \(x\)-axis equal to \(2l\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 33 | Q1</div><div class="qb"><span class="tag kcls">★★★ KCLS ★★★</span><br/>Two rods whose lengths are \(2a\) and \(2b\) slide along the rectangular axes in such a way that their extremities are always concyclic. Find the equation of the locus of the centre of the circle.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 34 | Q1</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span> <span class="tag exam">JEE Advanced 2017</span><br/>For how many values of \(p\), the circle \(x^2 + y^2 + 2x + 4y - p = 0\) and the coordinate axes have exactly three common points?</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 36 | Q1</div><div class="qb"><span class="tag asrq">★★★ ASRQ ★★★</span> <span class="tag exam">JEE Mains 2013</span><br/>The circle passing through \((1, -2)\) and touching the axis of \(x\) at \((3, 0)\) also passes through the point:
+<ul class="opts"><li>\((-5, 2)\)</li><li>\((2, -5)\)</li><li>\((5, -2)\)</li><li>\((-2, 5)\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 37 | Q1</div><div class="qb"><span class="tag kcls">★★★ KCLS ★★★</span> <span class="tag exam">JEE Mains 2016</span><br/>If one of the diameters of the circle, given by the equation, \(x^2 + y^2 - 4x + 6y - 12 = 0\), is a chord of a circle \(S\), whose centre is at \((-3, 2)\), then the radius of \(S\) is:
+<ul class="opts"><li>\(10\)</li><li>\(5\sqrt{2}\)</li><li>\(5\sqrt{3}\)</li><li>\(5\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 38 | Q1</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span> <span class="tag exam">JEE Mains 2019</span><br/>If a circle of radius \(R\) passes through the origin \(O\) and intersects the coordinates axes at \(A\) and \(B\), then the locus of the foot of perpendicular from \(O\) on \(AB\) is:
+<ul class="opts"><li>\((x^2 + y^2)^2 = 4R^2x^2y^2\)</li><li>\((x^2 + y^2)^2 = 4Rx^2y^2\)</li><li>\((x^2 + y^2)^3 = 4R^2x^2y^2\)</li><li>\((x^2 + y^2)(x + y) = R^2xy\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 44 | Q1</div><div class="qb">For what value of '\(a\)' the point \((a, a + 1)\) lies inside the region bounded by the circle \(x^2 + y^2 = 5\) and the line \(x + y = 2\) in the first quadrant.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 45 | Q1</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span><br/>If the join of \((x_1, y_1)\) &amp; \((x_2, y_2)\) makes an obtuse angle at \((x_3, y_3)\) then prove that \((x_3 - x_1)(x_3 - x_2) + (y_3 - y_1)(y_3 - y_2) &lt; 0\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 47 | Q1</div><div class="qb">Convert \(x^2 + y^2 - 6x + 4y - 3 = 0\) into parametric form.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 48 | Q1</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span> <span class="tag exam">JEE Mains 2023 (10 April)</span><br/>A line segment \(AB\) of length \(\lambda\) moves such that the points \(A\) and \(B\) remain on the periphery of a circle of radius \(\lambda\). Then the locus of the point, that divides the line segment \(AB\) in the ratio \(2 : 3\), is a circle of radius
+<ul class="opts"><li>\(\frac{2}{3}\lambda\)</li><li>\(\frac{3}{5}\lambda\)</li><li>\(\frac{\sqrt{19}}{7}\lambda\)</li><li>\(\frac{\sqrt{19}}{5}\lambda\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 50 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2026 (5 April)</span><br/>Let \(P\) be a moving point on the circle \(x^2 + y^2 - 6x - 8y + 21 = 0\). Then, the maximum distance of \(P\) from the vertex of the parabola \(x^2 + 6x + y + 13 = 0\) is equal to:
+<ul class="opts"><li>\(8\)</li><li>\(10\)</li><li>\(12\)</li><li>\(9\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 51 | Q1</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span> <span class="tag exam">JEE Mains 2022 (28 July)</span><br/>Let \(C\) be the centre of the circle \(x^2 + y^2 - x + 2y = \frac{11}{4}\) and \(P\) be a point on the circle. A line passes through the point \(C\), makes an angle of \(\frac{\pi}{4}\) with the line \(CP\) and intersects the circle at the points \(Q\) and \(R\). Then the area of the triangle \(PQR\) (in unit\(^2\)) is:
+<ul class="opts"><li>\(2\)</li><li>\(2\sqrt{2}\)</li><li>\(8 \sin\left(\frac{\pi}{8}\right)\)</li><li>\(8 \cos\left(\frac{\pi}{8}\right)\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 52 | Q1</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span><br/>For the condition \(x^2 + y^2 - 4x + 3 = 0\), find
+<ol class="subq" style="list-style-type:lower-alpha;">
+<li>maximum &amp; minimum value of \(x^2 + y^2\)</li>
+<li>maximum value of \(x^2 + y^2 + 2y\)</li>
+<li>maximum &amp; minimum value of \(3x + 4y\)</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 58 | Q1</div><div class="qb">Find the equation of tangent drawn to the circle \(x^2 + y^2 - 6x + 4y - 3 = 0\) from the point \((7, 4)\) lying outside the circle.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 59 | Q1</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span> <span class="tag exam">JEE Mains 2019</span><br/>The sum of the squares of the lengths of the chords intercepted on the circle, \(x^2 + y^2 = 16\), by the lines, \(x + y = n, n \in \mathbb{N}\), where \(\mathbb{N}\) is the set of all natural numbers, is:
+<ul class="opts"><li>\(210\)</li><li>\(160\)</li><li>\(105\)</li><li>\(320\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 90 | Q2</div><div class="qb"><span class="tag exam">JEE Mains 2018</span><br/>The tangent to the circle \(C_1 : x^2 + y^2 - 2x - 1 = 0\) at the point \((2, 1)\) cuts off a chord of length \(4\) from a circle \(C_2\) whose center is \((3, -2)\). The radius of \(C_2\) is:
+<ul class="opts"><li>\(2\)</li><li>\(\sqrt{2}\)</li><li>\(3\)</li><li>\(\sqrt{6}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 91 | Q3</div><div class="qb"><span class="tag exam">IIT-JEE 2012</span><br/>A tangent \(PT\) is drawn to the circle \(x^2 + y^2 = 4\) at the point \(P(\sqrt{3}, 1)\). A straight line \(L\), perpendicular to \(PT\) is a tangent to the circle \((x-3)^2 + y^2 = 1\). A possible equation of \(L\) is
+<ul class="opts"><li>\(x - \sqrt{3}y = 1\)</li><li>\(x + \sqrt{3}y = 1\)</li><li>\(x - \sqrt{3}y = -1\)</li><li>\(x + \sqrt{3}y = 5\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 92 | Q4</div><div class="qb"><span class="tag asrq">★★★ ASRQ ★★★</span><br/>Find the point of contact of \(3x - 4y - 15 = 0\) and circle \(x^2 + y^2 - 4x - 8y - 5 = 0\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 96 | Q5</div><div class="qb">Find the equations of the tangents to the circle \(x^2 + y^2 - 2x - 4y - 4 = 0\) which are
+<ol class="subq" style="list-style-type:lower-roman;">
+<li>Perpendicular to the line \(3x - 4y - 7 = 0\)</li>
+<li>Parallel to the line \(3x - 4y - 7 = 0\)</li>
+<li>Lies at maximum distance from point \((2, 1)\) <span class="tag mindbender">★★★ Mind Bender ★★★</span></li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 100 | Q6</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span><br/>The sum of radii of all the circles touching both the coordinate axis and the line \(3x + 4y = 12\) is</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 101 | Q7</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span> <span class="tag exam">IIT-JEE 2007</span><br/>Let \(ABCD\) be a quadrilateral with area 18, with side \(AB\) parallel to the side \(CD\) and \(AB = 2CD\). Let \(AD\) be perpendicular to \(AB\) and \(CD\). If a circle is drawn inside the quadrilateral \(ABCD\) touching all the sides, then its radius is
+<ul class="opts"><li>3</li><li>2</li><li>3/2</li><li>1</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 105 | Q8</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span><br/>If \(4l^2 - 5m^2 + 6l + 1 = 0\), then show that the line \(lx + my + 1 = 0\) touches a fixed circle. Find the centre and radius of the circle.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 106 | Q9</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span><br/>If 2 distinct chord of the circle \(x^2 + y^2 - ax - by = 0\) drawn from the point \((a, b)\) are divided by the \(x\)-axis in the ratio 2 : 1, then prove that \(a^2 &gt; 3b^2\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 108 | Q10</div><div class="qb">If the centre of a circle \(x^2 + y^2 = 9\) is translated 2 units parallel to the line \(x + y = 4\) where \(x\) increases, find its equation.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 21 | TAH 03</div><div class="qb">Find the equation of the circle
+<ol class="subq" style="list-style-type:lower-alpha;">
+<li>Centre is on the line \(y = 2x\) and passing through \((-1, 2)\) and \((3, -2)\).</li>
+<li>Passes through \((2, 3)\) and centre on the \(x\)-axis, radius being 5.</li>
+<li>Which has its centre as the point \((4, 3)\) and touching the line \(5x - 12y - 10 = 0\).</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 61 | TAH 04</div><div class="qb"><span class="tag exam">JEE Mains 2022 (July)</span><br/>Let the abscissae of the two points \(P\) and \(Q\) on a circle be the roots of \(x^2 - 4x - 6 = 0\) and the ordinates of \(P\) and \(Q\) be the roots of \(y^2 + 2y - 7 = 0\). If \(PQ\) is a diameter of the circle \(x^2 + y^2 + 2ax + 2by + c = 0\), then the value of \((a + b - c)\) is:
+<ul class="opts"><li>12</li><li>13</li><li>14</li><li>16</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 65 | TAH 05</div><div class="qb"><span class="tag kcls">★★★ KCLS ★★★</span> <span class="tag exam">JEE Mains 2024 (6 April)</span><br/>A circle is inscribed in an equilateral triangle of side of length \(12\). If the area and perimeter of any square inscribed in this circle are \(m\) and \(n\), respectively, then \(m + n^2\) is equal to
+<ul class="opts"><li>408</li><li>414</li><li>312</li><li>396</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 28 | TAH 06</div><div class="qb"><span class="tag asrq">★★★ ASRQ ★★★</span><br/>The equation of the image of the circle \(x^2 + y^2 + 16x - 24y + 183 = 0\) by the line mirror \(4x + 7y + 13 = 0\) is:
+<ul class="opts"><li>\(x^2 + y^2 + 32x - 4y + 235 = 0\)</li><li>\(x^2 + y^2 + 32x + 4y - 235 = 0\)</li><li>\(x^2 + y^2 + 32x - 4y - 235 = 0\)</li><li>\(x^2 + y^2 + 32x + 4y + 235 = 0\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 71 | TAH 07</div><div class="qb"><span class="tag exam">JEE Mains 2024 (8 April)</span><br/>If the image of the point \((-4, 5)\) in the line \(x + 2y = 2\) lies on the circle \((x + 4)^2 + (y - 3)^2 = r^2\), then \(r\) is equal to:
+<ul class="opts"><li>2</li><li>3</li><li>4</li><li>1</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 74 | TAH 08</div><div class="qb"><span class="tag exam">JEE Mains 2023 (8 April)</span><br/>Consider a circle \(C_1 : x^2 + y^2 - 4x - 2y = \alpha - 5\). Let its mirror image in the line \(y = 2x + 1\) be another circle \(C_2 : 5x^2 + 5y^2 - 10fx - 10gy + 36 = 0\). Let \(r\) be the radius of \(C_2\). Then \(\alpha + r\) is equal to ________.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 77 | TAH 09</div><div class="qb"><span class="tag exam">JEE Mains 2024 (31 Jan)</span><br/>Let a variable line passing through the centre of the circle \(x^2 + y^2 - 16x - 4y = 0\), meet the positive co-ordinate axes at the points \(A\) and \(B\). Then the minimum value of \(OA + OB\), where \(O\) is the origin, is equal to
+<ul class="opts"><li>12</li><li>20</li><li>24</li><li>18</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 109 | TAH 01</div><div class="qb"><span class="tag exam">JEE Mains 2022</span><br/>If the circle \(x^2 + y^2 - 2gx + 6y - 19c = 0, c \in \mathbb{R}\) passes through the point \((6, 1)\) and its centre lies on the line \(x - 2cy = 8\), then the length of intercept made by the circle on \(x\)-axis is
+<ul class="opts"><li>\(\sqrt{11}\)</li><li>4</li><li>3</li><li>\(2\sqrt{23}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 112 | TAH 02</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span> <span class="tag exam">JEE Advanced 2021</span><br/>Consider a triangle \(\Delta\) whose two sides lie on the \(x\)-axis and the line \(x + y + 1 = 0\). If the orthocenter of \(\Delta\) is \((1,1)\), then the equation of the circle passing through the vertices of the triangle \(\Delta\) is:
+<ul class="opts"><li>\(x^2 + y^2 - 3x + y = 0\)</li><li>\(x^2 + y^2 + x + 3y = 0\)</li><li>\(x^2 + y^2 + 2y - 1 = 0\)</li><li>\(x^2 + y^2 + x + y = 0\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 115 | TAH 03</div><div class="qb"><span class="tag asrq">★★★ KCLS ★★★</span> <span class="tag exam">JEE Mains 2025 (28 Jan)</span><br/>Let the equation of the circle, which touches \(x\)-axis at the point \((a, 0)\), \(a &gt; 0\) and cuts off an intercept of length \(b\) on \(y\)-axis be \(x^2 + y^2 - \alpha x + \beta y + \gamma = 0\). If the circle lies below \(x\)-axis, then the ordered pair \((2a, b^2)\) is equal to
+<ul class="opts"><li>\((\alpha, \beta^2 + 4\gamma)\)</li><li>\((\alpha, \beta^2 - 4\gamma)\)</li><li>\((\gamma, \beta^2 + 4\alpha)\)</li><li>\((\gamma, \beta^2 - 4\alpha)\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 118 | TAH 04</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span> <span class="tag exam">IIT-JEE 2011</span><br/>The straight line \(2x - 3y = 1\) divides the circular region \(x^2 + y^2 \le 6\) into two parts. If \(S = \{(2, \frac{3}{4}), (\frac{5}{2}, \frac{3}{4}), (\frac{1}{4}, -\frac{1}{4}), (\frac{1}{8}, \frac{1}{4})\}\) then the number of points(s) in \(S\) lying inside the smaller part is</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 121 | TAH 05</div><div class="qb"><span class="tag asrq">★★★ KCLS ★★★</span> <span class="tag exam">JEE Mains 2020</span><br/>Let \(PQ\) be a diameter of the circle \(x^2 + y^2 = 9\). If \(\alpha\) and \(\beta\) are the lengths of the perpendiculars from \(P\) and \(Q\) on the straight line, \(x + y = 2\) respectively, then the maximum value of \(\alpha \beta\) is _______.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 123 | TAH 06</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span> <span class="tag exam">JEE Mains 2025 (24 Jan)</span><br/>Let circle \(C\) be the image of \(x^2 + y^2 - 2x + 4y - 4 = 0\) in the line \(2x - 3y + 5 = 0\) and \(A\) be the point on \(C\) such that \(OA\) is parallel to \(x\)-axis and \(A\) lies on the right hand side of the centre \(O\) of \(C\). If \(B(\alpha, \beta)\), with \(\beta &lt; 4\), lies on \(C\) such that the length of the arc \(AB\) is \((1/6)^{\text{th}}\) of the perimeter of \(C\), then \(\beta - \sqrt{3}\alpha\) is equal to
+<ul class="opts"><li>\(4 - \sqrt{3}\)</li><li>3</li><li>4</li><li>\(3 + \sqrt{3}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 125 | TAH 07</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span><br/>For the condition \(x^2 + y^2 - 4x + 3 = 0\). find
+<ol class="subq" style="list-style-type:lower-alpha;">
+<li>maximum &amp; minimum value of \(x^2 + y^2\)</li>
+<li>maximum value of \(x^2 + y^2 + 2y\)</li>
+<li>maximum &amp; minimum value of \(3x + 4y\)</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 133 | Q1</div><div class="qb"><span class="tag exam">JEE Advanced 2018</span><br/>Let \(P\) be a point on the circle \(S\) with both coordinates being positive. Let the tangent to \(S\) at \(P\) intersect the coordinate axes at the points \(M\) and \(N\). Then, the mid-point of the line segment \(MN\) must lie on the curve Given \(S : x^2 + y^2 = 4\)
+<ul class="opts"><li>\((x+y)^2 = 3xy\)</li><li>\(x^{2/3} + y^{2/3} = 2^{4/3}\)</li><li>\(x^2+y^2=2xy\)</li><li>\(x^2+y^2=x^2y^2\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 134 | Q2</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span> <span class="tag exam">JEE Mains 2023 (31 Jan)</span><br/>Let a circle \(C_1\) be obtained on rolling the circle \(x^2 + y^2 - 4x - 6y + 11 = 0\) upwards 4 units on the tangent \(T\) to it at the point \((3, 2)\). Let \(C_2\) be the image of \(C_1\) in \(T\). Let \(A\) and \(B\) be the centers of circles \(C_1\) and \(C_2\) respectively, and \(M\) and \(N\) be respectively the feet of perpendiculars drawn from \(A\) and \(B\) on the \(x\)-axis. Then the area of the trapezium \(AMNB\) is:
+<ul class="opts"><li>\(2(2+\sqrt{2})\)</li><li>\(4(1+\sqrt{2})\)</li><li>\(3+2\sqrt{2}\)</li><li>\(2(1+\sqrt{2})\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 143 | Q3</div><div class="qb">Find the value of \(p\) for which the power of a point \(P(2, 5)\) is negative with respect to a circle \(x^2 + y^2 - 8x - 12y + p = 0\) and the circle neither touches nor intersects the coordinate axis.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 144 | Q4</div><div class="qb"><span class="tag exam">JEE Mains 2023 (8 April)</span><br/>Let \(O\) be the origin and \(OP\) and \(OQ\) be the tangents to the circle \(x^2 + y^2 - 6x + 4y + 8 = 0\) at the points \(P\) and \(Q\) on it. If the circumcircle of the triangle \(OPQ\) passes through the point \(\left(\alpha, \frac{1}{2}\right)\), then a value of \(\alpha\) is
+<ul class="opts"><li>1</li><li>-1/2</li><li>5/2</li><li>3/2</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 145 | Q5</div><div class="qb"><span class="tag exam">JEE Mains 2022</span><br/>Let \(AB\) be a chord of length 12 of the circle \((x - 1)^2 + (y + 1)^2 = \frac{169}{4}\). If tangents drawn to the circle at points \(A\) and \(B\) intersect at the point \(P\), then five times the distance of point \(P\) from chord \(AB\) is equal to _______.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 146 | Q6</div><div class="qb"><span class="tag mindbender">★★★ ASRQ ★★★</span><br/>From a point '\(P\)' on circle \(x^2 + y^2 + 2gx + 2fy + c = 0\), tangents are drawn to circle \(x^2 + y^2 + 2gx + 2fy + c \sin^2 \alpha + (g^2 + f^2) \cos^2 \alpha = 0\). Find angle between tangents. (Given \(\alpha \in (0, \pi/2)\))</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 149 | Q7</div><div class="qb">Locus of point '\(P\)' which moves such that the angle made by the pair of tangents drawn to the circle \(x^2 + y^2 = a^2\) is \(60^\circ\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 150 | Q8</div><div class="qb">Find the range of values of '\(a\)' such that the angles '\(\theta\)' between the pair of tangents drawn from the point \((a, 0)\) to the circle \(x^2 + y^2 = 1\) satisfies \(\frac{\pi}{2} &lt; \theta &lt; \pi\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 151 | Q9</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span><br/>Locus of centre of circle touching two perpendicular lines from origin &amp; a line \(x + y = 1\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 164 | Q10</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span><br/>Find the equations of the tangents to the circle \(x^2 + y^2 - 2x - 4y - 4 = 0\) which are
+<ol class="subq" style="list-style-type:lower-roman;">
+<li>Perpendicular to the line \(3x - 4y - 7 = 0\)</li>
+<li>Parallel to the line \(3x - 4y - 7 = 0\)</li>
+<li>Lies at maximum distance from point \((2, 1)\)</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 165 | Q11</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span> <span class="tag exam">IIT-JEE 2008</span><br/>A circle \(C\) of radius 1 is inscribed in an equilateral triangle \(PQR\). The points of contact of \(C\) with the sides \(PQ, QR, RP\) are \(D, E, F\), respectively. The line \(PQ\) is given by the equation \(\sqrt{3}x + y - 6 = 0\) and the point \(D\) is \(\left(\frac{3\sqrt{3}}{2}, \frac{3}{2}\right)\). Further, it is given that the origin and the centre of \(C\) are on the same side of the line \(PQ\).
+<ol class="subq" style="list-style-type:lower-alpha;">
+<li>Equations of the sides \(QR, RP\) are
+<ul class="opts"><li>\(y = \frac{2}{\sqrt{3}}x + 1, y = -\frac{2}{\sqrt{3}}x - 1\)</li><li>\(y = \frac{1}{\sqrt{3}}x, y = 0\)</li><li>\(y = \frac{\sqrt{3}}{2}x + 1, y = -\frac{\sqrt{3}}{2}x - 1\)</li><li>\(y = \sqrt{3}x, y = 0\)</li></ul></li>
+<li>Points \(E\) and \(F\) are given by
+<ul class="opts"><li>\(\left(\frac{\sqrt{3}}{2}, \frac{3}{2}\right), (\sqrt{3}, 0)\)</li><li>\(\left(\frac{\sqrt{3}}{2}, \frac{1}{2}\right), (\sqrt{3}, 0)\)</li><li>\(\left(\frac{\sqrt{3}}{2}, \frac{3}{2}\right), \left(\frac{\sqrt{3}}{2}, \frac{1}{2}\right)\)</li><li>\(\left(\frac{3}{2}, \frac{\sqrt{3}}{2}\right), \left(\frac{\sqrt{3}}{2}, \frac{1}{2}\right)\)</li></ul></li>
+<li>The equation of circle \(C\) is
+<ul class="opts"><li>\((x - 2\sqrt{3})^2 + (y - 1)^2 = 1\)</li><li>\((x - 2\sqrt{3})^2 + (y + 1/2)^2 = 1\)</li><li>\((x - \sqrt{3})^2 + (y + 1)^2 = 1\)</li><li>\((x - \sqrt{3})^2 + (y - 1)^2 = 1\)</li></ul></li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 156 | TAH 02</div><div class="qb"><span class="tag exam">JEE Mains 2026 (6 April)</span><br/>Let \(C\) be a circle having centre in the first quadrant and touching the \(x\)-axis at a distance of 3 units from the origin. If the circle \(C\) has an intercept of length \(6\sqrt{3}\) on \(y\)-axis, then the length of the chord of the circle \(C\) on the line \(x - y = 3\) is:
+<ul class="opts"><li>8</li><li>6</li><li>\(6\sqrt{2}\)</li><li>\(8\sqrt{2}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 159 | TAH 03</div><div class="qb"><span class="tag exam">JEE Mains 2026 (6 April)</span><br/>Let the centre of the circle \(x^2 + y^2 + 2gx + 2fy + 25 = 0\) be in the first quadrant and lie on the line \(2x - y = 4\). Let the area of an equilateral triangle inscribed in the circle be \(27\sqrt{3}\). Then the square of the length of the chord of the circle on the line \(x = 1\) is _______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 161 | TAH 04</div><div class="qb"><span class="tag exam">JEE Mains 2026 (2 April)</span><br/>Let a circle \(C\) have its centre in the first quadrant, intersect the coordinate axes at exactly three points and cut off equal intercepts from the coordinate axes. If the length of the chord of \(C\) on the line \(x + y = 1\) is \(\sqrt{14}\), then the square of the radius of \(C\) is _______</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 168 | TAH 06</div><div class="qb"><span class="tag exam">JEE Mains 2021 (20 July)</span><br/>Let \(r_1\) and \(r_2\) be the radii of the largest and smallest circles, respectively, which pass through the point \((-4, 1)\) and having their centres on the circumference of the circle \(x^2 + y^2 + 2x + 4y - 4 = 0\). If \(\frac{r_1}{r_2} = a + b\sqrt{2}\), then \(a + b\) is equal to:
+<ul class="opts"><li>3</li><li>11</li><li>5</li><li>7</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 171 | TAH 07</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span> <span class="tag exam">JEE Advanced 2024</span><br/>Let the straight line \(y = 2x\) touch a circle with center \((0, \alpha)\), \(\alpha &gt; 0\), and radius \(r\) at a point \(A_1\). Let \(B_1\) be the point on the circle such that the line segment \(A_1B_1\) is a diameter of the circle. Let \(\alpha + r = 5 + \sqrt{5}\).<br/>Match each entry in List-I to the correct entry in List-II.<br/>The correct option is:
+<ul class="opts"><li>(P) \(\to\) (4), (Q) \(\to\) (2), (R) \(\to\) (1), (S) \(\to\) (3)</li><li>(P) \(\to\) (2), (Q) \(\to\) (4), (R) \(\to\) (1), (S) \(\to\) (3)</li><li>(P) \(\to\) (4), (Q) \(\to\) (2), (R) \(\to\) (5), (S) \(\to\) (3)</li><li>(P) \(\to\) (2), (Q) \(\to\) (4), (R) \(\to\) (3), (S) \(\to\) (5)</li></ul>
+<table style="width:100%; text-align:left; margin-top:10px;">
+<tr><th>List-I</th><th>List-II</th></tr>
+<tr><td>(P) \(\alpha\) equals</td><td>(1) \((-2, 4)\)</td></tr>
+<tr><td>(Q) \(r\) equals</td><td>(2) \(\sqrt{5}\)</td></tr>
+<tr><td>(R) \(A_1\) equals</td><td>(3) \((-2, 6)\)</td></tr>
+<tr><td>(S) \(B_1\) equals</td><td>(4) 5</td></tr>
+<tr><td></td><td>(5) \((2, 4)\)</td></tr>
+</table></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 173 | TAH 08</div><div class="qb"><span class="tag asrq">★★★ KCLS ★★★</span><br/>Find the equation of the circle with centre on the line \(2x + y = 0\) and touching the lines \(4x - 3y + 10 = 0\) and \(4x - 3y - 30 = 0\).</div></div></div>
+
+<h2>Part 02 &mdash; Advanced Circle Problems &amp; Take-Away Homework</h2>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 2 | Q1</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span><br/>Real number \(x\), \(y\) satisfies \(x^2 + y^2 = 1\). If the maximum and minimum value of the expression \(z = \frac{4-y}{7-x}\) are \(M\) and \(m\) respectively, then find the value \((2M + 6m)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 3 | Q2</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span><br/><strong>Paragraph</strong><br/>Let \(A \equiv (0, 0), B \equiv (5, 0), C \equiv (5, 3)\) and \(D \equiv (0, 3)\) are the vertices of rectangle \(ABCD\). If \(P\) is a variable point lying inside the rectangle \(ABCD\) and \(d(P, L)\) denote perpendicular distance of point \(P\) from line \(L\).<br/><br/>
+1. If \(d(P, AB) \le \min\{d(P, BC), d(P, CD), d(P, AD)\}\), then area of the region in which \(P\) lies is:
+<ul class="opts"><li>\(\frac{17}{4}\)</li><li>\(\frac{19}{4}\)</li><li>\(\frac{21}{4}\)</li><li>\(\frac{23}{4}\)</li></ul>
+<br/>
+2. If \(d(P, AB) \ge \max\{d(P, BC), d(P, CD), d(P, AD)\}\), then area of the region in which \(P\) lies is:
+<ul class="opts"><li>1</li><li>\(\frac{1}{2}\)</li><li>\(\frac{3}{4}\)</li><li>\(\frac{1}{4}\)</li></ul>
+<br/>
+3. If \(\left(d(P, AB) - \frac{3}{2}\right)^2 + d(P, AD)^2 \ge 1\), then area of region in which \(P\) lies is:
+<ul class="opts"><li>\(15 - 2\pi\)</li><li>\(10 - \frac{\pi}{2}\)</li><li>\(15 - \pi\)</li><li>\(15 - \frac{\pi}{2}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 5 | Q3</div><div class="qb">If the equation \(S \equiv ax^2 + 2hxy + by^2 + 2gx + 2fy + c = 0\) represents a pair of parallel straight lines, then show that<br/>
+(i) \(h^2 = ab\)<br/>
+(ii) \(af^2 = bg^2\) and<br/>
+(iii) the distance between the parallel lines \(= 2\sqrt{\frac{g^2 - ac}{a(a+b)}} = 2\sqrt{\frac{f^2 - bc}{b(a+b)}}\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 11 | Q4</div><div class="qb"><span class="tag exam">JEE Mains 2019</span><br/>If the circles \(x^2 + y^2 - 16x - 20y + 164 = r^2\) and \((x - 4)^2 + (y - 7)^2 = 36\) intersect at two distinct points, then:
+<ul class="opts"><li>\(r &gt; 11\)</li><li>\(r = 11\)</li><li>\(0 &lt; r &lt; 1\)</li><li>\(1 &lt; r &lt; 11\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 12 | Q5</div><div class="qb"><span class="tag exam">JEE Mains 2023 (15 April)</span><br/>The number of common tangents, to the circles \(x^2 + y^2 - 18x - 15y + 131 = 0\) and \(x^2 + y^2 - 6x - 6y - 7 = 0\), is:
+<ul class="opts"><li>4</li><li>2</li><li>3</li><li>1</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 13 | Q6</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span> <span class="tag exam">JEE Mains 2019</span><br/>Three circles of radii \(a, b, c\) (\(a &lt; b &lt; c\)) touch each other externally. If they have x-axis as a common tangent, then:
+<ul class="opts"><li>\(\frac{1}{\sqrt{a}} = \frac{1}{\sqrt{b}} + \frac{1}{\sqrt{c}}\)</li><li>\(a, b, c\) are in A.P.</li><li>\(\sqrt{a}, \sqrt{b}, \sqrt{c}\) are in A.P.</li><li>\(\frac{1}{\sqrt{b}} = \frac{1}{\sqrt{a}} + \frac{1}{\sqrt{c}}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 14 | TAH 01</div><div class="qb"><span class="tag exam">JEE Mains 2025 (22 Jan)</span><br/>A circle \(C\) of radius \(2\) lies in the second quadrant and touches both the coordinate axes. Let \(r\) be the radius of a circle that has centre at the point \((2, 5)\) and intersects the circle \(C\) at exactly two points. If the set of all possible values of \(r\) is the interval \((\alpha, \beta)\), then \(3\beta - 2\alpha\) is equal to:
+<ul class="opts"><li>10</li><li>12</li><li>14</li><li>15</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 15 | Q7</div><div class="qb"><span class="tag exam">JEE Mains 2024 (9 April)</span><br/>Let the centre of a circle, passing through the points \((0, 0)\), \((1, 0)\) and touching the circle \(x^2 + y^2 = 9\), be \((h, k)\). Then for all possible values of the coordinates of the centre \((h, k)\), \(4(h^2 + k^2)\) is equal to _______.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 16 | Q8</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span> <span class="tag exam">IIT-JEE 2009</span><br/>The centres of two circles \(C_1\) and \(C_2\) each of unit radius are at a distance of \(6\) units from each other. Let \(P\) be the mid point of the line segment joining the centres of \(C_1\) and \(C_2\) and \(C\) be a circle touching circles \(C_1\) and \(C_2\) externally. If a common tangent to \(C_1\) and \(C\) passing through \(P\) is also a common tangent to \(C_2\) and \(C\), then the radius of the circle \(C\) is</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 18 | Q9</div><div class="qb"><span class="tag mindbender">★★★★★★ Mind Bender</span><br/>Find all the common tangent to the circles \(x^2 + y^2 = 1\) and \((x - 1)^2 + (y - 3)^2 = 4\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 18 | Q10</div><div class="qb">Find the equation of the circles to which the line \(4x + 3y = 10\) is a common tangent at \((1, 2)\) and radius of each of the circle is 5.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 18 | Q11</div><div class="qb">Prove that the common tangents to the circles \(x^2 + y^2 - 6x = 0\) and \(x^2 + y^2 + 2x = 0\) form an equilateral triangle.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 26 | Q12</div><div class="qb"><span class="tag asrq">★★★ ASRQ ★★★</span><br/>Find the coordinates of the point of intersection of the tangents drawn to the circle \(x^2 + y^2 = 8\) at the points where the line \(x + 2y = 4\) intersect the circle.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 27 | Q13</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span><br/>Tangents are drawn to a unit circle with centre at origin from every point on the line \(2x + y = 4\), prove that<br/>
+(i) chord of contact passes through a fixed point<br/>
+(ii) equation to the locus of the middle point of chord of contact.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 29 | Q14</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span> <span class="tag exam">IIT-JEE 2012</span><br/>The locus of the mid-point of the chord of contact of tangents drawn from points lying on the straight line \(4x - 5y = 20\) to the circle \(x^2 + y^2 = 9\) is
+<ul class="opts"><li>\(20(x^2 + y^2) - 36x + 45y = 0\)</li><li>\(20(x^2 + y^2) + 36x - 45y = 0\)</li><li>\(36(x^2 + y^2) - 20x + 45y = 0\)</li><li>\(36(x^2 + y^2) + 20x - 45y = 0\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 30 | Q15</div><div class="qb">The chord of contact of the circle \(x^2 + y^2 = b^2\) is generated by a point on the circle \(x^2 + y^2 = a^2\) and the chord of contact touches the circle \(x^2 + y^2 = c^2\). Prove that \(a, b\) and \(c\) are in G.P. \((a, b, c &gt; 0)\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 31 | Q16</div><div class="qb"><span class="tag kcls">★★★ KCLS ★★★</span> <span class="tag exam">JEE Mains 2023 (24 Jan)</span><br/>The locus of the mid points of the chords of the circle \(C_1: (x - 4)^2 + (y - 5)^2 = 4\) which subtend an angle \(\theta_i\) at the centre of the circle \(C_1\), is a circle of radius \(r_i\). If \(\theta_1 = \frac{\pi}{3}, \theta_3 = \frac{2\pi}{3}\) and \(r_1^2 = r_2^2 + r_3^2\), then \(\theta_2\) is equal to:
+<ul class="opts"><li>\(\frac{\pi}{2}\)</li><li>\(\frac{\pi}{4}\)</li><li>\(\frac{3\pi}{4}\)</li><li>\(\frac{\pi}{6}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 33 | Q17</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span><br/>If the variable line \(3x - 4y + k = 0\) lies between the circles \(x^2 + y^2 - 2x - 2y + 1 = 0\) and \(x^2 + y^2 - 16x - 2y + 61 = 0\) without intersecting or touching either circle, then the range of \(k\) is \((a, b)\) where \(a, b \in I\). Find the value of \((b - a)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 37 | Q18</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span> <span class="tag exam">JEE Mains 2019</span><br/>If a variable line, \(3x + 4y - \lambda = 0\) is such that the two circles \(x^2 + y^2 - 2x - 2y + 1 = 0\) and \(x^2 + y^2 - 18x - 2y + 78 = 0\) are on its opposite sides, then the set of all values of \(\lambda\) is the interval:
+<ul class="opts"><li>\((23, 31)\)</li><li>\((13, 23)\)</li><li>\((2, 17)\)</li><li>\((12, 21)\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 40 | Q19</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span><br/>Real number \(x\), \(y\) satisfies \(x^2 + y^2 = 1\). If the maximum and minimum value of the expression \(z = \frac{4-y}{7-x}\) are \(M\) and \(m\) respectively, then find the value \((2M + 6m)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 41 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (27 Jan)</span><br/>Consider a circle \((x - \alpha)^2 + (y - \beta)^2 = 50\) where \(\alpha, \beta &gt; 0\). If the circle touches the line \(y + x = 0\) at the point \(P\), whose distance from the origin is \(4\sqrt{2}\) then \((\alpha + \beta)^2\) is equal to</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 43 | Q2</div><div class="qb">Find the locus of a point the tangents from which to the circles \(4x^2 + 4y^2 - 9 = 0\) and \(9x^2 + 9y^2 - 16 = 0\) are in the ratio \(3 : 4\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 43 | Q3</div><div class="qb">A point moves such that a tangent from it to the circle \(x^2 + y^2 + 4x - 5y + 6 = 0\) is double the length of the tangent to the circle \(x^2 + y^2 = 4\). Show that the locus is a circle. Find its centre and radius.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 46 | Q4</div><div class="qb"><span class="tag exam">JEE Mains 2023 (6 April)</span><br/>If the tangents at the points \(P\) and \(Q\) on the circle \(x^2 + y^2 - 2x + y = 5\) meet at the point \(R\left(\frac{9}{4}, 2\right)\), then the area of the triangle \(PQR\) is:
+<ul class="opts"><li>\(\frac{13}{8}\)</li><li>\(\frac{5}{8}\)</li><li>\(\frac{5}{4}\)</li><li>\(\frac{13}{4}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 48 | Q5</div><div class="qb"><span class="tag exam">JEE Mains 2021 (31 Aug)</span><br/>Let \(B\) be the centre of the circle \(x^2 + y^2 - 2x + 4y + 1 = 0\). Let the tangents at two points \(P\) and \(Q\) on the circle intersect at the point \(A(3, 1)\). Then \(8 \left(\frac{\text{area }\Delta APQ}{\text{area }\Delta BPQ}\right)\) is equal to</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 50 | Q6</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span><br/>Through a given point \(P(5, 2)\), secants are drawn to cut the circle \(x^2 + y^2 = 25\) at points \(A_1(B_1), A_2(B_2), A_3(B_3), A_4(B_4)\) and \(A_5(B_5)\) such that \(PA_1 + PB_1 = 5, PA_2 + PB_2 = 6, PA_3 + PB_3 = 7, PA_4 + PB_4 = 8\) and \(PA_5 + PB_5 = 9\).<br/><br/>Find the value of \(\sum_{i=1}^{5} PA_i^2 + \sum_{i=1}^{5} PB_i^2\).<br/><br/>[Note: \(A_r(B_r)\) denotes that the line passing through \(P(5, 2)\) meets the circle \(x^2 + y^2 = 25\) at two points \(A_r\) and \(B_r\).]</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 55 | TAH 06</div><div class="qb"><span class="tag exam">JEE Mains 2025 (7 April)</span><br/>Let \(C_1\) be the circle in the third quadrant of radius 3, that touches both coordinate axes. Let \(C_2\) be the circle with centre \((1, 3)\) that touches \(C_1\) externally at the point \((\alpha, \beta)\). If \((\beta - \alpha)^2 = \frac{m}{n}, \text{gcd}(m,n) = 1\), then \(m + n\) is equal to:
+<ul class="opts"><li>22</li><li>13</li><li>9</li><li>31</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 58 | Q7</div><div class="qb"><span class="tag asrq">★★★ ASRQ ★★★</span><br/>Locus of the middle point of the chord of the circle \(x^2 + y^2 + 2gx + 2fy + c = 0\) which passes through a fixed point \((a, b)\) lying outside the circle.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 59 | Q8</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span><br/>Find the equation of the locus of the middle point of the chord of the circle \(x^2 + y^2 + 2gx + 2fy + c = 0\) which subtends right angle at a given point \(P(a, b)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 62 | Q9</div><div class="qb">Show that the equation to the pair of tangents drawn from the origin to the circle \(x^2 + y^2 + 2gx + 2fy + c = 0\) is \((gx + fy)^2 = c(x^2 + y^2)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 63 | Q10</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span><br/>Tangents are drawn to the circle \(x^2 + y^2 = a^2\) from two points on the axis of \(x\), equidistant from the point \((k, 0)\). Show that the locus of their intersection is \(ky^2 = a^2(k - x)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 65 | Q11</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span> <span class="tag exam">JEE Advanced 2022</span><br/>Let \(ABC\) be the triangle with \(AB = 1\), \(AC = 3\) and \(\angle BAC = \pi/2\). If a circle of radius \(r &gt; 0\) touches the sides \(AB\), \(AC\) and also touches internally the circumcircle of the triangle \(ABC\), then the value of \(r\) is ___________</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 67 | Q12</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span> <span class="tag exam">JEE Mains 2022 (31 Jan)</span><br/>The set of all values of \(a^2\) for which the line \(x + y = 0\) bisects two distinct chords drawn from a point \(P\left(\frac{1+a}{2}, \frac{1-a}{2}\right)\) on the circle \(2x^2 + 2y^2 - (1 + a)x - (1 - a)y = 0\), is equal to:
+<ul class="opts"><li>\((0,4]\)</li><li>\((4,\infty)\)</li><li>\((2,12]\)</li><li>\((8,\infty)\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 75 | Q13</div><div class="qb">Find the equation of the circle passing through the point of intersection of the circles \(x^2 + y^2 - 6x + 2y + 4 = 0\), \(x^2 + y^2 + 2x - 4y - 6 = 0\) and with its centre on the line \(y = x\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 80 | TAH 02</div><div class="qb"><span class="tag exam">JEE Mains 2024 (5 April)</span><br/>Let a circle \(C\) of radius 1 and closer to the origin be such that the lines passing through the point \((3, 2)\) and parallel to the coordinate axes touch it. Then the shortest distance of the circle \(C\) from the point \((5, 5)\) is:
+<ul class="opts"><li>\(4\sqrt{2}\)</li><li>\(4\)</li><li>\(5\)</li><li>\(2\sqrt{2}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 87 | TAH 05</div><div class="qb"><span class="tag exam">JEE Mains 2024 (8 April)</span><br/>Let the circles \(C_1: (x - \alpha)^2 + (y - \beta)^2 = r_1^2\) and \(C_2: (x - 8)^2 + \left(y - \frac{15}{2}\right)^2 = r_2^2\) touch each other externally at the point \((6, 6)\). If the point \((6, 6)\) divides the line segment joining the centres of the circles \(C_1\) and \(C_2\) internally in the ratio \(2 : 1\), then \((\alpha + \beta) + 4(r_1^2 + r_2^2)\) equals:
+<ul class="opts"><li>\(130\)</li><li>\(110\)</li><li>\(145\)</li><li>\(125\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 92 | TAH 07</div><div class="qb"><span class="tag exam">JEE Mains 2024 (4 April)</span><br/>Let \(C\) be a circle with radius \(\sqrt{10}\) units and centre at the origin. Let the line \(x + y = 2\) intersects the circle \(C\) at the points \(P\) and \(Q\). Let \(MN\) be a chord of \(C\) of length 2 unit and slope \(-1\). Then, a distance (in units) between the chord \(PQ\) and the chord \(MN\) is:
+<ul class="opts"><li>\(3 - \sqrt{2}\)</li><li>\(2 - \sqrt{3}\)</li><li>\(\sqrt{2} - 1\)</li><li>\(\sqrt{2} + 1\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 95 | TAH 08</div><div class="qb">Find the co-ordinates of the point of intersection of tangents at the points, where the line \(2x + y + 1 = 0\) meets the circle \(x^2 + y^2 - 4x + 3y - 1 = 0\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 98 | Q14</div><div class="qb"><span class="tag exam">JEE Mains 2024 (1 Feb)</span><br/>Let the locus of the midpoints of the chords of the circle \(x^2 + (y - 1)^2 = 1\) drawn from the origin intersect the line \(x + y = 1\) at \(P\) and \(Q\). Then, the length of \(PQ\) is:
+<ul class="opts"><li>\(\frac{1}{2}\)</li><li>\(1\)</li><li>\(\frac{1}{\sqrt{2}}\)</li><li>\(\sqrt{2}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 101 | Q15</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span><br/><b>Comprehension:</b> A point \(P(\alpha, \beta)\) is called rational point if both \(\alpha\) and \(\beta\) are rational numbers and if both \(\alpha\) and \(\beta\) are integers, then point \(P(\alpha, \beta)\) is called lattice point.<br/><br/>
+1. Line \(x + y = n\) (\(n \in N\)) cuts coordinates axes at \(A\) and \(B\). If \(O\) is origin then number of lattice points within the triangle \(AOB\) is:
+<ul class="opts"><li>\(\frac{n^2 - 4n + 3}{2}\)</li><li>\(\frac{n^2 + n}{2}\)</li><li>\(\frac{n^2 - n}{2}\)</li><li>\(\frac{n^2 - 3n + 2}{2}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 101 | Q16</div><div class="qb">2. The number of rational points that could be on a circle, whose centre is \((2, \sqrt{3})\) and radius is \(2\sqrt{3}\) units, is:
+<ul class="opts"><li>\(1\)</li><li>\(2\)</li><li>\(3\)</li><li>\(Infinite\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 101 | Q17</div><div class="qb">3. Number of lattice points on the circumference of circle \(x^2 + y^2 = 25\) is:
+<ul class="opts"><li>\(14\)</li><li>\(8\)</li><li>\(12\)</li><li>\(10\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 106 | Q1</div><div class="qb"><span class="tag mindbender">★★★ MIND BENDER ★★★</span><br/>Let \(S_1 = 0\) and \(S_2 = 0\) be two circles intersecting at \(P(6, 4)\) and both are tangent to x-axis and line \(y = mx\) (where \(m &gt; 0\)). If product of radii of the circles \(S_1 = 0\) and \(S_2 = 0\) is \(\frac{52}{3}\), then find the value of \(m\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 108 | Q2</div><div class="qb"><span class="tag mindbender">★★★ MIND BENDER ★★★</span><br/>As shown in the figure, the five circles are tangent to one another consecutively and to the lines \(L_1\) and \(L_2\). If the radius of the largest circle is 18 and that of the smaller one is 8, then find the radius of the middle circle.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 109 | Q3</div><div class="qb">Find the equation of the circle which passes through the point \((1, 1)\) &amp; which touches the circle \(x^2 + y^2 + 4x - 6y - 3 = 0\) at the point \((2, 3)\) on it.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 111 | Q4</div><div class="qb">Find the equation of a circle drawn on the chord \(x \cos \alpha + y \sin \alpha = p\) of the circle \(x^2 + y^2 = a^2\) as its diameter.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 112 | Q5</div><div class="qb">Show that the equation \(x^2 + y^2 - 2x - 2\lambda y - 8 = 0\) represents for different value of \(\lambda\) a system of circle passing through two fixed points \(A\) and \(B\) on the x-axis and also find the equation of that circle of the system the tangent to which at \(A\) and \(B\) meet on the line \(x + 2y + 5 = 0\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 123 | TAH 01</div><div class="qb"><span class="tag exam">JEE Mains 2026</span><br/>1. Let the set of all values of \(r\), for which the circles \((x+1)^2 + (y+4)^2 = r^2\) and \(x^2 + y^2 - 4x - 2y - 4 = 0\) intersect at two distinct points be the interval \((\alpha, \beta)\). Then \(\alpha\beta\) is equal to:
+<ul class="opts"><li>\(21\)</li><li>\(24\)</li><li>\(20\)</li><li>\(25\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 123 | TAH 02</div><div class="qb"><span class="tag exam">JEE Mains 2026</span><br/>2. Let a circle pass through the origin and its centre be the point of intersection of two mutually perpendicular lines \(x + (k - 1)y + 3 = 0\) and \(2x + k^2y - 4 = 0\). If the line \(x - y + 2 = 0\) intersects the circle at the points \(A\) and \(B\), then \((AB)^2\) is equal to:
+<ul class="opts"><li>\(10\)</li><li>\(27\)</li><li>\(18\)</li><li>\(34\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 123 | TAH 03</div><div class="qb"><span class="tag exam">JEE Mains 2026</span><br/>3. Let the circle \(x^2 + y^2 = 4\) intersect x-axis at the points \(A(a, 0)\), \(a &gt; 0\) and \(B(b, 0)\). Let \(P(2 \cos \alpha, 2 \sin \alpha)\), \(0 &lt; \alpha &lt; \frac{\pi}{2}\) and \(Q(2 \cos \beta, 2 \sin \beta)\) be two points such that \((\alpha - \beta) = \frac{\pi}{2}\). Then the point of intersection of \(AQ\) and \(BP\) lies on:
+<ul class="opts"><li>\(x^2 + y^2 - 4x - 4 = 0\)</li><li>\(x^2 + y^2 - 4x - 4y = 0\)</li><li>\(x^2 + y^2 - 4x - 4y - 4 = 0\)</li><li>\(x^2 + y^2 - 4y - 4 = 0\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 128 | TAH 04</div><div class="qb"><span class="tag exam">JEE Mains 2026</span><br/>4. Let the point \(P\) be the vertex of the parabola \(y = x^2 - 6x + 12\). If a line passing through the point \(P\) intersects the circle \(x^2 + y^2 - 2x - 4y + 3 = 0\) at the points \(R\) and \(S\), then the maximum value of \((PR + PS)^2\) is:
+<ul class="opts"><li>\(10\)</li><li>\(20\)</li><li>\(25\)</li><li>\(5\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 128 | TAH 05</div><div class="qb"><span class="tag exam">JEE Mains 2026</span><br/>5. Let \(PQ\) and \(MN\) be two straight lines touching the circle \(x^2 + y^2 - 4x - 6y - 3 = 0\) at the points \(A\) and \(B\) respectively. Let \(O\) be the centre of the circle and \(\angle AOB = \frac{\pi}{3}\). Then the locus of the point of intersection of the lines \(PQ\) and \(MN\) is:
+<ul class="opts"><li>\(x^2 + y^2 - 18x - 12y - 25 = 0\)</li><li>\(x^2 + y^2 - 12x - 18y - 25 = 0\)</li><li>\(3(x^2 + y^2) - 12x - 18y - 25 = 0\)</li><li>\(3(x^2 + y^2) - 18x - 12y + 25 = 0\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 134 | TAH 06</div><div class="qb"><span class="tag mindbender">★★★ MIND BENDER ★★★</span><br/>In the given figure, the circle \(x^2 + y^2 = 25\) intersects x-axis at points \(A\) and \(B\). The line \(x = 11\) intersects x-axis, at point \(C\). Point \(P\) moves along the line \(x = 11\) above the x-axis and \(AP\) intersects the circle at \(Q\). Match Column-I with Column-II:
+<table style="width:100%; border:none; margin-top:10px;">
+<tr>
+<td style="width:60%; vertical-align:top; border:none; padding:5px;">
+<b>Column-I</b><br/>
+(a) The coordinates of point \(P\) if the \(\Delta AQB\) has the maximum area is<br/>
+(b) The coordinates of point \(P\) if \(Q\) is the middle point of \(AP\) is<br/>
+(c) The co-ordinates of \(P\) if the area of \(\Delta AQB\) is \(\left(\frac{1}{4}\right)^{\text{th}}\) of the area of \(\Delta APC\) is<br/>
+(d) The co-ordinates of \(P\) if \(|AP - BP|\) is maximum
+</td>
+<td style="width:40%; vertical-align:top; border:none; padding:5px;">
+<b>Column-II</b><br/>
+(p) \((11, 0)\)<br/>
+(q) \((11, 8)\)<br/>
+(r) \((11, 12)\)<br/>
+(s) \((11, 16)\)
+</td>
+</tr>
+</table></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 138 | TAH 07</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span><br/>In the \(xy\)-plane, the length of the shortest path from \((0, 0)\) to \((12, 16)\) that does not go inside the circle \((x - 6)^2 + (y - 8)^2 = 25\) is:
+<ul class="opts"><li>\(10\sqrt{3}\)</li><li>\(10\sqrt{5}\)</li><li>\(10\sqrt{3} + \frac{5\pi}{3}\)</li><li>\(10 + 5\pi\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 140 | TAH 8</div><div class="qb">If the equation \(S \equiv ax^2 + 2hxy + by^2 + 2gx + 2fy + c = 0\) represents a pair of parallel straight lines, then show that:
+<br/>(i) \(h^2 = ab\)
+<br/>(ii) \(af^2 = bg^2\) and
+<br/>(iii) the distance between the parallel lines \(= 2\sqrt{\frac{g^2 - ac}{a(a+b)}} = 2\sqrt{\frac{f^2 - bc}{b(a+b)}}\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 144 | TAH 10</div><div class="qb"><span class="tag exam">JEE Advanced 2016</span><br/>Let \(RS\) be the diameter of the circle \(x^2 + y^2 = 1\), where \(S\) is the point \((1, 0)\). Let \(P\) be a variable point (other than \(R\) and \(S\)) on the circle and tangents to the circle at \(S\) and \(P\) meet at the point \(Q\). The normal to the circle at \(P\) intersects a line drawn through \(Q\) parallel to \(RS\) at point \(E\). Then the locus of \(E\) passes through the point (s):
+<ul class="opts"><li>\(\left(\frac{1}{3}, \frac{1}{\sqrt{3}}\right)\)</li><li>\(\left(\frac{1}{4}, \frac{1}{2}\right)\)</li><li>\(\left(\frac{1}{3}, -\frac{1}{\sqrt{3}}\right)\)</li><li>\(\left(\frac{1}{4}, -\frac{1}{2}\right)\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 146 | TAH 11</div><div class="qb">The equation of the circle circumscribing the triangle formed by the lines \(x + y = 6\), \(2x + y = 4\) and \(x + 2y = 5\), is:
+<ul class="opts"><li>\(x^2 + y^2 - 17x - 19y + 50 = 0\)</li><li>\(x^2 + y^2 - 17x + 19y + 50 = 0\)</li><li>\(x^2 + y^2 + 17x - 19y + 50 = 0\)</li><li>None of these</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 174 | Q1</div><div class="qb">Find the number of integral values of \(a\) so that the inequation \(x^2 - 2(a + 1)x + 3(a - 3)(a + 1) &lt; 0\) is satisfied by at least one \(x \in \mathbb{R}^+\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 174 | Q2</div><div class="qb">Find the values of \(K\) so that the quadratic equation \(x^2 + 2(K - 1)x + K + 5 = 0\) has at least one positive root.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 174 | Q3</div><div class="qb">Let \(f(x) = kx^2 + x(3 - 4k) - 12\). If the set of values of \(k\) for which \(f(x) &lt; 0\) \(\forall x \in (-3, 3)\) and \(f(-4) &gt; 0\) is \((p, q]\), then find the value of \((4p + 3q)\).</div></div></div>
+
+</body>
+</html>
