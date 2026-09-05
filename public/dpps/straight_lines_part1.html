@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Straight Lines — DPP Part 1 (JEE Main &amp; Advanced)</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #1a1a1a;
+  background: #fff;
+  padding: 12mm 14mm;
+  counter-reset: qnum;
+}
+.dpp-header {
+  border: 2.5px solid #000;
+  margin-bottom: 20px;
+  page-break-inside: avoid;
+}
+.dpp-title {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 0;
+}
+.dpp-meta {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-top: 1.5px solid #000;
+  background: #fafafa;
+}
+.dpp-meta span { display: inline-block; }
+h2 {
+  font-size: 13px;
+  font-weight: 700;
+  background: #1e1e2e;
+  color: #fff;
+  padding: 5px 12px;
+  margin: 24px 0 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.q {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border-left: 3.5px solid #000;
+  border-bottom: 1px solid #e5e7eb;
+  page-break-inside: avoid;
+  counter-increment: qnum;
+}
+.q::before {
+  content: counter(qnum) ".";
+  font-weight: 700;
+  font-size: 14px;
+  min-width: 28px;
+  flex-shrink: 0;
+}
+.qinner { flex: 1; min-width: 0; }
+.qh {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #666;
+  float: right;
+  margin-left: 10px;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+.qb {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.75;
+  color: #111;
+  display: block;
+  overflow: hidden;
+}
+.tag {
+  display: inline-block;
+  margin: 0 4px 4px 0;
+  padding: 2px 8px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: .2px;
+  vertical-align: middle;
+}
+.tag.kcls { background: #bd651d; }
+.tag.mindbender { background: #7546a7; }
+.tag.asrq { background: #23719e; }
+.tag.exam { background: #32845e; }
+.tag.tah { background: #d9381e; }
+.opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 28px;
+  margin-top: 10px;
+  padding-left: 0;
+  list-style: none;
+  font-weight: 400;
+  font-size: 14px;
+  border-top: 1px dashed #ddd;
+  padding-top: 6px;
+}
+.opts li::before { font-weight: 700; color: #333; }
+.opts li:nth-child(1)::before { content: "(A) "; }
+.opts li:nth-child(2)::before { content: "(B) "; }
+.opts li:nth-child(3)::before { content: "(C) "; }
+.opts li:nth-child(4)::before { content: "(D) "; }
+.opts li:nth-child(5)::before { content: "(E) "; }
+ol.subq { padding-left: 20px; margin-top: 6px; font-weight: 400; font-size: 14px; }
+ol.subq li { margin-bottom: 4px; }
+table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 13px; font-weight: 400; }
+td, th { border: 1px solid #888; padding: 5px 8px; vertical-align: top; }
+th { font-weight: 700; background: #f3f4f6; }
+@media print {
+  body { padding: 8mm 10mm; font-size: 13px; }
+  h2 { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .q { margin-bottom: 12px; }
+}
+</style>
+</head>
+<body>
+
+<div class="dpp-header">
+  <div class="dpp-title">Daily Practice Paper &mdash; Straight Lines</div>
+  <div class="dpp-meta">
+    <span><strong>Subject:</strong> Mathematics</span>
+    <span><strong>Topic:</strong> Straight Lines (Part 1)</span>
+    <span><strong>Total Questions:</strong> 76</span>
+  </div>
+</div>
+
+<h2>Part 01 &mdash; Coordinate Geometry, Loci, Slope &amp; Straight Lines</h2>
+
+<!-- QUESTIONS_START -->
+<div class="q"><div class="qinner"><div class="qh">Pg 4 | Q1</div><div class="qb">Suppose \(ABC\) is a triangle with 3 acute angles \(A\), \(B\) and \(C\). The point whose coordinates are \((\cos B - \sin A, \sin B - \cos A)\) can be in the -
+<ul class="opts"><li>first and \(2^{\text{nd}}\) quadrant</li><li>second and the \(3^{\text{rd}}\) quadrant</li><li>third and \(4^{\text{th}}\) quadrant</li><li>second quadrant only</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 5 | Q1</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span><br/>There are \(n\) triangles of positive area that have one vertex \(A(0, 0)\) and the other two vertices whose coordinates are drawn independently with replacement from the set \(\{0, 1, 2, 3, 4\}\) e.g. \((1, 2)\), \((0, 1)\), \((2, 2)\) etc. Find the value of \(n\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 11 | Q1</div><div class="qb">Line segment joining \(A(2, 3)\) &amp; \(B(5, 6)\) is divided by \((3, 4)\). Find harmonic conjugate of \((3, 4)\) w.r.t \(AB\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 12 | Q1</div><div class="qb"><span class="tag asrq">★★★ ASRQ ★★★</span><br/>Points \(P(2, -2)\), \(Q(-2, 1)\) and \(R\) are collinear. If \(l(PR) = 10\) find the coordinates of \(R\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 13 | Q1</div><div class="qb">If \(P(1, 2)\), \(Q(4, 6)\), \(R(5, 7)\) &amp; \(S(a, b)\) are the vertices of a parallelogram \(PQRS\), then-
+<ul class="opts"><li>\(a = 2, b = 4\)</li><li>\(a = 3, b = 4\)</li><li>\(a = 2, b = 3\)</li><li>\(a = 3, b = 5\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 14 | Q1</div><div class="qb"><span class="tag exam">IIT-JEE 1961</span><br/>If \((1, 1)\), \((3, 4)\), \((5, -2)\) and \((4, -7)\) are vertices of a quadrilateral then its area.
+<ul class="opts"><li>\(\frac{41}{2}\text{ units}\)</li><li>\(\frac{2}{41}\text{ units}\)</li><li>\(\frac{43}{3}\text{ units}\)</li><li>\(\frac{42}{4}\text{ units}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 15 | Q1</div><div class="qb"><span class="tag asrq">★★★ ASRQ ★★★</span><br/>Prove that the co-ordinates of the vertices of an equilateral triangle cannot all be rational.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 16 | Q1</div><div class="qb">Co-ordinates of three points \(A\), \(B\) and \(C\) are \((4, 1)\); \((5, -2)\) and \((3, 7)\). Find the possible co-ordinates of '\(D\)' so that figure formed is a parallelogram.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 38 | Q1</div><div class="qb">Orthocentre and circumcentre of a \(\Delta ABC\) are \((a, b)\) and \((c, d)\). If the co-ordinates of the vertex \(A\) are \((x_1, y_1)\) then find the co-ordinates of the middle point of \(BC\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 39 | Q1</div><div class="qb"><span class="tag asrq">★★ ASRQ ★★</span><br/>Find the circumcentre and circumradius of the triangle whose vertices are \((1, 1)\), \((2, -1)\) and \((3, 2)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 40 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2020</span> <span class="tag asrq">★★ ASRQ ★★</span><br/>If \(\Delta ABC\) has vertices \(A(-1, 7)\), \(B(-7, 1)\) and \(C(5, -5)\), then its orthocentre has coordinates
+<ul class="opts"><li>\(\left(\frac{3}{5}, -\frac{3}{5}\right)\)</li><li>\((3, -3)\)</li><li>\((-3, 3)\)</li><li>\(\left(-\frac{3}{5}, \frac{3}{5}\right)\)</li></ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 42 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2022 (29 July)</span> <span class="tag asrq">★★ ASRQ ★★</span><br/>Let \(A(\alpha, -2)\), \(B(\alpha, 6)\) and \(C\left(\frac{\alpha}{4}, -2\right)\) be vertices of a \(\Delta ABC\). If \(\left(5, \frac{\alpha}{4}\right)\) is the circumcentre of \(\Delta ABC\), then which of the following is NOT correct about \(\Delta ABC\)?
+<ul class="opts"><li>area is 24</li><li>perimeter is 25</li><li>circumradius is 5</li><li>inradius is 2</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 43 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2020</span><br/>Let two points be \(A(1, -1)\) and \(B(0, 2)\). If a point \(P(x', y')\) be such that the area of \(\Delta PAB = 5\text{ sq. units}\) and it lies on the line, \(3x + y - 4\lambda = 0\), then a value of \(\lambda\) is
+<ul class="opts"><li>1</li><li>4</li><li>-3</li><li>3</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 44 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2013</span> <span class="tag kcls">★★ KCLS ★★</span><br/>The \(x\)-coordinate of the incentre of the triangle that has the coordinates of mid points of its sides as \((0, 1)\), \((1, 1)\) and \((1, 0)\) is
+<ul class="opts"><li>\(2 + \sqrt{2}\)</li><li>\(2 - \sqrt{2}\)</li><li>\(1 + \sqrt{2}\)</li><li>\(1 - \sqrt{2}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 45 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2022 (24 June)</span><br/>Let \(A\left(\frac{3}{\sqrt{a}}, \sqrt{a}\right), a &gt; 0\), be a fixed point in the \(xy\)-plane. The image of \(A\) in \(y\)-axis be \(B\) and the image of \(B\) in \(x\)-axis be \(C\). If \(D(3\cos\theta, a\sin\theta)\) is a point in the fourth quadrant such that the maximum area of \(\Delta ACD\) is \(12\text{ square units}\), then \(a\) is equal to</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 49 | Q1</div><div class="qb">Let \(A(2, -3)\) and \(B(-2, 1)\) be vertices of a \(\Delta ABC\). If the centroid of \(\Delta ABC\) moves on the line \(2x + 3y = 1\), then the locus of the vertex \(C\) is
+<ul class="opts"><li>\(2x + 3y = 9\)</li><li>\(2x + 3y = 12\)</li><li>\(3x + 2y = 5\)</li><li>\(3x - 2y = 3\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 51 | Q1</div><div class="qb">Vertices of a variable triangle are \((3, 4)\), \((5\cos\theta, 5\sin\theta)\) and \((5\sin\theta, -5\cos\theta)\) where \(\theta \in \mathbb{R}\), then locus of its orthocenter is:
+<ul class="opts"><li>\((x + y - 1)^2 + (x - y - 7)^2 = 100\)</li><li>\((x + y - 7)^2 + (x - y - 1)^2 = 100\)</li><li>\((x + y - 7)^2 + (x + y - 1)^2 = 100\)</li><li>\((x + y - 7)^2 + (x - y + 1)^2 = 100\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 57 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (9 April)</span><br/>Two vertices of a triangle \(ABC\) are \(A(3, -1)\) and \(B(-2, 3)\), and its orthocentre is \(P(1, 1)\). If the coordinates of the point \(C\) are \((\alpha, \beta)\) and the centre of the circle circumscribing the triangle \(PAB\) is \((h, k)\), then the value of \((\alpha + \beta) + 2(h + k)\) equals</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 82 | Q1</div><div class="qb">Match the Column &mdash; Equation of Straight Line:
+<table style="width:100%; border:none; margin-top:10px;">
+<tr>
+<td style="width:60%; vertical-align:top; border:none; padding:5px;">
+<b>Column-I</b><br/>
+(A) Which cuts-off an intercept 4 on the x-axis and passes through the point \((2, -3)\).<br/>
+(B) Which cuts-off equal intercepts on the co-ordinate axes and passes through \((2, 5)\)<br/>
+(C) Which makes an angle of \(135^\circ\) with the axis of x and which cuts the axis of y at a distance -8 from the origin<br/>
+(D) Through the point \((4, 1)\) and making with the axes in the first quadrant a triangle whose area is 8.
+</td>
+<td style="width:40%; vertical-align:top; border:none; padding:5px;">
+<b>Column-II</b><br/>
+(P) \(2x + y + 1 = 0\)<br/>
+(Q) \(x + y = 7\)<br/>
+(R) \(3x - 2y = 12\)<br/>
+(S) \(x + 4y = 8\)<br/>
+(T) \(x + y + 8 = 0\)
+</td>
+</tr>
+</table></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 86 | Q1</div><div class="qb">If \(\left(\frac{5}{3}, 3\right)\) is the centroid of a triangle and its two vertices are \((0, 1)\) and \((2, 3)\), then find its third vertex, circumcentre, circumradius &amp; orthocentere.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 90 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2019</span><br/>A triangle has a vertex at \((1, 2)\) and the mid points of the two sides through it are \((-1, 1)\) and \((2, 3)\). Then the centroid of this triangle is
+<ul class="opts"><li>\(\left(\frac{1}{3}, 2\right)\)</li><li>\(\left(\frac{1}{3}, \frac{5}{3}\right)\)</li><li>\(\left(\frac{1}{3}, 2\right)\)</li><li>\(\left(1, \frac{7}{3}\right)\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 92 | Q1</div><div class="qb">Statement-1: Centroid of the triangle whose vertices are \(A(-1, 11)\), \(B(-9, -8)\) and \(C(15, -2)\) lies on the internal angle bisector of the vertex \(A\). Because<br/>Statement-2: Triangle \(ABC\) is isosceles with \(B\) and \(C\) as base angles.
+<ul class="opts"><li>Statement-1 is true, statement-2 is true and statement-2 is correct explanation for statement-1</li><li>Statement-1 is true, statement-2 is true and statement-2 is Not the correct explanation for statement-1</li><li>Statement-1 is true, statement-2 is false.</li><li>Statement-1 is false, statement-2 is true.</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 94 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (6 April)</span><br/>If the locus of the point, whose distances from the point \((2, 1)\) and \((1, 3)\) are in the ratio \(5 : 4\), is \(ax^2 + by + cxy + dx + ey + 170 = 0\), then the value of \(a^2 + 2b + 3c + 4d + e\) is equal to:
+<ul class="opts"><li>37</li><li>-27</li><li>437</li><li>5</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 98 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (5 April)</span><br/>Let \(A(-1, 1)\) and \(B(2, 3)\) be two points and \(P\) be a variable point above the line \(AB\) such that the area of \(\Delta PAB\) is 10. If the locus of \(P\) is \(ax + by = 15\), then \(5a + 2b\) is:
+<ul class="opts"><li>\(-\frac{12}{5}\)</li><li>\(-\frac{6}{5}\)</li><li>6</li><li>4</li></ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 101 | Q1</div><div class="qb">Match the Column:
+<table style="width:100%; border:none; margin-top:10px;">
+<tr>
+<td style="width:55%; vertical-align:top; border:none; padding:5px;">
+<b>Column-I</b><br/>
+(A) The points \((2, -2)\), \((-2, 1)\) and \((5, 2)\)<br/>
+(B) The points \((1, -2)\), \((-3, 0)\) and \((5, 6)\)<br/>
+(C) The points \((3, 7)\), \((6, 5)\) and \((15, -1)\)<br/>
+(D) The points \((2, 2)\), \((-2, -2)\) and \((-2\sqrt{3}, 2\sqrt{3})\)
+</td>
+<td style="width:45%; vertical-align:top; border:none; padding:5px;">
+<b>Column-II</b><br/>
+(P) are the vertices of a right angled triangle<br/>
+(Q) are the vertices of a right angled isosceles triangle<br/>
+(R) are the vertices of an equilateral triangle<br/>
+(S) do not form a triangle
+</td>
+</tr>
+</table></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 103 | Q2</div><div class="qb">If in triangle \(ABC\), \(A \equiv (1, 10)\), circumcentre \(\equiv \left(-\frac{1}{3},\frac{2}{3}\right)\) and orthocentre \(\equiv \left(\frac{11}{3},\frac{4}{3}\right)\) then the co-ordinates of mid-point of side opposite to \(A\) is :
+<ul class="opts"><li>\((1, -11/3)\)</li><li>\((1, 5)\)</li><li>\((1, -3)\)</li><li>\((1, 6)\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 103 | Q3</div><div class="qb">Consider the triangle whose vertices are \((2, 3)\), \((-2, -5)\), \((-4, 6)\). Find the orthocentre, circumcentre, incentre, inradius and circumradius of the triangle.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 103 | Q4</div><div class="qb">If \(x_1, x_2, x_3\) are the roots of the equation \(x^3 - 3px^2 + 3qx - 1 = 0\) then find the centroid of the \(\Delta\) the co-ordinates of whose vertices are \(\left(x_1,\frac{1}{x_1}\right)\), \(\left(x_2,\frac{1}{x_2}\right)\) and \(\left(x_3,\frac{1}{x_3}\right)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 108 | Q5</div><div class="qb">Find the harmonic conjugates of the point \(R(5, 1)\) with respect to the points \(P(2, 10)\) and \(Q(6, -2)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 108 | Q6</div><div class="qb">Find the area of the quadrilateral \(ABCD\) with vertices \(A(-2, 0)\), \(B(0, -4)\), \(C(4, -2)\), and \(D(2, 2)\).
+<ul class="opts"><li>12 sq. units</li><li>16 sq. units</li><li>20 sq. units</li><li>32 sq. units</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 108 | Q7</div><div class="qb">If the two vertices of a triangle are \((7, 2)\) and \((1, 6)\) and its centroid is \((4, 6)\) then the coordinate of the third vertex are \((a, b)\). The value of \((a + b)\), is
+<ul class="opts"><li>13</li><li>14</li><li>15</li><li>16</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 108 | Q8</div><div class="qb">If \(P(t^2, 2t)\), \(Q\left(\frac{1}{t^2}, \frac{-2}{t}\right)\) and \(S(1, 0)\) be any three points, find the value of \(\left(\frac{1}{SP} + \frac{1}{SQ}\right)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 108 | Q9</div><div class="qb">The vertices of a triangle are \((1, a)\), \((2, b)\) and \((c^2, -3)\)
+<ol class="subq" style="list-style-type:lower-roman;">
+<li>Prove that its centroid can not lie on the y-axis.</li>
+<li>Find the condition that the centroid may lie on the x-axis for any value of \(a, b, c \in \mathbb{R}\).</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 108 | Q10</div><div class="qb">The vertices of a triangle \(ABC\) are \(A(1, 2)\); \(B(2, 3)\) and \(C(3, 1)\). Find the cosines of the interior angles of the triangle and hence or otherwise find the coordinates of (a) orthocentre of the triangle, (b) circumcentre of the triangle</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 115 | Q11</div><div class="qb">Consider the points \(P(2, -4)\); \(Q(4, -2)\) and \(R = (7, 1)\). The points \(P, Q, R\)
+<ul class="opts"><li>form an equilateral triangle</li><li>form a right angled triangle</li><li>form an isosceles triangle which is not equilateral</li><li>are collinear.</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 115 | Q12</div><div class="qb">The length of a line segment \(AB\) is 10 units. If the coordinates of one extremity are \((2, -3)\) and the abscissa of the other extremity is 10 then the sum of all possible values of the ordinate of the other extremity is
+<ul class="opts"><li>3</li><li>-4</li><li>12</li><li>-6</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 115 | Q13</div><div class="qb">The four points whose co-ordinates are \((2, 1)\), \((1, 4)\), \((4, 5)\), \((5, 2)\) form :
+<ul class="opts"><li>a rectangle which is not a square</li><li>a trapezium which is not a parallelogram</li><li>a square</li><li>a rhombus which is not a square.</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 115 | Q14</div><div class="qb">If \(A\) and \(B\) are the points \((-3, 4)\) and \((2, 1)\), then the co-ordinates of the point \(C\) on \(AB\) produced such that \(AC = 2 BC\) are :
+<ul class="opts"><li>\((2, 4)\)</li><li>\((3, 7)\)</li><li>\((7, -2)\)</li><li>\(\left(-\frac{1}{2}, \frac{5}{2}\right)\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 121 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (30 Jan)</span> <span class="tag asrq">★★★ ASRQ ★★★</span><br/>A line passing through the point \(A(9, 0)\) makes an angle of \(30^\circ\) with the positive direction of x-axis. If this line is rotated about \(A\) through an angle of \(15^\circ\) in the clockwise direction, then its equation in the new position is:
+<ul class="opts"><li>\(\frac{y}{\sqrt{3} + 2} + x = 9\)</li><li>\(\frac{x}{\sqrt{3} + 2} + y = 9\)</li><li>\(\frac{x}{\sqrt{3} - 2} + y = 9\)</li><li>\(\frac{y}{\sqrt{3} - 2} + x = 9\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 122 | Q1</div><div class="qb">Find the equation of the straight line, which passes through the origin and making angle \(60^\circ\) with the line \(x + \sqrt{3}y + 3\sqrt{3} = 0\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 124 | Q1</div><div class="qb">A line \(4x + y = 1\) through the point \(A(2, -7)\) meets the line \(BC\), whose equation is \(3x - 4y + 1 = 0\) at the point \(B\). Find the equation of the line \(AC\) so that \(AB = AC\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 125 | Q1</div><div class="qb">A vertex of an equilateral triangle is \((2, 3)\) and the equation of the opposite side \(x + y = 2\). Find the equation of the other sides of the triangle.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 127 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (9 April)</span> <span class="tag kcls">★★★ KCLS ★★★</span><br/>A variable line \(L\) passes through the point \((3, 5)\) and intersects the positive coordinate axes at the points \(A\) and \(B\). The minimum area of the triangle \(OAB\), where \(O\) is the origin, is:
+<ul class="opts"><li>35</li><li>25</li><li>30</li><li>40</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 133 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2021 (March)</span> <span class="tag asrq">★★★ ASRQ ★★★</span><br/>In a triangle \(PQR\), the co-ordinates of the points \(P\) and \(Q\) are \((-2, 4)\) and \((4, -2)\) respectively. If the equation of the perpendicular bisector of \(PR\) is \(2x - y + 2 = 0\), then the centre of the circumcircle of the \(\Delta PQR\) is
+<ul class="opts"><li>\((-1, 0)\)</li><li>\((-2, -2)\)</li><li>\((0, 2)\)</li><li>\((1, 4)\)</li></ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 134 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2026 (8 April)</span><br/>If a straight line drawn through the point of intersection of the lines \(4x + 3y - 1 = 0\) and \(3x + 4y - 1 = 0\), meets the co-ordinate axes at the points \(P\) and \(Q\), then the locus of the mid point of \(PQ\) is:
+<ul class="opts"><li>\(x + y - 7 = 0\)</li><li>\(x + y - 14xy = 0\)</li><li>\(2x + y + 14xy = 0\)</li><li>\(x + 2y - 14xy = 0\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 135 | Q1</div><div class="qb">\(ABC\) is a variable triangle such that \(A\) is \((1, 2)\); \(B\) and \(C\) lie on \(y = x + \lambda\) (where \(\lambda\) is variable), then locus of the orthocentre of triangle \(ABC\) is:
+<ul class="opts"><li>\((x - \lambda)^2 + y^2 = 4\)</li><li>\(x + y = 3\)</li><li>\(2x - y = 0\)</li><li>\(x + 2y^2 = 0\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 136 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (8 April)</span><br/>The equations of two sides \(AB\) and \(AC\) of a triangle \(ABC\) are \(4x + y = 14\) and \(3x - 2y = 5\), respectively. The point \((2, -4/3)\) divides the third side \(BC\) internally in the ratio \(2 : 1\), the equation of the side \(BC\) is
+<ul class="opts"><li>\(x + 6y + 6 = 0\)</li><li>\(x - 3y - 6 = 0\)</li><li>\(x + 3y + 2 = 0\)</li><li>\(x - 6y - 10 = 0\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 137 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2018 (15 April)</span> <span class="tag kcls">★★★ KCLS ★★★</span><br/>In a \(\Delta ABC\), coordinates of \(A\) are \((1, 2)\) and the equations of the medians through \(B\) and \(C\) are respectively, \(x + y = 5\) and \(x = 4\). Then area of \(\Delta ABC\) (in sq. units) is:
+<ul class="opts"><li>12</li><li>4</li><li>5</li><li>9</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 138 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2023 (Jan)</span><br/>A straight line cuts off the intercepts \(OA = a\) and \(OB = b\) on the positive directions of \(x\)-axis and \(y\)-axis respectively. If the perpendicular from origin \(O\) to this line makes an angle of \(\frac{\pi}{6}\) with positive direction of \(y\)-axis and the area of \(\Delta OAB\) is \(\frac{98}{3}\sqrt{3}\), then \(a^2 - b^2\) is equal to:
+<ul class="opts"><li>\(\frac{392}{3}\)</li><li>196</li><li>\(\frac{196}{3}\)</li><li>98</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 139 | Q1</div><div class="qb"><span class="tag kcls">★★★ KCLS ★★★</span><br/>Find equation of diagonal \(AC\) of square \(OABC\) where side \(OA = a\) makes angle \(\alpha\) with positive \(x\)-axis and \(O\) is origin.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 140 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (5 April)</span><br/>Let two straight lines drawn from the origin \(O\) intersect the line \(3x + 4y = 12\) at the points \(P\) and \(Q\) such that \(\Delta OPQ\) is an isosceles triangle and \(\angle POQ = 90^\circ\). If \(l = OP^2 + PQ^2 + QO^2\), then the greatest integer less than or equal to \(l\) is:
+<ul class="opts"><li>42</li><li>46</li><li>48</li><li>44</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 148 | Q1</div><div class="qb">The lines \(2x + y = 1\), \(x + 2y = 1\), \(2x + y = 3\) and \(x + 2y = 3\) form a figure which is _________</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 150 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2022 (26 June)</span><br/>Let \(R\) be the point \((3, 7)\) and let \(P\) and \(Q\) be two points on the line \(x + y = 5\) such that \(PQR\) is an equilateral triangle. Then the area of \(\Delta PQR\) is:
+<ul class="opts"><li>\(\frac{25}{4\sqrt{3}}\)</li><li>\(\frac{25\sqrt{3}}{2}\)</li><li>\(\frac{25}{\sqrt{3}}\)</li><li>\(\frac{25}{2\sqrt{3}}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 152 | TAH 01</div><div class="qb"><span class="tag tah">★★★ TAH ★★★</span> <span class="tag exam">JEE Mains 2025</span><br/>Let \(A(6, 8)\), \(B(10\cos\alpha, -10\sin\alpha)\) and \(C(-10\sin\alpha, 10\cos\alpha)\) be the vertices of a triangle. If \(L(a, 9)\) and \(G(h, k)\) be its orthocenter and centroid respectively, then \((5a - 3h + 6k + 100\sin 2\alpha)\) is equal to</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 152 | TAH 02</div><div class="qb"><span class="tag tah">★★★ TAH ★★★</span> <span class="tag exam">JEE Mains 2017</span><br/>Let \(k\) be an integer such that the triangle with vertices \((k, -3k)\), \((5, k)\) and \((-k, 2)\) has area 28 sq. units. Then, the orthocenter of this triangle is at the point.
+<ul class="opts"><li>\(\left(2, -\frac{1}{2}\right)\)</li><li>\(\left(1, -\frac{3}{4}\right)\)</li><li>\(\left(1, \frac{3}{4}\right)\)</li><li>\(\left(2, \frac{1}{2}\right)\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 155 | TAH 03</div><div class="qb"><span class="tag tah">★★★ TAH ★★★</span> <span class="tag exam">JEE Mains 2020</span><br/>If \((\alpha, \beta)\) is the orthocentre of the triangle \(ABC\) with vertices \(A(3, -7)\), \(B(-1, 2)\) and \(C(4, 5)\), then \(9\alpha - 6\beta + 60\) is equal to
+<ul class="opts"><li>25</li><li>35</li><li>30</li><li>40</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 155 | TAH 04</div><div class="qb"><span class="tag tah">★★★ TAH ★★★</span> <span class="tag exam">JEE Mains 2023</span><br/>If the orthocentre of the triangle, whose vertices are \((1, 2)\), \((2, 3)\) and \((3, 1)\) is \((\alpha, \beta)\) then the quadratic equation whose roots are \(\alpha + 4\beta\) and \(4\alpha + \beta\), is
+<ul class="opts"><li>\(x^2 - 19x + 90 = 0\)</li><li>\(x^2 - 18x + 80 = 0\)</li><li>\(x^2 - 22x + 120 = 0\)</li><li>\(x^2 - 20x + 99 = 0\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 158 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2019</span><br/>Two vertices of a triangle are \((0, 2)\) and \((4, 3)\). If its orthocentre is at the origin, then its third vertex lies in which quadrant ?
+<ul class="opts"><li>First</li><li>Second</li><li>Third</li><li>Fourth</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 160 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2025 (April)</span><br/>Let \(ABC\) be the triangle such that the equations of lines \(AB\) and \(AC\) be \(3y - x = 2\) and \(x + y = 2\), respectively, and the points \(B\) and \(C\) lie on \(x\)-axis. If \(P\) is the orthocentre of the triangle \(ABC\), then the area of the triangle \(PBC\) is equal to:
+<ul class="opts"><li>4</li><li>10</li><li>8</li><li>6</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 162 | Q1</div><div class="qb">Match the Column:
+<table style="width:100%; border:none; margin-top:10px;">
+<tr>
+<td style="width:60%; vertical-align:top; border:none; padding:5px;">
+<b>Column-I</b><br/>
+(A) The points \((2, -2)\), \((8, 4)\), \((5, 7)\) and \((-1, 1)\) taken in order constitute the vertices of a<br/>
+(B) The points \((0, -1)\), \((2, 1)\), \((0, 3)\) and \((-2, 1)\) taken in order are the vertices of a<br/>
+(C) The points \((3, -5)\), \((-5, -4)\), \((7, 10)\), \((15, 9)\) taken in order are the vertices of a<br/>
+(D) The points \((-3, 4)\), \((-1, 0)\), \((1, 0)\) and \((3, 4)\) taken in order are the vertices of a
+</td>
+<td style="width:40%; vertical-align:top; border:none; padding:5px;">
+<b>Column-II</b><br/>
+(P) square<br/>
+(Q) rectangle<br/>
+(R) trapezium<br/>
+(S) parallelogram<br/>
+(T) cyclic quadrilateral
+</td>
+</tr>
+</table></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 165 | Q1</div><div class="qb">Find the equation to the straight line:
+<table style="width:100%; border:none; margin-top:10px;">
+<tr>
+<td style="width:60%; vertical-align:top; border:none; padding:5px;">
+<b>Column-I</b><br/>
+(P) passing through the point \((2, 3)\) and perpendicular to the straight line \(4x - 3y = 10\)<br/>
+(Q) passing through the point \((-6, 10)\) and perpendicular to the straight line \(7x + 8y = 5\)<br/>
+(R) passing through the point \((2, -3)\) and perpendicular to the straight line joining the points \((5, 7)\) and \((-6, 3)\)<br/>
+(S) passing through the point \((-4, -3)\) and perpendicular to the straight line joining \((1, 3)\) and \((2, 7)\)
+</td>
+<td style="width:40%; vertical-align:top; border:none; padding:5px;">
+<b>Column-II</b><br/>
+(1) \(4y + 11x = 10\)<br/>
+(2) \(4y + 3x = 18\)<br/>
+(3) \(x + 4y + 16 = 0\)<br/>
+(4) \(9y - 8x = 118\)
+</td>
+</tr>
+</table></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 168 | Q1</div><div class="qb">Equation of Straight Line:
+<table style="width:100%; border:none; margin-top:10px;">
+<tr>
+<td style="width:60%; vertical-align:top; border:none; padding:5px;">
+<b>Column-I</b><br/>
+(A) Which cuts-off an intercept 4 on the \(x\)-axis and passes through the point \((2, -3)\).<br/>
+(B) Which cuts-off equal intercepts on the co-ordinate axes and passes through \((2, 5)\)<br/>
+(C) Which makes an angle of \(135^\circ\) with the axis of \(x\) and which cuts the axis of \(y\) at a distance \(-8\) from the origin<br/>
+(D) Through the point \((4, 1)\) and making with the axes in the first quadrant a triangle whose area is 8.
+</td>
+<td style="width:40%; vertical-align:top; border:none; padding:5px;">
+<b>Column-II</b><br/>
+(P) \(2x + y + 1 = 0\)<br/>
+(Q) \(x + y = 7\)<br/>
+(R) \(3x - 2y = 12\)<br/>
+(S) \(x + 4y = 8\)<br/>
+(T) \(x + y + 8 = 0\)
+</td>
+</tr>
+</table></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 172 | Q1</div><div class="qb"><span class="tag asrq">★★★ ASRQ ★★★</span> <span class="tag exam">JEE Mains 2024 (30 Jan)</span><br/>A line passing through the point \(A(9, 0)\) makes an angle of \(30^\circ\) with the positive direction of \(x\)-axis. If this line is rotated about \(A\) through an angle of \(15^\circ\) in the clockwise direction, then its equation in the new position is:
+<ul class="opts"><li>\(\frac{y}{\sqrt{3} + 2} + x = 9\)</li><li>\(\frac{x}{\sqrt{3} + 2} + y = 9\)</li><li>\(\frac{x}{\sqrt{3} - 2} + y = 9\)</li><li>\(\frac{y}{\sqrt{3} - 2} + x = 9\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 173 | Q1</div><div class="qb">Find the equation of the straight line, which passes through the origin and making angle \(60^\circ\) with the line \(x + \sqrt{3}y + 3\sqrt{3} = 0\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 175 | Q1</div><div class="qb">A line \(4x + y = 1\) through the point \(A(2, -7)\) meets the line \(BC\), whose equation is \(3x - 4y + 1 = 0\) at the point \(B\). Find the equation of the line \(AC\) so that \(AB = AC\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 176 | Q1</div><div class="qb">A vertex of an equilateral triangle is \((2, 3)\) and the equation of the opposite side is \(x + y = 2\). Find the equation of the other sides of the triangle.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 178 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (8 April)</span><br/>If the line segment joining the points \((5, 2)\) and \((2, a)\) subtends an angle \(\frac{\pi}{4}\) at the origin, then the absolute value of the product of all possible values of \(a\) is:
+<ul class="opts"><li>4</li><li>8</li><li>6</li><li>2</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 179 | Q1</div><div class="qb"><span class="tag kcls">★★★ KCLS ★★★</span> <span class="tag exam">JEE Mains 2024 (9 April)</span><br/>A variable line \(L\) passes through the point \((3, 5)\) and intersects the positive coordinate axes at the points \(A\) and \(B\). The minimum area of the triangle \(OAB\), where \(O\) is the origin, is:
+<ul class="opts"><li>35</li><li>25</li><li>30</li><li>40</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 185 | Q1</div><div class="qb"><span class="tag asrq">★★★ ASRQ ★★★</span> <span class="tag exam">JEE Mains 2021 (March)</span><br/>In a triangle \(PQR\), the co-ordinates of the points \(P\) and \(Q\) are \((-2, 4)\) and \((4, -2)\) respectively. If the equation of the perpendicular bisector of \(PR\) is \(2x - y + 2 = 0\), then the centre of the circumcircle of the \(\Delta PQR\) is
+<ul class="opts"><li>\((-1, 0)\)</li><li>\((-2, -2)\)</li><li>\((0, 2)\)</li><li>\((1, 4)\)</li></ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 186 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2026 (8 April)</span><br/>If a straight line drawn through the point of intersection of the lines \(4x + 3y - 1 = 0\) and \(3x + 4y - 1 = 0\), meets the co-ordinate axes at the points \(P\) and \(Q\), then the locus of the mid point of \(PQ\) is:
+<ul class="opts"><li>\(x + y - 7 = 0\)</li><li>\(x + y - 14xy = 0\)</li><li>\(2x + y + 14xy = 0\)</li><li>\(x + 2y - 14xy = 0\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 187 | Q1</div><div class="qb">\(ABC\) is a variable triangle such that \(A\) is \((1, 2)\); \(B\) and \(C\) lie on \(y = x + \lambda\) (where \(\lambda\) is variable), then locus of the orthocentre of triangle \(ABC\) is:
+<ul class="opts"><li>\((x - \lambda)^2 + y^2 = 4\)</li><li>\(x + y = 3\)</li><li>\(2x - y = 0\)</li><li>\(x + 2y^2 = 0\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 188 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (8 April)</span><br/>The equations of two sides \(AB\) and \(AC\) of a triangle \(ABC\) are \(4x + y = 14\) and \(3x - 2y = 5\), respectively. The point \((2, -4/3)\) divides the third side \(BC\) internally in the ratio \(2 : 1\), the equation of the side \(BC\) is
+<ul class="opts"><li>\(x + 6y + 6 = 0\)</li><li>\(x - 3y - 6 = 0\)</li><li>\(x + 3y + 2 = 0\)</li><li>\(x - 6y - 10 = 0\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 189 | Q1</div><div class="qb"><span class="tag kcls">★★★ KCLS ★★★</span> <span class="tag exam">JEE Mains 2018 (15 April)</span><br/>In a \(\Delta ABC\), coordinates of \(A\) are \((1, 2)\) and the equations of the medians through \(B\) and \(C\) are respectively, \(x + y = 5\) and \(x = 4\). Then area of \(\Delta ABC\) (in sq. units) is:
+<ul class="opts"><li>12</li><li>4</li><li>5</li><li>9</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 190 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2023 (Jan)</span><br/>A straight line cuts off the intercepts \(OA = a\) and \(OB = b\) on the positive directions of \(x\)-axis and \(y\)-axis respectively. If the perpendicular from origin \(O\) to this line makes an angle of \(\frac{\pi}{6}\) with positive direction of \(y\)-axis and the area of \(\Delta OAB\) is \(\frac{98}{3}\sqrt{3}\), then \(a^2 - b^2\) is equal to:
+<ul class="opts"><li>\(\frac{392}{3}\)</li><li>196</li><li>\(\frac{196}{3}\)</li><li>98</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 191 | Q1</div><div class="qb"><span class="tag kcls">★★★ KCLS ★★★</span><br/>Find equation of diagonal \(AC\) of square \(OABC\) (where side length is \(a\), vertex \(O\) is origin, and side \(OA\) is inclined at angle \(\alpha\) with the positive \(x\)-axis).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 192 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (5 April)</span><br/>Let two straight lines drawn from the origin \(O\) intersect the line \(3x + 4y = 12\) at the points \(P\) and \(Q\) such that \(\Delta OPQ\) is an isosceles triangle and \(\angle POQ = 90^\circ\). If \(l = OP^2 + PQ^2 + QO^2\), then the greatest integer less than or equal to \(l\) is:
+<ul class="opts"><li>42</li><li>46</li><li>48</li><li>44</li></ul></div></div></div>
+<!-- QUESTIONS_END -->
+
+</body>
+</html>

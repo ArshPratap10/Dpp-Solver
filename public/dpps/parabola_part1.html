@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parabola — DPP Part 1 (JEE Main &amp; Advanced)</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #1a1a1a;
+  background: #fff;
+  padding: 12mm 14mm;
+  counter-reset: qnum;
+}
+.dpp-header {
+  border: 2.5px solid #000;
+  margin-bottom: 20px;
+  page-break-inside: avoid;
+}
+.dpp-title {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 0;
+}
+.dpp-meta {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-top: 1.5px solid #000;
+  background: #fafafa;
+}
+.dpp-meta span { display: inline-block; }
+h2 {
+  font-size: 13px;
+  font-weight: 700;
+  background: #1e1e2e;
+  color: #fff;
+  padding: 5px 12px;
+  margin: 24px 0 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.q {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border-left: 3.5px solid #000;
+  border-bottom: 1px solid #e5e7eb;
+  page-break-inside: avoid;
+  counter-increment: qnum;
+}
+.q::before {
+  content: counter(qnum) ".";
+  font-weight: 700;
+  font-size: 14px;
+  min-width: 28px;
+  flex-shrink: 0;
+}
+.qinner { flex: 1; min-width: 0; }
+.qh {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #666;
+  float: right;
+  margin-left: 10px;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+.qb {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.75;
+  color: #111;
+  display: block;
+  overflow: hidden;
+}
+.tag {
+  display: inline-block;
+  margin: 0 4px 4px 0;
+  padding: 2px 8px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: .2px;
+  vertical-align: middle;
+}
+.tag.kcls { background: #bd651d; }
+.tag.mindbender { background: #7546a7; }
+.tag.asrq { background: #23719e; }
+.tag.exam { background: #32845e; }
+.tag.tah { background: #d9381e; }
+.tag.bpp { background: #0077b6; }
+.opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 28px;
+  margin-top: 10px;
+  padding-left: 0;
+  list-style: none;
+  font-weight: 400;
+  font-size: 14px;
+  border-top: 1px dashed #ddd;
+  padding-top: 6px;
+}
+.opts li::before { font-weight: 700; color: #333; }
+.opts li:nth-child(1)::before { content: "(A) "; }
+.opts li:nth-child(2)::before { content: "(B) "; }
+.opts li:nth-child(3)::before { content: "(C) "; }
+.opts li:nth-child(4)::before { content: "(D) "; }
+.opts li:nth-child(5)::before { content: "(E) "; }
+ol.subq { padding-left: 20px; margin-top: 6px; font-weight: 400; font-size: 14px; }
+ol.subq li { margin-bottom: 4px; }
+table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 13px; font-weight: 400; }
+td, th { border: 1px solid #888; padding: 5px 8px; vertical-align: top; }
+th { font-weight: 700; background: #f3f4f6; }
+@media print {
+  body { padding: 8mm 10mm; font-size: 13px; }
+  h2 { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .q { margin-bottom: 12px; }
+}
+</style>
+</head>
+<body>
+
+<div class="dpp-header">
+  <div class="dpp-title">Daily Practice Paper &mdash; Parabola</div>
+  <div class="dpp-meta">
+    <span><strong>Subject:</strong> Mathematics</span>
+    <span><strong>Topic:</strong> Parabola (DPP &mdash; Part 1)</span>
+    <span><strong>Total Questions:</strong> 54</span>
+  </div>
+</div>
+
+<h2>Part 01 &mdash; Standard Parabola, Latus Rectum, Focal Chord, Tangents &amp; Properties</h2>
+
+<!-- QUESTIONS_START -->
+<div class="q"><div class="qinner"><div class="qh">Pg 2 | Q1</div><div class="qb"><span class="tag exam">IIT-JEE 1988</span><br/>The locus of centre of a circle passing through \((a, b)\) and cuts orthogonally to circle \(x^2 + y^2 = p^2\), is
+<ul class="opts"><li>\(2ax + 2by - (a^2 + b^2 + p^2) = 0\)</li><li>\(2ax + 2by - (a^2 - b^2 + p^2) = 0\)</li><li>\(x^2 + y^2 - 3ax - 4by + (a^2 + b^2 - p^2) = 0\)</li><li>\(x^2 + y^2 - 2ax - 3by + (a^2 - b^2 - p^2) = 0\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 13 | Q1</div><div class="qb">The equation \(\lambda x^2 + 4xy + y^2 + \lambda x + 3y + 2 = 0\) represents a parabola, if:
+<ul class="opts"><li>-4</li><li>4</li><li>0</li><li>None of these</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 14 | Q1</div><div class="qb">Identify the conic \(25(x^2 + y^2 - 2x + 1) = (4x - 3y + 1)^2\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 15 | Q1</div><div class="qb">Identify the locus of \(P(x, y)\) satisfying \(\sqrt{(x - 1)^2 + (y - 2)^2} = 3\left(\frac{|x + y - 3|}{\sqrt{2}}\right)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 16 | Q1</div><div class="qb">If equation \(\sqrt{(3x - 2)^2 + (3y + 5)^2} = \lambda|3x - 4y + 7|\) represents parabola then find \(\lambda\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 32 | Q1</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span><br/>Find the locus of the centre of circles which bisect the circumference of the circles \(x^2 + y^2 = 4\) and \(x^2 + y^2 - 2x + 6y + 1 = 0\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 34 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (5 April)</span><br/>Let the circle \(C_1 : x^2 + y^2 - 2(x + y) + 1 = 0\) and \(C_2\) be a circle having centre at \((-1, 0)\) and radius 2. If the line of the common chord of \(C_1\) and \(C_2\) intersects the \(y\)-axis at the point \(P\), then the square of the distance of \(P\) from the centre of \(C_1\) is:
+<ul class="opts"><li>4</li><li>6</li><li>2</li><li>1</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 36 | Q1</div><div class="qb">Find the equation of a circle which touches the line \(x + y = 5\) at the point \((-2, 7)\) and cuts the circle \(x^2 + y^2 + 4x - 6y + 9 = 0\) orthogonally.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 39 | Q1</div><div class="qb">Find the radical centre of circles \(x^2 + y^2 + 3x + 2y + 1 = 0\), \(x^2 + y^2 - x + 6y + 5 = 0\) and \(x^2 + y^2 + 5x - 8y + 15 = 0\). Also find the equation of the circle cutting them orthogonally.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 45 | Q1</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span> <span class="tag exam">JEE Advanced 2022</span><br/>Let \(G\) be a circle of radius \(R > 0\). Let \(G_1, G_2, \ldots, G_n\) be \(n\) circles of equal radius \(r > 0\). Suppose each of the \(n\) circles \(G_1, G_2, \ldots, G_n\) touches the circle \(G\) externally. Also, for \(i = 1, 2, \ldots, n - 1\), the circle \(G_i\) touches \(G_{i+1}\) externally, and \(G_n\) touches \(G_1\) externally. Then, which of the following statements is/are TRUE?
+<ul class="opts"><li>If \(n = 4\), then \((\sqrt{2} - 1)r < R\)</li><li>If \(n = 5\), then \(r < R\)</li><li>If \(n = 8\), then \((\sqrt{2} - 1)r < R\)</li><li>If \(n = 12\), then \(\sqrt{2}(\sqrt{3} + 1)r > R\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 48 | Q1</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span><br/>Let \(A(x_1, y_1), B(x_2, y_2), C(x_3, y_3)\) be 3 distinct points lying on circle \(S : x^2 + y^2 = 1\), such that \(x_1 x_2 + y_1 y_2 + x_2 x_3 + y_2 y_3 + x_3 x_1 + y_3 y_1 = -\frac{3}{2}\).
+<table>
+<tr><th style="width:70%;">Column-I</th><th style="width:30%;">Column-II</th></tr>
+<tr><td>(a) Let \(P\) be any arbitrary point lying on \(S\), then \((PA)^2 + (PB)^2 + (PC)^2 =\)</td><td>(p) 3</td></tr>
+<tr><td>(b) Let the perpendicular dropped from point 'A' to \(BC\) meets \(S\) at \(Q\) and \(\angle OBQ = \frac{\pi}{k}\), where 'O' is origin, then \(k =\)</td><td>(q) 4</td></tr>
+<tr><td>(c) Let \(R\) be the point lying on line \(x + y = 2\), at the minimum distance from \(S\) and the square of maximum distance of \(R\) from \(S\) is \(a + b\sqrt{b}\), then \(a + b =\)</td><td>(r) 5</td></tr>
+<tr><td>(d) Let \(I\) and \(G\) represent incenter and centroid of \(\Delta ABC\) respectively, then \(IA + IB + IC + GA + GB + GC =\)</td><td>(s) 6</td></tr>
+</table></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 60 | Q1</div><div class="qb">Find the equation of the parabola
+<ol class="subq" style="list-style-type:lower-alpha;">
+<li>Whose focus is \((1, -1)\) and directrix \(x + y - 7 = 0\).</li>
+<li>Whose vertex is the point \((4, -3)\) and whose latus rectum is 4 and whose axis is parallel to the \(x\)-axis.</li>
+<li>Passing through the point \((-4, -7)\) and whose directrix is parallel to \(x\)-axis and whose vertex is the point \((4, -3)\).</li>
+</ol></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 63 | Q1</div><div class="qb">Find everything for the parabola \(4y^2 + 12x - 20y + 67 = 0\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 65 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2021 (Feb)</span><br/>The locus of the mid-point of the line segment joining the focus of the parabola \(y^2 = 4ax\) to a moving point of the parabola, is another parabola whose directrix is
+<ul class="opts"><li>\(x = -a/2\)</li><li>\(x = a/2\)</li><li>\(x = 0\)</li><li>\(x = a\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 67 | Q1</div><div class="qb">The area (in sq. units) of an equilateral triangle inscribed in the parabola \(y^2 = 8x\), with one of its vertices on the vertex of this parabola is
+<ul class="opts"><li>\(256\sqrt{3}\)</li><li>\(64\sqrt{3}\)</li><li>\(128\sqrt{3}\)</li><li>\(192\sqrt{3}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 68 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2021 (August)</span><br/>The length of the latus rectum of a parabola, whose vertex and focus are on the positive \(x\)-axis at a distance \(R\) and \(S\) (\(> R\)) respectively from the origin, is
+<ul class="opts"><li>\(4(S + R)\)</li><li>\(2(S - R)\)</li><li>\(4(S - R)\)</li><li>\(2(S + R)\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 70 | Q1</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span><br/>For some parabola, tangent at the vertex is \(3x - 4y = 5\) and its focus is \((1, 2)\). Find everything.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 74 | Q1</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span><br/>Find the length of latus rectum of the parabola, whose focus is \((2, 1)\) and vertex \((1, -1)\). Also, find the equation of parabola.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 76 | Q1</div><div class="qb">If the points \(A(1, 3)\) and \(B(5, 5)\) lying on a parabola are equidistant from its focus, then the slope of the directrix is:
+<ul class="opts"><li>\(1/2\)</li><li>\(-1/2\)</li><li>\(2\)</li><li>\(-2\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 78 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2019</span><br/>If a circle passes through the point \((1, 2)\) and cuts the circle \(x^2 + y^2 = 4\) orthogonally, then the equation of the locus of its centre is
+<ul class="opts"><li>\(x^2 + y^2 - 3x - 8y + 1 = 0\)</li><li>\(x^2 + y^2 - 2x - 6y - 7 = 0\)</li><li>\(2x + 4y - 9 = 0\)</li><li>\(2x + 4y - 1 = 0\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 81 | Q1</div><div class="qb">The circle \(\omega_1 : x^2 + y^2 = 16\) intersects a circle \(\omega_2\) (\(\text{radius} = 5\)) such that the common chord has a maximum length and the slope \(3/4\). The centre of \(\omega_2\) is
+<ul class="opts"><li>\(\left(\frac{9}{5}, \frac{-12}{5}\right)\) or \(\left(\frac{-9}{5}, \frac{12}{5}\right)\)</li><li>\(\left(\frac{12}{5}, \frac{-9}{5}\right)\) or \(\left(\frac{-12}{5}, \frac{9}{5}\right)\)</li><li>\(\left(\frac{5}{3}, \frac{-5}{4}\right)\) or \(\left(\frac{5}{4}, \frac{-5}{3}\right)\)</li><li>None of these</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 84 | Q1</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span><br/>Let \(A(x_1, y_1), B(x_2, y_2), C(x_3, y_3)\) be 3 distinct points lying on circle \(S : x^2 + y^2 = 1\), such that \(x_1 x_2 + y_1 y_2 + x_2 x_3 + y_2 y_3 + x_3 x_1 + y_3 y_1 = -\frac{3}{2}\).
+<table>
+<tr><th style="width:70%;">Column-I</th><th style="width:30%;">Column-II</th></tr>
+<tr><td>(a) Let \(P\) be any arbitrary point lying on \(S\), then \((PA)^2 + (PB)^2 + (PC)^2 =\)</td><td>(p) 3</td></tr>
+<tr><td>(b) Let the perpendicular dropped from point 'A' to \(BC\) meets \(S\) at \(Q\) and \(\angle OBQ = \frac{\pi}{k}\), where 'O' is origin, then \(k =\)</td><td>(q) 4</td></tr>
+<tr><td>(c) Let \(R\) be the point lying on line \(x + y = 2\), at the minimum distance from \(S\) and the square of maximum distance of \(R\) from \(S\) is \(a + b\sqrt{b}\), then \(a + b =\)</td><td>(r) 5</td></tr>
+<tr><td>(d) Let \(I\) and \(G\) represent incenter and centroid of \(\Delta ABC\) respectively, then \(IA + IB + IC + GA + GB + GC =\)</td><td>(s) 6</td></tr>
+</table></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 87 | Q1</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span> <strong>Paragraph</strong><br/>Consider a trapezoid \(ABCD\), one of whose non parallel sides \(AB\) which is \(8\text{ cm}\) long is perpendicular to the base. The base \(BC\) and \(AD\) of trapezoid are \(6\text{ cm}\) and \(10\text{ cm}\) in lengths respectively. Let \(L_1, L_2, L_3, L_4\) represent the lines \(AB, BC, CD\) and \(DA\) respectively and \(d(P, L)\) denote the perpendicular distance of point \(P\) from line \(L\).
+<ol class="subq">
+<li>Find the area of region inside the trapezoid \(ABCD\) in which the point \(Q\) can lie satisfying \(d(Q, L_4) \le d(Q, L_3)\):
+<ul class="opts"><li>\(3(3\sqrt{5} + \sqrt{3})\)</li><li>\(24(\sqrt{3} - 1)\)</li><li>\(4(5 - \sqrt{5})\)</li><li>\(25(\sqrt{5} - 1)\)</li></ul></li>
+<li>Distance of the point \(R\) lying on line \(AD\) from vertex \(A\) so that perimeter of triangle \(RBC\) is minimum is:
+<ul class="opts"><li>2</li><li>3</li><li>4</li><li>5</li></ul></li>
+<li>The maximum possible area of rectangle inscribed in the trapezoid so that one of its sides lies on the larger base of trapezoid is:
+<ul class="opts"><li>36</li><li>54</li><li>42</li><li>48</li></ul></li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 89 | Q1</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span> <span class="tag exam">JEE Advanced 2022</span><br/>Let \(G\) be a circle of radius \(R > 0\). Let \(G_1, G_2, \ldots, G_n\) be \(n\) circles of equal radius \(r > 0\). Suppose each of the \(n\) circles \(G_1, G_2, \ldots, G_n\) touches the circle \(G\) externally. Also, for \(i = 1, 2, \ldots, n - 1\), the circle \(G_i\) touches \(G_{i+1}\) externally, and \(G_n\) touches \(G_1\) externally. Then, which of the following statements is/are TRUE?
+<ul class="opts"><li>If \(n = 4\), then \((\sqrt{2} - 1)r < R\)</li><li>If \(n = 5\), then \(r < R\)</li><li>If \(n = 8\), then \((\sqrt{2} - 1)r < R\)</li><li>If \(n = 12\), then \(\sqrt{2}(\sqrt{3} + 1)r > R\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 93 | Q1</div><div class="qb">Identify the conic whose equations are given in Column-I.
+<table>
+<tr><th style="width:60%;">Column-I (Equation of a conic)</th><th style="width:40%;">Column-II (Nature of conic)</th></tr>
+<tr><td>(A) \(xy + a^2 = a(x + y)\)</td><td>(P) Ellipse</td></tr>
+<tr><td>(B) \(2x^2 - 72xy + 23y^2 - 4x - 28y - 48 = 0\)</td><td>(Q) Hyperbola</td></tr>
+<tr><td>(C) \(6x^2 - 5xy - 6y^2 + 14x + 5y + 4 = 0\)</td><td>(R) Parabola</td></tr>
+<tr><td>(D) \(14x^2 - 4xy + 11y^2 - 44x - 58y + 71 = 0\)</td><td>(S) line pair</td></tr>
+<tr><td>(E) \(4x^2 - 4xy + y^2 - 12x + 6y + 9 = 0\)</td><td></td></tr>
+</table></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 95 | Q1</div><div class="qb">What does the following equations represent :
+<ol class="subq" style="list-style-type:lower-alpha;">
+<li>\(\sqrt{(x - 1/2)^2 + (y - 3/2)^2} = |x + y - 3|\)</li>
+<li>\(\sqrt{(x - 1/2)^2 + (y - 3/2)^2} = |x + y - 2|\)</li>
+<li>\(\sqrt{(x + 1)^2 + (y - 3)^2} = \frac{1}{20}|3x + 4y - 5|\)</li>
+<li>\(\sqrt{(2x - 1)^2 + (2y + 5)^2} = |x + y - 2|\)</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 103 | Q1</div><div class="qb"><span class="tag bpp">★★★ BPP ★★★</span><br/>The angle between the two tangents from the origin to the circle \(2((x - e)^2 + (y + \pi)^2) = \pi^2 + e^2\) equals
+<ul class="opts"><li>\(\frac{\pi}{4}\)</li><li>\(\frac{\pi}{3}\)</li><li>\(\frac{\pi}{2}\)</li><li>\(\frac{\pi}{6}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 103 | Q2</div><div class="qb"><span class="tag bpp">★★★ BPP ★★★</span><br/>Tangents are drawn from the point \((2, 3)\) to the circle \(x^2 + y^2 = 9\), then<br/>Statement I: Tangents are mutually perpendicular.<br/>Statement II: Locus of point of intersection of perpendicular tangents is \(x^2 + y^2 = 18\).<br/>Given statements are:
+<ul class="opts"><li>TT</li><li>TF</li><li>FT</li><li>FF</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 103 | Q3</div><div class="qb"><span class="tag bpp">★★★ BPP ★★★</span><br/>A circle is drawn touching the \(x\)-axis and centre at the point which is the reflection of \((a, b)\) in the line \(y - x = 0\). The equation of the circle is
+<ul class="opts"><li>\(x^2 + y^2 - 2bx - 2ay + a^2 = 0\)</li><li>\(x^2 + y^2 - 2bx - 2ay + b^2 = 0\)</li><li>\(x^2 + y^2 - 2ax - 2by + b^2 = 0\)</li><li>\(x^2 + y^2 - 2ax - 2by + a^2 = 0\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 107 | Q4</div><div class="qb"><span class="tag bpp">★★★ BPP ★★★</span><br/>The co-ordinates of the point from where the tangents are drawn to the circles \(x^2 + y^2 = 1\), \(x^2 + y^2 + 8x + 15 = 0\) and \(x^2 + y^2 + 10y + 24 = 0\) are of same length, are
+<ul class="opts"><li>\((2, \frac{5}{2})\)</li><li>\((-2, -\frac{5}{2})\)</li><li>\((-2, \frac{5}{2})\)</li><li>\((2, -\frac{5}{2})\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 107 | Q5</div><div class="qb"><span class="tag bpp">★★★ BPP ★★★</span><br/>The locus of the middle points of chords of the circle \(x^2 + y^2 - 2x - 6y - 10 = 0\) which passes through the origin, is
+<ul class="opts"><li>\(x^2 + y^2 + x + 3y = 0\)</li><li>\(x^2 + y^2 - x + 3y = 0\)</li><li>\(x^2 + y^2 + x - 3y = 0\)</li><li>\(x^2 + y^2 - x - 3y = 0\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 107 | Q6</div><div class="qb"><span class="tag bpp">★★★ BPP ★★★</span><br/>Pair of tangents are drawn from every point on the line \(3x + 4y = 12\) on the circle \(x^2 + y^2 = 4\). Their variable chord of contact always passes through a fixed point whose co-ordinates are
+<ul class="opts"><li>\((\frac{4}{3}, \frac{3}{4})\)</li><li>\((\frac{3}{4}, \frac{3}{4})\)</li><li>\((1, 1)\)</li><li>\((1, \frac{4}{3})\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 112 | Q1</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span> <strong>Paragraph</strong><br/>Consider a trapezoid \(ABCD\), one of whose non parallel sides \(AB\) which is \(8\text{ cm}\) long is perpendicular to the base. The base \(BC\) and \(AD\) of trapezoid are \(6\text{ cm}\) and \(10\text{ cm}\) in lengths respectively. Let \(L_1, L_2, L_3, L_4\) represent the lines \(AB, BC, CD\) and \(DA\) respectively and \(d(P, L)\) denote the perpendicular distance of point \(P\) from line \(L\).
+<ol class="subq">
+<li>Find the area of region inside the trapezoid \(ABCD\) in which the point \(Q\) can lie satisfying \(d(Q, L_4) \le d(Q, L_3)\):
+<ul class="opts"><li>\(3(3\sqrt{5} + \sqrt{3})\)</li><li>\(24(\sqrt{3} - 1)\)</li><li>\(4(5 - \sqrt{5})\)</li><li>\(25(\sqrt{5} - 1)\)</li></ul></li>
+<li>Distance of the point \(R\) lying on line \(AD\) from vertex \(A\) so that perimeter of triangle \(RBC\) is minimum is:
+<ul class="opts"><li>2</li><li>3</li><li>4</li><li>5</li></ul></li>
+<li>The maximum possible area of rectangle inscribed in the trapezoid so that one of its sides lies on the larger base of trapezoid is:
+<ul class="opts"><li>36</li><li>54</li><li>42</li><li>48</li></ul></li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 125 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2019</span><br/>If one end of a focal chord of the parabola \(y^2 = 16x\) is at \((1, 4)\), then the length of this focal chord is:
+<ul class="opts"><li>25</li><li>20</li><li>22</li><li>24</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 126 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (4 April)</span><br/>Let the length of the focal chord \(PQ\) of the parabola \(y^2 = 12x\) be 15 units. If the distance of \(PQ\) from the origin is \(p\), then \(10p^2\) is equal to _________.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 127 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2026</span><br/>Let \(O\) be the vertex of the parabola \(y^2 = 4x\) and its chords \(OP\) and \(OQ\) are perpendicular to each other. If the locus of the mid-point of the line segment \(PQ\) is a conic \(C\), then the length of its latus rectum is:
+<ul class="opts"><li>1</li><li>2</li><li>4</li><li>8</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 127 | Q2</div><div class="qb"><span class="tag exam">JEE Mains 2026</span><br/>If the chord joining the points \(P_1(x_1, y_1)\) and \(P_2(x_2, y_2)\) on the parabola \(y^2 = 12x\) subtends a right angle at the vertex of the parabola, then \(x_1 x_2 - y_1 y_2\) is equal to
+<ul class="opts"><li>280</li><li>288</li><li>292</li><li>284</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 127 | Q3</div><div class="qb"><span class="tag exam">JEE Mains 2026</span><br/>Let \(y^2 = 12x\) be the parabola with its vertex at \(O\). Let \(P\) be a point on the parabola and \(A\) be a point on the \(x\)-axis such that \(\angle OPA = 90^\circ\). Then the locus of the centroid of such triangles \(OPA\) is:
+<ul class="opts"><li>\(y^2 - 4x + 8 = 0\)</li><li>\(y^2 - 2x + 8 = 0\)</li><li>\(y^2 - 9x + 6 = 0\)</li><li>\(y^2 - 6x + 4 = 0\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 129 | Q1</div><div class="qb"><span class="tag exam">JEE Advanced</span><br/>Let \(A\) and \(B\) be two distinct points on the parabola \(y^2 = 4x\). If the axis of the parabola touches a circle of radius \(r\) having \(AB\) as its diameter, then the slope of the line joining \(A\) and \(B\) can be
+<ul class="opts"><li>\(\frac{-1}{r}\)</li><li>\(\frac{1}{r}\)</li><li>\(\frac{2}{r}\)</li><li>\(\frac{-2}{r}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 130 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2025 (28 Jan)</span><br/>Let \(ABCD\) be a trapezium whose vertices lie on the parabola \(y^2 = 4x\). Let the sides \(AD\) and \(BC\) of the trapezium be parallel to \(y\)-axis. If the diagonal \(AC\) is of length \(\frac{25}{4}\) and it passes through the point \((1, 0)\), then the area of \(ABCD\) is
+<ul class="opts"><li>\(\frac{75}{8}\)</li><li>\(\frac{125}{8}\)</li><li>\(\frac{25}{2}\)</li><li>\(\frac{75}{4}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 131 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (9 April)</span><br/>Let \(A, B\) and \(C\) be three points on the parabola \(y^2 = 6x\) and let the line segment \(AB\) meet the line \(L\) through \(C\) parallel to the \(x\)-axis at the point \(D\). Let \(M\) and \(N\) respectively be the feet of the perpendiculars from \(A\) and \(B\) on \(L\). Then \(\left(\frac{AM \cdot BN}{CD}\right)^2\) is equal to _________.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 133 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2019</span><br/>If the area of the triangle whose one vertex is at the vertex of the parabola, \(y^2 + 4(x - a^2) = 0\) and the other two vertices are the points of intersection of the parabola and \(y\)-axis, is 250 sq. units, then a value of '\(a\)' is:
+<ul class="opts"><li>5</li><li>\(5\sqrt{5}\)</li><li>\(5(2^{1/3})\)</li><li>\((10)^{2/3}\)</li></ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 142 | Q1</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span><br/>Find the number of integral values of \(a\) for which \((x - 3a)(x - a - 3) \le 0\) for all \(x \in [1, 3]\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 143 | Q1</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span><br/>If \(\alpha, \beta\) are the roots of the equation \(x^2 - kx + 1 = 0\), \((k > 2)\), then the value of \(\sin(\alpha^2 + 1) + \sin\left(\frac{k^2}{1 + \beta^2}\right)\) can be:
+<ul class="opts"><li>\(2\sin\left(\frac{k^2}{2}\right)\)</li><li>\(2\sin(k\alpha)\)</li><li>\(2\sin\left(\frac{k}{\beta}\right)\)</li><li>\(2\sin(2\alpha^2)\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 145 | Q1</div><div class="qb">Find everything for the parabola \(4x^2 + 2y = 8x - 7\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 148 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2025 (7 April)</span><br/>Let \(P\) be the parabola, whose focus is \((-2, 1)\) and directrix is \(2x + y + 2 = 0\). Then the sum of the ordinates of the points on \(P\), whose abscissa is \(-2\), is
+<ul class="opts"><li>\(\frac{5}{2}\)</li><li>\(\frac{3}{2}\)</li><li>\(\frac{3}{4}\)</li><li>\(\frac{1}{4}\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 151 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2025 (4 April)</span><br/>The axis of a parabola is the line \(y = x\) and its vertex and focus are in the first quadrant at distances \(\sqrt{2}\) and \(2\sqrt{2}\) units from the origin, respectively. If the point \((1, k)\) lies on the parabola, then a possible value of \(k\) is :
+<ul class="opts"><li>8</li><li>3</li><li>9</li><li>4</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 154 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2025 (24 Jan)</span><br/>If the equation of the parabola with vertex \(V\left(\frac{3}{2}, 3\right)\) and the directrix \(x + 2y = 0\) is \(\alpha x^2 + \beta y^2 - \gamma xy - 30x - 60y + 225 = 0\), then \(\alpha + \beta + \gamma\) is equal to:
+<ul class="opts"><li>6</li><li>8</li><li>7</li><li>9</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 156 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2026 (6 April)</span><br/>Let one root of the quadratic equation in \(x\): \((k^2 - 15k + 27)x^2 + 9(k - 1)x + 18 = 0\) be twice the other. Then the length of the latus rectum of the parabola \(y^2 = 6kx\) is equal to:
+<ul class="opts"><li>4</li><li>6</li><li>8</li><li>12</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 159 | Q1</div><div class="qb"><span class="tag exam">Kerala (Engg.) 2002</span><br/>The equation of the parabola whose vertex is at \((2, -1)\) and focus at \((2, -3)\) is
+<ul class="opts"><li>\(x^2 + 4x - 8y - 12 = 0\)</li><li>\(x^2 - 4x + 8y + 12 = 0\)</li><li>\(x^2 + 8y = 12\)</li><li>\(x^2 - 4x + 12 = 0\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 162 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2019</span><br/>Axis of a parabola lies along \(x\)-axis. If its vertex and focus are at distances 2 and 4 respectively from the origin, on the positive \(x\)-axis, then which of the following points does not lie on it?
+<ul class="opts"><li>\((4, -4)\)</li><li>\((5, 2\sqrt{6})\)</li><li>\((8, 6)\)</li><li>\((6, 4\sqrt{2})\)</li></ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 165 | Q1</div><div class="qb">Find the equation of the parabola with its vertex at \((3, 2)\) and its focus at \((5, 2)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 168 | Q1</div><div class="qb">Find the equation of parabola, whose tangent at vertex is \(x - y + 1 = 0\) and focus being \((2, 0)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 171 | Q1</div><div class="qb"><span class="tag mindbender">★★★ Mind Bender ★★★</span> <strong>Paragraph</strong><br/>Consider a trapezoid \(ABCD\), one of whose non parallel sides \(AB\) which is \(8\text{ cm}\) long is perpendicular to the base. The base \(BC\) and \(AD\) of trapezoid are \(6\text{ cm}\) and \(10\text{ cm}\) in lengths respectively. Let \(L_1, L_2, L_3, L_4\) represent the lines \(AB, BC, CD\) and \(DA\) respectively and \(d(P, L)\) denote the perpendicular distance of point \(P\) from line \(L\).
+<ol class="subq">
+<li>Find the area of region inside the trapezoid \(ABCD\) in which the point \(Q\) can lie satisfying \(d(Q, L_4) \le d(Q, L_3)\):
+<ul class="opts"><li>\(3(3\sqrt{5} + \sqrt{3})\)</li><li>\(24(\sqrt{3} - 1)\)</li><li>\(4(5 - \sqrt{5})\)</li><li>\(25(\sqrt{5} - 1)\)</li></ul></li>
+<li>Distance of the point \(R\) lying on line \(AD\) from vertex \(A\) so that perimeter of triangle \(RBC\) is minimum is:
+<ul class="opts"><li>2</li><li>3</li><li>4</li><li>5</li></ul></li>
+<li>The maximum possible area of rectangle inscribed in the trapezoid so that one of its sides lies on the larger base of trapezoid is:
+<ul class="opts"><li>36</li><li>54</li><li>42</li><li>48</li></ul></li>
+</ol></div></div></div>
+<!-- QUESTIONS_END -->
+
+</body>
+</html>

@@ -47,6 +47,24 @@ const CHAPTERS = [
     questionCount: 122,
     tags: ['Part 01', 'Part 02', 'Tangents', 'Loci', 'TAH'],
   },
+  {
+    id: 'straight-lines-part1',
+    icon: '📏',
+    title: 'Straight Lines (Part 1)',
+    subject: 'Mathematics',
+    file: '/dpps/straight_lines_part1.html',
+    questionCount: 76,
+    tags: ['Coordinate Geometry', 'Loci', 'Slope', 'Distance Form'],
+  },
+  {
+    id: 'parabola-part1',
+    icon: '🪃',
+    title: 'Parabola (Part 1)',
+    subject: 'Mathematics',
+    file: '/dpps/parabola_part1.html',
+    questionCount: 54,
+    tags: ['Standard Parabola', 'Latus Rectum', 'Focal Chord', 'Tangents'],
+  },
 ];
 
 export default function HomePage({ onLoadDPP, loadedChapters }) {
