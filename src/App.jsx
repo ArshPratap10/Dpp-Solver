@@ -1,14 +1,24 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import HomePage from './components/HomePage';
 import DPPView from './components/DPPView';
+import FolderView from './components/FolderView';
+import TrashView from './components/TrashView';
 import { parseDPPHtml } from './utils/parser';
+import { getTheme } from './utils/storage';
 
 export default function App() {
   const [activeDPP, setActiveDPP] = useState(null); // parsed DPP data
+  const [activeFolder, setActiveFolder] = useState(null); // folder object
+  const [showTrash, setShowTrash] = useState(false); // trash view
   const [customDPPs, setCustomDPPs] = useState([]); // user-uploaded DPPs
 
+  useEffect(() => {
+    const current = getTheme();
+    document.documentElement.setAttribute('data-theme', current);
+  }, []);
+
   const handleLoadDPP = useCallback((htmlString, chapterId) => {
-    const parsed = parseDPPHtml(htmlString);
+    const parsed = parseDPPHtml(htmlString, chapterId);
 
     // Check if already in custom list, if not and it's a new upload, add it
     const isCustom = !['seq-series', 'basic-math', 'quadratic-eq', 'seq-series-class', 'circle-combined', 'straight-lines-part1', 'parabola-part1'].includes(chapterId);
@@ -26,15 +36,58 @@ export default function App() {
     }
 
     setActiveDPP({ ...parsed, id: chapterId });
+    setActiveFolder(null);
+    setShowTrash(false);
   }, []);
 
-  const handleBack = useCallback(() => {
+  const handleOpenFolder = useCallback((folder) => {
+    setActiveFolder(folder);
     setActiveDPP(null);
+    setShowTrash(false);
   }, []);
 
-  if (activeDPP) {
-    return <DPPView dppData={activeDPP} onBack={handleBack} />;
+  const handleOpenTrash = useCallback(() => {
+    setShowTrash(true);
+    setActiveDPP(null);
+    setActiveFolder(null);
+  }, []);
+
+  const handleBackToHome = useCallback(() => {
+    setActiveDPP(null);
+    setActiveFolder(null);
+    setShowTrash(false);
+  }, []);
+
+  if (showTrash) {
+    return <TrashView onBack={handleBackToHome} />;
   }
 
-  return <HomePage onLoadDPP={handleLoadDPP} loadedChapters={customDPPs} />;
+  if (activeFolder) {
+    return (
+      <FolderView
+        folder={activeFolder}
+        onBack={handleBackToHome}
+        onFolderDeleted={() => handleBackToHome()}
+      />
+    );
+  }
+
+  if (activeDPP) {
+    return (
+      <DPPView
+        dppData={activeDPP}
+        onBack={handleBackToHome}
+        onOpenTrash={handleOpenTrash}
+      />
+    );
+  }
+
+  return (
+    <HomePage
+      onLoadDPP={handleLoadDPP}
+      loadedChapters={customDPPs}
+      onOpenFolder={handleOpenFolder}
+      onOpenTrash={handleOpenTrash}
+    />
+  );
 }

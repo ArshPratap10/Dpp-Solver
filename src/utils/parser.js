@@ -1,14 +1,21 @@
+import { getQuestionCustomization } from './storage';
+
 let _qCounter = 0;
 
-/** Reset counter before each parse run */
-export function parseDPPHtml(htmlString) {
+/**
+ * Parses DPP HTML and generates global deterministic IDs and extracted tags.
+ * @param {string} htmlString - raw HTML of DPP
+ * @param {string} chapterId - unique slug for the chapter
+ * @param {string} defaultTitle - optional fallback chapter title
+ */
+export function parseDPPHtml(htmlString, chapterId = 'dpp', defaultTitle = '') {
   _qCounter = 0;
   const parser = new DOMParser();
   const doc = parser.parseFromString(htmlString, 'text/html');
 
   // Extract title — support both .dpp-title and plain h1
   const titleEl = doc.querySelector('.dpp-title') || doc.querySelector('h1');
-  const title = titleEl ? titleEl.textContent.trim() : 'Untitled DPP';
+  const title = titleEl ? titleEl.textContent.trim() : (defaultTitle || 'Untitled DPP');
 
   // Extract metadata
   const metaEls = doc.querySelectorAll('.dpp-meta span');
@@ -27,7 +34,7 @@ export function parseDPPHtml(htmlString) {
   const sectionHeaders = doc.querySelectorAll('h2');
 
   if (sectionHeaders.length === 0) {
-    const qs = extractQuestions(doc.querySelectorAll('.q'));
+    const qs = extractQuestions(doc.querySelectorAll('.q'), chapterId, title, 'Questions');
     if (qs.length > 0) sections.push({ title: 'Questions', questions: qs });
   } else {
     sectionHeaders.forEach(h2 => {
@@ -36,7 +43,7 @@ export function parseDPPHtml(htmlString) {
       let sibling = h2.nextElementSibling;
       while (sibling && sibling.tagName !== 'H2') {
         if (sibling.classList.contains('q')) {
-          questions.push(parseSingleQuestion(sibling));
+          questions.push(parseSingleQuestion(sibling, chapterId, title, sectionTitle));
         }
         sibling = sibling.nextElementSibling;
       }
@@ -49,18 +56,47 @@ export function parseDPPHtml(htmlString) {
   // Count total questions
   const totalQuestions = sections.reduce((s, sec) => s + sec.questions.length, 0);
 
-  return { title, meta, sections, totalQuestions };
+  return { title, meta, sections, totalQuestions, chapterId };
 }
 
-function extractQuestions(qElements) {
-  return Array.from(qElements).map(el => parseSingleQuestion(el));
+function extractQuestions(qElements, chapterId, chapterTitle, sectionTitle = 'Questions') {
+  return Array.from(qElements).map(el => parseSingleQuestion(el, chapterId, chapterTitle, sectionTitle));
 }
 
-function parseSingleQuestion(qEl) {
+function cleanTagText(text) {
+  let cleaned = text.replace(/★/g, '').replace(/[\u2605\u2606]/g, '').trim();
+  if (/mind\s*bender/i.test(cleaned)) return 'Mindbender';
+  if (/^tah$/i.test(cleaned) || /\btah\b/i.test(cleaned)) return 'TAH';
+  if (/^kcls$/i.test(cleaned) || /\bkcls\b/i.test(cleaned)) return 'KCLS';
+  if (/^asrq$/i.test(cleaned) || /\basrq\b/i.test(cleaned)) return 'ASRQ';
+  return cleaned;
+}
+
+function parseSingleQuestion(qEl, chapterId, chapterTitle, sectionTitle = 'Questions') {
   const qhEl = qEl.querySelector('.qh');
-  const headerText = qhEl ? qhEl.textContent.trim() : '';
+  let headerText = qhEl ? qhEl.textContent.trim() : '';
 
   const qbEl = qEl.querySelector('.qb');
+
+  // Tag extraction from HTML
+  const detectedTags = new Set();
+
+  // Check .qh for keywords like TAH, KCLS, Mindbender
+  if (/\bTAH\b/i.test(headerText)) detectedTags.add('TAH');
+  if (/\bKCLS\b/i.test(headerText)) detectedTags.add('KCLS');
+  if (/mind\s*bender/i.test(headerText)) detectedTags.add('Mindbender');
+  if (/\bASRQ\b/i.test(headerText)) detectedTags.add('ASRQ');
+  if (/JEE\s*Mains?/i.test(headerText)) detectedTags.add('JEE Mains');
+  if (/JEE\s*Adv/i.test(headerText)) detectedTags.add('JEE Advanced');
+
+  // Extract from .tag inside .qb
+  if (qbEl) {
+    const tagEls = qbEl.querySelectorAll('.tag');
+    tagEls.forEach(tEl => {
+      const cleaned = cleanTagText(tEl.textContent);
+      if (cleaned) detectedTags.add(cleaned);
+    });
+  }
 
   // Extract options (only extract top-level single .opts for standard MCQ)
   const options = [];
@@ -88,12 +124,26 @@ function parseSingleQuestion(qEl) {
     questionHtml = clone.innerHTML.trim();
   }
 
-  // Deterministic ID — stable across reloads for the same DPP
-  const id = `q-${_qCounter++}`;
+  // Deterministic global ID: e.g. circle-combined-q-0
+  const id = `${chapterId}-q-${_qCounter++}`;
+
+  // Check for any user customizations saved in localStorage
+  let tags = Array.from(detectedTags);
+  const custom = getQuestionCustomization(id);
+  if (custom) {
+    if (custom.header) headerText = custom.header;
+    if (Array.isArray(custom.tags)) tags = custom.tags;
+  }
 
   return {
     id,
+    chapterId,
+    chapterTitle,
+    sectionTitle,
     header: headerText,
+    originalHeader: qhEl ? qhEl.textContent.trim() : '',
+    tags,
+    originalTags: Array.from(detectedTags),
     questionHtml,
     options,
     selectedOption: null,
@@ -102,4 +152,3 @@ function parseSingleQuestion(qEl) {
     timerState: 'idle',
   };
 }
-

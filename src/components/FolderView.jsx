@@ -4,9 +4,12 @@ import SprintView from './SprintView';
 import ThemeToggle from './ThemeToggle';
 import { useTimerEngine, formatTime } from '../hooks/useTimerEngine';
 import {
+  getFolderItems,
+  removeQuestionFromFolder,
   moveToTrash,
   isQuestionTrashed,
-  getTrashList,
+  deleteFolder,
+  updateFolder,
   getQuestionStatuses,
   QUESTION_STATUS,
 } from '../utils/storage';
@@ -15,51 +18,68 @@ function loadJSON(key) {
   try { return JSON.parse(localStorage.getItem(key)) || {}; } catch { return {}; }
 }
 
-export default function DPPView({ dppData, onBack, onOpenTrash }) {
+export default function FolderView({ folder, onBack, onFolderDeleted }) {
   const containerRef = useRef(null);
-  const starKey = `dpp-starred-${dppData.id}`;
-  const selKey = `dpp-selections-${dppData.id}`;
+  const starKey = `dpp-folder-starred-${folder.id}`;
+  const selKey = `dpp-folder-selections-${folder.id}`;
 
+  const [rawItems, setRawItems] = useState(() => getFolderItems(folder.id));
   const [selectedTag, setSelectedTag] = useState('ALL');
   const [statusFilter, setStatusFilter] = useState('ALL'); // 'ALL' | 'SOLVED' | 'REVISE' | 'DOUBT'
   const [showStarredOnly, setShowStarredOnly] = useState(false);
-  const [trashCount, setTrashCount] = useState(() => getTrashList().length);
+  const [isEditingFolder, setIsEditingFolder] = useState(false);
+  const [folderNameInput, setFolderNameInput] = useState(folder.name);
+  const [folderIconInput, setFolderIconInput] = useState(folder.icon || '📁');
   const [isSprintActive, setIsSprintActive] = useState(false);
   const [statuses, setStatuses] = useState(() => getQuestionStatuses());
 
-  // Keep storage updated
+  // Reload when storage updates
   useEffect(() => {
     const handleStorageUpdate = () => {
-      setTrashCount(getTrashList().length);
+      setRawItems(getFolderItems(folder.id));
       setStatuses(getQuestionStatuses());
     };
     window.addEventListener('dpp_storage_updated', handleStorageUpdate);
     return () => window.removeEventListener('dpp_storage_updated', handleStorageUpdate);
-  }, []);
+  }, [folder.id]);
 
   // Load persisted selections
   const savedSelections = useRef(loadJSON(selKey));
 
-  // Flatten all questions, excluding trashed ones, restoring selections
+  // Build active question list (filtering out trashed questions)
   const [questions, setQuestions] = useState(() => {
-    const all = [];
-    dppData.sections.forEach(sec => {
-      sec.questions.forEach(q => {
-        if (!isQuestionTrashed(q.id)) {
-          all.push({
-            ...q,
-            chapterId: dppData.id,
-            chapterTitle: dppData.title,
-            sectionTitle: q.sectionTitle || sec.title,
-            selectedOption: savedSelections.current[q.id] || null,
-          });
-        }
-      });
-    });
-    return all;
+    return rawItems
+      .filter(it => !isQuestionTrashed(it.questionId))
+      .map(it => ({
+        ...it.question,
+        chapterId: it.chapterId,
+        chapterTitle: it.chapterTitle,
+        selectedOption: savedSelections.current[it.question.id] || null,
+      }));
   });
 
-  // Persist selections whenever they change
+  // Keep questions in sync with rawItems changes
+  useEffect(() => {
+    setQuestions(prev => {
+      const prevMap = new Map(prev.map(q => [q.id, q]));
+      return rawItems
+        .filter(it => !isQuestionTrashed(it.questionId))
+        .map(it => {
+          const existing = prevMap.get(it.questionId);
+          return {
+            ...it.question,
+            chapterId: it.chapterId,
+            chapterTitle: it.chapterTitle,
+            selectedOption: existing?.selectedOption ?? savedSelections.current[it.question.id] ?? null,
+            timerState: existing?.timerState ?? 'idle',
+            timerRemaining: existing?.timerRemaining ?? it.question.timerDuration ?? 180,
+            timerDuration: existing?.timerDuration ?? it.question.timerDuration ?? 180,
+          };
+        });
+    });
+  }, [rawItems]);
+
+  // Persist selections
   useEffect(() => {
     const selections = {};
     questions.forEach(q => {
@@ -82,7 +102,7 @@ export default function DPPView({ dppData, onBack, onOpenTrash }) {
     });
   }, []);
 
-  // MathJax v3: wait for startup, then typesetPromise on each data change
+  // Typeset MathJax
   useEffect(() => {
     const run = async () => {
       while (!window.MathJax?.startup?.promise) {
@@ -94,7 +114,7 @@ export default function DPPView({ dppData, onBack, onOpenTrash }) {
       }
     };
     run().catch(console.error);
-  }, [dppData, showStarredOnly, selectedTag, statusFilter, questions.length]);
+  }, [questions, selectedTag, statusFilter, showStarredOnly]);
 
   const { startTimer, pauseTimer, resetTimer, setDuration } = useTimerEngine(setQuestions);
 
@@ -137,15 +157,21 @@ export default function DPPView({ dppData, onBack, onOpenTrash }) {
     })));
   }, []);
 
-  // Delete question (move to trash)
+  // Remove from folder
+  const handleRemoveFromFolder = useCallback((qId) => {
+    removeQuestionFromFolder(folder.id, qId);
+    setQuestions(prev => prev.filter(q => q.id !== qId));
+  }, [folder.id]);
+
+  // Move to trash
   const handleDeleteQuestion = useCallback((question) => {
-    if (window.confirm(`Move question to Trash? You can restore it anytime from the Trash Bin.`)) {
-      moveToTrash(question, dppData.id, dppData.title);
+    if (window.confirm('Move this question to Trash?')) {
+      moveToTrash(question, question.chapterId, question.chapterTitle);
       setQuestions(prev => prev.filter(q => q.id !== question.id));
     }
-  }, [dppData.id, dppData.title]);
+  }, []);
 
-  // Update question heading / tags
+  // Update question header / tags
   const handleUpdateQuestion = useCallback((qId, updates) => {
     setQuestions(prev => prev.map(q => {
       if (q.id === qId) {
@@ -155,12 +181,33 @@ export default function DPPView({ dppData, onBack, onOpenTrash }) {
     }));
   }, []);
 
+  // Folder rename/update
+  const handleSaveRename = (e) => {
+    e?.preventDefault();
+    if (!folderNameInput.trim()) return;
+    updateFolder(folder.id, {
+      name: folderNameInput.trim(),
+      icon: folderIconInput,
+    });
+    folder.name = folderNameInput.trim();
+    folder.icon = folderIconInput;
+    setIsEditingFolder(false);
+  };
+
+  const handleDeleteThisFolder = () => {
+    if (window.confirm(`Are you sure you want to delete the folder "${folder.name}"? Questions in other chapters will not be affected.`)) {
+      deleteFolder(folder.id);
+      if (onFolderDeleted) onFolderDeleted(folder.id);
+      onBack();
+    }
+  };
+
   // Status Counts
   const solvedCount = useMemo(() => questions.filter(q => statuses[q.id] === QUESTION_STATUS.SOLVED).length, [questions, statuses]);
   const reviseCount = useMemo(() => questions.filter(q => statuses[q.id] === QUESTION_STATUS.REVISE).length, [questions, statuses]);
   const doubtCount = useMemo(() => questions.filter(q => statuses[q.id] === QUESTION_STATUS.DOUBT).length, [questions, statuses]);
 
-  // Unique tags in this DPP
+  // Extract all unique tags present across questions in this folder
   const availableTags = useMemo(() => {
     const tagSet = new Set();
     questions.forEach(q => {
@@ -171,7 +218,7 @@ export default function DPPView({ dppData, onBack, onOpenTrash }) {
     return Array.from(tagSet);
   }, [questions]);
 
-  // Filtered questions
+  // Filter questions by tag, status & star
   const filteredQuestions = useMemo(() => {
     return questions.filter(q => {
       if (showStarredOnly && !starred[q.id]) return false;
@@ -187,20 +234,22 @@ export default function DPPView({ dppData, onBack, onOpenTrash }) {
     });
   }, [questions, selectedTag, statusFilter, showStarredOnly, starred, statuses]);
 
-  // Section titles
-  const sectionTitles = useMemo(() => {
-    const titles = [];
-    dppData.sections.forEach(sec => {
-      if (!titles.includes(sec.title)) titles.push(sec.title);
+  // Group questions CHAPTER-WISE
+  const chapterGroups = useMemo(() => {
+    const map = {};
+    filteredQuestions.forEach(q => {
+      const chap = q.chapterTitle || 'DPP Questions';
+      if (!map[chap]) map[chap] = [];
+      map[chap].push(q);
     });
-    return titles;
-  }, [dppData.sections]);
+    return map;
+  }, [filteredQuestions]);
 
   if (isSprintActive) {
     return (
       <SprintView
         questions={questions}
-        title={dppData.title}
+        title={folder.name}
         onExit={() => setIsSprintActive(false)}
       />
     );
@@ -209,13 +258,14 @@ export default function DPPView({ dppData, onBack, onOpenTrash }) {
   const answered = questions.filter(q => q.selectedOption !== null).length;
   const total = questions.length;
   const starredCount = questions.filter(q => starred[q.id]).length;
+  const totalChapters = Object.keys(chapterGroups).length;
 
   return (
     <div className="dpp-container" ref={containerRef}>
       {/* Sticky Top Bar */}
       <div className="top-bar">
         <div className="top-bar-left">
-          <button className="back-btn" onClick={onBack}>← Back</button>
+          <button className="back-btn" onClick={onBack}>← Back to Folders</button>
           <div className="top-bar-stats">
             <span>
               <span className="answered-count">{answered}</span>/{total} answered
@@ -232,27 +282,18 @@ export default function DPPView({ dppData, onBack, onOpenTrash }) {
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          {/* Sprint Trigger */}
           {total > 0 && (
             <button
               type="button"
               className="btn btn-primary btn-sm sprint-launch-btn"
               onClick={() => setIsSprintActive(true)}
-              title="Start timed Mock Test / Sprint for this chapter"
+              title="Start timed Mock Test / Sprint from this folder"
             >
               🎯 Start Sprint
             </button>
           )}
           <ThemeToggle />
-          {trashCount > 0 && onOpenTrash && (
-            <button
-              type="button"
-              className="btn btn-outline btn-sm trash-nav-btn"
-              onClick={onOpenTrash}
-              title="Open Trash Bin"
-            >
-              🗑️ Trash ({trashCount})
-            </button>
-          )}
           <button
             className={`session-timer ${sessionPaused ? 'paused' : ''}`}
             onClick={toggleSessionPause}
@@ -264,19 +305,75 @@ export default function DPPView({ dppData, onBack, onOpenTrash }) {
         </div>
       </div>
 
-      {/* DPP Header */}
-      <div className="dpp-header fade-in">
-        <div className="dpp-title-bar">{dppData.title}</div>
-        <div className="dpp-meta-bar">
-          {dppData.meta?.subject && <span><strong>Subject:</strong> {dppData.meta.subject}</span>}
-          {dppData.meta?.topic && <span><strong>Topic:</strong> {dppData.meta.topic}</span>}
-          <span><strong>Total Questions:</strong> {total}</span>
-          {solvedCount > 0 && <span style={{ color: '#059669' }}>🟢 {solvedCount} Solved</span>}
-          {doubtCount > 0 && <span style={{ color: '#dc2626' }}>🔴 {doubtCount} Doubts</span>}
+      {/* Folder Header */}
+      <div className="folder-header-card fade-in">
+        <div className="folder-header-top">
+          <div className="folder-header-title-row">
+            <span className="folder-header-icon">{folder.icon || '📁'}</span>
+            {!isEditingFolder ? (
+              <div>
+                <h1 className="folder-header-title">{folder.name}</h1>
+                {folder.description && <p className="folder-header-desc">{folder.description}</p>}
+              </div>
+            ) : (
+              <form onSubmit={handleSaveRename} className="folder-rename-inline-form">
+                <input
+                  type="text"
+                  className="form-input"
+                  value={folderNameInput}
+                  onChange={(e) => setFolderNameInput(e.target.value)}
+                  style={{ width: '220px' }}
+                  autoFocus
+                />
+                <button type="submit" className="btn btn-primary btn-sm">Save</button>
+                <button type="button" className="btn btn-outline btn-sm" onClick={() => setIsEditingFolder(false)}>Cancel</button>
+              </form>
+            )}
+          </div>
+
+          <div className="folder-header-actions">
+            {total > 0 && (
+              <button
+                type="button"
+                className="btn btn-primary btn-sm"
+                onClick={() => setIsSprintActive(true)}
+              >
+                🎯 Mock Test Mode
+              </button>
+            )}
+            {!isEditingFolder && (
+              <button
+                type="button"
+                className="btn btn-outline btn-sm"
+                onClick={() => setIsEditingFolder(true)}
+                title="Rename folder"
+              >
+                ✏️ Rename
+              </button>
+            )}
+            <button
+              type="button"
+              className="btn btn-outline btn-sm danger-text"
+              onClick={handleDeleteThisFolder}
+              title="Delete folder"
+            >
+              🗑️ Delete Folder
+            </button>
+          </div>
+        </div>
+
+        <div className="folder-meta-stats">
+          <span>📚 {totalChapters} Chapter{totalChapters !== 1 ? 's' : ''}</span>
+          <span>•</span>
+          <span>📝 {total} Question{total !== 1 ? 's' : ''}</span>
+          <span>•</span>
+          <span>Organized Chapter-wise</span>
+          {solvedCount > 0 && <span style={{ color: '#059669' }}>• 🟢 {solvedCount} Solved</span>}
+          {doubtCount > 0 && <span style={{ color: '#dc2626' }}>• 🔴 {doubtCount} Doubts</span>}
         </div>
       </div>
 
-      {/* Tag & Status Filter Bar */}
+      {/* Filter Bar (Status & Tags) */}
       {(availableTags.length > 0 || total > 0) && (
         <div className="tag-filter-bar fade-in">
           <span className="filter-label">Filter:</span>
@@ -327,80 +424,81 @@ export default function DPPView({ dppData, onBack, onOpenTrash }) {
             </button>
           )}
 
-          {availableTags.map(tag => {
-            const count = questions.filter(q => (q.tags && q.tags.includes(tag)) || (q.header && q.header.toLowerCase().includes(tag.toLowerCase()))).length;
-            return (
-              <button
-                key={tag}
-                type="button"
-                className={`tag-filter-chip ${selectedTag === tag ? 'active' : ''}`}
-                onClick={() => { setSelectedTag(selectedTag === tag ? 'ALL' : tag); }}
-              >
-                {tag} {count > 0 && <span className="tag-chip-count">{count}</span>}
-              </button>
-            );
-          })}
+          {availableTags.map(tag => (
+            <button
+              key={tag}
+              type="button"
+              className={`tag-filter-chip ${selectedTag === tag ? 'active' : ''}`}
+              onClick={() => { setSelectedTag(selectedTag === tag ? 'ALL' : tag); }}
+            >
+              {tag}
+            </button>
+          ))}
         </div>
       )}
 
-      {/* Sections + Questions */}
-      {filteredQuestions.length === 0 ? (
-        <div className="empty-state-card fade-in" style={{ marginTop: '24px' }}>
-          <div className="empty-state-icon">🔍</div>
-          <div className="empty-state-title">No questions found</div>
+      {/* Empty State */}
+      {questions.length === 0 ? (
+        <div className="empty-state-card fade-in">
+          <div className="empty-state-icon">📂</div>
+          <div className="empty-state-title">This folder is empty</div>
           <p className="empty-state-subtitle">
-            {showStarredOnly
-              ? "You haven't starred any questions yet."
-              : statusFilter !== 'ALL'
-              ? `No questions found with status "${statusFilter}".`
-              : selectedTag !== 'ALL'
-              ? `No questions found with tag "${selectedTag}".`
-              : "All questions in this DPP have been moved to Trash."}
+            Browse any DPP chapter and click the 📁 button on any question to add it to this folder!
           </p>
-          <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', marginTop: '12px' }}>
-            <button
-              className="btn btn-outline btn-sm"
-              onClick={() => { setSelectedTag('ALL'); setStatusFilter('ALL'); setShowStarredOnly(false); }}
-            >
-              Reset Filters
-            </button>
-            {trashCount > 0 && onOpenTrash && (
-              <button className="btn btn-primary btn-sm" onClick={onOpenTrash}>
-                Open Trash Bin ({trashCount})
-              </button>
-            )}
-          </div>
+          <button className="btn btn-primary" onClick={onBack} style={{ marginTop: '16px' }}>
+            ← Back to Chapters
+          </button>
+        </div>
+      ) : filteredQuestions.length === 0 ? (
+        <div className="empty-state-card fade-in">
+          <div className="empty-state-icon">🔍</div>
+          <div className="empty-state-title">No questions match filter</div>
+          <button
+            className="btn btn-outline btn-sm"
+            onClick={() => { setSelectedTag('ALL'); setStatusFilter('ALL'); setShowStarredOnly(false); }}
+            style={{ marginTop: '12px' }}
+          >
+            Reset Filters
+          </button>
         </div>
       ) : (
-        sectionTitles.map((secTitle, si) => {
-          const sectionQs = filteredQuestions.filter(q => q.sectionTitle === secTitle);
-          if (sectionQs.length === 0) return null;
-
+        /* CHAPTER-WISE SECTIONS */
+        Object.entries(chapterGroups).map(([chapterTitle, chapterQs]) => {
           return (
-            <div key={si}>
-              <div className="section-hdr fade-in">{secTitle}</div>
-              {sectionQs.map(q => {
-                const globalIdx = questions.indexOf(q);
-                return (
-                  <QuestionCard
-                    key={q.id}
-                    question={q}
-                    index={globalIdx}
-                    starred={!!starred[q.id]}
-                    chapterId={dppData.id}
-                    chapterTitle={dppData.title}
-                    onSelectOption={handleSelectOption}
-                    onStartTimer={startTimer}
-                    onPauseTimer={pauseTimer}
-                    onResetTimer={resetTimer}
-                    onSetDuration={setDuration}
-                    onToggleStar={toggleStar}
-                    onDeleteQuestion={handleDeleteQuestion}
-                    onUpdateQuestion={handleUpdateQuestion}
-                    onStatusChange={() => setStatuses(getQuestionStatuses())}
-                  />
-                );
-              })}
+            <div key={chapterTitle} className="chapter-folder-section fade-in">
+              <div className="chapter-folder-section-header">
+                <div className="chapter-folder-title">
+                  <span className="section-dot"></span>
+                  📚 {chapterTitle}
+                </div>
+                <span className="chapter-folder-badge">{chapterQs.length} question{chapterQs.length !== 1 ? 's' : ''}</span>
+              </div>
+
+              <div className="chapter-folder-questions">
+                {chapterQs.map((q) => {
+                  const globalIdx = questions.indexOf(q);
+                  return (
+                    <QuestionCard
+                      key={q.id}
+                      question={q}
+                      index={globalIdx}
+                      starred={!!starred[q.id]}
+                      chapterId={q.chapterId}
+                      chapterTitle={q.chapterTitle}
+                      onSelectOption={handleSelectOption}
+                      onStartTimer={startTimer}
+                      onPauseTimer={pauseTimer}
+                      onResetTimer={resetTimer}
+                      onSetDuration={setDuration}
+                      onToggleStar={toggleStar}
+                      onDeleteQuestion={handleDeleteQuestion}
+                      onUpdateQuestion={handleUpdateQuestion}
+                      onRemoveFromFolder={handleRemoveFromFolder}
+                      onStatusChange={() => setStatuses(getQuestionStatuses())}
+                    />
+                  );
+                })}
+              </div>
             </div>
           );
         })
