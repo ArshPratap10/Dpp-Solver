@@ -76,6 +76,15 @@ const CHAPTERS = [
     questionCount: 54,
     tags: ['Standard Parabola', 'Latus Rectum', 'Focal Chord', 'Tangents'],
   },
+  {
+    id: 'parabola-part2',
+    icon: '🪃',
+    title: 'Parabola (Part 2)',
+    subject: 'Mathematics',
+    file: '/dpps/parabola_part2.html',
+    questionCount: 93,
+    tags: ['Normals', 'Co-normal Points', 'Focal Properties', 'Loci', 'TAH'],
+  },
 ];
 
 const EMOJI_OPTIONS = ['📁', '🔥', '⚡', '🎯', '📚', '💎', '💡', '🧮', '📐', '⭐'];

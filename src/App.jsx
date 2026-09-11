@@ -21,7 +21,7 @@ export default function App() {
     const parsed = parseDPPHtml(htmlString, chapterId);
 
     // Check if already in custom list, if not and it's a new upload, add it
-    const isCustom = !['seq-series', 'basic-math', 'quadratic-eq', 'seq-series-class', 'circle-combined', 'straight-lines-part1', 'parabola-part1'].includes(chapterId);
+    const isCustom = !['seq-series', 'basic-math', 'quadratic-eq', 'seq-series-class', 'circle-combined', 'straight-lines-part1', 'parabola-part1', 'parabola-part2'].includes(chapterId);
     if (isCustom) {
       setCustomDPPs(prev => {
         const exists = prev.find(c => c.id === chapterId);
