@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Relations and Functions — DPP Lectures 5 to 7 (JEE Main &amp; Advanced)</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #1a1a1a;
+  background: #fff;
+  padding: 12mm 14mm;
+  counter-reset: qnum;
+}
+.dpp-header {
+  border: 2.5px solid #000;
+  margin-bottom: 20px;
+  page-break-inside: avoid;
+}
+.dpp-title {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 0;
+}
+.dpp-meta {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-top: 1.5px solid #000;
+  background: #fafafa;
+}
+.dpp-meta span { display: inline-block; }
+h2 {
+  font-size: 13px;
+  font-weight: 700;
+  background: #1e1e2e;
+  color: #fff;
+  padding: 5px 12px;
+  margin: 24px 0 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.q {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border-left: 3.5px solid #000;
+  border-bottom: 1px solid #e5e7eb;
+  page-break-inside: avoid;
+  counter-increment: qnum;
+}
+.q::before {
+  content: counter(qnum) ".";
+  font-weight: 700;
+  font-size: 14px;
+  min-width: 28px;
+  flex-shrink: 0;
+}
+.qinner { flex: 1; min-width: 0; }
+.qh {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #666;
+  float: right;
+  margin-left: 10px;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+.qb {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.75;
+  color: #111;
+  display: block;
+  overflow: hidden;
+}
+.tag {
+  display: inline-block;
+  margin: 0 4px 4px 0;
+  padding: 2px 8px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: .2px;
+  vertical-align: middle;
+}
+.tag.kcls { background: #bd651d; }
+.tag.mindbender { background: #7546a7; }
+.tag.asrq { background: #23719e; }
+.tag.exam { background: #32845e; }
+.tag.tah { background: #d9381e; }
+.tag.bpp { background: #0077b6; }
+.opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 28px;
+  margin-top: 10px;
+  padding-left: 0;
+  list-style: none;
+  font-weight: 400;
+  font-size: 14px;
+  border-top: 1px dashed #ddd;
+  padding-top: 6px;
+}
+.opts li::before { font-weight: 700; color: #333; }
+.opts li:nth-child(1)::before { content: "(A) "; }
+.opts li:nth-child(2)::before { content: "(B) "; }
+.opts li:nth-child(3)::before { content: "(C) "; }
+.opts li:nth-child(4)::before { content: "(D) "; }
+.opts li:nth-child(5)::before { content: "(E) "; }
+ol.subq { padding-left: 20px; margin-top: 6px; font-weight: 400; font-size: 14px; }
+ol.subq li { margin-bottom: 4px; }
+table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 13px; font-weight: 400; }
+td, th { border: 1px solid #888; padding: 5px 8px; vertical-align: top; }
+th { font-weight: 700; background: #f3f4f6; }
+@media print {
+  body { padding: 8mm 10mm; font-size: 13px; }
+  h2 { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .q { margin-bottom: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="dpp-header">
+<div class="dpp-title">Daily Practice Paper — Relations and Functions</div>
+<div class="dpp-meta">
+<span><strong>Subject:</strong> Mathematics</span>
+<span><strong>Topic:</strong> Relations and Functions (DPP — Lectures 5 to 7)</span>
+<span><strong>Total Questions:</strong> 54</span>
+</div>
+</div>
+<!-- QUESTIONS_START -->
+<h2>Lecture 06</h2>
+<div class="q"><div class="qinner"><div class="qh">Pg 27 | Q1</div><div class="qb"><span class="tag asrq">★★★ ASRQ ★★★</span><br/>Find the domain of the function \(f(x) = \sqrt{\sin x} + \sqrt{16 - x^2}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 28 | Q1</div><div class="qb">Find the domain of the function \(f(x) = \sqrt{\cos 2x} + \sqrt{16 - x^2}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 28 | Q2</div><div class="qb">Find the domain of the function \(h(x) = \sqrt{\frac{x-2}{x+2}} + \sqrt{\frac{1-x}{1+x}}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 28 | Q3</div><div class="qb">Find the domain of the function \(f(x) = \log_{100x} \left(\frac{2 \log_{10} x + 1}{-x}\right)\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 28 | Q4</div><div class="qb">Find the domain of the function \(f(x) = \sqrt{\frac{1 - 5^x}{7^{-x} - 7}}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 30 | Q1</div><div class="qb"><span class="tag kcls">★★★ KCLS ★★★</span><br/>\(f(x) = \ln(\sqrt{x^2 - 5x - 24} - x - 2)\), find the domain of \(f\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 31 | Q1</div><div class="qb"><span class="tag mindbender">★★★ MIND BENDER ★★★</span><br/>Find the domain of the function \(f(x) = \sqrt{(x^2 - 3x - 10) \cdot \ln^2(x - 3)}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 32 | Q1</div><div class="qb"><span class="tag mindbender">★★★ MIND BENDER ★★★</span><br/>Find the domain of the function
+\[f(x) = \frac{1}{[x]} + \log_{1 - \{x\}}(x^2 - 3x + 10) + \frac{1}{\sqrt{2 - |x|}} + \frac{1}{\sqrt{\sec(\sin x)}}\]
+(where \([.]\) and \(\{.}\) denote the greatest integer and fractional part functions respectively).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 33 | Q1</div><div class="qb"><span class="tag mindbender">★★★ MIND BENDER ★★★</span><br/>Find the domain of the function \(f(x) = \sqrt{\log_x (\cos 2\pi x)}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 35 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2019 (11 Jan)</span><br/>Let \(f: \mathbb{R} \to \mathbb{R}\) be defined by \(f(x) = \frac{x}{1+x^2}, x \in \mathbb{R}\). Then the range of \(f\) is :
+<ul class="opts">
+<li>\(\left[-\frac{1}{2}, \frac{1}{2}\right]\)</li>
+<li>\(\mathbb{R} - \left[-\frac{1}{2}, \frac{1}{2}\right]\)</li>
+<li>\((-1, 1) - \{0\}\)</li>
+<li>\(\mathbb{R} - [-1, 1]\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 37 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2019</span><br/>Let \([x]\) denote the greatest integer less than or equal to \(x\). Then the values of \(x \in \mathbb{R}\) satisfying the equation \([e^x]^2 + [e^x + 1] - 3 = 0\) lies in the interval:
+<ul class="opts">
+<li>\(\left[0, \frac{1}{e}\right)\)</li>
+<li>\([\log_e 2, \log_e 3)\)</li>
+<li>\([1, e)\)</li>
+<li>\([0, \log_e 2)\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 38 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2023 (11 April)</span><br/>The domain of the function \(f(x) = \frac{1}{\sqrt{[x]^2 - 3[x] - 10}}\) is :<br/>
+(where \([x]\) denotes the greatest integer less than or equal to \(x\))
+<ul class="opts">
+<li>\((-\infty, -2) \cup [6, \infty)\)</li>
+<li>\((-\infty, -3] \cup [6, \infty)\)</li>
+<li>\((-\infty, -2) \cup (5, \infty)\)</li>
+<li>\((-\infty, -3] \cup (5, \infty)\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 40 | Q1</div><div class="qb"><span class="tag kcls">★★★ KCLS ★★★</span> <span class="tag exam">JEE Mains 2019</span><br/>For \(x \in \mathbb{R}\), let \([x]\) denote the greatest integer \(\le x\), then the sum of the series
+\[\left[-\frac{1}{3}\right] + \left[-\frac{1}{3} - \frac{1}{100}\right] + \cdots + \left[-\frac{1}{3} - \frac{99}{100}\right] \text{ is:}\]
+<ul class="opts">
+<li>\(-153\)</li>
+<li>\(-133\)</li>
+<li>\(-135\)</li>
+<li>\(-131\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 42 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2021</span><br/>Let \([x]\) denote the greatest integer \(\le x\), where \(x \in \mathbb{R}\). If the domain of the real valued function \(f(x) = \sqrt{\frac{|[x]| - 2}{|[x]| - 3}}\) is \((-\infty, a) \cup [b, c) \cup [4, \infty), a < b < c\), then the value of \(a + b + c\) is:
+<ul class="opts">
+<li>8</li>
+<li>1</li>
+<li>\(-2\)</li>
+<li>\(-3\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 44 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2023 (6 April)</span> <span class="tag mindbender">MIND BENDER</span><br/>Let the sets \(A\) and \(B\) denote the domain and range respectively of the function \(f(x) = \frac{1}{\sqrt{\lceil x \rceil - x}}\), where \(\lceil x \rceil\) denotes the smallest integer greater than or equal to \(x\). Then among the statements<br/>
+(S1): \(A \cap B = (1, \infty) - \mathbb{N}\) and<br/>
+(S2): \(A \cup B = (1, \infty)\)
+<ul class="opts">
+<li>only (S2) is true</li>
+<li>only (S1) is true</li>
+<li>neither (S1) nor (S2) is true</li>
+<li>both (S1) and (S2) are true</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 46 | Q1</div><div class="qb"><span class="tag exam">IIT-JEE 1994</span><br/>Let \(\{x\}\) &amp; \([x]\) denotes the fractional and integral part of a real number \(x\) respectively. Solve \(4\{x\} = x + [x]\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 47 | Q1</div><div class="qb"><span class="tag tah">TAH 05</span><br/>Read the symbols \([\,]\) and \(\{\,\}\) as greatest integer function less than or equal to \(x\) and fractional part function.<br/>
+Find the number of real values of \(x\), satisfying the equation \((x - 2)[x] = \{x\} - 1\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 47 | Q2</div><div class="qb">Read the symbols \([\,]\) and \(\{\,\}\) as greatest integer function less than or equal to \(x\) and fractional part function.<br/>
+Find the number of solutions of the equation, \(x^2 - 3x + [x] = 0\) in the interval \([0, 3]\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 47 | Q3</div><div class="qb"><span class="tag tah">TAH 05</span><br/>Read the symbols \([\,]\) and \(\{\,\}\) as greatest integer function less than or equal to \(x\) and fractional part function.<br/>
+If \([x]^2 + 3[x] - 10 \ge 0\), then find the range of \(x\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 47 | Q4</div><div class="qb"><span class="tag tah">TAH 05</span><br/>Read the symbols \([\,]\) and \(\{\,\}\) as greatest integer function less than or equal to \(x\) and fractional part function.<br/>
+If \([x]^2 - 5[x] + 6 = 0\), then find the range of \(x\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 49 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2026 (6 April)</span><br/>Let \([.]\) denote the greatest integer function. If the domain of the function \(f(x) = \sin^{-1}\left(\frac{x+[x]}{3}\right)\) is \([\alpha, \beta)\), then \(\alpha^2 + \beta^2\) is equal to:
+<ul class="opts">
+<li>2</li>
+<li>5</li>
+<li>10</li>
+<li>13</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 52 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2019</span><br/>If the coefficients of \(x^2\) and \(x^3\) are both zero, in the expansion of the expression \((1 + ax + bx^2)(1 - 3x)^{15}\) in powers of \(x\), then the ordered pair \((a, b)\) is equal to:
+<ul class="opts">
+<li>\((28, 315)\)</li>
+<li>\((-21, 714)\)</li>
+<li>\((-54, 315)\)</li>
+<li>\((28, 861)\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 52 | Q2</div><div class="qb"><span class="tag exam">JEE Mains 2019</span><br/>If \(^{20}C_1 + (2^2)^{20}C_2 + (3^2)^{20}C_3 + \cdots + (20^2)^{20}C_{20} = A(2^\beta)\), then the ordered pair \((A, \beta)\) is equal to:
+<ul class="opts">
+<li>\((380, 18)\)</li>
+<li>\((380, 19)\)</li>
+<li>\((420, 18)\)</li>
+<li>\((420, 19)\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 52 | Q3</div><div class="qb"><span class="tag exam">JEE Mains 2020</span><br/>Let \((2x^2 + 3x + 4)^{10} = \sum_{r=0}^{20} a_r x^r\). Then \(\frac{a_7}{a_{13}}\) is equal to ________.</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 52 | Q4</div><div class="qb"><span class="tag exam">AIEEE 2007</span><br/>The sum of the series \(^{20}C_0 - {^{20}C_1} + {^{20}C_2} - {^{20}C_3} + \cdots - \cdots + {^{20}C_{10}}\) is
+<ul class="opts">
+<li>\(\frac{1}{2}{^{20}C_{10}}\)</li>
+<li>\(0\)</li>
+<li>\(-{^{20}C_{10}}\)</li>
+<li>\(^{20}C_{10}\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 61 | Q1</div><div class="qb"><span class="tag tah">TAH 01</span><br/>Identify the equal function(s) (whether \(f(x) = g(x)\)):<br/>
+(i) \(f(x) = \log_x e\); \(g(x) = \frac{1}{\log_e x}\)<br/>
+(ii) \(f(x) = \log_e x\); \(g(x) = \frac{1}{\log_x e}\)<br/>
+(iii) \(f(x) = \sqrt{x^2 - 1}\); \(g(x) = \sqrt{x - 1}\sqrt{x + 1}\)<br/>
+(iv) \(f(x) = \log(x + 2) + \log(x - 3)\); \(g(x) = \log(x^2 - x - 6)\)<br/>
+(v) \(f(x) = x|x|\); \(g(x) = x^2 \operatorname{sgn} x\)<br/>
+(vi) \(f(x) = \frac{1}{1+\frac{1}{x}}\); \(g(x) = \frac{x}{1+x}\)<br/>
+(vii) \(f(x) = [\{x\}]\); \(g(x) = \{[x]\}\)</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 66 | Q1</div><div class="qb"><span class="tag tah">TAH 03</span><br/>The domain of function \(f(x) = \log_3(-(\log_3 x)^2 + 5(\log_3 x) - 6)\) is
+<ul class="opts">
+<li>\((9, 27)\)</li>
+<li>\([9, 27]\)</li>
+<li>\((0, 9) \cup (27, \infty)\)</li>
+<li>\((0, 9] \cup [27, \infty)\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 68 | Q1</div><div class="qb"><span class="tag tah">TAH 04</span> <span class="tag exam">JEE Mains 2025 (3 April)</span><br/>If the domain of the function \(f(x) = \log_7(1 - \log_4(x^2 - 9x + 18))\) is \((\alpha, \beta) \cup (\gamma, \delta)\), then \(\alpha + \beta + \gamma + \delta\) is equal to
+<ul class="opts">
+<li>17</li>
+<li>15</li>
+<li>16</li>
+<li>18</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 71 | Q1</div><div class="qb"><span class="tag tah">TAH 05</span> <span class="tag exam">JEE Mains 2025 (29 Jan)</span><br/>If the domain of the function \(\log_5(18x - x^2 - 77)\) is \((\alpha, \beta)\) and the domain of the function \(\log_{(x - 1)}\left(\frac{2x^2 + 3x - 2}{x^2 - 3x - 4}\right)\) is \((\gamma, \delta)\), then \(\alpha^2 + \beta^2 + \gamma^2\) is equal to:
+<ul class="opts">
+<li>186</li>
+<li>179</li>
+<li>195</li>
+<li>174</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 74 | Q1</div><div class="qb"><span class="tag tah">TAH 06</span> <span class="tag exam">JEE Mains 2026 (22 Jan)</span><br/>If the domain of the function \(f(x) = \sin^{-1}\left(\frac{5-x}{3+2x}\right) + \frac{1}{\log_e(10-x)}\) is \((-\infty, \alpha] \cup [\beta, \gamma) - \{\delta\}\), then \(6(\alpha + \beta + \gamma + \delta)\) is equal to
+<ul class="opts">
+<li>66</li>
+<li>68</li>
+<li>70</li>
+<li>67</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 77 | Q1</div><div class="qb"><span class="tag tah">TAH 07</span> <span class="tag exam">JEE Mains 2024 (4 April)</span><br/>If the domain of the function \(\sin^{-1}\left(\frac{3x - 22}{2x - 19}\right) + \log_e\left(\frac{3x^2 - 8x + 5}{x^2 - 3x - 10}\right)\) is \((\alpha, \beta]\), then \(3\alpha + 10\beta\) is equal to:
+<ul class="opts">
+<li>100</li>
+<li>95</li>
+<li>97</li>
+<li>98</li>
+</ul></div></div></div>
+<h2>Lecture 07</h2>
+<div class="q"><div class="qinner"><div class="qh">Pg 82 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2026 (22 Jan)</span><br/>Let \(f(x) = [x]^2 - [x + 3] - 3, x \in \mathbb{R}\), where \([.]\) is the greatest integer function. Then
+<ul class="opts">
+<li>\(f(x) = 0\) for finitely many values of \(x\)</li>
+<li>\(f(x) < 0\) only for \(x \in [-1, 3)\)</li>
+<li>\(\int_0^2 f(x) dx = -6\)</li>
+<li>\(f(x) > 0\) only for \(x \in [4, \infty)\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 84 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2026 (4 April)</span><br/>Let \([\cdot]\) denote the greatest integer function. If the domain of the function \(f(x) = \cos^{-1}\left(\frac{4x+2[x]}{3}\right)\) is \([\alpha, \beta]\), then \(12(\alpha + \beta)\) is equal to :
+<ul class="opts">
+<li>6</li>
+<li>8</li>
+<li>9</li>
+<li>4</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 88 | Q1</div><div class="qb">Find the range of the function \(f(x) = \frac{2e^x}{3e^x + 5}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 88 | Q2</div><div class="qb">Find the range of the function \(f(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 92 | Q1</div><div class="qb">Find the range of the function \(f(x) = e^{(x-1)^2}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 92 | Q2</div><div class="qb">Find the range of the function \(f(x) = 2^{x^2} + 1\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 92 | Q3</div><div class="qb"><span class="tag kcls">★★★ KCLS ★★★</span><br/>Find the range of the function \(f(x) = \frac{e^{2x} - e^x + 1}{e^{2x} + e^x + 1}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 95 | Q1</div><div class="qb">Find the domain and range of the function \(f(x) = \ln(2x - x^2)\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 95 | Q2</div><div class="qb"><span class="tag tah">TAH 02</span><br/>Find the domain and range of the function \(f(x) = \sin(\ln(5x^2 - 8x + 4))\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 95 | Q3</div><div class="qb"><span class="tag tah">TAH 02</span><br/>Find the domain and range of the function \(f(x) = \log_2\left(\frac{\sin x - \cos x + 3\sqrt{2}}{\sqrt{2}}\right)\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 97 | Q1</div><div class="qb"><span class="tag kcls">★★★ KCLS ★★★</span><br/>Let \(f\) be a real valued function defined by \(f(x) = \frac{e^x - e^{-|x|}}{e^x + e^{|x|}}\), range of \(f\) is \([a, b)\), then find the value of \((5a + 4b)\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 98 | Q1</div><div class="qb"><span class="tag asrq">★★★ ASRQ ★★★</span> <span class="tag exam">JEE Mains 2023 (30 Jan)</span><br/>The range of the function \(f(x) = \sqrt{3 - x} + \sqrt{2 + x}\) is:
+<ul class="opts">
+<li>\([2\sqrt{2}, \sqrt{11}]\)</li>
+<li>\([\sqrt{5}, \sqrt{13}]\)</li>
+<li>\([\sqrt{2}, \sqrt{7}]\)</li>
+<li>\([\sqrt{5}, \sqrt{10}]\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 102 | Q1</div><div class="qb"><span class="tag asrq">★★★ ASRQ ★★★</span><br/>Find the range of the function \(f(x) = \frac{1}{\sin^4 x + \cos^4 x}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 102 | Q2</div><div class="qb"><span class="tag asrq">★★★ ASRQ ★★★</span><br/>Find the range of the function \(f(x) = |\sin x| + |\cos x|\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 103 | Q1</div><div class="qb"><span class="tag mindbender">★★★ MIND BENDER ★★★</span><br/>Find the range of the function \(f(x) = \log_2\left(2 - \log_{\sqrt{2}}(16\sin^2 x + 1)\right)\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 104 | Q1</div><div class="qb"><span class="tag mindbender">★★★ MIND BENDER ★★★</span><br/>Find the domain and range of the function \(f(x) = \log_{(\operatorname{cosec} x - 1)}(2 - [\sin x] - [\sin x]^2)\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 106 | Q1</div><div class="qb"><span class="tag kcls">★★★ KCLS ★★★</span><br/>Let \(f(x) = \begin{cases} x, & -2 \le x \le -1 \\ x^2 + 2x, & -1 < x \le 0 \\ 2x - x^2, & 0 < x \le 1 \\ 2 - x, & 1 < x \le 2 \end{cases}\). Find the number of integers in the range of \(f(x)\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 107 | Q1</div><div class="qb">Let \(g(x) = \begin{cases} x^2 - 2, & -\infty < x < 0 \\ x, & 0 \le x < 2 \\ (x - 2)^2, & 2 \le x < 4 \\ x - 4, & 4 \le x < \infty \end{cases}\). If the equation \(g(x) = k\) has four real and distinct roots, then find the sum of all possible integral values of \(k\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 110 | Q1</div><div class="qb"><span class="tag asrq">★★★ ASRQ ★★★</span><br/>Find the domain of the function \(f(x) = \frac{\sqrt{\cos x - \frac{1}{2}}}{\sqrt{6 + 35x - 6x^2}}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 117 | Q1</div><div class="qb"><span class="tag asrq">★★★ ASRQ ★★★</span><br/>If \(y = \sqrt{\operatorname{sgn}(x^2 - 2(k+1)x + 4)}\) is defined for all \(x \in \mathbb{R}\), then find the number of integral values of \(k\).<br/><span style="font-size: 13.5px; color: #555;">[Note: \(\operatorname{sgn}(k)\) denotes the signum function of \(k\)]</span></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 119 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2023 (29 Jan)</span> <span class="tag tah">★★★ TAH ★★★</span><br/>The domain of \(f(x) = \frac{\log_{(x+1)}(x-2)}{e^{2\log_e x} - (2x+3)}, x \in \mathbb{R}\) is:
+<ul class="opts">
+<li>\((-1, \infty) - \{3\}\)</li>
+<li>\(\mathbb{R} - \{-1, 3\}\)</li>
+<li>\((2, \infty) - \{3\}\)</li>
+<li>\(\mathbb{R} - \{3\}\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 126 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2026 (28 Jan)</span><br/>The sum of all the elements in the range of
+\(f(x) = \operatorname{sgn}(\sin x) + \operatorname{sgn}(\cos x) + \operatorname{sgn}(\tan x) + \operatorname{sgn}(\cot x), x \ne \frac{n\pi}{2}, n \in \mathbb{Z}\),
+where \(\operatorname{sgn}(t) = \begin{cases} 1, & \text{if } t > 0 \\ -1, & \text{if } t < 0 \end{cases}\) is:
+<ul class="opts">
+<li>4</li>
+<li>0</li>
+<li>2</li>
+<li>-2</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 128 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2026 (2 April)</span><br/>If the domain of the function \(f(x) = \sqrt{\log_{(0.6)}\left(\left|\frac{2x-5}{x^2-4}\right|\right)}\) is \((-\infty, a] \cup \{b\} \cup [c, d) \cup (e, \infty)\), then the value of \(a + b + c + d + e\) is:</div></div></div>
+</body>
+</html>

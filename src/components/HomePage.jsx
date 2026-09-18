@@ -85,6 +85,15 @@ const CHAPTERS = [
     questionCount: 93,
     tags: ['Normals', 'Co-normal Points', 'Focal Properties', 'Loci', 'TAH'],
   },
+  {
+    id: 'relations-functions-5-7',
+    icon: '🔄',
+    title: 'Relations & Functions (Lec 5–7)',
+    subject: 'Mathematics',
+    file: '/dpps/relations_functions_5_7.html',
+    questionCount: 54,
+    tags: ['Domain & Range', 'Algebra of Functions', 'Composite Functions', 'TAH'],
+  },
 ];
 
 const EMOJI_OPTIONS = ['📁', '🔥', '⚡', '🎯', '📚', '💎', '💡', '🧮', '📐', '⭐'];
