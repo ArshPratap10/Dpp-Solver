@@ -94,6 +94,15 @@ const CHAPTERS = [
     questionCount: 54,
     tags: ['Domain & Range', 'Algebra of Functions', 'Composite Functions', 'TAH'],
   },
+  {
+    id: 'relations-functions-8-10-hw',
+    icon: '🔄',
+    title: 'Relations & Functions (HW 8–10)',
+    subject: 'Mathematics',
+    file: '/dpps/relations_functions_8_10_hw.html',
+    questionCount: 95,
+    tags: ['Homework', 'Lectures 7–9', 'Domain & Range', 'Function Equations', 'TAH', 'KTK'],
+  },
 ];
 
 const EMOJI_OPTIONS = ['📁', '🔥', '⚡', '🎯', '📚', '💎', '💡', '🧮', '📐', '⭐'];

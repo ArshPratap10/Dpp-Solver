@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Relations and Functions — HW (Lectures 7 to 9)</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #1a1a1a;
+  background: #fff;
+  padding: 12mm 14mm;
+  counter-reset: qnum;
+}
+.dpp-header {
+  border: 2.5px solid #000;
+  margin-bottom: 20px;
+  page-break-inside: avoid;
+}
+.dpp-title {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 0;
+}
+.dpp-meta {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-top: 1.5px solid #000;
+  background: #fafafa;
+}
+.dpp-meta span { display: inline-block; }
+h2 {
+  font-size: 13px;
+  font-weight: 700;
+  background: #1e1e2e;
+  color: #fff;
+  padding: 5px 12px;
+  margin: 24px 0 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.q {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border-left: 3.5px solid #000;
+  border-bottom: 1px solid #e5e7eb;
+  page-break-inside: avoid;
+  counter-increment: qnum;
+}
+.q::before {
+  content: counter(qnum) ".";
+  font-weight: 700;
+  font-size: 14px;
+  min-width: 28px;
+  flex-shrink: 0;
+}
+.qinner { flex: 1; min-width: 0; }
+.qh {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #666;
+  float: right;
+  margin-left: 10px;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+.qb {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.75;
+  color: #111;
+  display: block;
+  overflow: hidden;
+}
+.tag {
+  display: inline-block;
+  margin: 0 4px 4px 0;
+  padding: 2px 8px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: .2px;
+  vertical-align: middle;
+}
+.tag.kcls { background: #bd651d; }
+.tag.mindbender { background: #7546a7; }
+.tag.asrq { background: #23719e; }
+.tag.exam { background: #32845e; }
+.tag.tah { background: #d9381e; }
+.tag.bpp { background: #0077b6; }
+.opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 28px;
+  margin-top: 10px;
+  padding-left: 0;
+  list-style: none;
+  font-weight: 400;
+  font-size: 14px;
+  border-top: 1px dashed #ddd;
+  padding-top: 6px;
+}
+.opts li::before { font-weight: 700; color: #333; }
+.opts li:nth-child(1)::before { content: "(A) "; }
+.opts li:nth-child(2)::before { content: "(B) "; }
+.opts li:nth-child(3)::before { content: "(C) "; }
+.opts li:nth-child(4)::before { content: "(D) "; }
+.opts li:nth-child(5)::before { content: "(E) "; }
+ol.subq { padding-left: 20px; margin-top: 6px; font-weight: 400; font-size: 14px; }
+ol.subq li { margin-bottom: 4px; }
+table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 13px; font-weight: 400; }
+td, th { border: 1px solid #888; padding: 5px 8px; vertical-align: top; }
+th { font-weight: 700; background: #f3f4f6; }
+@media print {
+  body { padding: 8mm 10mm; font-size: 13px; }
+  h2 { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .q { margin-bottom: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="dpp-header">
+<div class="dpp-title">Homework Question Bank — Relations and Functions</div>
+<div class="dpp-meta">
+<span><strong>Subject:</strong> Mathematics</span>
+<span><strong>Topic:</strong> Relations and Functions (HW — RAF 8, 9, 10)</span>
+<span><strong>Total Questions:</strong> 95</span>
+</div>
+</div>
+<!-- QUESTIONS_START -->
+<h2>Lecture 07</h2>
+<div class="q"><div class="qinner"><div class="qh">Pg 63 | Q1</div><div class="qb"><span class="tag tah">TAH</span><br/>Let \(\{x\}\) and \([x]\) denotes the fraction and integral part of a real number \(x\) respectively, then match the column.
+<table>
+<thead><tr><th>Column-I</th><th>Column-II</th></tr></thead>
+<tbody>
+<tr><td>(A) \([x^2] \ge 4\)</td><td>(p) \(x \in [2, 4)\)</td></tr>
+<tr><td>(B) \([x]^2 - 5[x] + 6 = 0\)</td><td>(q) \(x \in (-\infty, -2] \cup [2, \infty)\)</td></tr>
+<tr><td>(C) \(x = \{x\}\)</td><td>(r) \(x \in (-\infty, -5)\)</td></tr>
+<tr><td>(D) \([x] < -5\)</td><td>(s) \(x \in \{-2\}\)</td></tr>
+<tr><td></td><td>(t) \(x \in [0, 1)\)</td></tr>
+</tbody>
+</table>
+</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 66 | Q1</div><div class="qb"><span class="tag tah">★★★ TAH 01a ★★★</span><br/>Find range of \(f(x) = \frac{|x|+4}{7-|x|}\)
+<ul class="opts">
+<li>\((-\infty, -1)\)</li>
+<li>\(\left[\frac{4}{7}, \infty\right)\)</li>
+<li>\(\left(-1, \frac{4}{7}\right]\)</li>
+<li>\((-\infty, -1) \cup \left[\frac{4}{7}, \infty\right)\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 68 | Q1</div><div class="qb"><span class="tag tah">★★★ TAH 01b ★★★</span><br/>Range of \(f(x) = \frac{3^x - 3^{-x}}{3^x + 3^{-x}}\) is
+<ul class="opts">
+<li>\((0, \infty)\)</li>
+<li>\((-\infty, 0)\)</li>
+<li>\((-1, 1)\)</li>
+<li>\([-1, 1]\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 70 | Q1</div><div class="qb"><span class="tag tah">★★★ TAH 02 ★★★</span><br/>Find the domain and range of the function \(f(x) = \ln(2x - x^2)\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 70 | Q2</div><div class="qb"><span class="tag tah">★★★ TAH 02 ★★★</span><br/>Find the domain and range of the function \(f(x) = \sin(\ln(5x^2 - 8x + 4))\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 70 | Q3</div><div class="qb"><span class="tag tah">★★★ TAH 02 ★★★</span><br/>Find the domain and range of the function \(f(x) = \log_2\left(\frac{\sin x - \cos x + 3\sqrt{2}}{\sqrt{2}}\right)\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 72 | Q1</div><div class="qb"><span class="tag kcls">★★★ KCLS ★★★</span> <span class="tag tah">★★★ TAH 03 ★★★</span><br/>Let \(f(x) = (x + 2)e^{\ln(x+2)}\) and \(g(x) = \frac{e^{\left(-\frac{1}{\log_x e}\right)}}{x} - \frac{2x}{e^{-\ln 2}}\).<br/>If \(h(x) = f(x) + g(x)\), then the smallest positive integer in the range of \(h(x)\) is
+<ul class="opts">
+<li>2</li>
+<li>3</li>
+<li>6</li>
+<li>7</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 74 | Q1</div><div class="qb"><span class="tag tah">★★★ TAH 04 ★★★</span><br/>Find the domain &amp; range of the function \(y = \log_{\sqrt{5}}(\sqrt{2}(\sin x - \cos x) + 3)\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 74 | Q2</div><div class="qb"><span class="tag tah">★★★ TAH 04 ★★★</span><br/>Find the domain &amp; range of the function \(y = \frac{2x}{1+x^2}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 74 | Q3</div><div class="qb"><span class="tag tah">★★★ TAH 04 ★★★</span><br/>Find the domain &amp; range of the function \(f(x) = \frac{x^2 - 3x + 2}{x^2 + x - 6}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 74 | Q4</div><div class="qb"><span class="tag tah">★★★ TAH 04 ★★★</span><br/>Find the domain &amp; range of the function \(f(x) = \frac{x}{1+|x|}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 74 | Q5</div><div class="qb"><span class="tag tah">★★★ TAH 04 ★★★</span><br/>Find the domain &amp; range of the function \(y = \sqrt{2-x} + \sqrt{1+x}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 74 | Q6</div><div class="qb"><span class="tag kcls">★★★ KCLS ★★★</span> <span class="tag tah">★★★ TAH 04 ★★★</span><br/>Find the domain &amp; range of the function \(f(x) = \frac{\sqrt{x+4}-3}{x-5}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 80 | Q1</div><div class="qb"><span class="tag tah">★★★ TAH 04 ★★★</span><br/>If \(f(x) = \pi\left(\frac{\sqrt{x+7}-4}{x-9}\right)\), then the range of function \(y = \sin(2f(x))\) is
+<ul class="opts">
+<li>\([0, 1]\)</li>
+<li>\(\left(0, \frac{1}{\sqrt{2}}\right]\)</li>
+<li>\(\left(0, \frac{1}{\sqrt{2}}\right) \cup \left(\frac{1}{\sqrt{2}}, 1\right]\)</li>
+<li>\((0, 1]\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 83 | Q1</div><div class="qb"><span class="tag tah">★★★ TAH 05 ★★★</span> <span class="tag exam">JEE Mains 2024 (6 April)</span><br/>Let \(f(x) = \frac{1}{7-\sin 5x}\) be a function defined on \(\mathbb{R}\). Then the range of the function \(f(x)\) is equal to:
+<ul class="opts">
+<li>\(\left[\frac{1}{8}, \frac{1}{5}\right]\)</li>
+<li>\(\left[\frac{1}{7}, \frac{1}{6}\right]\)</li>
+<li>\(\left[\frac{1}{7}, \frac{1}{5}\right]\)</li>
+<li>\(\left[\frac{1}{8}, \frac{1}{6}\right]\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 85 | Q1</div><div class="qb"><span class="tag tah">★★★ TAH 06a ★★★</span><br/>Range of \(y = \frac{\sin^2 x + 4\sin x + 6}{\sin^2 x + 4\sin x + 5}\) is given by
+<ul class="opts">
+<li>\(\left[\frac{3}{2}, 2\right]\)</li>
+<li>\(\left[\frac{11}{10}, 2\right]\)</li>
+<li>\(\left[\frac{6}{5}, \frac{3}{2}\right]\)</li>
+<li>\(\left[\frac{11}{10}, \frac{3}{2}\right]\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 88 | Q1</div><div class="qb"><span class="tag tah">★★★ TAH 06b ★★★</span><br/>Let \(f(x) = \begin{cases} 2x^2 - 10x, & -\infty < x \le -5 \\ x^2 - 5, & -5 < x < 3 \\ x^2 + 1, & 3 \le x < \infty \end{cases}\). Number of negative integers in the range of the function \(f(x)\) is
+<ul class="opts">
+<li>6</li>
+<li>5</li>
+<li>4</li>
+<li>3</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 93 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2020</span><br/>The coefficient of \(x^4\) in the expansion of \((1 + x + x^2 + x^3)^6\) in powers of \(x\), is ________.</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 93 | Q2</div><div class="qb"><span class="tag exam">AIEEE 2009</span><br/>The remainder left out when \(8^{2n} - (62)^{2n+1}\) is divided by 9 is:
+<ul class="opts">
+<li>7</li>
+<li>8</li>
+<li>0</li>
+<li>2</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 93 | Q3</div><div class="qb"><span class="tag exam">AIEEE 2010</span><br/>Let \(S_1 = \sum_{j=1}^{10} j(j - 1) \, {}^{10}C_j\), \(S_2 = \sum_{j=1}^{10} j \, {}^{10}C_j\) and \(S_3 = \sum_{j=1}^{10} j^2 \, {}^{10}C_j\).<br/>Statement-1: \(S_3 = 55 \times 2^9\).<br/>Statement-2: \(S_1 = 90 \times 2^8\) and \(S_2 = 10 \times 2^8\).
+<ul class="opts">
+<li>Statement-1 is true, Statement-2 is true; Statement-2 is a correct explanation for Statement-1.</li>
+<li>Statement-1 is true, Statement-2 is true; Statement-2 is not a correct explanation for Statement-1.</li>
+<li>Statement-1 is true, Statement-2 is false.</li>
+<li>Statement-1 is false, Statement-2 is true.</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 99 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2019</span><br/>The value of \(r\) for which \({}^{20}C_r {}^{20}C_0 + {}^{20}C_{r-1} {}^{20}C_1 + {}^{20}C_{r-2} {}^{20}C_2 + \cdots + {}^{20}C_0 {}^{20}C_r\) is maximum, is:
+<ul class="opts">
+<li>15</li>
+<li>10</li>
+<li>20</li>
+<li>11</li>
+</ul></div></div></div>
+<h2>Lecture 08</h2>
+<div class="q"><div class="qinner"><div class="qh">Pg 59 | Q1</div><div class="qb"><span class="tag tah">★★★ TAH 01 ★★★</span><br/>Find range of \(f(x) = \frac{2x-3}{x-1}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 59 | Q2</div><div class="qb"><span class="tag tah">★★★ TAH 01 ★★★</span><br/>Find range of \(f(x) = \frac{x+3}{2-5x}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 59 | Q3</div><div class="qb"><span class="tag tah">★★★ TAH 01 ★★★</span><br/>Find range of \(f(x) = \frac{6}{4x+7}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 59 | Q4</div><div class="qb"><span class="tag tah">★★★ TAH 01 ★★★</span><br/>Find range of \(f(x) = \frac{7x+5}{3}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 61 | Q1</div><div class="qb"><span class="tag tah">★★★ TAH 02 ★★★</span><br/>Find the range of \(f(x) = \frac{x^2 - 5x + 4}{x^2 + 2x - 3}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 63 | Q1</div><div class="qb"><span class="tag tah">★★★ TAH 03 ★★★</span> <span class="tag exam">JEE Mains 2023 (31 Jan)</span><br/>Let \(f : \mathbb{R} - \{2, 6\} \to \mathbb{R}\) be real valued function defined as \(f(x) = \frac{x^2 + 2x + 1}{x^2 - 8x + 12}\). Then range of \(f\) is
+<ul class="opts">
+<li>\(\left(-\infty, -\frac{21}{4}\right] \cup [1, \infty)\)</li>
+<li>\(\left(-\infty, -\frac{21}{4}\right) \cup (0, \infty)\)</li>
+<li>\(\left(-\infty, -\frac{21}{4}\right] \cup [0, \infty)\)</li>
+<li>\(\left(-\infty, -\frac{21}{4}\right] \cup \left[\frac{21}{4}, \infty\right)\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 65 | Q1</div><div class="qb"><span class="tag mindbender">★★★ MIND BENDER ★★★</span> <span class="tag tah">★★★ TAH 04 ★★★</span> <span class="tag exam">JEE Mains 2023 (31 Jan)</span><br/>If the domain of the function \(f(x) = \frac{[x]}{1+x^2}\), where \([x]\) is greatest integer \(\le x\), is \([2, 6)\), then its range is
+<ul class="opts">
+<li>\(\left(\frac{5}{37}, \frac{2}{5}\right] - \left\{\frac{9}{29}, \frac{27}{109}, \frac{18}{89}, \frac{9}{53}\right\}\)</li>
+<li>\(\left(\frac{5}{37}, \frac{2}{5}\right]\)</li>
+<li>\(\left(\frac{5}{26}, \frac{2}{5}\right]\)</li>
+<li>\(\left(\frac{5}{26}, \frac{2}{5}\right] - \left\{\frac{9}{29}, \frac{27}{109}, \frac{18}{89}, \frac{9}{53}\right\}\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 69 | Q1</div><div class="qb"><span class="tag tah">★★★ TAH 05 ★★★</span> <span class="tag exam">JEE Mains 2025 (7 April)</span><br/>If the range of the function \(f(x) = \frac{5-x}{x^2 - 3x + 2}, x \ne 1, 2\), is \((-\infty, \alpha] \cup [\beta, \infty)\), then \(\alpha^2 + \beta^2\) is equal to:
+<ul class="opts">
+<li>188</li>
+<li>192</li>
+<li>190</li>
+<li>194</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 72 | Q1</div><div class="qb"><span class="tag tah">★★★ TAH 06 ★★★</span><br/>If the domain of \(g(x)\) is \([3, 4]\), then the domain of \(g(\log_2(x^2 + 3x - 2))\) is
+<ul class="opts">
+<li>\([-4, -1] \cup [2, 7]\)</li>
+<li>\([-3, 2]\)</li>
+<li>\([-6, -5] \cup [2, 3]\)</li>
+<li>\(\left[\frac{3}{2}, 5\right]\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 74 | Q1</div><div class="qb"><span class="tag tah">★★★ TAH 07 ★★★</span> <span class="tag exam">IIT-JEE 2010</span><br/>Find the maximum &amp; minimum value of :
+\[y = \frac{1}{\sin^2 \theta + 3\sin\theta\cos\theta + 5\cos^2 \theta}\]</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 76 | Q1</div><div class="qb"><span class="tag tah">★★★ TAH 08 ★★★</span> <span class="tag exam">JEE Mains 2024 (9 April)</span><br/>Let the range of the function \(f(x) = \frac{1}{2+\sin 3x + \cos 3x}, x \in \mathbb{R}\) be \([a, b]\). If \(\alpha\) and \(\beta\) are respectively the A.M. and the G.M. of \(a\) and \(b\), then \(\frac{\alpha}{\beta}\) is equal to
+<ul class="opts">
+<li>\(\pi\)</li>
+<li>\(\sqrt{\pi}\)</li>
+<li>\(\sqrt{2}\)</li>
+<li>2</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 78 | Q1</div><div class="qb"><span class="tag tah">★★★ TAH 09 ★★★</span> <span class="tag exam">JEE Mains 2023 (25 Jan)</span><br/>Let \(f : \mathbb{R} \to \mathbb{R}\) be a function defined by \(f(x) = \log_{\sqrt{m}}\{\sqrt{2}(\sin x - \cos x) + m - 2\}\), for some \(m\), such that the range of \(f\) is \([0, 2]\). Then the value of \(m\) is
+<ul class="opts">
+<li>4</li>
+<li>3</li>
+<li>5</li>
+<li>2</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 80 | Q1</div><div class="qb"><span class="tag tah">★★★ TAH 09 ★★★</span><br/>Determine whether the function \(f(x) = \log(x + \sqrt{1 + x^2})\) is even, odd, or neither.</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 80 | Q2</div><div class="qb"><span class="tag tah">★★★ TAH 09 ★★★</span><br/>Determine whether the function \(f(x) = \frac{x(a^x + 1)}{a^x - 1}\) is even, odd, or neither.</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 80 | Q3</div><div class="qb"><span class="tag tah">★★★ TAH 09 ★★★</span><br/>Determine whether the function \(f(x) = \sin x + \cos x\) is even, odd, or neither.</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 80 | Q4</div><div class="qb"><span class="tag tah">★★★ TAH 09 ★★★</span><br/>Determine whether the function \(f(x) = x \sin^2 x - x^3\) is even, odd, or neither.</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 80 | Q5</div><div class="qb"><span class="tag tah">★★★ TAH 09 ★★★</span><br/>Determine whether the function \(f(x) = \sin x - \cos x\) is even, odd, or neither.</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 80 | Q6</div><div class="qb"><span class="tag tah">★★★ TAH 09 ★★★</span><br/>Determine whether the function \(f(x) = \frac{(1 + 2^x)^2}{2^x}\) is even, odd, or neither.</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 80 | Q7</div><div class="qb"><span class="tag tah">★★★ TAH 09 ★★★</span><br/>Determine whether the function \(f(x) = \frac{x}{e^x - 1} + \frac{x}{2} + 1\) is even, odd, or neither.</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 80 | Q8</div><div class="qb"><span class="tag tah">★★★ TAH 09 ★★★</span><br/>Determine whether the function \(f(x) = [(x + 1)^2]^{1/3} + [(x - 1)^2]^{1/3}\) is even, odd, or neither.</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 82 | Q1</div><div class="qb"><span class="tag tah">★★★ TAH 10 ★★★</span><br/>Let \(f(x)\) be an odd function defined on \(\mathbb{R}\) such that \(f(1) = 2, f(3) = 5\) and \(f(-5) = -1\). The value of \(\frac{f(f(f(-3))) + f(f(0))}{3f(1) - 2f(3) - f(5)}\) is
+<ul class="opts">
+<li>\(-\frac{2}{5}\)</li>
+<li>\(-\frac{2}{3}\)</li>
+<li>\(\frac{2}{5}\)</li>
+<li>\(\frac{2}{3}\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 84 | Q1</div><div class="qb"><span class="tag tah">★★★ TAH ★★★</span><br/>If \(h(x) = Ax^5 + B\sin x + C\ln\left(\frac{1+x}{1-x}\right) + 7\), where \(A, B, C\) are non-zero real constants and \(h\left(-\frac{1}{2}\right) = 6\), then find the value of \(h\left(\frac{\operatorname{sgn}(e^{-x})}{2}\right)\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 87 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024</span><br/>The coefficient of \(x^{2012}\) in the expansion of \((1 - x)^{2008} (1 + x + x^2)^{2007}\) is equal to ________.</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 87 | Q2</div><div class="qb"><span class="tag exam">JEE Mains 2024</span><br/>If \(\frac{{}^{11}C_1}{2} + \frac{{}^{11}C_2}{3} + \cdots + \frac{{}^{11}C_9}{10} = \frac{n}{m}\) with \(\gcd(n, m) = 1\), then \(n + m\) is equal to ________.</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 87 | Q3</div><div class="qb"><span class="tag exam">JEE Mains 2024</span><br/>Let \(\alpha = \sum_{k=0}^n \left(\frac{({}^nC_k)^2}{k+1}\right)\) and \(\beta = \sum_{k=0}^{n-1} \left(\frac{{}^nC_k {}^nC_{k+1}}{k+2}\right)\). If \(5\alpha = 6\beta\), then \(n\) equals ________.</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 87 | Q4</div><div class="qb"><span class="tag exam">JEE Mains 2024</span><br/>Let \(a = 1 + \frac{{}^2C_2}{3!} + \frac{{}^3C_2}{4!} + \frac{{}^4C_2}{5!} + \cdots\),<br/>\(b = 1 + \frac{{}^1C_0 + {}^1C_1}{1!} + \frac{{}^2C_0 + {}^2C_1 + {}^2C_2}{2!} + \frac{{}^3C_0 + {}^3C_1 + {}^3C_2 + {}^3C_3}{3!} + \cdots\). Then \(\frac{2b}{a^2}\) is equal to ________.</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 87 | Q5</div><div class="qb"><span class="tag exam">JEE Mains 2024</span><br/>If the coefficient of \(x^{30}\) in the expansion of \(\left(1 + \frac{1}{x}\right)^6 (1 + x^2)^7 (1 - x^3)^8; x \ne 0\) is \(\alpha\), then \(|\alpha|\) equals ________.</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 96 | Q1</div><div class="qb"><span class="tag bpp">BPP</span><br/>Find the domain of definition of the function \(y = \log_x 2\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 96 | Q2</div><div class="qb"><span class="tag bpp">BPP</span><br/>Find the domain of definition of the function \(y = \frac{1}{\log_{10}(1-x)} + \sqrt{x+2}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 96 | Q3</div><div class="qb"><span class="tag bpp">BPP</span><br/>Find the domain of definition of the function \(y = \sqrt{x} + \sqrt[3]{\frac{1}{x-2}} - \log_{10}(2x - 3)\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 96 | Q4</div><div class="qb"><span class="tag bpp">BPP</span><br/>Find the domain of definition of the function \(y = \frac{3}{4-x^2} + \log_{10}(x^3 - x)\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 96 | Q5</div><div class="qb"><span class="tag bpp">BPP</span><br/>Find the domain of definition of the function \(y = \frac{1}{\sqrt{\sin x}} + \sqrt[3]{\sin x}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 96 | Q6</div><div class="qb"><span class="tag bpp">BPP</span><br/>Find the domain of definition of the function \(y = \log_{10}(\sqrt{x-4} + \sqrt{6-x})\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 96 | Q7</div><div class="qb"><span class="tag bpp">BPP</span><br/>Find the domain of definition of the function \(y = \log_{10}[1 - \log_{10}(x^2 - 5x + 16)]\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 101 | Q1</div><div class="qb"><span class="tag bpp">BPP</span><br/>Find the range of the function \(y = \frac{1}{3\sin x + 4\cos x + 7}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 101 | Q2</div><div class="qb"><span class="tag bpp">BPP</span><br/>Find the range of the function \(y = \frac{1}{3\sin x + 4\cos x + 2}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 101 | Q3</div><div class="qb"><span class="tag bpp">BPP</span><br/>Find the range of the function \(y = 6\tan x\cos x\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 101 | Q4</div><div class="qb"><span class="tag bpp">BPP</span><br/>Find the range of the function \(f(x) = \frac{1}{8-3\sin x}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 101 | Q5</div><div class="qb"><span class="tag bpp">BPP</span><br/>Find the range of the function \(f(x) = \frac{1}{2-3\sin x}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 101 | Q6</div><div class="qb"><span class="tag bpp">BPP</span><br/>Find the range of \(y = \ln x\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 101 | Q7</div><div class="qb"><span class="tag bpp">BPP</span><br/>Find the range of \(y = \frac{1}{\ln x}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 101 | Q8</div><div class="qb"><span class="tag bpp">BPP</span><br/>Find the range of \(y = \log_x 2\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 101 | Q9</div><div class="qb"><span class="tag bpp">BPP</span><br/>Find the range of \(y = \log_3(1 + 26\sin^2 x)\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 101 | Q10</div><div class="qb"><span class="tag bpp">BPP</span><br/>Find the range of \(y = \log_3(1 - 26\sin^2 x)\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 101 | Q11</div><div class="qb"><span class="tag bpp">BPP</span><br/>Find the range of \(y = \ln(3\sin x + 4\cos x)\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 101 | Q12</div><div class="qb"><span class="tag bpp">BPP</span><br/>Find the range of \(y = \ln(3\sin x + 4\cos x + 7)\).</div></div></div>
+<h2>Lecture 09</h2>
+<div class="q"><div class="qinner"><div class="qh">Pg 46 | Q1</div><div class="qb"><span class="tag tah">TAH</span><br/>Let \([x] =\) the greatest integer less than or equal to \(x\). If all the values of \(x\) such that the product \(\left[x - \frac{1}{2}\right]\left[x + \frac{1}{2}\right]\) is prime, belongs to the set \([x_1, x_2) \cup [x_3, x_4)\), find the value of \(x_1^2 + x_2^2 + x_3^2 + x_4^2\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 50 | Q1</div><div class="qb"><span class="tag tah">TAH</span><br/>The function \(f : [2, \infty) \to Y\) defined by \(f(x) = x^2 - 4x + 5\) is both one-one and onto if:
+<ul class="opts">
+<li>\(Y = \mathbb{R}\)</li>
+<li>\(Y = [1, \infty)\)</li>
+<li>\(Y = [4, \infty)\)</li>
+<li>\([5, \infty)\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 53 | Q1</div><div class="qb"><span class="tag kcls">★★★ KCLS ★★★</span> <span class="tag exam">IIT-JEE 2012</span><br/>The function \(f : [0, 3] \to [1, 29]\), defined by \(f(x) = 2x^3 - 15x^2 + 36x + 1\), is
+<ul class="opts">
+<li>one-one and onto</li>
+<li>onto but not one-one</li>
+<li>one-one but not onto</li>
+<li>neither one-one nor onto</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 57 | Q1</div><div class="qb"><span class="tag kcls">★★★ KCLS ★★★</span> <span class="tag exam">JEE Mains 2022 (28 June)</span><br/>Let a function \(f : \mathbb{N} \to \mathbb{N}\) be defined by \(f(n) = \begin{cases} 2n, & n = 2, 4, 6, 8, \dots \\ n - 1, & n = 3, 7, 11, 15, \dots \\ \frac{n+1}{2}, & n = 1, 5, 9, 13, \dots \end{cases}\) then, \(f\) is
+<ul class="opts">
+<li>one-one but not onto</li>
+<li>onto but not one-one</li>
+<li>neither one-one nor onto</li>
+<li>one-one and onto</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 60 | Q1</div><div class="qb"><span class="tag mindbender">★★★ MIND BENDER ★★★</span><br/>If functions \(f(x)\) and \(g(x)\) are defined on \(\mathbb{R} \to \mathbb{R}\) such that \(f(x) = \begin{cases} x + 3, & x \in \text{rational} \\ 4x, & x \in \text{irrational} \end{cases}\), \(g(x) = \begin{cases} x + \sqrt{5}, & x \in \text{irrational} \\ -x, & x \in \text{rational} \end{cases}\), then \((f - g)(x)\) is
+<ul class="opts">
+<li>one-one and onto</li>
+<li>neither one-one nor onto</li>
+<li>one-one but not onto</li>
+<li>onto but not one-one</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 61 | Q1</div><div class="qb"><span class="tag mindbender">★★★ MIND BENDER ★★★</span><br/>Let \(f : \mathbb{R} \to [1, \infty)\) be defined as \(f(x) = \log_{10}(\sqrt{3x^2 - 4x + k + 1} + 10)\). If \(f(x)\) is surjective, then
+<ul class="opts">
+<li>\(k = 1/3\)</li>
+<li>\(k < 1/3\)</li>
+<li>\(k > 1/3\)</li>
+<li>\(k = 1\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 65 | Q1</div><div class="qb"><span class="tag tah">TAH</span><br/>The period of the function \(\cos(\sin x) + \cos(\cos x)\) is
+<ul class="opts">
+<li>\(\frac{\pi}{3}\)</li>
+<li>\(\frac{\pi}{2}\)</li>
+<li>\(\pi\)</li>
+<li>\(2\pi\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 69 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2019 (9 April)</span> <span class="tag kcls">KTK 2</span><br/>If the function \(f : \mathbb{R} - \{1, -1\} \to A\) defined by \(f(x) = \frac{x^2}{1-x^2}\), is surjective, then \(A\) is equal to
+<ul class="opts">
+<li>\(\mathbb{R} - (-1, 0)\)</li>
+<li>\(\mathbb{R} - \{-1\}\)</li>
+<li>\(\mathbb{R} - [-1, 0)\)</li>
+<li>\([0, \infty)\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 71 | Q1</div><div class="qb"><span class="tag kcls">KTK 3</span><br/>The function \(f : [0, \infty) \to [2, \infty)\) defined by \(f(x) = x^4 + 2x^3 + 3x^2 + 2x + 2\) is
+<ul class="opts">
+<li>one-one but not onto</li>
+<li>onto but not one-one</li>
+<li>both one-one and onto</li>
+<li>neither one-one nor onto</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 73 | Q1</div><div class="qb"><span class="tag kcls">KTK 4</span><br/>If \(f : \mathbb{R} \to \mathbb{R}\) defined by<br/>\(f(x) = (p^2 - 9)(p^2 - 4)x^5 + (p^2 - 9)(p - 2)x^3 + (p^2 - 4)(p + 3)x^2 - (p + 7)(p - 6)\)<br/>is into, then number of possible integral value(s) of \(p\) is
+<ul class="opts">
+<li>4</li>
+<li>3</li>
+<li>2</li>
+<li>1</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 76 | Q1</div><div class="qb"><span class="tag kcls">KTK 5</span><br/>Let \(f : \mathbb{R} - \{0\} \to [0, \infty)\) be a function defined by \(f(x) = \frac{|x-1|}{x^2}\). Then
+<ul class="opts">
+<li>\(f(x)\) is injective in \((2, \infty)\)</li>
+<li>\(f(x)\) is one-one in \((0, 1)\)</li>
+<li>\(f(x)\) is surjective</li>
+<li>\(f(x)\) is many-one in \((-\infty, 0)\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 79 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (8 April)</span> <span class="tag kcls">KTK 7</span><br/>If the range of \(f(\theta) = \frac{\sin^4 \theta + 3\cos^2 \theta}{\sin^4 \theta + \cos^2 \theta}, \theta \in \mathbb{R}\) is \([\alpha, \beta]\), then the sum of the infinite G.P., whose first term is 64 and the common ratio is \(\frac{\alpha}{\beta}\), is equal to ________.</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 82 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2021 (1 Sep)</span> <span class="tag kcls">KTK 8</span><br/>The range of the function,<br/>\(f(x) = \log_{\sqrt{5}}\left(3 + \cos\left(\frac{3\pi}{4} + x\right) + \cos\left(\frac{\pi}{4} + x\right) + \cos\left(\frac{\pi}{4} - x\right) - \cos\left(\frac{3\pi}{4} - x\right)\right)\) is
+<ul class="opts">
+<li>\((0, \sqrt{5})\)</li>
+<li>\([-2, 2]\)</li>
+<li>\(\left[\frac{1}{\sqrt{5}}, \sqrt{5}\right]\)</li>
+<li>\([0, 2]\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 84 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2020 (8 Jan)</span> <span class="tag kcls">KTK 9</span><br/>Let \(f : (1, 3) \to \mathbb{R}\) be a function defined by \(f(x) = \frac{x[x]}{1+x^2}\), where \([x]\) denotes the greatest integer \(\le x\). Then the range of \(f\) is
+<ul class="opts">
+<li>\(\left(\frac{2}{5}, \frac{1}{2}\right) \cup \left(\frac{3}{4}, \frac{4}{5}\right]\)</li>
+<li>\(\left(\frac{3}{5}, \frac{4}{5}\right)\)</li>
+<li>\(\left(\frac{2}{5}, \frac{4}{5}\right]\)</li>
+<li>\(\left(\frac{2}{5}, \frac{3}{5}\right] \cup \left(\frac{3}{4}, \frac{4}{5}\right)\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 86 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (30 Jan)</span> <span class="tag kcls">KTK 10</span><br/>If the domain of the function \(f(x) = \cos^{-1}\left(\frac{2-|x|}{4}\right) + \{\log_e(3-x)\}^{-1}\) is \([-\alpha, \beta) - \{\gamma\}\), then \(\alpha + \beta + \gamma\) is equal to:
+<ul class="opts">
+<li>11</li>
+<li>12</li>
+<li>9</li>
+<li>8</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 89 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2021</span><br/>If the coefficient of \(a^7 b^8\) in the expansion of \((a + 2b + 4ab)^{10}\) is \(K \cdot 2^{16}\), then \(K\) is equal to ________.</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 89 | Q2</div><div class="qb"><span class="tag exam">JEE Mains 2020</span><br/>If the number of integral terms in the expansion of \(\left(3^{1/2} + 5^{1/8}\right)^n\) is exactly 33, then the least value of \(n\) is:
+<ul class="opts">
+<li>264</li>
+<li>128</li>
+<li>256</li>
+<li>248</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 89 | Q3</div><div class="qb"><span class="tag exam">JEE Mains 2019</span><br/>The total number of irrational terms in the binomial expansion of \(\left(7^{1/5} - 3^{1/10}\right)^{60}\) is:
+<ul class="opts">
+<li>55</li>
+<li>49</li>
+<li>48</li>
+<li>54</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 93 | Q4</div><div class="qb"><span class="tag exam">JEE Mains 2019</span><br/>A ratio of the \(5^{\text{th}}\) term from the beginning to the \(5^{\text{th}}\) term from the end in the binomial expansion of \(\left(2^{\frac{1}{3}} + \frac{1}{2(3)^{\frac{1}{3}}}\right)^{10}\) is:
+<ul class="opts">
+<li>\(1 : 2(6)^{\frac{1}{3}}\)</li>
+<li>\(1 : 4(16)^{\frac{1}{3}}\)</li>
+<li>\(4(36)^{\frac{1}{3}} : 1\)</li>
+<li>\(2(36)^{\frac{1}{3}} : 1\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 93 | Q5</div><div class="qb"><span class="tag exam">JEE Mains 2022</span><br/>The coefficient of \(x^{101}\) in the expression<br/>\((5 + x)^{500} + x(5 + x)^{499} + x^2(5 + x)^{498} + \cdots + x^{500}, x > 0\), is
+<ul class="opts">
+<li>\({}^{501}C_{101}(5)^{399}\)</li>
+<li>\({}^{501}C_{101}(5)^{400}\)</li>
+<li>\({}^{501}C_{100}(5)^{400}\)</li>
+<li>\({}^{500}C_{101}(5)^{309}\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 93 | Q6</div><div class="qb"><span class="tag exam">JEE Mains 2021</span><br/>Let \(n\) be a positive integer. Let<br/>\[A = \sum_{k=0}^n (-1)^k \, {}^nC_k \left[ \left(\frac{1}{2}\right)^k + \left(\frac{3}{4}\right)^k + \left(\frac{7}{8}\right)^k + \left(\frac{15}{16}\right)^k + \left(\frac{31}{32}\right)^k \right]\]<br/>If \(63A = 1 - \frac{1}{2^{30}}\), then \(n\) is equal to ________.</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 98 | Q1</div><div class="qb">If \(g(x) = \left(4\cos^4 x - 2\cos 2x - \frac{1}{2}\cos 4x - x^7\right)^{\frac{1}{7}}\), then the value of \(g(g(100))\) is equal to
+<ul class="opts">
+<li>-1</li>
+<li>0</li>
+<li>1</li>
+<li>100</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 99 | Q1</div><div class="qb"><span class="tag tah">TAH 11</span><br/>If \(f(x) = \sin^2 x + \sin^2\left(x + \frac{\pi}{3}\right) + \cos x \cos\left(x + \frac{\pi}{3}\right)\) and \(g\left(\frac{5}{4}\right) = 1\), then find \((g \circ f)(x)\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 100 | Q1</div><div class="qb">Let \(f(x) = \frac{1}{1-x}, x \ne 0, 1\). Find \(f^{2023}(2024)\), where \(f^n = f \circ f \circ f \dots n \text{ times}\).</div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 102 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2016 (9 April)</span> <span class="tag tah">TAH 12</span><br/>For \(x \in \mathbb{R}, x \ne 0\), Let \(f_0(x) = \frac{1}{1-x}\) and \(f_{n+1}(x) = f_0(f_n(x)), n = 0, 1, 2, \dots\)<br/>Then the value of \(f_{100}(3) + f_1\left(\frac{2}{3}\right) + f_2\left(\frac{3}{2}\right)\) is equal to:
+<ul class="opts">
+<li>\(\frac{8}{3}\)</li>
+<li>\(\frac{5}{3}\)</li>
+<li>\(\frac{4}{3}\)</li>
+<li>\(\frac{1}{3}\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 103 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2022 (26 June)</span> <span class="tag tah">TAH 13</span><br/>Let \(f(x) = \frac{x-1}{x+1}, x \in \mathbb{R} - \{0, -1, 1\}\). If \(f^{n+1}(x) = f(f^n(x))\) for all \(n \in \mathbb{N}\), then \(f^6(6) + f^7(7)\) is equal to :
+<ul class="opts">
+<li>\(\frac{7}{6}\)</li>
+<li>\(-\frac{3}{2}\)</li>
+<li>\(\frac{7}{12}\)</li>
+<li>\(-\frac{11}{12}\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 104 | Q1</div><div class="qb"><span class="tag tah">TAH 14</span><br/>Let \(f(x) = x + \frac{1}{x}\) and \(g(x) = \frac{x+1}{x+2}\). Match the composite function given in Column-I with their respective domains given in Column-II.
+<table style="width:100%; border-collapse:collapse; margin-top:10px;">
+  <tr><th style="border:1px solid #444; padding:6px; text-align:center;">Column-I</th><th style="border:1px solid #444; padding:6px; text-align:center;">Column-II</th></tr>
+  <tr><td style="border:1px solid #444; padding:6px;">(A) \(f \circ g\)</td><td style="border:1px solid #444; padding:6px;">(P) \(\mathbb{R} - \{-2, -5/3\}\)</td></tr>
+  <tr><td style="border:1px solid #444; padding:6px;">(B) \(g \circ f\)</td><td style="border:1px solid #444; padding:6px;">(Q) \(\mathbb{R} - \{-1, 0\}\)</td></tr>
+  <tr><td style="border:1px solid #444; padding:6px;">(C) \(f \circ f\)</td><td style="border:1px solid #444; padding:6px;">(R) \(\mathbb{R} - \{0\}\)</td></tr>
+  <tr><td style="border:1px solid #444; padding:6px;">(D) \(g \circ g\)</td><td style="border:1px solid #444; padding:6px;">(S) \(\mathbb{R} - \{-2, -1\}\)</td></tr>
+</table></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 105 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2022 (25 June)</span> <span class="tag tah">TAH 15</span><br/>Let \(f : \mathbb{R} \to \mathbb{R}\) be a function defined by \(f(x) = \left(2\left(1 - \frac{x^{25}}{2}\right)(2 + x^{25})\right)^{\frac{1}{50}}\). If the function \(g(x) = f(f(f(x))) + f(f(x))\), then the greatest integer less than or equal to \(g(1)\) is ________.</div></div></div>
+</body>
+</html>
