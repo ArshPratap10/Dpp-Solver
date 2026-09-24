@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Relations and Functions — Questions (RAF 11 to 13)</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #1a1a1a;
+  background: #fff;
+  padding: 12mm 14mm;
+  counter-reset: qnum;
+}
+.dpp-header {
+  border: 2.5px solid #000;
+  margin-bottom: 20px;
+  page-break-inside: avoid;
+}
+.dpp-title {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 0;
+}
+.dpp-meta {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-top: 1.5px solid #000;
+  background: #fafafa;
+}
+.dpp-meta span { display: inline-block; }
+h2 {
+  font-size: 13px;
+  font-weight: 700;
+  background: #1e1e2e;
+  color: #fff;
+  padding: 5px 12px;
+  margin: 24px 0 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.q {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border-left: 3.5px solid #000;
+  border-bottom: 1px solid #e5e7eb;
+  page-break-inside: avoid;
+  counter-increment: qnum;
+}
+.q::before {
+  content: counter(qnum) ".";
+  font-weight: 700;
+  font-size: 14px;
+  min-width: 28px;
+  flex-shrink: 0;
+}
+.qinner { flex: 1; min-width: 0; }
+.qh {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #666;
+  float: right;
+  margin-left: 10px;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+.qb {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.75;
+  color: #111;
+  display: block;
+  overflow: hidden;
+}
+.tag {
+  display: inline-block;
+  margin: 0 4px 4px 0;
+  padding: 2px 8px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: .2px;
+  vertical-align: middle;
+}
+.tag.kcls { background: #bd651d; }
+.tag.mindbender { background: #7546a7; }
+.tag.asrq { background: #23719e; }
+.tag.exam { background: #32845e; }
+.tag.tah { background: #d9381e; }
+.tag.bpp { background: #0077b6; }
+.tag.shikar { background: #e65100; }
+.opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 28px;
+  margin-top: 10px;
+  padding-left: 0;
+  list-style: none;
+  font-weight: 400;
+  font-size: 14px;
+  border-top: 1px dashed #ddd;
+  padding-top: 6px;
+}
+.opts li::before { font-weight: 700; color: #333; }
+.opts li:nth-child(1)::before { content: "(A) "; }
+.opts li:nth-child(2)::before { content: "(B) "; }
+.opts li:nth-child(3)::before { content: "(C) "; }
+.opts li:nth-child(4)::before { content: "(D) "; }
+.opts li:nth-child(5)::before { content: "(E) "; }
+ol.subq { padding-left: 20px; margin-top: 6px; font-weight: 400; font-size: 14px; }
+ol.subq li { margin-bottom: 4px; }
+table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 13px; font-weight: 400; }
+td, th { border: 1px solid #888; padding: 5px 8px; vertical-align: top; }
+th { font-weight: 700; background: #f3f4f6; }
+@media print {
+  body { padding: 8mm 10mm; font-size: 13px; }
+  h2 { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .q { margin-bottom: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="dpp-header">
+<div class="dpp-title">Question Bank — Relations and Functions</div>
+<div class="dpp-meta">
+<span><strong>Subject:</strong> Mathematics</span>
+<span><strong>Topic:</strong> Relations and Functions (RAF 11, 12, 13)</span>
+<span><strong>Total Questions:</strong> 71</span>
+</div>
+</div>
+<!-- QUESTIONS_START -->
+<h2>Lecture 11 &mdash; Lecture Notes</h2>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 11 | Q1</div><div class="qb"><span class="tag mindbender">Mind Bender</span><br/>Find the period of the following function:
+<ol class="subq" type="i">
+<li>\(\tan\left(\frac{\pi}{2}[x]\right)\)</li>
+<li>\(\tan\left(\frac{\pi}{4}[x]\right)\)</li>
+<li>\(\sin\left(\frac{\pi}{2}[x]\right)\)</li>
+<li>\(\sin\left(\frac{\pi}{4}[x]\right)\)</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 12 | Q1</div><div class="qb"><span class="tag mindbender">Mind Bender</span><br/>Let \(f : A \to B\) and \(g : B \to C\) be functions and \(g \circ f : A \to C\). Which of the following statements is true?
+<ul class="opts">
+<li>If \(g \circ f\) is one-one then \(f\) and \(g\) both are one-one.</li>
+<li>If \(g \circ f\) is one-one then \(f\) is one-one.</li>
+<li>If \(g \circ f\) is a bijection then \(f\) is one-one and \(g\) is onto.</li>
+<li>If \(f\) and \(g\) are both one-one then \(g \circ f\) is one-one.</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 19 | Q1</div><div class="qb">If \(g(x) = 2x + 1\) and \(h(x) = 4x^2 + 4x + 7\), find a function \(f\) such that \(f \circ g = h\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 20 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2020 (7 Jan)</span><br/>If \(g(x) = x^2 + x - 1\) and \((g \circ f)(x) = 4x^2 - 10x + 5\), then \(f\left(\frac{5}{4}\right)\) is equal to:
+<ul class="opts">
+<li>\(\frac{1}{2}\)</li>
+<li>\(\frac{3}{2}\)</li>
+<li>\(-\frac{1}{2}\)</li>
+<li>\(-\frac{3}{2}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 22 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2022 (26 June)</span><br/>Let \(f : \mathbb{R} \to \mathbb{R}\) be defined as \(f(x) = x - 1\) and \(g : \mathbb{R} - \{1, -1\} \to \mathbb{R}\) be defined as \(g(x) = \frac{x^2}{x^2 - 1}\). Then the function \(f \circ g\) is:
+<ul class="opts">
+<li>one-one but not onto</li>
+<li>onto but not one-one</li>
+<li>both one-one and onto</li>
+<li>neither one-one nor onto</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 24 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2021 (24 Feb)</span> <span class="tag tah">TAH 04</span><br/>Let \(f : \mathbb{R} \to \mathbb{R}\) be defined as \(f(x) = 2x - 1\) and \(g : \mathbb{R} - \{1\} \to \mathbb{R}\) be defined as \(g(x) = \frac{x - \frac{1}{2}}{x - 1}\). Then the composition function \(f(g(x))\) is :
+<ul class="opts">
+<li>one-one but not onto</li>
+<li>onto but not one-one</li>
+<li>both one-one and onto</li>
+<li>neither one-one nor onto</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 25 | Q1</div><div class="qb">\(f(x) = \begin{cases} 1 + x & \text{if } 0 \le x \le 2 \\ 3 - x & \text{if } 2 < x \le 3 \end{cases}\), find \((f \circ f)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 26 | Q1</div><div class="qb">\(f(x) = \begin{cases} 1 - x & \text{if } 0 \le x \le 1 \\ x + 2 & \text{if } 1 < x < 2 \\ 4 - x & \text{if } 2 \le x \le 4 \end{cases}\), find \((f \circ f)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 27 | Q1</div><div class="qb">\(f(x) = \begin{cases} 1 - x & \text{if } x \le 0 \\ x^2 & \text{if } x > 0 \end{cases}\) and \(g(x) = \begin{cases} -x & \text{if } x < 1 \\ 1 - x & \text{if } x \ge 1 \end{cases}\) find \((f \circ g)(x)\) and \((g \circ f)(x)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 29 | Q1</div><div class="qb"><span class="tag mindbender">Mind Bender</span><br/>Let a function \(f\) defined from \(\mathbb{R} \to \mathbb{R}\) as \(f(x) = \begin{cases} x + m & \text{for } x \le 1 \\ 2mx - 1 & \text{for } x > 1 \end{cases}\). If the function is surjective on \(\mathbb{R}\) then \(m\) must lie in the interval
+<ul class="opts">
+<li>\((0, 2]\)</li>
+<li>\((-\infty, 0]\)</li>
+<li>\((-\infty, 0)\)</li>
+<li>\((0, \infty)\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 33 | Q1</div><div class="qb"><span class="tag exam">JEE Advanced 2025 (Paper 1)</span> <span class="tag mindbender">Mind Bender</span> <span class="tag tah">TAH 08</span><br/>Let \(\mathbb{N}\) denote the set of all natural numbers, and \(\mathbb{Z}\) denote the set of all integers. Consider the functions \(f : \mathbb{N} \to \mathbb{Z}\) and \(g : \mathbb{Z} \to \mathbb{N}\) defined by
+\[
+f(n) = \begin{cases} \frac{n+1}{2} & \text{if } n \text{ is odd}, \\ \frac{4-n}{2} & \text{if } n \text{ is even}, \end{cases} \quad \text{and} \quad g(n) = \begin{cases} 3 + 2n & \text{if } n \ge 0, \\ -2n & \text{if } n < 0. \end{cases}
+\]
+Define \((g \circ f)(n) = g(f(n))\) for all \(n \in \mathbb{N}\), and \((f \circ g)(n) = f(g(n))\) for all \(n \in \mathbb{Z}\). Then which of the following statements is (are) TRUE?
+<ul class="opts">
+<li>\(g \circ f\) is NOT one-one and \(g \circ f\) is NOT onto</li>
+<li>\(f \circ g\) is NOT one-one but \(f \circ g\) is onto</li>
+<li>\(g\) is one-one and \(g\) is onto</li>
+<li>\(f\) is NOT one-one but \(f\) is onto</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 38 | Q1</div><div class="qb">Compute inverse of following functions.
+<ol class="subq" type="a">
+<li>\(f : \mathbb{R} \to \mathbb{R}^+, f(x) = 10^{x+1}\)</li>
+<li>\(f : (-2, \infty) \to \mathbb{R}, f(x) = 1 + \ln(x + 2)\)</li>
+<li>\(f : [0, \infty) \to [1, \infty), f(x) = \frac{e^x + e^{-x}}{2}\)</li>
+</ol></div></div></div>
+
+<h2>Lecture 11 &mdash; Solution to Previous TAH</h2>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 52 | Q1</div><div class="qb"><span class="tag tah">TAH 01</span><br/>The period of the function \(\frac{|\sin x + \cos x|}{|\sin x| + |\cos x|}\) is
+<ul class="opts">
+<li>\(\frac{\pi}{3}\)</li>
+<li>\(\frac{\pi}{2}\)</li>
+<li>\(\pi\)</li>
+<li>\(2\pi\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 55 | Q1</div><div class="qb"><span class="tag mindbender">Mind Bender</span> <span class="tag tah">TAH 02</span><br/>The period of the function \(\frac{\sin x + \sin 17x}{\cos x + \cos 17x}\) is
+<ul class="opts">
+<li>\(\frac{\pi}{9}\)</li>
+<li>\(\frac{\pi}{8}\)</li>
+<li>\(\pi\)</li>
+<li>\(2\pi\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 57 | Q1</div><div class="qb"><span class="tag tah">TAH 03</span><br/>Let \(f(x) = \sin^2 x + \cos^4 x + 2\) and \(g(x) = \cos(\cos x) + \cos(\sin x)\). Also let period of \(f(x)\) and \(g(x)\) be \(T_1\) and \(T_2\) respectively then
+<ul class="opts">
+<li>\(T_1 = 2T_2\)</li>
+<li>\(2T_1 = T_2\)</li>
+<li>\(T_1 = T_2\)</li>
+<li>\(T_1 = 4T_2\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 59 | Q1</div><div class="qb"><span class="tag tah">TAH 04</span> <span class="tag kcls">KCLS</span><br/>Let \(f : \mathbb{R} \to \mathbb{R} - \{3\}\) be a function with the property that there exist \(T > 0\) such that \(f(x + T) = \frac{f(x) - 5}{f(x) - 3}\) for every \(x \in \mathbb{R}\). Prove that \(f(x)\) is periodic.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 61 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2025 (28 Jan)</span> <span class="tag tah">TAH 5a</span><br/>If \(f(x) = \frac{2^x}{2^x + \sqrt{2}}, x \in \mathbb{R}\), then \(\sum_{k=1}^{81} f\left(\frac{k}{82}\right)\) is equal to
+<ul class="opts">
+<li>\(82\)</li>
+<li>\(81\sqrt{2}\)</li>
+<li>\(41\)</li>
+<li>\(\frac{81}{2}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 63 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2023 (24 Jan)</span> <span class="tag tah">TAH 5b</span><br/>If \(f(x) = \frac{2^{2x}}{2^{2x} + 2}, x \in \mathbb{R}\), then \(f\left(\frac{1}{2023}\right) + f\left(\frac{2}{2023}\right) + \dots + f\left(\frac{2022}{2023}\right)\) is equal to
+<ul class="opts">
+<li>\(2011\)</li>
+<li>\(2010\)</li>
+<li>\(1010\)</li>
+<li>\(1011\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 65 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2020</span> <span class="tag tah">TAH 5c</span><br/>Suppose that a function \(f : \mathbb{R} \to \mathbb{R}\) satisfies \(f(x + y) = f(x)f(y)\) for all \(x, y \in \mathbb{R}\) and \(f(1) = 3\). If \(\sum_{i=1}^n f(i) = 363\), then \(n\) is equal to ________.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 67 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (9 April)</span> <span class="tag tah">TAH 06</span><br/>If a function \(f\) satisfies \(f(m + n) = f(m) + f(n)\) for all \(m, n \in \mathbb{N}\) and \(f(1) = 1\), then the largest natural number \(\lambda\) such that \(\sum_{k=1}^{2022} f(\lambda + k) \le (2022)^2\) is equal to:</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 70 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2021</span> <span class="tag tah">TAH 07</span><br/>If \(a + \alpha = 1\), \(b + \beta = 2\) and \(a f(x) + \alpha f\left(\frac{1}{x}\right) = bx + \frac{\beta}{x}\), \(x \ne 0\), then the value of expression \(\frac{f(x) + f\left(\frac{1}{x}\right)}{x + \frac{1}{x}}\) is:</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 72 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2025 (24 Jan)</span> <span class="tag tah">TAH 08</span><br/>Let \(f(x) = \frac{2^{x+2} + 16}{2^{2x+1} + 2^{x+4} + 32}\). Then the value of \(8\left(f\left(\frac{1}{15}\right) + f\left(\frac{2}{15}\right) + \dots + f\left(\frac{59}{15}\right)\right)\) is equal to
+<ul class="opts">
+<li>\(108\)</li>
+<li>\(92\)</li>
+<li>\(118\)</li>
+<li>\(102\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 75 | Q1</div><div class="qb"><span class="tag exam">JEE Advanced 2024 (Paper 2)</span> <span class="tag tah">TAH 09</span><br/>Let \(f : \mathbb{R} \to \mathbb{R}\) be a function such that \(f(x + y) = f(x) + f(y)\) for all \(x, y \in \mathbb{R}\), and \(g : \mathbb{R} \to (0, \infty)\) be a function such that \(g(x + y) = g(x)g(y)\) for all \(x, y \in \mathbb{R}\). If \(f\left(\frac{-3}{5}\right) = 12\) and \(g\left(\frac{-1}{3}\right) = 2\), then the value of \(\left(f\left(\frac{1}{4}\right) + g(-2) - 8\right)g(0)\) is:</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 77 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2025 (23 Jan)</span> <span class="tag tah">TAH 10</span><br/>Let \(f(x) = \log_e x\) and \(g(x) = \frac{x^4 - 2x^3 + 3x^2 - 2x + 2}{2x^2 - 2x + 1}\). Then the domain of \(f \circ g\) is
+<ul class="opts">
+<li>\((0, \infty)\)</li>
+<li>\([1, \infty)\)</li>
+<li>\(\mathbb{R}\)</li>
+<li>\([0, \infty)\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 80 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (27 Jan)</span> <span class="tag tah">TAH 11</span><br/>Let \(f : \mathbb{R} - \left\{\frac{-1}{2}\right\} \to \mathbb{R}\) and \(g : \mathbb{R} - \left\{\frac{-5}{2}\right\} \to \mathbb{R}\) be defined as \(f(x) = \frac{2x+3}{2x+1}\) and \(g(x) = \frac{|x|+1}{2x+5}\). Then, the domain of the function \(f \circ g\) is :
+<ul class="opts">
+<li>\(\mathbb{R} - \left\{-\frac{7}{4}\right\}\)</li>
+<li>\(\mathbb{R}\)</li>
+<li>\(\mathbb{R} - \left\{-\frac{5}{2}, -\frac{7}{4}\right\}\)</li>
+<li>\(\mathbb{R} - \left\{-\frac{5}{2}\right\}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 83 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2016 (9 April)</span> <span class="tag tah">TAH 12</span><br/>For \(x \in \mathbb{R}, x \ne 0\), Let \(f_0(x) = \frac{1}{1-x}\) and \(f_{n+1}(x) = f_0(f_n(x)), n = 0, 1, 2, \dots\)<br/>Then the value of \(f_{100}(3) + f_1\left(\frac{2}{3}\right) + f_2\left(\frac{3}{2}\right)\) is equal to:
+<ul class="opts">
+<li>\(\frac{8}{3}\)</li>
+<li>\(\frac{5}{3}\)</li>
+<li>\(\frac{4}{3}\)</li>
+<li>\(\frac{1}{3}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 87 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2022 (26 June)</span> <span class="tag tah">TAH 13</span><br/>Let \(f(x) = \frac{x-1}{x+1}, x \in \mathbb{R} - \{0, -1, 1\}\). If \(f^{n+1}(x) = f(f^n(x))\) for all \(n \in \mathbb{N}\), then \(f^6(6) + f^7(7)\) is equal to :
+<ul class="opts">
+<li>\(\frac{7}{6}\)</li>
+<li>\(-\frac{3}{2}\)</li>
+<li>\(\frac{7}{12}\)</li>
+<li>\(-\frac{11}{12}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 91 | Q1</div><div class="qb"><span class="tag tah">TAH 14</span><br/>Let \(f(x) = x + \frac{1}{x}\) and \(g(x) = \frac{x+1}{x+2}\). Match the composite function given in Column-I with their respective domains given in Column-II.
+<table>
+<thead><tr><th>Column-I</th><th>Column-II</th></tr></thead>
+<tbody>
+<tr><td>(A) \(f \circ g\)</td><td>(P) \(\mathbb{R} - \{-2, -5/3\}\)</td></tr>
+<tr><td>(B) \(g \circ f\)</td><td>(Q) \(\mathbb{R} - \{-1, 0\}\)</td></tr>
+<tr><td>(C) \(f \circ f\)</td><td>(R) \(\mathbb{R} - \{0\}\)</td></tr>
+<tr><td>(D) \(g \circ g\)</td><td>(S) \(\mathbb{R} - \{-2, -1\}\)</td></tr>
+</tbody>
+</table></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 93 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2022 (25 June)</span> <span class="tag tah">TAH 15</span><br/>Let \(f : \mathbb{R} \to \mathbb{R}\) be a function defined by \(f(x) = \left(2\left(1 - \frac{x^{25}}{2}\right)(2 + x^{25})\right)^{\frac{1}{50}}\). If the function \(g(x) = f(f(f(x))) + f(f(x))\), then the greatest integer less than or equal to \(g(1)\) is ________.</div></div></div>
+
+<h2>Lecture 11 &mdash; Solution to Previous BPP</h2>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 97 | BPP 1-4</div><div class="qb"><span class="tag bpp">BPP</span><br/>
+<ol class="subq">
+<li>The remainder when \(7^{2022} + 3^{2022}\) is divided by \(5\) is: <span class="tag exam">JEE Mains 2022</span>
+<ul class="opts">
+<li>\(0\)</li>
+<li>\(2\)</li>
+<li>\(3\)</li>
+<li>\(4\)</li>
+</ul></li>
+<li>Let \((1 + x + 2x^2)^{20} = a_0 + a_1 x + a_2 x^2 + \dots + a_{40} x^{40}\) then \(a_1 + a_3 + a_5 + \dots + a_{37}\) is equal to: <span class="tag exam">JEE Mains 2021</span>
+<ul class="opts">
+<li>\(2^{20}(2^{20} - 21)\)</li>
+<li>\(2^{19}(2^{20} - 21)\)</li>
+<li>\(2^{19}(2^{20} + 21)\)</li>
+<li>\(2^{20}(2^{20} + 21)\)</li>
+</ul></li>
+<li>The total number of two-digit numbers '\(n\)', such that \(3^n + 7^n\) is a multiple of \(10\), is ________. <span class="tag exam">JEE Mains 2021</span></li>
+<li>\(25^{190} - 19^{190} - 8^{190} + 2^{190}\) is divisible by: <span class="tag exam">JEE Mains 2023</span>
+<ul class="opts">
+<li>\(34\) but not by \(14\)</li>
+<li>Both \(14\) and \(34\)</li>
+<li>Neither \(14\) nor \(34\)</li>
+<li>\(14\) but not by \(34\)</li>
+</ul></li>
+</ol></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 102 | BPP 5-8</div><div class="qb"><span class="tag bpp">BPP</span><br/>
+<ol start="5" class="subq">
+<li>The remainder when \(19^{200} + 23^{200}\) is divided by \(49\), is ________. <span class="tag exam">JEE Mains 2023</span></li>
+<li>If the constant term in expansion of \((1 + 2x - 3x^3)\left(\frac{3}{2}x^2 - \frac{1}{3x}\right)^9\) is \(p\), then \(108p\) is equal to ________ <span class="tag exam">JEE Mains 2024</span></li>
+<li>If the constant term in the expansion of \(\left(\frac{\sqrt[5]{3}}{x} + \frac{2x}{\sqrt[3]{5}}\right)^{12}\), \(x \ne 0\), is \(\alpha \times 2^8 \times \sqrt[5]{3}\), then \(25\alpha\) is equal to: <span class="tag exam">JEE Mains 2024</span>
+<ul class="opts">
+<li>\(639\)</li>
+<li>\(724\)</li>
+<li>\(693\)</li>
+<li>\(742\)</li>
+</ul></li>
+<li>If the second, third and fourth terms in the expansion of \((x + y)^n\) are \(135\), \(30\) and \(\frac{10}{3}\), respectively, then \(6(n^3 + x^2 + y)\) is equal to ________ <span class="tag exam">JEE Mains 2024</span></li>
+</ol></div></div></div>
+
+<h2>Lecture 12 &mdash; Lecture Notes</h2>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 16 | Q1</div><div class="qb"><span class="tag">QUESTION</span><br/>If \(f : [1, \infty) \to [2, \infty)\) is given by \(f(x) = x + \frac{1}{x}\), then \(f^{-1}(x)\) equals
+<ul class="opts">
+<li>\(\frac{x+\sqrt{x^2-4}}{2}\)</li>
+<li>\(\frac{x}{1+x^2}\)</li>
+<li>\(\frac{x-\sqrt{x^2-4}}{2}\)</li>
+<li>\(1 + \sqrt{x^2-4}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 22 | Q1</div><div class="qb"><span class="tag">QUESTION</span><br/>\(f(x) = \begin{cases} x & \text{if } x < 1 \\ x^2 & 1 \le x \le 4 \\ 8\sqrt{x} & x > 4 \end{cases}\), find \(f^{-1}(x)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 23 | Q1</div><div class="qb"><span class="tag">QUESTION</span><br/>Let \(f\) be a real valued invertible function such that \(f\left(\frac{2x-3}{x-2}\right) = 5x - 2\), \(x \ne 2\). Find \(f^{-1}(13)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 37 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2021</span><br/>Consider function \(f : A \to B\) and \(g : B \to C\), \((A, B, C \subseteq \mathbb{R})\) such that \((g \circ f)^{-1}\) exists, then:
+<ul class="opts">
+<li>\(f\) and \(g\) both are one-one</li>
+<li>\(f\) and \(g\) both are onto</li>
+<li>\(f\) is one-one and \(g\) is onto</li>
+<li>\(f\) is onto and \(g\) is one-one</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 38 | Q1</div><div class="qb"><span class="tag mb">★★★MIND BENDER★★★</span><br/>Let \(f : \mathbb{R} - \left\{\frac{1}{5\sqrt{2}}\right\} \to \mathbb{R} - \left\{\frac{1}{5\sqrt{2}}\right\}\) be a function defined as \(f(x) = \left(\frac{x - 2\sqrt{5}}{5\sqrt{2}x - 1}\right)\) then which of the following is(are) correct?
+<ul class="opts">
+<li>\(f(f(f(f(2017)))) = 2017\)</li>
+<li>\(f(x) = f^{-1}(x)\) has more than 3 real roots</li>
+<li>\(f(x)\) is a bijective function</li>
+<li>\(f(f(f(x))) = \left(f(f(f(f(x))))\right) \quad \forall x \ne \frac{1}{5\sqrt{2}}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 40 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2021</span><br/>Let \(f : \mathbb{R} - \left\{\frac{\alpha}{6}\right\} \to \mathbb{R}\) be defined by \(f(x) = \frac{5x+3}{6x-\alpha}\). Then the value of \(\alpha\) for which \((f \circ f)(x) = x\), for all \(x \in \mathbb{R} - \left\{\frac{\alpha}{6}\right\}\), is:
+<ul class="opts">
+<li>No such \(\alpha\) exists</li>
+<li>\(5\)</li>
+<li>\(8\)</li>
+<li>\(6\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 41 | Q1</div><div class="qb"><span class="tag">QUESTION</span><br/>Let \(f(x) = \frac{3}{2} + \sqrt{x - \frac{7}{4}}\) and \(g(x)\) be the inverse function of \(f(x)\) then the value of \((f^{-1} \circ g^{-1})(17)\) equal to
+<ul class="opts">
+<li>\(\frac{3+\sqrt{61}}{2}\)</li>
+<li>\(242\)</li>
+<li>\(17\)</li>
+<li>\(\frac{3-\sqrt{61}}{2}\)</li>
+</ul></div></div></div>
+
+<h2>Lecture 12 &mdash; Solution to Previous TAH</h2>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 61 | Q1</div><div class="qb"><span class="tag tah">★★★TAH 02★★★</span><br/>If \(f(x) = \log_{100x}\left(\frac{2\log_{10}x + 2}{-x}\right)\) and \(g(x) = \{x\}\). If the function \((f \circ g)(x)\) exists then find the largest possible range of \(g(x)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 63 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2022 (29 June)</span> <span class="tag tah">★★★TAH 03★★★</span><br/>Let \(f(x)\) and \(g(x)\) be two real polynomials of degree 2 and 1 respectively. If \(f(g(x)) = 8x^2 - 2x\) and \(g(f(x)) = 4x^2 + 6x + 1\), then the value of \(f(2) + g(2)\) is ________.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 70 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (29 Jan)</span> <span class="tag asrq">★★★ASRQ★★★</span><br/>If \(f(x) = \begin{cases} 2 + 2x, & -1 \le x < 0 \\ 1 - \frac{x}{3}, & 0 \le x \le 3 \end{cases}\) ; \(g(x) = \begin{cases} -x, & -3 \le x \le 0 \\ x, & 0 < x \le 1 \end{cases}\) , then range of \((f \circ g)(x)\) is
+<ul class="opts">
+<li>\([0, 1)\)</li>
+<li>\([0, 3)\)</li>
+<li>\((0, 1]\)</li>
+<li>\([0, 1]\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 73 | Q1</div><div class="qb"><span class="tag mb">★★★MIND BENDER★★★</span><br/>Let a function \(f\) defined from \(\mathbb{R} \to \mathbb{R}\) as \(f(x) = \begin{cases} x + p^2, & \text{for } x \le 2 \\ px + 5, & \text{for } x > 2 \end{cases}\). If the function is surjective, then find the sum of all possible integral values of \(p\) in \([-100, 100]\).</div></div></div>
+
+<h2>Lecture 12 &mdash; Solution to Previous Shikaars</h2>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 91 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (6 April)</span><br/>Let \(f : \mathbb{R} \to \mathbb{R}\) be defined as \(f(x) = \frac{2x^2 - 3x + 2}{3x^2 + x + 3}\). Then \(f\) is :
+<ul class="opts">
+<li>both one-one and onto</li>
+<li>one-one but not onto</li>
+<li>onto but not one-one</li>
+<li>neither one-one nor onto</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 93 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (4 April)</span><br/>Let for some \(\alpha \in \mathbb{R}\), \(f : \mathbb{R} \to \mathbb{R}\) be a function satisfying \(f(x+y) = f(x) + 2y^2 + y + \alpha xy\) for all \(x, y \in \mathbb{R}\). If \(f(0) = -1\) and \(f(1) = 2\), then the value of \(\sum_{n=1}^5 (\alpha + f(n))\) is:
+<ul class="opts">
+<li>\(110\)</li>
+<li>\(140\)</li>
+<li>\(150\)</li>
+<li>\(170\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 95 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (24 Jan)</span><br/>Let \(f\) be a function such that \(3f(x) + 2f\left(\frac{m}{19x}\right) = 5x, x \ne 0\), where \(m = \sum_{i=1}^9 (i)^2\). Then \(f(5) - f(2)\) is equal to
+<ul class="opts">
+<li>\(36\)</li>
+<li>\(9\)</li>
+<li>\(-9\)</li>
+<li>\(18\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 98 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (22 Jan)</span><br/>Let \(f\) and \(g\) be functions satisfying \(f(x + y) = f(x)f(y), f(1) = 7\) and \(g(x + y) = g(xy), g(1) = 1\), for all \(x, y \in \mathbb{N}\). If \(\sum_{x=1}^n \left(\frac{f(x)}{g(x)}\right) = 19607\), then \(n\) is equal to:
+<ul class="opts">
+<li>\(6\)</li>
+<li>\(7\)</li>
+<li>\(4\)</li>
+<li>\(5\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 100 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (28 Jan)</span><br/>Given below are two statements:<br/>
+Statement I: The function \(f: \mathbb{R} \to \mathbb{R}\) defined by \(f(x) = \frac{x}{1+|x|}\) is one-one.<br/>
+Statement II: The function \(f: \mathbb{R} \to \mathbb{R}\) defined by \(f(x) = \frac{x^2+4x-30}{x^2-8x+18}\) is many-one.<br/>
+In the light of the above statements, choose the correct answer from the options given below:
+<ul class="opts">
+<li>Statement I is true but Statement II is false</li>
+<li>Both Statement I and Statement II are false</li>
+<li>Both Statement I and Statement II are true</li>
+<li>Statement I is false but Statement II is true</li>
+</ul></div></div></div>
+
+<h2>Lecture 13 &mdash; Lecture Notes</h2>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 13 | Q1</div><div class="qb"><span class="tag">QUESTION</span><br/>A function \(f : \left[\frac{3}{2}, \infty\right) \to \left[\frac{7}{4}, \infty\right)\), defined as \(f(x) = x^2 - 3x + 4\). Solve the equation \(f(x) = f^{-1}(x)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 18 | Q1</div><div class="qb"><span class="tag">QUESTION</span><br/>Which of the following function is not homogeneous?
+<ul class="opts">
+<li>\(f(x, y) = \frac{x - y \cos x}{y \sin x + x}\)</li>
+<li>\(f(x, y) = \frac{x}{y}\ln\frac{y}{x} + \frac{y}{x}\ln\frac{x}{y}\)</li>
+<li>\(\frac{xy}{x^2+y^2}\)</li>
+<li>\(\frac{2x-y+1}{2y-x+1}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 27 | Q1</div><div class="qb"><span class="tag">QUESTION</span><br/>A function \(f\) is called strictly increasing if \(a > b \Rightarrow f(a) > f(b)\), for all \(a, b\). Find the number of strictly increasing functions \(f : \{1, 2, 3\} \to \{1, 2, \dots, 5\}\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 28 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2022 (25 July)</span><br/>The number of bijective functions \(f : \{1, 3, 5, 7, \dots, 99\} \to \{2, 4, 6, 8, \dots, 100\}\), such that \(f(3) \ge f(9) \ge f(15) \ge f(21) \ge \dots \ge f(99)\), is:
+<ul class="opts">
+<li>\({}^{50}P_{17}\)</li>
+<li>\({}^{50}P_{33}\)</li>
+<li>\(33! \times 17!\)</li>
+<li>\(\frac{50!}{2}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 29 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (9 April)</span><br/>Let \(A = \{(x, y) : 2x + 3y = 23, x, y \in \mathbb{N}\}\) and \(B = \{x : (x, y) \in A\}\). Then the number of one-one functions from \(A\) to \(B\) is equal to ________.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 30 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (5 April)</span><br/>Let \(A = \{1, 3, 7, 9, 11\}\) and \(B = \{2, 4, 5, 7, 8, 10, 12\}\). Then the total number of one-one maps \(f : A \to B\), such that \(f(1) + f(3) = 14\), is:
+<ul class="opts">
+<li>\(480\)</li>
+<li>\(240\)</li>
+<li>\(120\)</li>
+<li>\(180\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 31 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2020 (5 Sep)</span><br/>Let \(A = \{a, b, c\}\) and \(B = \{1, 2, 3, 4\}\). Then the number of elements in the set \(C = \{f : A \to B \mid 2 \in f(A) \text{ and } f \text{ is not one-one}\}\) is ________.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 47 | Q1</div><div class="qb"><span class="tag">QUESTION</span><br/>If the graph of \(y = f(x)\) is as shown below, then graph of \(y = |f(x)|\) is:
+<br/><img src="/dpps/images/raf_13/47.jpg" style="max-width: 500px; width: 100%; border-radius: 6px; margin: 8px 0;" alt="Slide 47 Graph"/>
+<ul class="opts">
+<li>Option (A)</li>
+<li>Option (B)</li>
+<li>Option (C)</li>
+<li>Option (D)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 48 | Q1</div><div class="qb"><span class="tag">QUESTION</span><br/>If the graph of \(y = f(x)\) is as shown below, then graph of \(y = f(|x|)\) is:
+<br/><img src="/dpps/images/raf_13/48.jpg" style="max-width: 500px; width: 100%; border-radius: 6px; margin: 8px 0;" alt="Slide 48 Graph"/>
+<ul class="opts">
+<li>Option (A)</li>
+<li>Option (B)</li>
+<li>Option (C)</li>
+<li>Option (D)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 49 | Q1</div><div class="qb"><span class="tag">QUESTION</span><br/>Which of the following is graph of \(|y| = (x - 1)(x - 2)\)?
+<br/><img src="/dpps/images/raf_13/49.jpg" style="max-width: 500px; width: 100%; border-radius: 6px; margin: 8px 0;" alt="Slide 49 Graph"/>
+<ul class="opts">
+<li>Option (A)</li>
+<li>Option (B)</li>
+<li>Option (C)</li>
+<li>Option (D)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 50 | Q1</div><div class="qb"><span class="tag">QUESTION</span><br/>Plot the following graphs:
+<ol class="subq">
+<li>\(y = -e^{-x}\)</li>
+<li>\(y = -\ln x\)</li>
+<li>\(y = e^{|x|}\)</li>
+<li>\(y = e^{-|x|}\)</li>
+<li>\(y = \ln|x|\)</li>
+<li>\(y = \ln(-|x|)\)</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 52 | Q1</div><div class="qb"><span class="tag">QUESTION</span><br/>The graph of the function \(y = f(x)\) is as follows. Match the function mentioned in Column-I with the respective graph given in Column-II.
+<br/><img src="/dpps/images/raf_13/52.jpg" style="max-width: 550px; width: 100%; border-radius: 6px; margin: 8px 0;" alt="Slide 52 Match Graph"/>
+<table>
+<thead><tr><th>Column-I</th><th>Column-II</th></tr></thead>
+<tbody>
+<tr><td>(A) \(y = |f(x)|\)</td><td>(P) Graph P</td></tr>
+<tr><td>(B) \(y = f(|x|)\)</td><td>(Q) Graph Q</td></tr>
+<tr><td>(C) \(y = f(-|x|)\)</td><td>(R) Graph R</td></tr>
+<tr><td>(D) \(y = \frac{1}{2}(|f(x)| - f(x))\)</td><td>(S) Graph S</td></tr>
+</tbody>
+</table></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 54 | Q1</div><div class="qb"><span class="tag">QUESTION</span><br/>Plot the following graphs:
+<ol class="subq">
+<li>\(y = |x^2 - 5x - 6|\)</li>
+<li>\(y = |\ln(x - 2)|\)</li>
+<li>\(y = ||x - 4| - 3|\)</li>
+<li>\(y = \min(e^x, e^{-x})\)</li>
+<li>\(y = \min\left(\sin x, \frac{1}{2}\right)\)</li>
+</ol></div></div></div>
+<h2>Lecture 13 &mdash; Solution to Previous TAH</h2>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 65 | Q1</div><div class="qb"><span class="tag tah">TAH 01</span> <span class="tag mb">★★★MIND BENDER★★★</span><br/>Let \(f\) be a function defined as, \(f : \left(0, e^{-\frac{3}{2}}\right] \to \left[-\frac{1}{4}, \infty\right), f(x) = (\ln x)^2 + 3\ln x + 2\) then \(f^{-1}(x)\) equals
+<ul class="opts">
+<li>\(\log\left(\frac{-3+\sqrt{4x+1}}{2}\right)\)</li>
+<li>\(\log\left(\frac{-3-\sqrt{4x+1}}{2}\right)\)</li>
+<li>\(e^{\frac{-3+\sqrt{4x+1}}{2}}\)</li>
+<li>\(e^{\frac{-3-\sqrt{4x+1}}{2}}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 67 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2018 (15 April)</span> <span class="tag tah">★★★TAH 02★★★</span><br/>Let \(f : A \to B\) be a function defined as \(f(x) = \frac{x-1}{x-2}\), where \(A = \mathbb{R} - \{2\}\) and \(B = \mathbb{R} - \{1\}\). Then \(f\) is:
+<ul class="opts">
+<li>invertible and \(f^{-1}(y) = \frac{3y-1}{y-1}\)</li>
+<li>invertible and \(f^{-1}(y) = \frac{2y-1}{y-1}\)</li>
+<li>invertible and \(f^{-1}(y) = \frac{2y+1}{y-1}\)</li>
+<li>not invertible</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 69 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2021</span> <span class="tag tah">★★★TAH 03★★★</span><br/>Let \(f : \mathbb{R} - \{3\} \to \mathbb{R} - \{1\}\) be defined by \(f(x) = \frac{x-2}{x-3}\). Let \(g : \mathbb{R} \to \mathbb{R}\) be given as \(g(x) = 2x - 3\). Then, the sum of all the values of \(x\) for which \(f^{-1}(x) + g^{-1}(x) = \frac{13}{2}\) is equal to:
+<ul class="opts">
+<li>\(7\)</li>
+<li>\(2\)</li>
+<li>\(5\)</li>
+<li>\(3\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 72 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2020 (8 Jan)</span> <span class="tag tah">★★★TAH 04★★★</span><br/>The inverse function of \(f(x) = \frac{8^{2x} - 8^{-2x}}{8^{2x} + 8^{-2x}}, x \in (-1, 1)\), is :
+<ul class="opts">
+<li>\(\frac{1}{4}\log_e\left(\frac{1-x}{1+x}\right)\)</li>
+<li>\(\frac{1}{4}(\log_8 e)\log_e\left(\frac{1-x}{1+x}\right)\)</li>
+<li>\(\frac{1}{4}(\log_8 e)\log_e\left(\frac{1+x}{1-x}\right)\)</li>
+<li>\(\frac{1}{4}\log_e\left(\frac{1+x}{1-x}\right)\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 74 | Q1</div><div class="qb"><span class="tag tah">★★★TAH 05★★★</span><br/>\(f(x) = [x-1] + \{x\}^{[x]}, x \in (1, 3)\), then \(f^{-1}(x)\) is (where \([.]\) denotes greatest integer function and \(\{.\}\) denotes fractional part function)
+<ul class="opts">
+<li>\(\begin{cases} x+1 & x \in (1, 2) \\ 2+\sqrt{x-1} & x \in [2, 3) \end{cases}\)</li>
+<li>\(\begin{cases} x-1 & x \in (1, 2) \\ 2-\sqrt{x-1} & x \in [2, 3) \end{cases}\)</li>
+<li>\(\begin{cases} x-1 & x \in (0, 1) \\ 2-\sqrt{x-1} & x \in [1, 2) \end{cases}\)</li>
+<li>\(\begin{cases} x+1 & x \in (0, 1) \\ 2+\sqrt{x-1} & x \in [1, 2) \end{cases}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 76 | Q1</div><div class="qb"><span class="tag tah">TAH 06</span> <span class="tag mb">★★★MIND BENDER★★★</span><br/>Let \(f\) be a one-one function with domain \(\{x, y, z\}\) and range \(\{1, 2, 3\}\). It is given that exactly one of the following statements is true and the remaining two are false:<br/>
+\(f(x) = 1; f(y) \ne 1; f(z) \ne 2\). Determine \(f^{-1}(1)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 78 | Q1</div><div class="qb"><span class="tag tah">TAH 07</span><br/>If \(f : \mathbb{R} \to \mathbb{R}, f(x) = x^3 + 3, g : \mathbb{R} \to \mathbb{R}, g(x) = 2x + 1\), then \((f^{-1} \circ g^{-1})(23)\) equals:
+<ul class="opts">
+<li>\(2\)</li>
+<li>\(3\)</li>
+<li>\((23)^{1/3}\)</li>
+<li>\((14)^{1/3}\)</li>
+</ul></div></div></div>
+
+<h2>Lecture 13 &mdash; Solution to Previous BPPs</h2>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 91 | BPP 1-3</div><div class="qb"><span class="tag bpp">BPP</span><br/>
+<ol start="1" class="subq">
+<li>\(f(x) = x^3 - 12x + 1\) is
+<ul class="opts">
+<li>non-injective on \(\mathbb{R}\)</li>
+<li>injective on \((-\infty, -2]\) and on \([2, \infty)\)</li>
+<li>injective on \([-2, 2]\)</li>
+<li>non-injective on \([-2-k, -2+k]\) and on \([2-k, 2+k]\) for each \(k > 0\)</li>
+</ul></li>
+<li>The function \(f(x) = x^4 - 4x^3 + 4x^2 - 1\) is
+<ul class="opts">
+<li>injective on \(\mathbb{R}\)</li>
+<li>non-injective on \((1-k, 1+k)\) for each \(k > 0\)</li>
+<li>non-injective on \([2, \infty)\)</li>
+<li>non-injective on \((-\infty, 0]\)</li>
+</ul></li>
+<li>Let \(f : \mathbb{R} \to \mathbb{R}\) be a function such that \(f(x) = x^3 + x^2 + 3x + \sin x\). Then
+<ul class="opts">
+<li>\(f\) is injective</li>
+<li>\(f\) is non-injective</li>
+<li>\(f\) is increasing</li>
+<li>decreasing</li>
+</ul></li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 95 | BPP 4-6</div><div class="qb"><span class="tag bpp">BPP</span><br/>
+<ol start="4" class="subq">
+<li>The function \(y = 5 + e^{x^2 - 2}\) is
+<ul class="opts">
+<li>injective on \(\mathbb{R}\)</li>
+<li>injective \([0, \infty)\)</li>
+<li>non-injective on \((-\infty, 0]\)</li>
+<li>injective on \([-k, k]\) for each real \(k > 0\)</li>
+</ul></li>
+<li>The function \(f(x) = \frac{x^2}{x^2 - 1}\) is
+<ul class="opts">
+<li>injective in \((-\infty, -1)\)</li>
+<li>non-injective in \((-1, 1)\)</li>
+<li>non-injective on \(\mathbb{R}\)</li>
+<li>None of these</li>
+</ul></li>
+<li>The function \(f(x) = \ln(1 - \ln x)\)
+<ul class="opts">
+<li>non-injective</li>
+<li>injective</li>
+<li>having range \(\mathbb{R}\)</li>
+<li>decreasing function in its domain</li>
+</ul></li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 99 | BPP 7-8</div><div class="qb"><span class="tag bpp">BPP</span><br/>
+<ol start="7" class="subq">
+<li>The function \(f(x) = \frac{x^3 - 2x^2 - 9x + 18}{x^2 - 4}\) is
+<ul class="opts">
+<li>injective on its domain</li>
+<li>increasing at every point of its domain</li>
+<li>non-injective on its domain</li>
+<li>decreasing at every point of its domain</li>
+</ul></li>
+<li>The function \(y = [x] + \sqrt{\{x\}}\); (where \([.]\) and \(\{.\}\) are greatest integer function and fractional part function respectively) is
+<ul class="opts">
+<li>injective on \(\mathbb{R}\)</li>
+<li>decreasing on \(\mathbb{R}\)</li>
+<li>non-injective on \(\mathbb{R}\)</li>
+<li>increasing on \(\mathbb{R}\)</li>
+</ul></li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 102 | BPP 9-10</div><div class="qb"><span class="tag bpp">BPP</span><br/>
+<ol start="9" class="subq">
+<li>If \(A = \mathbb{R} - \{3\}, B = \mathbb{R} - \{1\}\) and \(f : A \to B\) be defined by \(f(x) = \left(\frac{x - 2}{x - 3}\right)\). Then
+<ul class="opts">
+<li>\(f\) is non-injective</li>
+<li>\(f\) is one-one</li>
+<li>\(f\) is increasing function</li>
+<li>\(f\) is decreasing function</li>
+</ul></li>
+<li>Function \(f : (-\infty, -1) \to (0, e^5)\) defined by \(f(x) = e^{x^3 - 3x + 2}\) is
+<ul class="opts">
+<li>many-one and onto</li>
+<li>many-one and into</li>
+<li>one-one and onto</li>
+<li>one-one and into</li>
+</ul></li>
+</ol></div></div></div>
+</body>
+</html>

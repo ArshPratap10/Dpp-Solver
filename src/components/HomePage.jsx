@@ -103,6 +103,15 @@ const CHAPTERS = [
     questionCount: 95,
     tags: ['Homework', 'Lectures 7–9', 'Domain & Range', 'Function Equations', 'TAH', 'KTK'],
   },
+  {
+    id: 'relations-functions-11-13',
+    icon: '🔄',
+    title: 'Relations & Functions (Lec 11–13)',
+    subject: 'Mathematics',
+    file: '/dpps/relations_functions_11_13.html',
+    questionCount: 71,
+    tags: ['Lectures 11–13', 'Transformations of Graphs', 'Periodic Functions', 'TAH', 'BPP'],
+  },
 ];
 
 const EMOJI_OPTIONS = ['📁', '🔥', '⚡', '🎯', '📚', '💎', '💡', '🧮', '📐', '⭐'];
