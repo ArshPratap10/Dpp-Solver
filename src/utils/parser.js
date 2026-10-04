@@ -72,6 +72,26 @@ function cleanTagText(text) {
   return cleaned;
 }
 
+function toRoman(num) {
+  const romanMap = [
+    [100, 'c'], [90, 'xc'], [50, 'l'], [40, 'xl'],
+    [10, 'x'], [9, 'ix'], [5, 'v'], [4, 'iv'], [1, 'i']
+  ];
+  let result = '';
+  let n = num;
+  for (const [val, sym] of romanMap) {
+    while (n >= val) {
+      result += sym;
+      n -= val;
+    }
+  }
+  return result || String(num);
+}
+
+function toAlpha(num) {
+  return String.fromCharCode(96 + ((num - 1) % 26 + 1));
+}
+
 function parseSingleQuestion(qEl, chapterId, chapterTitle, sectionTitle = 'Questions') {
   const qhEl = qEl.querySelector('.qh');
   let headerText = qhEl ? qhEl.textContent.trim() : '';
@@ -113,6 +133,50 @@ function parseSingleQuestion(qEl, chapterId, chapterTitle, sectionTitle = 'Quest
     });
   }
 
+  // Extract sub-questions (e.g. ol.subq or ol inside .qb)
+  const subQuestions = [];
+  let introHtml = '';
+  const subqOl = qbEl ? (qbEl.querySelector('ol.subq') || qbEl.querySelector('ol')) : null;
+
+  if (subqOl) {
+    const lis = Array.from(subqOl.querySelectorAll(':scope > li'));
+    if (lis.length > 0) {
+      const olType = subqOl.getAttribute('type') || '';
+      const style = subqOl.getAttribute('style') || '';
+      const isRoman = olType.toLowerCase() === 'i' || style.includes('lower-roman') || style.includes('upper-roman');
+      const isUpper = olType === 'I' || olType === 'A' || style.includes('upper-roman') || style.includes('upper-alpha');
+      const isAlpha = olType.toLowerCase() === 'a' || style.includes('lower-alpha') || style.includes('upper-alpha');
+      const startNum = parseInt(subqOl.getAttribute('start') || '1', 10);
+
+      lis.forEach((li, idx) => {
+        const num = startNum + idx;
+        let label = `${num}.`;
+        if (isRoman) {
+          const r = toRoman(num);
+          label = `${isUpper ? r.toUpperCase() : r}.`;
+        } else if (isAlpha) {
+          const a = toAlpha(num);
+          label = `${isUpper ? a.toUpperCase() : a}.`;
+        }
+
+        subQuestions.push({
+          id: '',
+          index: idx,
+          label,
+          html: li.innerHTML.trim(),
+        });
+      });
+
+      // Extract intro/stem text before/excluding the <ol> and .opts
+      const clone = qbEl.cloneNode(true);
+      const clonedOl = clone.querySelector('ol.subq') || clone.querySelector('ol');
+      if (clonedOl) clonedOl.remove();
+      const optsClone = clone.querySelector('.opts');
+      if (optsClone) optsClone.remove();
+      introHtml = clone.innerHTML.trim();
+    }
+  }
+
   // Question HTML without options
   let questionHtml = '';
   if (qbEl) {
@@ -126,6 +190,9 @@ function parseSingleQuestion(qEl, chapterId, chapterTitle, sectionTitle = 'Quest
 
   // Deterministic global ID: e.g. circle-combined-q-0
   const id = `${chapterId}-q-${_qCounter++}`;
+  subQuestions.forEach(sq => {
+    sq.id = `${id}-sub-${sq.index}`;
+  });
 
   // Check for any user customizations saved in localStorage
   let tags = Array.from(detectedTags);
@@ -148,6 +215,8 @@ function parseSingleQuestion(qEl, chapterId, chapterTitle, sectionTitle = 'Quest
     tags,
     originalTags: Array.from(detectedTags),
     questionHtml,
+    subQuestions,
+    introHtml,
     options,
     selectedOption: null,
     timerDuration: 180,

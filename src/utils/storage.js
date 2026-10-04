@@ -15,6 +15,7 @@ export const STORAGE_KEYS = {
   CUSTOM_SECTIONS: 'dpp_custom_sections_v1',
   QUESTION_SECTIONS: 'dpp_question_sections_v1',
   COLLAPSED_SECTIONS: 'dpp_collapsed_sections_v1',
+  SUBQ_STATUS: 'dpp_subquestion_status_v1',
 };
 
 function safeGet(key, fallback = null) {
@@ -81,7 +82,8 @@ export function toggleTheme() {
 export const QUESTION_STATUS = {
   SOLVED: 'SOLVED',
   REVISE: 'REVISE',
-  DOUBT: 'DOUBT',
+  DOUBT: 'WRONG',
+  WRONG: 'WRONG',
 };
 
 export function getQuestionStatuses() {
@@ -109,10 +111,72 @@ export function cycleQuestionStatus(questionId) {
   let next = null;
   if (!current) next = QUESTION_STATUS.SOLVED;
   else if (current === QUESTION_STATUS.SOLVED) next = QUESTION_STATUS.REVISE;
-  else if (current === QUESTION_STATUS.REVISE) next = QUESTION_STATUS.DOUBT;
+  else if (current === QUESTION_STATUS.REVISE) next = QUESTION_STATUS.WRONG;
   else next = null; // resets to unmarked
   setQuestionStatus(questionId, next);
   return next;
+}
+
+// ──────────────────────────────────────────────────
+// SUB-QUESTION STATUS WORKFLOW (SOLVED, REVISE, WRONG)
+// Structure: { [questionId]: { [subIndex]: 'SOLVED' | 'REVISE' | 'WRONG' } }
+// ──────────────────────────────────────────────────
+
+export function getAllSubQuestionStatuses() {
+  return safeGet(STORAGE_KEYS.SUBQ_STATUS, {});
+}
+
+export function getSubQuestionStatuses(questionId) {
+  const map = getAllSubQuestionStatuses();
+  return map[questionId] || {};
+}
+
+export function getSubQuestionStatus(questionId, subIndex) {
+  const map = getSubQuestionStatuses(questionId);
+  return map[subIndex] || null;
+}
+
+export function setSubQuestionStatus(questionId, subIndex, status) {
+  const all = getAllSubQuestionStatuses();
+  const qMap = all[questionId] ? { ...all[questionId] } : {};
+  if (!status) {
+    delete qMap[subIndex];
+  } else {
+    qMap[subIndex] = status;
+  }
+  if (Object.keys(qMap).length === 0) {
+    delete all[questionId];
+  } else {
+    all[questionId] = qMap;
+  }
+  safeSet(STORAGE_KEYS.SUBQ_STATUS, all);
+  window.dispatchEvent(new Event('dpp_storage_updated'));
+}
+
+export function cycleSubQuestionStatus(questionId, subIndex) {
+  const current = getSubQuestionStatus(questionId, subIndex);
+  let next = null;
+  if (!current) next = QUESTION_STATUS.SOLVED;
+  else if (current === QUESTION_STATUS.SOLVED) next = QUESTION_STATUS.REVISE;
+  else if (current === QUESTION_STATUS.REVISE) next = QUESTION_STATUS.WRONG;
+  else next = null;
+  setSubQuestionStatus(questionId, subIndex, next);
+  return next;
+}
+
+export function setAllSubQuestionsStatus(questionId, subCount, status) {
+  const all = getAllSubQuestionStatuses();
+  if (!status) {
+    delete all[questionId];
+  } else {
+    const qMap = {};
+    for (let i = 0; i < subCount; i++) {
+      qMap[i] = status;
+    }
+    all[questionId] = qMap;
+  }
+  safeSet(STORAGE_KEYS.SUBQ_STATUS, all);
+  window.dispatchEvent(new Event('dpp_storage_updated'));
 }
 
 // ──────────────────────────────────────────────────
@@ -526,6 +590,7 @@ export function exportAllData() {
       customSections: getCustomSectionsMap(),
       questionSections: getQuestionSectionsMap(),
       collapsedSections: getCollapsedSectionsMap(),
+      subQuestionStatuses: getAllSubQuestionStatuses(),
     },
   };
 
@@ -574,6 +639,7 @@ export function validateBackup(jsonObj) {
     customizationsCount: jsonObj.data.customizations ? Object.keys(jsonObj.data.customizations).length : 0,
     statusesCount: jsonObj.data.statuses ? Object.keys(jsonObj.data.statuses).length : 0,
     customSectionsCount: jsonObj.data.customSections ? Object.keys(jsonObj.data.customSections).length : 0,
+    subQuestionStatusesCount: jsonObj.data.subQuestionStatuses ? Object.keys(jsonObj.data.subQuestionStatuses).length : 0,
     exportDate: jsonObj.exportDate || 'Unknown',
   };
 }
@@ -592,6 +658,7 @@ export function importAllData(jsonObj, mode = 'merge') {
     if (data.customSections) safeSet(STORAGE_KEYS.CUSTOM_SECTIONS, data.customSections);
     if (data.questionSections) safeSet(STORAGE_KEYS.QUESTION_SECTIONS, data.questionSections);
     if (data.collapsedSections) safeSet(STORAGE_KEYS.COLLAPSED_SECTIONS, data.collapsedSections);
+    if (data.subQuestionStatuses) safeSet(STORAGE_KEYS.SUBQ_STATUS, data.subQuestionStatuses);
 
     if (data.stars) {
       Object.entries(data.stars).forEach(([k, v]) => safeSet(k, v));
@@ -668,6 +735,15 @@ export function importAllData(jsonObj, mode = 'merge') {
       const currentQSec = getQuestionSectionsMap();
       Object.assign(currentQSec, data.questionSections);
       safeSet(STORAGE_KEYS.QUESTION_SECTIONS, currentQSec);
+    }
+
+    // 8. Sub-Question Statuses
+    if (data.subQuestionStatuses && typeof data.subQuestionStatuses === 'object') {
+      const currentSub = getAllSubQuestionStatuses();
+      Object.entries(data.subQuestionStatuses).forEach(([qId, subMap]) => {
+        currentSub[qId] = { ...(currentSub[qId] || {}), ...subMap };
+      });
+      safeSet(STORAGE_KEYS.SUBQ_STATUS, currentSub);
     }
 
     // 8. Stars & selections

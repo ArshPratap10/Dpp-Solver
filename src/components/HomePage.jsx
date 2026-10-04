@@ -8,6 +8,7 @@ import {
   getTrashList,
   isQuestionTrashed,
   getQuestionStatuses,
+  getAllSubQuestionStatuses,
   QUESTION_STATUS,
 } from '../utils/storage';
 
@@ -132,6 +133,7 @@ export default function HomePage({ onLoadDPP, loadedChapters, onOpenFolder, onOp
   const [folderItemsMap, setFolderItemsMap] = useState(() => getFolderItemsMap());
   const [trashCount, setTrashCount] = useState(() => getTrashList().length);
   const [statuses, setStatuses] = useState(() => getQuestionStatuses());
+  const [subqStatuses, setSubqStatuses] = useState(() => getAllSubQuestionStatuses());
   const [isBackupOpen, setIsBackupOpen] = useState(false);
 
   // New folder inline form
@@ -145,6 +147,7 @@ export default function HomePage({ onLoadDPP, loadedChapters, onOpenFolder, onOp
     setFolderItemsMap(getFolderItemsMap());
     setTrashCount(getTrashList().length);
     setStatuses(getQuestionStatuses());
+    setSubqStatuses(getAllSubQuestionStatuses());
   };
 
   useEffect(() => {
@@ -190,10 +193,19 @@ export default function HomePage({ onLoadDPP, loadedChapters, onOpenFolder, onOp
     refreshData();
   };
 
-  // Status counts across all questions
-  const solvedCount = Object.values(statuses).filter(s => s === QUESTION_STATUS.SOLVED).length;
-  const reviseCount = Object.values(statuses).filter(s => s === QUESTION_STATUS.REVISE).length;
-  const doubtCount = Object.values(statuses).filter(s => s === QUESTION_STATUS.DOUBT).length;
+  // Status counts across all questions + sub-questions
+  const wholeSolved = Object.values(statuses).filter(s => s === QUESTION_STATUS.SOLVED).length;
+  const wholeRevise = Object.values(statuses).filter(s => s === QUESTION_STATUS.REVISE).length;
+  const wholeWrong = Object.values(statuses).filter(s => s === QUESTION_STATUS.WRONG || s === 'DOUBT').length;
+
+  const subValues = Object.values(subqStatuses).flatMap(m => Object.values(m));
+  const subSolved = subValues.filter(s => s === QUESTION_STATUS.SOLVED).length;
+  const subRevise = subValues.filter(s => s === QUESTION_STATUS.REVISE).length;
+  const subWrong = subValues.filter(s => s === QUESTION_STATUS.WRONG || s === 'DOUBT').length;
+
+  const solvedCount = wholeSolved + subSolved;
+  const reviseCount = wholeRevise + subRevise;
+  const wrongCount = wholeWrong + subWrong;
 
   return (
     <div className="home-container">
@@ -202,7 +214,7 @@ export default function HomePage({ onLoadDPP, loadedChapters, onOpenFolder, onOp
         <div className="home-status-summary">
           {solvedCount > 0 && <span className="home-status-chip solved">🟢 {solvedCount} Solved</span>}
           {reviseCount > 0 && <span className="home-status-chip revise">🟡 {reviseCount} Revise</span>}
-          {doubtCount > 0 && <span className="home-status-chip doubt">🔴 {doubtCount} Doubts</span>}
+          {wrongCount > 0 && <span className="home-status-chip doubt">🔴 {wrongCount} Wrong</span>}
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>

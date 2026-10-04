@@ -6,6 +6,9 @@ import {
   getQuestionStatus,
   cycleQuestionStatus,
   QUESTION_STATUS,
+  getSubQuestionStatuses,
+  setSubQuestionStatus,
+  cycleSubQuestionStatus,
 } from '../utils/storage';
 import EditHeadingModal from './EditHeadingModal';
 import AddToFolderModal from './AddToFolderModal';
@@ -51,6 +54,9 @@ export default function QuestionCard({
   const [folderCount, setFolderCount] = useState(0);
   const [status, setStatus] = useState(() => getQuestionStatus(question.id));
 
+  const hasSubQuestions = Array.isArray(question.subQuestions) && question.subQuestions.length > 0;
+  const [subqStatuses, setSubqStatuses] = useState(() => hasSubQuestions ? getSubQuestionStatuses(question.id) : {});
+
   const { timerState = 'idle', timerRemaining = 180, timerDuration = 180, selectedOption = null, options = [] } = question;
   const isRunning = timerState === 'running';
   const isPaused = timerState === 'paused';
@@ -65,8 +71,31 @@ export default function QuestionCard({
       const fIds = getFoldersForQuestion(question.id);
       setFolderCount(fIds.length);
       setStatus(getQuestionStatus(question.id));
+      if (hasSubQuestions) {
+        setSubqStatuses(getSubQuestionStatuses(question.id));
+      }
     }
-  }, [question?.id, isFolderOpen, isTrashMode]);
+  }, [question?.id, isFolderOpen, isTrashMode, hasSubQuestions]);
+
+  const handleCycleSubStatus = (subIdx) => {
+    const next = cycleSubQuestionStatus(question.id, subIdx);
+    const updated = { ...subqStatuses };
+    if (!next) delete updated[subIdx];
+    else updated[subIdx] = next;
+    setSubqStatuses(updated);
+    onStatusChange?.(question.id);
+  };
+
+  const handleSetSubStatus = (subIdx, targetStatus) => {
+    const current = subqStatuses[subIdx];
+    const next = current === targetStatus ? null : targetStatus;
+    setSubQuestionStatus(question.id, subIdx, next);
+    const updated = { ...subqStatuses };
+    if (!next) delete updated[subIdx];
+    else updated[subIdx] = next;
+    setSubqStatuses(updated);
+    onStatusChange?.(question.id);
+  };
 
   // Card click → start timer if idle (only if not in trash)
   const handleCardClick = (e) => {
@@ -97,9 +126,27 @@ export default function QuestionCard({
   if (isTrashMode) cardCls += ' trashed-card';
 
   // Status classes
-  if (status === QUESTION_STATUS.SOLVED) cardCls += ' card-status-solved';
-  if (status === QUESTION_STATUS.REVISE) cardCls += ' card-status-revise';
-  if (status === QUESTION_STATUS.DOUBT) cardCls += ' card-status-doubt';
+  const subqValues = Object.values(subqStatuses);
+  const subqSolvedCount = subqValues.filter(v => v === QUESTION_STATUS.SOLVED).length;
+  const subqReviseCount = subqValues.filter(v => v === QUESTION_STATUS.REVISE).length;
+  const subqWrongCount = subqValues.filter(v => v === QUESTION_STATUS.WRONG || v === 'DOUBT').length;
+  const subqTotalMarked = subqValues.length;
+
+  if (hasSubQuestions) {
+    if (subqSolvedCount === question.subQuestions.length && question.subQuestions.length > 0) {
+      cardCls += ' card-status-solved';
+    } else if (subqWrongCount > 0) {
+      cardCls += ' card-status-doubt';
+    } else if (subqReviseCount > 0) {
+      cardCls += ' card-status-revise';
+    } else if (subqSolvedCount > 0) {
+      cardCls += ' card-status-solved';
+    }
+  } else {
+    if (status === QUESTION_STATUS.SOLVED) cardCls += ' card-status-solved';
+    if (status === QUESTION_STATUS.REVISE) cardCls += ' card-status-revise';
+    if (status === QUESTION_STATUS.WRONG || status === 'DOUBT') cardCls += ' card-status-doubt';
+  }
 
   // Timer pill class
   let pillCls = 'timer-pill';
@@ -192,23 +239,49 @@ export default function QuestionCard({
           ) : (
             /* Active Mode Actions */
             <>
-              {/* Question Preparation Status Workflow Button */}
-              <button
-                type="button"
-                className={`status-pill-btn card-action-btn ${status ? `status-${status.toLowerCase()}` : 'status-none'}`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  const next = cycleQuestionStatus(question.id);
-                  setStatus(next);
-                  onStatusChange?.(question.id, next);
-                }}
-                title="Click to cycle status: Solved (🟢) → Needs Revision (🟡) → Doubt (🔴)"
-              >
-                {status === QUESTION_STATUS.SOLVED && '🟢 Solved'}
-                {status === QUESTION_STATUS.REVISE && '🟡 Revise'}
-                {status === QUESTION_STATUS.DOUBT && '🔴 Doubt'}
-                {!status && '⚪ Status'}
-              </button>
+              {/* Question Preparation Status Workflow Button (or Sub-Questions Progress) */}
+              {hasSubQuestions ? (
+                <div
+                  className={`status-pill-btn card-action-btn subq-summary-pill ${
+                    subqSolvedCount === question.subQuestions.length && question.subQuestions.length > 0
+                      ? 'status-solved'
+                      : subqTotalMarked > 0
+                      ? 'status-subq-active'
+                      : 'status-none'
+                  }`}
+                  title={`Sub-questions: ${subqSolvedCount}/${question.subQuestions.length} Solved${subqReviseCount ? `, ${subqReviseCount} Revise` : ''}${subqWrongCount ? `, ${subqWrongCount} Wrong` : ''}`}
+                >
+                  {subqSolvedCount === question.subQuestions.length && question.subQuestions.length > 0 ? (
+                    <span>🟢 All Solved ({question.subQuestions.length})</span>
+                  ) : subqTotalMarked > 0 ? (
+                    <span className="subq-badge-counts">
+                      {subqSolvedCount > 0 && <span className="subq-count-chip chip-solved">🟢 {subqSolvedCount}</span>}
+                      {subqReviseCount > 0 && <span className="subq-count-chip chip-revise">🟡 {subqReviseCount}</span>}
+                      {subqWrongCount > 0 && <span className="subq-count-chip chip-wrong">🔴 {subqWrongCount}</span>}
+                      <span className="subq-ratio-text">{subqTotalMarked}/{question.subQuestions.length}</span>
+                    </span>
+                  ) : (
+                    <span>⚪ 0/{question.subQuestions.length} Sub-Q</span>
+                  )}
+                </div>
+              ) : (
+                <button
+                  type="button"
+                  className={`status-pill-btn card-action-btn ${status ? `status-${status.toLowerCase()}` : 'status-none'}`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    const next = cycleQuestionStatus(question.id);
+                    setStatus(next);
+                    onStatusChange?.(question.id, next);
+                  }}
+                  title="Click to cycle status: Solved (🟢) → Needs Revision (🟡) → Wrong (🔴) → Clear"
+                >
+                  {status === QUESTION_STATUS.SOLVED && '🟢 Solved'}
+                  {status === QUESTION_STATUS.REVISE && '🟡 Revise'}
+                  {(status === QUESTION_STATUS.WRONG || status === 'DOUBT') && '🔴 Wrong'}
+                  {!status && '⚪ Status'}
+                </button>
+              )}
 
               {/* Star Button */}
               {onToggleStar && (
@@ -383,7 +456,60 @@ export default function QuestionCard({
 
       {/* Question Body */}
       <div className="q-body">
-        <MathContent html={question.questionHtml} />
+        {hasSubQuestions ? (
+          <div className="q-subq-wrapper">
+            {question.introHtml && (
+              <div className="q-intro-text">
+                <MathContent html={question.introHtml} />
+              </div>
+            )}
+            <div className="subq-list">
+              {question.subQuestions.map((subQ) => {
+                const subStatus = subqStatuses[subQ.index] || null;
+                const isSolved = subStatus === QUESTION_STATUS.SOLVED;
+                const isRevise = subStatus === QUESTION_STATUS.REVISE;
+                const isWrong = subStatus === QUESTION_STATUS.WRONG || subStatus === 'DOUBT';
+
+                let subCls = 'subq-item fade-in';
+                if (isSolved) subCls += ' subq-status-solved';
+                else if (isRevise) subCls += ' subq-status-revise';
+                else if (isWrong) subCls += ' subq-status-wrong';
+
+                return (
+                  <div key={subQ.index} className={subCls}>
+                    <span className="subq-label">{subQ.label}</span>
+                    <div className="subq-content">
+                      <MathContent html={subQ.html} />
+                    </div>
+                    <div className="subq-status-actions" onClick={(e) => e.stopPropagation()}>
+                      <button
+                        type="button"
+                        className={`status-pill-btn subq-status-btn ${
+                          isSolved
+                            ? 'status-solved'
+                            : isRevise
+                            ? 'status-revise'
+                            : isWrong
+                            ? 'status-doubt'
+                            : 'status-none'
+                        }`}
+                        onClick={() => handleCycleSubStatus(subQ.index)}
+                        title="Click to cycle status: Solved (🟢) → Needs Revision (🟡) → Wrong (🔴) → Clear"
+                      >
+                        {isSolved && '🟢 Solved'}
+                        {isRevise && '🟡 Revise'}
+                        {isWrong && '🔴 Wrong'}
+                        {!subStatus && '⚪ Status'}
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ) : (
+          <MathContent html={question.questionHtml} />
+        )}
       </div>
 
       {/* Options Row */}

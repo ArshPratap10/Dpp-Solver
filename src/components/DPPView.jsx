@@ -10,6 +10,7 @@ import {
   getTrashList,
   getQuestionStatuses,
   QUESTION_STATUS,
+  getAllSubQuestionStatuses,
   getCustomSections,
   addCustomSection,
   deleteCustomSection,
@@ -34,6 +35,7 @@ export default function DPPView({ dppData, onBack, onOpenTrash }) {
   const [trashCount, setTrashCount] = useState(() => getTrashList().length);
   const [isSprintActive, setIsSprintActive] = useState(false);
   const [statuses, setStatuses] = useState(() => getQuestionStatuses());
+  const [subqStatuses, setSubqStatuses] = useState(() => getAllSubQuestionStatuses());
 
   // Custom Sections & Collapsed Accordion State
   const [customSections, setCustomSections] = useState(() => getCustomSections(dppData.id));
@@ -45,6 +47,7 @@ export default function DPPView({ dppData, onBack, onOpenTrash }) {
     const handleStorageUpdate = () => {
       setTrashCount(getTrashList().length);
       setStatuses(getQuestionStatuses());
+      setSubqStatuses(getAllSubQuestionStatuses());
       setCustomSections(getCustomSections(dppData.id));
     };
     window.addEventListener('dpp_storage_updated', handleStorageUpdate);
@@ -171,10 +174,37 @@ export default function DPPView({ dppData, onBack, onOpenTrash }) {
     }));
   }, []);
 
+  // Helper: check if a question matches a status filter (considering sub-questions)
+  const questionMatchesStatus = useCallback((q, filter) => {
+    if (filter === 'ALL') return true;
+    const hasSubQ = Array.isArray(q.subQuestions) && q.subQuestions.length > 0;
+    if (hasSubQ) {
+      const subMap = subqStatuses[q.id] || {};
+      const values = Object.values(subMap);
+      if (values.length === 0) return false;
+      if (filter === QUESTION_STATUS.SOLVED) {
+        return values.includes(QUESTION_STATUS.SOLVED);
+      }
+      if (filter === QUESTION_STATUS.REVISE) {
+        return values.includes(QUESTION_STATUS.REVISE);
+      }
+      if (filter === QUESTION_STATUS.WRONG || filter === 'DOUBT') {
+        return values.includes(QUESTION_STATUS.WRONG) || values.includes('DOUBT');
+      }
+      return false;
+    }
+
+    const s = statuses[q.id];
+    if (filter === QUESTION_STATUS.WRONG || filter === 'DOUBT') {
+      return s === QUESTION_STATUS.WRONG || s === 'DOUBT';
+    }
+    return s === filter;
+  }, [statuses, subqStatuses]);
+
   // Status Counts
-  const solvedCount = useMemo(() => questions.filter(q => statuses[q.id] === QUESTION_STATUS.SOLVED).length, [questions, statuses]);
-  const reviseCount = useMemo(() => questions.filter(q => statuses[q.id] === QUESTION_STATUS.REVISE).length, [questions, statuses]);
-  const doubtCount = useMemo(() => questions.filter(q => statuses[q.id] === QUESTION_STATUS.DOUBT).length, [questions, statuses]);
+  const solvedCount = useMemo(() => questions.filter(q => questionMatchesStatus(q, QUESTION_STATUS.SOLVED)).length, [questions, questionMatchesStatus]);
+  const reviseCount = useMemo(() => questions.filter(q => questionMatchesStatus(q, QUESTION_STATUS.REVISE)).length, [questions, questionMatchesStatus]);
+  const wrongCount = useMemo(() => questions.filter(q => questionMatchesStatus(q, QUESTION_STATUS.WRONG)).length, [questions, questionMatchesStatus]);
 
   // Unique tags in this DPP
   const availableTags = useMemo(() => {
@@ -192,7 +222,7 @@ export default function DPPView({ dppData, onBack, onOpenTrash }) {
     return questions.filter(q => {
       if (showStarredOnly && !starred[q.id]) return false;
       if (statusFilter !== 'ALL') {
-        if (statuses[q.id] !== statusFilter) return false;
+        if (!questionMatchesStatus(q, statusFilter)) return false;
       }
       if (selectedTag !== 'ALL') {
         const hasTag = Array.isArray(q.tags) && q.tags.includes(selectedTag);
@@ -201,7 +231,7 @@ export default function DPPView({ dppData, onBack, onOpenTrash }) {
       }
       return true;
     });
-  }, [questions, selectedTag, statusFilter, showStarredOnly, starred, statuses]);
+  }, [questions, selectedTag, statusFilter, showStarredOnly, starred, questionMatchesStatus]);
 
   // Toggle collapse for a single section
   const toggleCollapse = useCallback((secTitle) => {
@@ -367,7 +397,7 @@ export default function DPPView({ dppData, onBack, onOpenTrash }) {
           {dppData.meta?.topic && <span><strong>Topic:</strong> {dppData.meta.topic}</span>}
           <span><strong>Total Questions:</strong> {total}</span>
           {solvedCount > 0 && <span style={{ color: '#059669' }}>🟢 {solvedCount} Solved</span>}
-          {doubtCount > 0 && <span style={{ color: '#dc2626' }}>🔴 {doubtCount} Doubts</span>}
+          {wrongCount > 0 && <span style={{ color: '#dc2626' }}>🔴 {wrongCount} Wrong</span>}
         </div>
       </div>
 
@@ -402,13 +432,13 @@ export default function DPPView({ dppData, onBack, onOpenTrash }) {
               🟡 Revise ({reviseCount})
             </button>
           )}
-          {doubtCount > 0 && (
+          {wrongCount > 0 && (
             <button
               type="button"
-              className={`tag-filter-chip filter-doubt ${statusFilter === QUESTION_STATUS.DOUBT ? 'active-doubt' : ''}`}
-              onClick={() => setStatusFilter(statusFilter === QUESTION_STATUS.DOUBT ? 'ALL' : QUESTION_STATUS.DOUBT)}
+              className={`tag-filter-chip filter-doubt ${statusFilter === QUESTION_STATUS.WRONG ? 'active-doubt' : ''}`}
+              onClick={() => setStatusFilter(statusFilter === QUESTION_STATUS.WRONG ? 'ALL' : QUESTION_STATUS.WRONG)}
             >
-              🔴 Doubts ({doubtCount})
+              🔴 Wrong ({wrongCount})
             </button>
           )}
 
@@ -600,7 +630,10 @@ export default function DPPView({ dppData, onBack, onOpenTrash }) {
                         onToggleStar={toggleStar}
                         onDeleteQuestion={handleDeleteQuestion}
                         onUpdateQuestion={handleUpdateQuestion}
-                        onStatusChange={() => setStatuses(getQuestionStatuses())}
+                        onStatusChange={() => {
+                          setStatuses(getQuestionStatuses());
+                          setSubqStatuses(getAllSubQuestionStatuses());
+                        }}
                         availableSections={allSectionTitles}
                         onMoveSection={handleMoveQuestionSection}
                         onAddSection={handleAddSection}
