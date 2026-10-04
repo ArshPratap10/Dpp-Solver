@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inverse Trigonometric Functions — Questions (ITF 1 to 5)</title>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script async="" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #1a1a1a;
+  background: #fff;
+  padding: 12mm 14mm;
+  counter-reset: qnum;
+}
+.dpp-header {
+  border: 2.5px solid #000;
+  margin-bottom: 20px;
+  page-break-inside: avoid;
+}
+.dpp-title {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 8px 0;
+}
+.dpp-meta {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  border-top: 1.5px solid #000;
+  background: #fafafa;
+}
+.dpp-meta span { display: inline-block; }
+h2 {
+  font-size: 13px;
+  font-weight: 700;
+  background: #1e1e2e;
+  color: #fff;
+  padding: 5px 12px;
+  margin: 24px 0 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+h3 {
+  font-size: 12px;
+  font-weight: 700;
+  background: #3b4252;
+  color: #eceff4;
+  padding: 4px 10px;
+  margin: 18px 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  border-radius: 3px;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+.q {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  padding: 12px 14px;
+  border-left: 3.5px solid #000;
+  border-bottom: 1px solid #e5e7eb;
+  page-break-inside: avoid;
+  counter-increment: qnum;
+}
+.q::before {
+  content: counter(qnum) ".";
+  font-weight: 700;
+  font-size: 14px;
+  min-width: 28px;
+  flex-shrink: 0;
+}
+.qinner { flex: 1; min-width: 0; }
+.qh {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #666;
+  float: right;
+  margin-left: 10px;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+.qb {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.75;
+  color: #111;
+  display: block;
+  overflow: hidden;
+}
+.tag {
+  display: inline-block;
+  margin: 0 4px 4px 0;
+  padding: 2px 8px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: .2px;
+  vertical-align: middle;
+}
+.tag.kcls { background: #bd651d; }
+.tag.mindbender { background: #7546a7; }
+.tag.asrq { background: #23719e; }
+.tag.exam { background: #32845e; }
+.tag.tah { background: #d9381e; }
+.tag.bpp { background: #0077b6; }
+.tag.shikar { background: #e65100; }
+.opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 28px;
+  margin-top: 10px;
+  padding-left: 0;
+  list-style: none;
+  font-weight: 400;
+  font-size: 14px;
+  border-top: 1px dashed #ddd;
+  padding-top: 6px;
+}
+.opts li::before { font-weight: 700; color: #333; }
+.opts li:nth-child(1)::before { content: "(A) "; }
+.opts li:nth-child(2)::before { content: "(B) "; }
+.opts li:nth-child(3)::before { content: "(C) "; }
+.opts li:nth-child(4)::before { content: "(D) "; }
+.opts li:nth-child(5)::before { content: "(E) "; }
+ol.subq { padding-left: 20px; margin-top: 6px; font-weight: 400; font-size: 14px; }
+ol.subq li { margin-bottom: 4px; }
+table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 13px; font-weight: 400; }
+td, th { border: 1px solid #888; padding: 5px 8px; vertical-align: top; }
+th { font-weight: 700; background: #f3f4f6; }
+@media print {
+  body { padding: 8mm 10mm; font-size: 13px; }
+  h2, h3 { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .q { margin-bottom: 12px; }
+}
+</style>
+</head>
+<body>
+<div class="dpp-header">
+<div class="dpp-title">Question Bank — Inverse Trigonometric Functions</div>
+<div class="dpp-meta">
+<span><strong>Subject:</strong> Mathematics</span>
+<span><strong>Topic:</strong> Inverse Trigonometric Functions (ITF 1 to 5)</span>
+<span><strong>Total Questions:</strong> 135</span>
+</div>
+</div>
+<!-- QUESTIONS_START -->
+<h2>ITF Lecture 01 &mdash; Lecture Notes</h2>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 21 | Q1</div><div class="qb">Find the principal values of each of the following:
+<ol class="subq" type="i">
+<li>\(\tan^{-1}(-\sqrt{3})\)</li>
+<li>\(\cos^{-1}\left(-\frac{1}{\sqrt{2}}\right)\)</li>
+<li>\(\operatorname{cosec}^{-1}(-\sqrt{2})\)</li>
+<li>\(\cos^{-1}\left(-\frac{\sqrt{3}}{2}\right)\)</li>
+<li>\(\sin^{-1}\left(-\frac{1}{2}\right)\)</li>
+<li>\(\tan^{-1}\left(\frac{1}{\sqrt{3}}\right)\)</li>
+<li>\(\sec^{-1}(-\sqrt{2})\)</li>
+<li>\(\cot^{-1}(-\sqrt{3})\)</li>
+<li>\(\sec^{-1}(2)\)</li>
+<li>\(\operatorname{cosec}^{-1}\left(\frac{2}{\sqrt{3}}\right)\)</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 25 | Q1</div><div class="qb">\(\cos^{-1}(\cos(2\cot^{-1}(\sqrt{2}-1)))\) is equal to
+<ul class="opts">
+<li>\(\sqrt{2}-1\)</li>
+<li>\(\frac{\pi}{4}\)</li>
+<li>\(\frac{3\pi}{4}\)</li>
+<li>none of these</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 27 | Q1</div><div class="qb">The value of \(\tan^2(\sec^{-1} 3) + \cot^2(\operatorname{cosec}^{-1} 4)\) is -
+<ul class="opts">
+<li>9</li>
+<li>16</li>
+<li>25</li>
+<li>23</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 28 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2021 (Feb)</span> <span class="tag mindbender">★★★Mind Bender★★★</span><br/>A possible value of \(\tan\left(\frac{1}{4}\sin^{-1}\frac{\sqrt{63}}{8}\right)\) is :
+<ul class="opts">
+<li>\(\frac{1}{\sqrt{7}}\)</li>
+<li>\(2\sqrt{2}-1\)</li>
+<li>\(\sqrt{7}-1\)</li>
+<li>\(\frac{1}{2\sqrt{2}}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 30 | Q1</div><div class="qb">Evaluate:
+<ol class="subq">
+<li>\(\sin\left(\arcsin\frac{3}{5} - \arccos\frac{3}{5}\right)\)</li>
+<li>\(\tan\left(\frac{1}{2}\cos^{-1}\frac{\sqrt{5}}{3}\right)\)</li>
+<li>\(\sin\left(\tan^{-1}\cos\cot^{-1}\left(-\frac{1}{\sqrt{3}}\right)\right)\)</li>
+<li>\(\sin(\tan^{-1} 2) + \cos(\tan^{-1} 2)\)</li>
+<li>\(\tan\left(2\tan^{-1}\frac{1}{5} - \frac{\pi}{4}\right)\)</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 32 | Q1</div><div class="qb"><span class="tag asrq">★★★ASRQ★★★</span><br/>Find domain &amp; range of: <small style="color:#666;">([ ] GIF, { } FP)</small>
+<ol class="subq" type="a">
+<li>\(\cos^{-1}[x]\)</li>
+<li>\(y = \sin^{-1}(e^x)\)</li>
+<li>\(\cos^{-1}\{x\}\)</li>
+<li>\(\cot^{-1}(\operatorname{sgn} x)\)</li>
+<li>\(\frac{1}{\sqrt{\ln(\cot^{-1} x)}}\)</li>
+<li>\(\frac{1}{\operatorname{sgn}(\sec^{-1} e^x)}\)</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 36 | Q1</div><div class="qb">Range of the function \(f(x) = \cos^{-1}\left(\frac{1}{e^x+e^{-x}}\right)\) is
+<ul class="opts">
+<li>\((0, \pi)\)</li>
+<li>\(\left[\frac{\pi}{6}, \frac{\pi}{2}\right)\)</li>
+<li>\(\left[\frac{\pi}{3}, \frac{\pi}{2}\right)\)</li>
+<li>\(\left[\frac{\pi}{2}, \frac{2\pi}{3}\right)\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 37 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2023 (13 April)</span><br/>The range of \(f(x) = 4\sin^{-1}\left(\frac{x^2}{x^2+1}\right)\) is
+<ul class="opts">
+<li>\([0, 2\pi]\)</li>
+<li>\([0, 2\pi)\)</li>
+<li>\([0, \pi)\)</li>
+<li>\([0, \pi]\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 40 | Q1</div><div class="qb">Solve:
+<ol class="subq">
+<li>\(\log_2 \tan^{-1} x > 1\)</li>
+<li>\((\cot^{-1} x)^2 - 5\cot^{-1} x + 6 > 0\)</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 42 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2021 (July)</span> <span class="tag mindbender">★★★Mind Bender★★★</span><br/>The number of real roots of the equation \(\tan^{-1}\sqrt{x(x+1)} + \sin^{-1}\sqrt{x^2+x+1} = \frac{\pi}{4}\) is:
+<ul class="opts">
+<li>1</li>
+<li>2</li>
+<li>4</li>
+<li>0</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 43 | Q1</div><div class="qb">Let \(f(x) = a + b\cos^{-1} x\ (b > 0)\). If domain and range of \(f(x)\) are the same set then \((b - a)\) is equal to
+<ul class="opts">
+<li>\(1 - \frac{1}{\pi}\)</li>
+<li>\(\frac{2}{\pi} + 1\)</li>
+<li>\(1 - \frac{2}{\pi}\)</li>
+<li>2</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 44 | Q1</div><div class="qb">If \(\cos^{-1} x + \cos^{-1} y + \cos^{-1} z = 3\pi\) then the value of
+\[
+x^{2014} + y^{2014} + z^{2014} + \frac{6}{x^{2013} + y^{2013} + z^{2013}}
+\]
+is</div></div></div>
+
+<h2>ITF Lecture 01 &mdash; Homework</h2>
+<h3>Solution to Previous TAH</h3>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 56 | Q1</div><div class="qb"><span class="tag tah">TAH</span><br/>\(f: [2, \infty) \to (-\infty, 4]\), where \(f(x) = x(4 - x)\) then find \(f^{-1}(x)\) and solve the equation, \(f^{-1}(x) = f(x)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 59 | Q1</div><div class="qb"><span class="tag tah">TAH</span><br/>\(f: \left[\frac{1}{2}, \infty\right) \to \left[\frac{3}{4}, \infty\right)\) is the function given by \(f(x) = x^2 - x + 1\). Show that \(f\) is bijective. Find \(f^{-1}\). Hence solve for real \(x\),
+\[
+x^2 - x + 1 = \frac{1}{2} + \sqrt{x - \frac{3}{4}}
+\]</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 62 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2025 (22 Jan)</span> <span class="tag tah">★★★TAH. ★★★★</span><br/>Let \(A = \{1, 2, 3, 4\}\) and \(B = \{1, 4, 9, 16\}\). Then the number of many-one functions \(f : A \to B\) such that \(1 \in f(A)\) is equal to:
+<ul class="opts">
+<li>151</li>
+<li>139</li>
+<li>163</li>
+<li>127</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 65 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2022 (July)</span> <span class="tag tah">★★★TAH. ★★★★</span><br/>If \(f : \{1, 2, 3, 4\} \to \{1, 2, 3, \ldots, 6\}\). Find the total number of functions possible such that \(f(1) + f(2) = f(3)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 68 | Q1</div><div class="qb"><span class="tag exam">JEE Advanced 2026</span> <span class="tag mindbender">★★★Mind Bender★★★★</span><br/>Let \(\mathbb{N}\) denote the set of all positive integers. Consider the sets \(A = \{1, 2, 3, 4, 5\}\) and \(B = \{1, 2, 3, 4, 5, 6, 7\}\). Let \(S\) be the set of all functions \(f : A \to B\) such that \(f(2) \ne 2\) and \(f(4) \ne 4\). Consider the set \(T = \{f \in S : \text{there exists a function } g : B \to \mathbb{N} \text{ such that } g(f(x)) = 2^x \text{ for all } x \in A\}\). Then the number of elements in the set \(T\) is \(\underline{\quad}\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 69 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2026 (4 April)</span> <span class="tag tah">★★★TAH. ★★★★</span><br/>The number of functions \(f : \{1, 2, 3, 4\} \to \{a, b, c\}\), which are not onto, is :
+<ul class="opts">
+<li>48</li>
+<li>45</li>
+<li>51</li>
+<li>35</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 71 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2026 (5 April)</span> <span class="tag tah">★★★TAH. ★★★★</span><br/>Let \(A = \{1, 2, 3, 4, 5, 6\}\). The number of one-one functions \(f : A \to A\) such that \(f(1) \ge 3\), \(f(3) \le 4\) and \(f(2) + f(3) = 5\), is</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 73 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2026 (23 Jan)</span> <span class="tag tah">★★★TAH. ★★★★</span><br/>Consider two sets
+\[
+A = \{x \in \mathbb{Z} : |(|x - 3| - 3)| \le 1\} \quad \text{and} \quad B = \left\{x \in \mathbb{R} - \{1, 2\} : \frac{(x-2)(x-4)}{x-1}\log_e(|x-2|) = 0\right\}.
+\]
+Then the number of onto functions \(f : A \to B\) is equal to :
+<ul class="opts">
+<li>32</li>
+<li>81</li>
+<li>79</li>
+<li>62</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 75 | Q1</div><div class="qb"><span class="tag tah">TAH</span><br/>Plot the following graphs:
+<ol class="subq" type="i">
+<li>\(y = -e^{-x}\)</li>
+<li>\(y = -\ln x\)</li>
+<li>\(y = e^{|x|}\)</li>
+<li>\(y = e^{-|x|}\)</li>
+<li>\(y = \ln |x|\)</li>
+<li>\(y = \ln(-|x|)\)</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 78 | Q1</div><div class="qb"><span class="tag tah">TAH</span><br/>Find the number of solutions for the following equation:
+\[
+6^{-|x|} = 3 - |x|
+\]</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 80 | Q1</div><div class="qb"><span class="tag tah">TAH</span><br/>Find the range of \(k\) for which \(\big||x^2 - 6x + 8| - 12\big| = k\) has
+<ol class="subq">
+<li>No solution</li>
+<li>Exactly 2 real solutions</li>
+<li>Exactly 4 real solutions</li>
+<li>Exactly 6 real solutions</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 83 | Q1</div><div class="qb"><span class="tag tah">TAH</span><br/>Plot the following graphs:
+<ol class="subq" type="i">
+<li>\(y = |x^2 - 5x - 6|\)</li>
+<li>\(y = |\ln(x - 2)|\)</li>
+<li>\(y = \big||x - 4| - 3\big|\)</li>
+<li>\(y = \min(e^x, e^{-x})\)</li>
+<li>\(y = \min\left(\sin x, \frac{1}{2}\right)\)</li>
+</ol></div></div></div>
+
+<h2>ITF Lecture 02 &mdash; Lecture Notes</h2>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 10 | Q1</div><div class="qb">Find the values of:
+<ol class="subq" type="i">
+<li>\(\sin^{-1}(\sin 3)\)</li>
+<li>\(\sin^{-1}(\sin 53)\)</li>
+<li>\(\sin^{-1}(\sin 7)\)</li>
+<li>\(\sin^{-1}(\sin 10)\)</li>
+<li>\(\sin^{-1}(\sin 20)\)</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 11 | Q1</div><div class="qb">Find the values of:
+<ol class="subq" type="i">
+<li>\(\cos^{-1}(\cos 2)\)</li>
+<li>\(\cos^{-1}(\cos 3)\)</li>
+<li>\(\cos^{-1}(\cos 5)\)</li>
+<li>\(\cos^{-1}(\cos 7)\)</li>
+<li>\(\cos^{-1}(\cos 10)\)</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 16 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2019</span><br/>If \(x = \sin^{-1}(\sin 10)\) and \(y = \cos^{-1}(\cos 10)\), then \(y - x\) is equal to
+<ul class="opts">
+<li>10</li>
+<li>0</li>
+<li>\(\pi\)</li>
+<li>\(7\pi\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 19 | Q1</div><div class="qb">Integral solution of the inequality \(3x^2 + 8x < 2\sin^{-1}(\sin 4) - \cos^{-1}(\cos 4)\) is
+<ul class="opts">
+<li>1</li>
+<li>-1</li>
+<li>0</li>
+<li>2</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 20 | Q1</div><div class="qb">If \(f(x) = x^{11} + x^9 - x^7 + x^3 + 1\) and \(f(\sin^{-1}(\sin 8)) = \alpha\), \(\alpha\) is constant, then \(f(\tan^{-1}(\tan 8))\) is equal to
+<ul class="opts">
+<li>\(\alpha\)</li>
+<li>\(\alpha - 2\)</li>
+<li>\(\alpha + 2\)</li>
+<li>\(2 - \alpha\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 22 | Q1</div><div class="qb">
+<ol class="subq" type="a">
+<li>Solve : \(\cos^{-1}\cos\left(\frac{10\pi}{7}\right) + \cot^{-1}\cot\left(\frac{26\pi}{5}\right)\)</li>
+<li>Prove that \(\cos^{-1}\left(\cos\frac{1000\pi}{7}\right) + \sin^{-1}\left(\sin\frac{601\pi}{14}\right) = \frac{13\pi}{14}\)</li>
+</ol></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 23 | Q1</div><div class="qb">Show that:
+\[
+\sin^{-1}\left(\sin\frac{33\pi}{7}\right) + \cos^{-1}\left(\cos\frac{46\pi}{7}\right) + \tan^{-1}\left(-\tan\frac{13\pi}{8}\right) + \cot^{-1}\left(\cot\left(-\frac{19\pi}{8}\right)\right) = \frac{13\pi}{7}
+\]</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 37 | Q1</div><div class="qb">Find \(x\) if:
+<ol class="subq">
+<li>\(4\sin^{-1} x + \cos^{-1} x = \frac{3\pi}{4}\)</li>
+<li>\(5\tan^{-1} x + 3\cot^{-1} x = \frac{7\pi}{4}\)</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 39 | Q1</div><div class="qb">
+<ol class="subq">
+<li>Find the range of \(f(x) = \sin^{-1} x + \cos^{-1} x + \tan^{-1} x\)</li>
+<li>Find the range of \(f(x) = \sin^{-1} x + \tan^{-1} x + \sec^{-1} x\)</li>
+<li>If \((\tan^{-1} x)^2 + (\cot^{-1} x)^2 = \frac{5\pi^2}{8}\) then find the value of \(x\).</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 41 | Q1</div><div class="qb">Find the maximum and minimum value of \(f(x) = (\sin^{-1} x)^3 + (\cos^{-1} x)^3\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 42 | Q1</div><div class="qb">Find the range of \(k\) for which the equation \((\sin^{-1} x)^3 + (\cos^{-1} x)^3 = k\) has a real solution.</div></div></div>
+
+<h2>ITF Lecture 02 &mdash; Homework</h2>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 57 | Q1</div><div class="qb">For the principal values, evaluate the following:
+<ol class="subq" type="i">
+<li>\(\sin^{-1}\frac{1}{2} - 2\sin^{-1}\frac{1}{\sqrt{2}}\)</li>
+<li>\(\sin^{-1}\left(-\frac{1}{2}\right) + 2\cos^{-1}\left(-\frac{\sqrt{3}}{2}\right)\)</li>
+<li>\(\tan^{-1}(-1) + \cos^{-1}\left(-\frac{1}{\sqrt{2}}\right)\)</li>
+<li>\(\sin^{-1}\left(-\frac{\sqrt{3}}{2}\right) + \cos^{-1}\left(\frac{\sqrt{3}}{2}\right)\)</li>
+<li>\(\tan^{-1}\sqrt{3} - \sec^{-1}(-2)\)</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 59 | Q1</div><div class="qb">Find the following:
+<ol class="subq" type="i">
+<li>\(\sin\left[\frac{\pi}{2} - \sin^{-1}\left(\frac{-\sqrt{3}}{2}\right)\right]\)</li>
+<li>\(\cos\left[\cos^{-1}\left(\frac{-\sqrt{3}}{2}\right) + \frac{\pi}{6}\right]\)</li>
+<li>\(\tan^{-1}\left(\tan\frac{3\pi}{4}\right)\)</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 61 | Q1</div><div class="qb">Find the following:
+<ol class="subq" type="i">
+<li>\(\tan\left[\cos^{-1}\frac{1}{2} + \tan^{-1}\left(\frac{-1}{\sqrt{3}}\right)\right]\)</li>
+<li>\(\cos^{-1}\left(\cos\frac{7\pi}{6}\right)\)</li>
+<li>\(\cos\left(\tan^{-1}\frac{3}{4}\right)\)</li>
+<li>\(\tan\left(\sin^{-1}\frac{3}{5} + \cot^{-1}\frac{3}{2}\right)\)</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 64 | Q1</div><div class="qb">The value of \(\sin^{-1}\left(\cot\left(\sin^{-1}\sqrt{\frac{2-\sqrt{3}}{4}} + \cos^{-1}\frac{\sqrt{12}}{4} + \sec^{-1}\sqrt{2}\right)\right)\) is
+<ul class="opts">
+<li>0</li>
+<li>\(\frac{\pi}{2}\)</li>
+<li>\(\frac{\pi}{3}\)</li>
+<li>none of these</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 67 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2023 (Jan)</span> <span class="tag asrq">★★★ASRQ★★★</span><br/>\(\tan^{-1}\left(\frac{1+\sqrt{3}}{3+\sqrt{3}}\right) + \sec^{-1}\left(\sqrt{\frac{8+4\sqrt{3}}{6+3\sqrt{3}}}\right)\) is equal to:
+<ul class="opts">
+<li>\(\frac{\pi}{2}\)</li>
+<li>\(\frac{\pi}{3}\)</li>
+<li>\(\frac{\pi}{6}\)</li>
+<li>\(\frac{\pi}{4}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 69 | Q1</div><div class="qb">Evaluate:
+<ol class="subq">
+<li>\(\sin\left(\arcsin\frac{3}{5} - \arccos\frac{3}{5}\right)\)</li>
+<li>\(\tan\left(\frac{1}{2}\cos^{-1}\frac{\sqrt{5}}{3}\right)\)</li>
+<li>\(\sin\left(\tan^{-1}\cos\cot^{-1}\left(-\frac{1}{\sqrt{3}}\right)\right)\)</li>
+<li>\(\sin(\tan^{-1} 2) + \cos(\tan^{-1} 2)\)</li>
+<li>\(\tan\left(2\tan^{-1}\frac{1}{5} - \frac{\pi}{4}\right)\)</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 73 | Q1</div><div class="qb">
+<ol class="subq" type="a">
+<li>\(\sin^{-1}\left(-\frac{1}{\sqrt{2}}\right) + \cos^{-1}\left(-\frac{1}{\sqrt{2}}\right) - \tan^{-1}(-\sqrt{3}) + \cot^{-1}\left(-\frac{1}{\sqrt{3}}\right)\)</li>
+<li>\(\sin\left(2\sin^{-1}\frac{3}{5}\right)\)</li>
+<li>\(\cos(2\tan^{-1} 2) + \sin(2\tan^{-1} 3)\) <span class="tag mindbender">★★★Mind Bender★★★</span></li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 75 | Q1</div><div class="qb"><span class="tag asrq">★★★ASRQ★★★</span><br/>Find domain &amp; range of:
+<ol class="subq" type="a">
+<li>\(\cos^{-1}[x]\)</li>
+<li>\(y = \sin^{-1}(e^x)\)</li>
+<li>\(\cos^{-1}\{x\}\)</li>
+<li>\(\cot^{-1}(\operatorname{sgn} x)\)</li>
+<li>\(\frac{1}{\sqrt{\ln \cot x}}\)</li>
+<li>\(\frac{1}{\operatorname{sgn}(\sec^{-1} e^x)}\)</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 77 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2025 (28 Jan)</span><br/>Let \([x]\) denote the greatest integer less than or equal to \(x\). Then the domain of \(f(x) = \sec^{-1}(2[x] + 1)\) is:
+<ul class="opts">
+<li>\((-\infty, \infty)\)</li>
+<li>\((-\infty, \infty) - \{0\}\)</li>
+<li>\((-\infty, -1] \cup [0, \infty)\)</li>
+<li>\((-\infty, -1] \cup [1, \infty)\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 80 | Q1</div><div class="qb">The domain of the function \(\operatorname{cosec}^{-1}\left(\frac{1+x}{x}\right)\) is :
+<ul class="opts">
+<li>\(\left(-1, -\frac{1}{2}\right] \cup (0, \infty)\)</li>
+<li>\(\left[-\frac{1}{2}, 0\right) \cup [1, \infty)\)</li>
+<li>\(\left(-\frac{1}{2}, \infty\right) - \{0\}\)</li>
+<li>\(\left[-\frac{1}{2}, \infty\right) - \{0\}\)</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 82 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2022 (June)</span><br/>The domain of the function \(\cos^{-1}\left(\frac{2\sin^{-1}\left(\frac{1}{4x^2 - 1}\right)}{\pi}\right)\) is :
+<ul class="opts">
+<li>\(R - \left\{-\frac{1}{2}, \frac{1}{2}\right\}\)</li>
+<li>\((-\infty, -1] \cup [1, \infty) \cup \{0\}\)</li>
+<li>\(\left(-\infty, -\frac{1}{2}\right) \cup \left(\frac{1}{2}, \infty\right) \cup \{0\}\)</li>
+<li>\(\left(-\infty, -\frac{1}{\sqrt{2}}\right] \cup \left[\frac{1}{\sqrt{2}}, \infty\right) \cup \{0\}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 84 | Q1</div><div class="qb"><span class="tag mindbender">★★★Mind Bender★★★</span><br/>If range of the function \(f(x) = \tan^{-1}(3x^2 + bx + 3)\), \(x \in \mathbb{R}\) is \(\left[0, \frac{\pi}{2}\right)\), then square of sum of all possible values of \(b\) will be
+<ul class="opts">
+<li>0</li>
+<li>18</li>
+<li>72</li>
+<li>None of these</li>
+</ul></div></div></div>
+
+<h2>ITF Lecture 03 &mdash; Lecture Notes</h2>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 9 | Q1</div><div class="qb">
+<ol class="subq">
+<li>Maximum and Minimum value of \(f(x) = (\sin^{-1} x)^3 + (\cos^{-1} x)^3\)</li>
+<li>The set of all values of \(k\) for which \((\tan^{-1} x)^3 + (\cot^{-1} x)^3 = k\pi^3, x \in \mathbb{R}\), is the interval...</li>
+<li>Using the principal values of the inverse trigonometric functions, the sum of the maximum and the minimum values of \(16((\sec^{-1} x)^2 + (\operatorname{cosec}^{-1} x)^2)\) is:</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 11 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2022</span><br/>If \(0 < x < \frac{1}{\sqrt{2}}\) and \(\frac{\sin^{-1}x}{\alpha} = \frac{\cos^{-1}x}{\beta}\), then the value of \(\sin\left(\frac{2\pi\alpha}{\alpha+\beta}\right)\) is
+<ul class="opts">
+<li>\(4\sqrt{(1-x^2)}(1-2x^2)\)</li>
+<li>\(4x\sqrt{(1-x^2)}(1-2x^2)\)</li>
+<li>\(2x\sqrt{(1-x^2)}(1-4x^2)\)</li>
+<li>\(4\sqrt{(1-x^2)}(1-4x^2)\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 15 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2025 (24 Jan)</span> <span class="tag asrq">★★★★ ASRQ ★★★★</span><br/>If \(\alpha > \beta > \gamma > 0\), then the expression
+\[
+E = \cot^{-1}\left\{\beta + \frac{(1+\beta^2)}{(\alpha - \beta)}\right\} + \cot^{-1}\left\{\gamma + \frac{(1+\gamma^2)}{(\beta - \gamma)}\right\} + \cot^{-1}\left\{\alpha + \frac{(1+\alpha^2)}{(\gamma - \alpha)}\right\}
+\]
+is equal to :
+<ul class="opts">
+<li>\(3\pi\)</li>
+<li>\(\frac{\pi}{2} - (\alpha + \beta + \gamma)\)</li>
+<li>\(\pi\)</li>
+<li>0</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 22 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2022 (26 June)</span><br/>If the inverse trigonometric functions take principal values then
+\[
+\cos^{-1}\left(\frac{3}{10}\cos\left(\tan^{-1}\left(\frac{4}{3}\right)\right) + \frac{2}{5}\sin\left(\tan^{-1}\left(\frac{4}{3}\right)\right)\right)
+\]
+is equal to:
+<ul class="opts">
+<li>0</li>
+<li>\(\frac{\pi}{4}\)</li>
+<li>\(\frac{\pi}{3}\)</li>
+<li>\(\frac{\pi}{6}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 23 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2022 (29 June)</span><br/>\(50\tan\left(3\tan^{-1}\left(\frac{1}{2}\right) + 2\cos^{-1}\left(\frac{1}{\sqrt{5}}\right)\right) + 4\sqrt{2}\tan\left(\frac{1}{2}\tan^{-1}(2\sqrt{2})\right)\) is equal to</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 29 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2023 (13 April)</span> <span class="tag mindbender">★★★MIND BENDER★★★</span><br/>If \(S = \left\{x \in \mathbb{R} : \sin^{-1}\left(\frac{x+1}{\sqrt{x^2+2x+2}}\right) - \sin^{-1}\left(\frac{x}{\sqrt{x^2+1}}\right) = \frac{\pi}{4}\right\}\), then
+\[
+\sum_{x \in S}\left(\sin\left((x^2+x+5)\frac{\pi}{2}\right) - \cos((x^2+x+5)\pi)\right)
+\]
+is equal to</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 32 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2022 (June)</span><br/>Let \(x * y = x^2 + y^3\) and \((x * 1) * 1 = x * (1 * 1)\). Then a value of \(2\sin^{-1}\left(\frac{x^4+x^2-2}{x^4+x^2+2}\right)\) is
+<ul class="opts">
+<li>\(\frac{\pi}{4}\)</li>
+<li>\(\frac{\pi}{3}\)</li>
+<li>\(\frac{\pi}{2}\)</li>
+<li>\(\frac{\pi}{6}\)</li>
+</ul></div></div></div>
+
+<div class="sub-sec">Solving Equations Involving ITFs</div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 35 | Q1</div><div class="qb">Find the solution of following equations:
+<ol class="subq" type="i">
+<li>\(2\cot^{-1} 2 - \cos^{-1}\frac{4}{5} = \operatorname{cosec}^{-1} x\)</li>
+<li>\(\cos^{-1} x - \sin^{-1} x = \cos^{-1}(x\sqrt{3})\)</li>
+<li>\(\cos^{-1}(\sqrt{6}x) + \cos^{-1}(3\sqrt{3}x^2) = \frac{\pi}{2}\) <span class="tag kcls">★★★KCLS★★★</span></li>
+<li>\(2\sin^{-1}\sqrt{x^2-x+1} + \cos^{-1}\sqrt{x^2-x} = \frac{3\pi}{2}\) <span class="tag kcls">★★★KCLS★★★</span></li>
+<li>\(\cos^{-1} x\sqrt{3} + \cos^{-1} x = \frac{\pi}{2}\) <span class="tag kcls">★★★KCLS★★★</span></li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 40 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (6 April)</span><br/>For \(n \in \mathbb{N}\), if \(\cot^{-1} 3 + \cot^{-1} 4 + \cot^{-1} 5 + \cot^{-1} n = \frac{\pi}{4}\), then \(n\) is equal to</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 41 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2023 (1 Feb)</span> <span class="tag mindbender">★★★MIND BENDER★★★</span><br/>Let \(S\) be the set of all solutions of the equation
+\[
+\cos^{-1}(2x) - 2\cos^{-1}\left(\sqrt{1-x^2}\right) = \pi, \quad x \in \left[-\frac{1}{2}, \frac{1}{2}\right].
+\]
+Then \(\sum_{x \in S} 2\sin^{-1}(x^2 - 1)\) is equal to:
+<ul class="opts">
+<li>\(\pi - 2\sin^{-1}\left(\frac{\sqrt{3}}{4}\right)\)</li>
+<li>\(\pi - \sin^{-1}\left(\frac{\sqrt{3}}{4}\right)\)</li>
+<li>\(-\frac{2\pi}{3}\)</li>
+<li>None</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 42 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2022</span> <span class="tag kcls">★★★KCLS★★★</span><br/>Considering the principal values of the inverse trigonometric functions, the sum of all the solutions of the equation \(\cos^{-1}(x) - 2\sin^{-1}(x) = \cos^{-1}(2x)\) is equal to:
+<ul class="opts">
+<li>0</li>
+<li>1</li>
+<li>1/2</li>
+<li>-1/2</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 43 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2025 (29 Jan)</span> <span class="tag kcls">★★★KCLS★★★</span><br/>Let \(S = \{x: \cos^{-1} x = \pi + \sin^{-1} x + \sin^{-1}(2x + 1)\}\). Then \(\sum_{x \in S} (2x - 1)^2\) is equal to</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 45 | Q1</div><div class="qb"><span class="tag mindbender">★★★MIND BENDER★★★</span><br/>Find the number of solution(s) of the equation
+<ol class="subq" type="i">
+<li>\(\cos^{-1}(1-x) - 2\cos^{-1} x = \frac{\pi}{2}\)</li>
+<li>\(\cos^{-1}(1-x) - 2\cos^{-1} x = 1.7\)</li>
+</ol></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 47 | Q1</div><div class="qb"><span class="tag mindbender">★★★MIND BENDER★★★</span><br/>Solve for \(x\):
+\[
+\tan^{-1}\left(\frac{x+1}{x-1}\right) + \tan^{-1}\left(\frac{x-1}{x}\right) = \tan^{-1}(-7)
+\]</div></div></div>
+
+<h2>ITF Lecture 03 &mdash; Homework</h2>
+<h3>Solution to Previous TAH</h3>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 50 | Q1</div><div class="qb">Find the values of:
+<ol class="subq" type="i">
+<li>\(\sin^{-1}(\sin 3)\)</li>
+<li>\(\sin^{-1}(\sin 53)\)</li>
+<li>\(\sin^{-1}(\sin 7)\)</li>
+<li>\(\sin^{-1}(\sin 10)\)</li>
+<li>\(\sin^{-1}(\sin 20)\)</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 52 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2021</span><br/>\(\cos^{-1}(\cos(-5)) + \sin^{-1}(\sin(6)) - \tan^{-1}(\tan(12))\) is equal to: (The inverse trigonometric function take the principals values)
+<ul class="opts">
+<li>\(3\pi - 11\)</li>
+<li>\(4\pi - 9\)</li>
+<li>\(4\pi - 11\)</li>
+<li>\(3\pi + 1\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 54 | Q1</div><div class="qb">Value of \(\sin^{-1}(\sin 7) + \cos^{-1}(\cos 13)\) is
+<ul class="opts">
+<li>\(21 - 5\pi\)</li>
+<li>\(20 - 6\pi\)</li>
+<li>\(20 - 5\pi\)</li>
+<li>\(21 - 6\pi\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 57 | Q1</div><div class="qb">
+<ol class="subq" type="a">
+<li>Solve : \(\cos^{-1}\left(\cos\frac{10\pi}{7}\right) + \cot^{-1}\left(\cot\frac{26\pi}{5}\right)\)</li>
+<li>Prove that \(\cos^{-1}\left(\cos\frac{1000\pi}{7}\right) + \sin^{-1}\left(\sin\frac{601\pi}{14}\right) = \frac{13\pi}{14}\)</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 59 | Q1</div><div class="qb">Show that:
+\[
+\sin^{-1}\left(\sin\frac{33\pi}{7}\right) + \cos^{-1}\left(\cos\frac{46\pi}{7}\right) + \tan^{-1}\left(-\tan\frac{13\pi}{8}\right) + \cot^{-1}\left(\cot\left(-\frac{19\pi}{8}\right)\right) = \frac{13\pi}{7}
+\]</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 61 | Q1</div><div class="qb"><span class="tag exam">JEE Advanced 2014</span><br/>Let \(f: [0, 4\pi] \to [0, \pi]\) be defined by \(f(x) = \cos^{-1}(\cos x)\). The number of points \(x \in [0, 4\pi]\) satisfying the equation \(f(x) = \frac{10-x}{10}\) is</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 63 | Q1</div><div class="qb">
+<ol class="subq" type="a">
+<li>Solve for \(x\): \(2\sin^{-1} x + 3\cos^{-1} x = \frac{3\pi}{2}\)</li>
+<li>Solve for \(x\): \(\cot^{-1} x + 2\tan^{-1} x = \frac{3\pi}{4}\)</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 66 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2025 (22 Jan)</span><br/>Using the principal values of the inverse trigonometric functions, the sum of the maximum and the minimum values of \(16((\sec^{-1} x)^2 + (\operatorname{cosec}^{-1} x)^2)\) is:
+<ul class="opts">
+<li>\(24\pi^2\)</li>
+<li>\(18\pi^2\)</li>
+<li>\(22\pi^2\)</li>
+<li>\(31\pi^2\)</li>
+</ul></div></div></div>
+
+<h3>Solution to Previous KTKs</h3>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 71 | Q1</div><div class="qb">Determine the inverse function and its domain of definition if
+\[
+f(x) = \begin{cases} x, & -\infty < x < 1 \\ x^2, & 1 \le x \le 4 \\ 2^x, & 4 < x < \infty \end{cases}
+\]</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 73 | Q1</div><div class="qb">If \(f : [1, \infty) \to [1, \infty)\) is defined by \(f(x) = 2^{x(x-1)}\), then \(f^{-1}(x)\) is given as
+<ul class="opts">
+<li>\(\frac{1}{2}[1 - \sqrt{1 + 4\log_2 x}]\)</li>
+<li>\(\frac{1}{2}[1 + \sqrt{1 + 4\log_2 x}]\)</li>
+<li>\([1 - \sqrt{1 + 4\log_2 x}]\)</li>
+<li>\([1 + \sqrt{1 + 4\log_2 x}]\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 75 | Q1</div><div class="qb">Let \(f\) be a real valued function such that \(f(x) + 2f\left(\frac{2002}{x}\right) = 3x\) for all \(x > 0\). The value of \(f(2)\), is
+<ul class="opts">
+<li>1000</li>
+<li>2000</li>
+<li>3000</li>
+<li>4000</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 77 | Q1</div><div class="qb">Let \(f(x) = 2x^n + \lambda, \lambda \in \mathbb{R}, n \in \mathbb{N}\), and \(f(4) = 133, f(5) = 255\). Then the sum of all the positive integer divisors of \((f(3) - f(2))\) is
+<ul class="opts">
+<li>60</li>
+<li>58</li>
+<li>61</li>
+<li>59</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 79 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2023 (29 Jan)</span><br/>Suppose \(f\) is a function satisfying \(f(x+y) = f(x) + f(y)\) for all \(x, y \in \mathbb{N}\) and \(f(1) = \frac{1}{5}\). If
+\[
+\sum_{n=1}^m \frac{f(n)}{n(n+1)(n+2)} = \frac{1}{12},
+\]
+then \(m\) is equal to</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 81 | Q1</div><div class="qb">Given \(f(x) = \sqrt{\frac{8}{1-x} + \frac{8}{1+x}}\) and \(g(x) = \frac{4}{f(\sin x)} + \frac{4}{f(\cos x)}\), then \(g(x)\) is
+<ul class="opts">
+<li>periodic with period \(\pi/2\)</li>
+<li>periodic with period \(\pi\)</li>
+<li>periodic with period \(2\pi\)</li>
+<li>aperiodic</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 83 | Q1</div><div class="qb">Find the number of solutions for the following equation:
+\[
+\sin(\pi x) = |\ln |x||
+\]</div></div></div>
+
+<h3>Solution to Previous RPP</h3>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 85 | Q1</div><div class="qb">
+<ol class="subq">
+<li>Number of integral solutions to the equation \(x + y + z = 21\), where \(x \ge 1, y \ge 3, z \ge 4\), is equal to _____ <span class="tag exam">JEE Mains 2023</span></li>
+<li>The total number of six-digit numbers, formed using the digits 4, 5, 9 only and divisible by 6, is _____ <span class="tag exam">JEE Mains 2023</span></li>
+<li>If \(n\) is the number of ways five different employees can sit into four indistinguishable offices where any office may have any number of persons including zero, then \(n\) is equal to: <span class="tag exam">JEE Mains 2024</span>
+<ul class="opts">
+<li>43</li>
+<li>47</li>
+<li>51</li>
+<li>53</li>
+</ul></li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 91 | Q1</div><div class="qb">
+<ol class="subq" start="4">
+<li>Number of ways of arranging 8 identical books into 4 identical shelves where any number of shelves may remain empty is equal to <span class="tag exam">JEE Mains 2024</span>
+<ul class="opts">
+<li>16</li>
+<li>12</li>
+<li>15</li>
+<li>18</li>
+</ul></li>
+<li>The number of elements in the set \(S = \{(x, y, z): x, y, z \in \mathbb{Z}, x + 2y + 3z = 42, x, y, z \ge 0\}\) equals _____ <span class="tag exam">JEE Mains 2024</span></li>
+<li>All the letters of the word "GTWENTY" are written in all possible ways with or without meaning and these words are written as in a dictionary. The serial number of the word "GTWENTY" is _____ <span class="tag exam">JEE Mains 2024</span></li>
+</ol></div></div></div>
+
+<h2>ITF Lecture 04 &mdash; Lecture Notes</h2>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 7 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2025 (8 April)</span> <span class="tag tah">★★★TAH03★★★</span><br/>The value of \(\cot^{-1}\left(\frac{\sqrt{1+\tan^2(2)}-1}{\tan(2)}\right) - \cot^{-1}\left(\frac{\sqrt{1+\tan^2\left(\frac{1}{2}\right)}+1}{\tan\left(\frac{1}{2}\right)}\right)\) is equal to
+<ul class="opts">
+<li>\(\pi - \frac{3}{2}\)</li>
+<li>\(\pi + \frac{5}{2}\)</li>
+<li>\(\pi - \frac{5}{4}\)</li>
+<li>\(\pi + \frac{3}{2}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 14 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2021 (17 March)</span> <span class="tag kcls">★★★KCLS★★★</span><br/>The sum of possible values of \(x\) for \(\tan^{-1}(x+1) + \cot^{-1}\left(\frac{1}{x-1}\right) = \tan^{-1}\left(\frac{8}{31}\right)\) is:
+<ul class="opts">
+<li>\(-\frac{32}{4}\)</li>
+<li>\(-\frac{33}{4}\)</li>
+<li>\(-\frac{31}{4}\)</li>
+<li>\(-\frac{30}{4}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 16 | Q1</div><div class="qb"><span class="tag kcls">★★★KCLS★★★</span><br/>Solve for \(x\):
+\[
+\cot^{-1}\left(\frac{x^2-1}{2x}\right) + \tan^{-1}\left(\frac{2x}{x^2-1}\right) = \frac{2\pi}{3}
+\]</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 20 | Q1</div><div class="qb">Let \((a, b) \in (0, 2\pi)\) be the largest interval for which \(\sin^{-1}(\sin\theta) - \cos^{-1}(\sin\theta) > 0\), \(\theta \in (0, 2\pi)\) holds. If \(\alpha x^2 + \beta x + \sin^{-1}(x^2 - 6x + 10) + \cos^{-1}(x^2 - 6x + 10) = 0\) and \(\alpha - \beta = b - a\), then \(\alpha\) is equal to:
+<ul class="opts">
+<li>\(\frac{\pi}{48}\)</li>
+<li>\(\frac{\pi}{16}\)</li>
+<li>\(\frac{\pi}{8}\)</li>
+<li>\(\frac{\pi}{12}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 22 | Q1</div><div class="qb"><span class="tag mindbender">★★★MIND BENDER★★★</span><br/>The complete solution set of the equation
+\[
+\sin^{-1}\sqrt{\frac{1+x}{2}} - \sqrt{2-x} = \cot^{-1}(\tan\sqrt{2-x}) - \sin^{-1}\sqrt{\frac{1-x}{2}}
+\]
+is
+<ul class="opts">
+<li>\([-1, 1]\)</li>
+<li>\(\left(2-\frac{\pi^2}{4}, 1\right]\)</li>
+<li>\(\left[-1, 2-\frac{\pi^2}{4}\right)\)</li>
+<li>\([0, 1]\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 28 | Q1</div><div class="qb">Write the following functions in the simplest form:
+<ol class="subq">
+<li>\(\tan^{-1}\left(\frac{\sqrt{1+x^2}-1}{x}\right), x \ne 0\)</li>
+<li>\(\tan^{-1}\left(\frac{1}{\sqrt{x^2-1}}\right), |x| > 1\)</li>
+<li>\(\tan^{-1}\left(\sqrt{\frac{1-\cos x}{1+\cos x}}\right), 0 < x < \pi\)</li>
+<li>\(\tan^{-1}\left(\frac{\cos x - \sin x}{\cos x + \sin x}\right), -\frac{\pi}{4} < x < \frac{3\pi}{4}\)</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 30 | Q1</div><div class="qb"><span class="tag kcls">★★★KCLS★★★</span><br/>The value of \(\tan^{-1}\left[\frac{\sqrt{1+x^2}+\sqrt{1-x^2}}{\sqrt{1+x^2}-\sqrt{1-x^2}}\right]\), \(|x| < \frac{1}{2}, x \ne 0\), is equal to
+<ul class="opts">
+<li>\(\frac{\pi}{4} - \frac{1}{2}\cos^{-1} x^2\)</li>
+<li>\(\frac{\pi}{4} + \frac{1}{2}\cos^{-1} x^2\)</li>
+<li>\(\frac{\pi}{4} - \cos^{-1} x^2\)</li>
+<li>\(\frac{\pi}{4} + \cos^{-1} x^2\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 31 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2025 (4 April)</span> <span class="tag tah">TAH 09</span><br/>Considering the principal values of the inverse trigonometric functions,
+\[
+\sin^{-1}\left(\frac{\sqrt{3}}{2}x + \frac{1}{2}\sqrt{1-x^2}\right), \quad -\frac{1}{2} < x < \frac{1}{\sqrt{2}},
+\]
+is equal to
+<ul class="opts">
+<li>\(\frac{-5\pi}{6} - \sin^{-1} x\)</li>
+<li>\(\frac{5\pi}{6} - \sin^{-1} x\)</li>
+<li>\(\frac{\pi}{6} + \sin^{-1} x\)</li>
+<li>\(\frac{\pi}{4} + \sin^{-1} x\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 32 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2025 (23 Jan)</span><br/>If \(\frac{\pi}{2} \le x \le \frac{3\pi}{4}\), then \(\cos^{-1}\left(\frac{12}{13}\cos x + \frac{5}{13}\sin x\right)\) is equal to
+<ul class="opts">
+<li>\(x + \tan^{-1}\frac{5}{12}\)</li>
+<li>\(x - \tan^{-1}\frac{4}{3}\)</li>
+<li>\(x + \tan^{-1}\frac{4}{5}\)</li>
+<li>\(x - \tan^{-1}\frac{5}{12}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 38 | Q1</div><div class="qb">If \(f(x) = 2\tan^{-1} x + \sin^{-1}\left(\frac{2x}{1+x^2}\right), x > 1\) then \(f(5)\) is equal to:
+<ul class="opts">
+<li>\(\pi/2\)</li>
+<li>\(\pi\)</li>
+<li>\(4\tan^{-1}(5)\)</li>
+<li>\(\tan^{-1}\left(\frac{65}{156}\right)\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 39 | Q1</div><div class="qb">Let \(\tan^{-1} y = \tan^{-1} x + \tan^{-1}\left(\frac{2x}{1-x^2}\right)\), where \(|x| < \frac{1}{\sqrt{3}}\). Then a value of \(y\) is:
+<ul class="opts">
+<li>\(\frac{3x - x^3}{1 + 3x^2}\)</li>
+<li>\(\frac{3x + x^3}{1 + 3x^2}\)</li>
+<li>\(\frac{3x - x^3}{1 - 3x^2}\)</li>
+<li>\(\frac{3x + x^3}{1 - 3x^2}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 43 | Q1</div><div class="qb"><span class="tag exam">JEE Advanced 2022</span><br/>Considering only the principal values of the inverse trigonometric functions, the value of
+\[
+\frac{3}{2}\cos^{-1}\sqrt{\frac{2}{2+\pi^2}} + \frac{1}{4}\sin^{-1}\left(\frac{2\sqrt{2}\pi}{2+\pi^2}\right) + \tan^{-1}\left(\frac{\sqrt{2}}{\pi}\right) \text{ is :}
+\]</div></div></div>
+<h2>ITF Lecture 04 &mdash; Homework</h2>
+<h3>Solution to Previous TAH</h3>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 50 | Q1</div><div class="qb"><span class="tag tah">★★★TAH01★★★</span><br/>
+<ol class="subq">
+<li>Maximum and Minimum value of \(f(x) = (\sin^{-1} x)^3 + (\cos^{-1} x)^3\)</li>
+<li>The set of all values of \(k\) for which \((\tan^{-1} x)^3 + (\cot^{-1} x)^3 = k\pi^3, x \in \mathbb{R}\), is the interval:</li>
+<li>Using the principal values of the inverse trigonometric functions, the sum of the maximum and the minimum values of \(16((\sec^{-1} x)^2 + (\operatorname{cosec}^{-1} x)^2)\) is:</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 52 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2021</span> <span class="tag tah">★★★TAH02★★★</span><br/>If \(\frac{\sin^{-1} x}{a} = \frac{\cos^{-1} x}{b} = \frac{\tan^{-1} y}{c}; 0 < x < 1\) then the value of \(\cos\left(\frac{\pi c}{a+b}\right)\) is
+<ul class="opts">
+<li>\(\frac{1 - y^2}{y\sqrt{y}}\)</li>
+<li>\(1 - y^2\)</li>
+<li>\(\frac{1 - y^2}{1 + y^2}\)</li>
+<li>\(\frac{1 - y^2}{2y}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 54 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2021</span> <span class="tag tah">Tah02</span><br/>If \(\frac{\sin^{-1} x}{a} = \frac{\cos^{-1} x}{b} = \frac{\tan^{-1} y}{c}; 0 < x < 1\) then the value of \(\cos\left(\frac{\pi c}{a+b}\right)\) is
+<ul class="opts">
+<li>\(\frac{1 - y^2}{y\sqrt{y}}\)</li>
+<li>\(1 - y^2\)</li>
+<li>\(\frac{1 - y^2}{1 + y^2}\)</li>
+<li>\(\frac{1 - y^2}{2y}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 55 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2025 (8 April)</span> <span class="tag tah">★★★TAH03★★★</span><br/>The value of \(\cot^{-1}\left(\frac{\sqrt{1+\tan^2(2)}-1}{\tan(2)}\right) - \cot^{-1}\left(\frac{\sqrt{1+\tan^2\left(\frac{1}{2}\right)}+1}{\tan\left(\frac{1}{2}\right)}\right)\) is equal to
+<ul class="opts">
+<li>\(\pi - \frac{3}{2}\)</li>
+<li>\(\pi + \frac{5}{2}\)</li>
+<li>\(\pi - \frac{5}{4}\)</li>
+<li>\(\pi + \frac{3}{2}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 57 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2025 (24 Jan)</span> <span class="tag tah">★★★TAH04★★★</span><br/>If for some \(\alpha, \beta; \alpha \le \beta, \alpha + \beta = 8\) and \(\sec^2(\tan^{-1}\alpha) + \operatorname{cosec}^2(\cot^{-1}\beta) = 36\), then \(\alpha^2 + \beta\) is equal to</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 59 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (29 Jan)</span> <span class="tag tah">★★★TAH05★★★</span><br/>Let \(x = \frac{m}{n}\) (\(m, n\) are co-prime natural numbers) be a solution of the equation
+\[
+\cos(2\sin^{-1} x) = \frac{1}{9}
+\]
+and let \(\alpha, \beta (\alpha > \beta)\) be the roots of the equation \(mx^2 - nx - m + n = 0\). Then the point \((\alpha, \beta)\) lies on the line
+<ul class="opts">
+<li>\(3x - 2y = -2\)</li>
+<li>\(3x + 2y = 2\)</li>
+<li>\(5x + 8y = 9\)</li>
+<li>\(5x - 8y = -9\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 62 | Q1</div><div class="qb"><span class="tag exam">JEE Advanced 2026 (Paper 1)</span> <span class="tag tah">★★★TAH06★★★</span><br/>Considering only the principal values of the inverse trigonometric functions, the value of \(\cot^{-1}(\cot(-11)) + 10\sin\left(2\cos^{-1}\left(\frac{1}{\sqrt{2}}\right)\right) + 10\sin(2\tan^{-1}(2))\) is
+<ul class="opts">
+<li>\(3\pi + 7\)</li>
+<li>\(7\)</li>
+<li>\(4\pi + 7\)</li>
+<li>\(3\pi - 5\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 65 | Q1</div><div class="qb"><span class="tag exam">JEE Advanced 2024</span> <span class="tag tah">★★★TAH07★★★</span><br/>Considering only the principal values of the inverse trigonometric functions, the value of \(\tan\left(\sin^{-1}\left(\frac{3}{5}\right) - 2\cos^{-1}\left(\frac{2}{\sqrt{5}}\right)\right)\) is
+<ul class="opts">
+<li>\(\frac{7}{24}\)</li>
+<li>\(-\frac{7}{24}\)</li>
+<li>\(-\frac{5}{24}\)</li>
+<li>\(\frac{5}{24}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 68 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2021 (25 Feb)</span> <span class="tag tah">★★★TAH08★★★</span><br/>\(\operatorname{cosec}\left[2\cot^{-1}(5) + \cos^{-1}\left(\frac{4}{5}\right)\right]\) is equal to:
+<ul class="opts">
+<li>\(\frac{75}{56}\)</li>
+<li>\(\frac{65}{56}\)</li>
+<li>\(\frac{56}{33}\)</li>
+<li>\(\frac{65}{33}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 71 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2022 (26 July)</span> <span class="tag tah">★★★TAH09★★★</span><br/>\(\tan\left(2\tan^{-1}\frac{1}{5} + \sec^{-1}\frac{\sqrt{5}}{2} + 2\tan^{-1}\frac{1}{8}\right)\) is equal to :
+<ul class="opts">
+<li>1</li>
+<li>2</li>
+<li>\(\frac{1}{4}\)</li>
+<li>\(\frac{5}{4}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 73 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2025 (28 Jan)</span> <span class="tag tah">★★★TAH 10★★★</span><br/>\(\cos\left(\sin^{-1}\frac{3}{5} + \sin^{-1}\frac{5}{13} + \sin^{-1}\frac{33}{65}\right)\) is equal to:
+<ul class="opts">
+<li>\(\frac{33}{65}\)</li>
+<li>1</li>
+<li>\(\frac{32}{65}\)</li>
+<li>0</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 76 | Q1</div><div class="qb"><span class="tag exam">IIT-JEE 2008 (Paper 1)</span> <span class="tag tah">★★★TAH 11★★★</span><br/>If \(0 < x < 1\), then \(\sqrt{1+x^2}\left[\{x\cos(\cot^{-1} x) + \sin(\cot^{-1} x)\}^2 - 1\right]^{1/2} =\)
+<ul class="opts">
+<li>\(\frac{x}{\sqrt{1+x^2}}\)</li>
+<li>\(x\)</li>
+<li>\(x\sqrt{1+x^2}\)</li>
+<li>\(\sqrt{1+x^2}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 79 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2022 (June)</span> <span class="tag tah">★★★TAH 12★★★</span><br/>Let \(\alpha = \tan\left(\frac{5\pi}{16}\sin\left(2\cos^{-1}\left(\frac{1}{\sqrt{5}}\right)\right)\right)\) and \(\beta = \cos\left(\sin^{-1}\left(\frac{4}{5}\right) + \sec^{-1}\left(\frac{5}{3}\right)\right)\) where the inverse trigonometric functions take principal values. Then, the equation whose roots are \(\alpha\) and \(\beta\) is :
+<ul class="opts">
+<li>\(15x^2 - 8x - 7 = 0\)</li>
+<li>\(5x^2 - 12x + 7 = 0\)</li>
+<li>\(25x^2 - 18x - 7 = 0\)</li>
+<li>\(25x^2 - 32x + 7 = 0\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 81 | Q1</div><div class="qb"><span class="tag tah">★★★TAH 13a ★★★</span><br/>Find the solution of following equations:
+<ol class="subq" type="i">
+<li>\(2\cot^{-1} 2 - \cos^{-1}\frac{4}{5} = \operatorname{cosec}^{-1} x\)</li>
+<li>\(\cos^{-1} x - \sin^{-1} x = \cos^{-1}(x\sqrt{3})\)</li>
+<li>\(\cos^{-1}(\sqrt{6}x) + \cos^{-1}(3\sqrt{3}x^2) = \frac{\pi}{2}\) <span class="tag kcls">★★★KCLS★★★</span></li>
+<li>\(2\sin^{-1}\sqrt{x^2-x+1} + \cos^{-1}\sqrt{x^2-x} = \frac{3\pi}{2}\) <span class="tag kcls">★★★KCLS★★★</span></li>
+<li>\(\cos^{-1} x\sqrt{3} + \cos^{-1} x = \frac{\pi}{2}\) <span class="tag kcls">★★★KCLS★★★</span></li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 83 | Q1</div><div class="qb"><span class="tag tah">★★★TAH 13b★★★</span> <span class="tag mindbender">★★★MIND BENDER★★★</span><br/>Find the number of solution(s) of the equation
+<ol class="subq" type="i">
+<li>\(\cos^{-1}(1-x) - 2\cos^{-1} x = \frac{\pi}{2}\)</li>
+<li>\(\cos^{-1}(1-x) - 2\cos^{-1} x = 1.7\)</li>
+</ol></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 86 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (27 Jan)</span> <span class="tag kcls">★★★KCLS★★★</span> <span class="tag tah">★★★TAH 14★★★</span><br/>Considering only the principal values of inverse trigonometric functions, the number of positive real values of \(x\) satisfying \(\tan^{-1}(x) + \tan^{-1}(2x) = \frac{\pi}{4}\) is :
+<ul class="opts">
+<li>more than 2</li>
+<li>2</li>
+<li>0</li>
+<li>1</li>
+</ul></div></div></div>
+
+<h2>ITF Lecture 05 &mdash; Lecture Notes</h2>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 12 | Q1</div><div class="qb">The number of solution of the equations \(2\sin^{-1}\left(\frac{2x}{1+x^2}\right) - \pi x^3 = 0\) is equal to
+<ul class="opts">
+<li>0</li>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 14 | Q1</div><div class="qb">The number of solutions of the equation \(|\tan^{-1}|x|| = \sqrt{(x^2+1)^2 - 4x^2}\) is</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 17 | Q1</div><div class="qb">Solve the inequality: \(\sin^{-1} x > \sin^{-1}(3x - 1)\)</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 18 | Q1</div><div class="qb">Solve for \(x\):
+\[
+\sin^{-1} x > \cos^{-1} x \quad \text{and} \quad \sin^{-1} x > \sin^{-1}(1 - x)
+\]</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 19 | Q1</div><div class="qb"><span class="tag mindbender">★★★MIND BENDER★★★</span><br/>Solve the system of inequalities involving inverse circular functions
+\[
+(\arctan x)^2 - 3\arctan x + 2 > 0 \quad \text{and} \quad [\sin^{-1} x] > [\cos^{-1} x]
+\]
+where \([.]\) denotes the greatest integer function.</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 23 | Q1</div><div class="qb"><span class="tag mindbender">★★★MIND BENDER★★★</span><br/>Solve for \(x\):
+\[
+\sin^{-1}\left(\sin\left(\frac{2x^2+4}{1+x^2}\right)\right) < \pi - 3
+\]</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 25 | Q1</div><div class="qb">The set of values of \(x\), satisfying the equation \(\tan^2(\sin^{-1} x) > 1\) is:
+<ul class="opts">
+<li>\((-1, 1)\)</li>
+<li>\(\left(-\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\right)\)</li>
+<li>\([-1, 1] - \left(-\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\right)\)</li>
+<li>\((-1, 1) - \left[-\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\right]\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 26 | Q1</div><div class="qb">The set of values of \(x\), satisfying the equation \(\tan^2(\sin^{-1} x) > 1\) is:
+<ul class="opts">
+<li>\((-1, 1)\)</li>
+<li>\(\left(-\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\right)\)</li>
+<li>\([-1, 1] - \left(-\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\right)\)</li>
+<li>\((-1, 1) - \left[-\frac{1}{\sqrt{2}}, \frac{1}{\sqrt{2}}\right]\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 27 | Q1</div><div class="qb"><span class="tag mindbender">★★★MIND BENDER★★★</span><br/>The solution set of the inequality \((\operatorname{cosec}^{-1} x)^2 - 2\operatorname{cosec}^{-1} x \ge \frac{\pi}{6}(\operatorname{cosec}^{-1} x - 2)\) is \((-\infty, a] \cup [b, \infty)\), then \((a + b)\) equals:
+<ul class="opts">
+<li>0</li>
+<li>1</li>
+<li>2</li>
+<li>-3</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 29 | Q1</div><div class="qb"><span class="tag exam">JEE Advanced 2015</span> <span class="tag mindbender">★★★MIND BENDER★★★</span><br/>If \(\alpha = 3\sin^{-1}\left(\frac{6}{11}\right)\) and \(\beta = 3\cos^{-1}\left(\frac{4}{9}\right)\), where the inverse trigonometric functions take only the principal values, then the correct options(s) is(are):
+<ul class="opts">
+<li>\(\cos\beta > 0\)</li>
+<li>\(\sin\beta < 0\)</li>
+<li>\(\cos(\alpha + \beta) > 0\)</li>
+<li>\(\cos\alpha < 0\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 30 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2026 (8 April)</span> <span class="tag tah">★★★TAH. 07 ★★★</span><br/>Let \(\alpha = 3\sin^{-1}\left(\frac{6}{11}\right)\) and \(\beta = 3\cos^{-1}\left(\frac{4}{9}\right)\), where the inverse trigonometric functions take only principal values.<br/>
+Given below are two statements:<br/>
+Statement I: \(\cos(\alpha + \beta) > 0\).<br/>
+Statement II: \(\sin\beta < 0\).<br/>
+In light of the above statements, choose the correct answer:
+<ul class="opts">
+<li>Both Statement I and Statement II are true.</li>
+<li>Both Statement I and Statement II are false.</li>
+<li>Statement I is true but Statement II is false.</li>
+<li>Statement I is false but Statement II is true.</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 32 | Q1</div><div class="qb">Sum to infinity the series:
+\[
+\tan^{-1}\left(\frac{2}{2+1^2+1^4}\right) + \tan^{-1}\left(\frac{4}{2+2^2+2^4}\right) + \tan^{-1}\left(\frac{6}{2+3^2+3^4}\right) + \cdots
+\]</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 35 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2021</span><br/>Let \(S_k = \sum_{r=1}^k \tan^{-1}\left(\frac{6^r}{2^{2r+1} + 3^{2r+1}}\right)\) then \(\lim_{k \to \infty} S_k\) is equal to:
+<ul class="opts">
+<li>\(\tan^{-1}\left(\frac{3}{2}\right)\)</li>
+<li>\(\frac{\pi}{2}\)</li>
+<li>\(\cot^{-1}\left(\frac{3}{2}\right)\)</li>
+<li>\(\tan^{-1}(3)\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 37 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2021</span><br/>If \(\sum_{r=1}^{50} \tan^{-1}\frac{1}{2r^2} = p\), then the value of \(\tan p\) is:
+<ul class="opts">
+<li>101/102</li>
+<li>50/51</li>
+<li>100</li>
+<li>51/50</li>
+</ul></div></div></div>
+<div class="q"><div class="qinner"><div class="qh">Pg 49 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2019</span><br/>If \(\cos^{-1}\left(\frac{2}{3x}\right) + \cos^{-1}\left(\frac{3}{4x}\right) = \frac{\pi}{2} \left(x > \frac{3}{4}\right)\) then \(x\) is equal to:
+<ul class="opts">
+<li>\(\frac{\sqrt{145}}{12}\)</li>
+<li>\(\frac{\sqrt{145}}{10}\)</li>
+<li>\(\frac{\sqrt{146}}{12}\)</li>
+<li>\(\frac{\sqrt{145}}{11}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 52 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2019</span><br/>The value of \(\sin^{-1}\left(\frac{12}{13}\right) - \sin^{-1}\left(\frac{3}{5}\right)\) is
+<ul class="opts">
+<li>\(\pi - \cos^{-1}\left(\frac{33}{65}\right)\)</li>
+<li>\(\pi - \sin^{-1}\left(\frac{63}{65}\right)\)</li>
+<li>\(\frac{\pi}{2} - \sin^{-1}\left(\frac{56}{65}\right)\)</li>
+<li>\(\frac{\pi}{2} - \cos^{-1}\left(\frac{9}{65}\right)\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 53 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2024 (4 April)</span><br/>Given that the inverse trigonometric function assumes principal values only. Let \(x, y\) be any two real numbers in \([-1, 1]\) such that \(\cos^{-1} x - \sin^{-1} y = \alpha, -\frac{\pi}{2} \le \alpha \le \pi\). Then, the minimum value of \(x^2 + y^2 + 2xy\sin\alpha\) is
+<ul class="opts">
+<li>0</li>
+<li>-1</li>
+<li>1/2</li>
+<li>-1/2</li>
+</ul></div></div></div>
+
+<h2>ITF Lecture 05 &mdash; Homework</h2>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 62 | Q1</div><div class="qb"><span class="tag mindbender">★★★MIND BENDER★★★</span><br/>The product of all real values of \(x\) satisfying the equation
+\[
+\sin^{-1}\cos\left(\frac{2x^2+10|x|+4}{x^2+5|x|+3}\right) = \cot\left(\cot^{-1}\left(\frac{2-18|x|}{9|x|}\right)\right) + \frac{\pi}{2}
+\]
+is</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 63 | Q1</div><div class="qb"><span class="tag mindbender">★★★MIND BENDER★★★</span><br/>Find all the positive integral solutions of \(\tan^{-1} x + \cos^{-1}\left(\frac{y}{\sqrt{1+y^2}}\right) = \sin^{-1}\left(\frac{3}{\sqrt{10}}\right)\).</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 65 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2021</span> <span class="tag kcls">★★★KCLS★★★</span><br/>The number of solutions of the equation \(\sin^{-1}\left[x^2 + \frac{1}{3}\right] + \cos^{-1}\left[x^2 - \frac{2}{3}\right] = x^2\) for \(x \in [-1, 1]\) and \([x]\) denotes the greatest integer less than or equal to \(x\), is
+<ul class="opts">
+<li>0</li>
+<li>infinite</li>
+<li>2</li>
+<li>4</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 67 | Q1</div><div class="qb"><span class="tag mindbender">★★★MIND BENDERS★★★</span><br/>Solve the following:
+<ol class="subq" type="a">
+<li>\(\sin^{-1} x + \sin^{-1} 2x = \frac{\pi}{3}\)</li>
+<li>\(\tan^{-1}\left(\frac{1}{1+2x}\right) + \tan^{-1}\left(\frac{1}{1+4x}\right) = \tan^{-1}\left(\frac{2}{x^2}\right)\)</li>
+<li>\(\tan^{-1}(x - 1) + \tan^{-1}(x) + \tan^{-1}(x + 1) = \tan^{-1}(3x)\)</li>
+<li>\(3\cos^{-1} x = \sin^{-1}\left(\sqrt{1-x^2}(4x^2 - 1)\right)\)</li>
+<li>\(\sin^{-1} x + \sin^{-1} y = \frac{2\pi}{3} \quad\text{and}\quad \cos^{-1} x - \cos^{-1} y = \frac{\pi}{3}\)</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 75 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2023 (25 Jan)</span> <span class="tag tah">★★★TAH ★★★</span><br/>If the sum of all the solutions of \(\tan^{-1}\left(\frac{2x}{1-x^2}\right) + \cot^{-1}\left(\frac{1-x^2}{2x}\right) = \frac{\pi}{3}, -1 < x < 1, x \ne 0\), is \(\alpha - \frac{4}{\sqrt{3}}\), then \(\alpha\) is equal to</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 78 | Q1</div><div class="qb"><span class="tag exam">JEE Advanced 2023</span> <span class="tag tah">★★★TAH ★★★</span><br/>For any \(y \in \mathbb{R}\), let \(\cot^{-1}(y) \in (0, \pi)\) and \(\tan^{-1}(y) \in \left(-\frac{\pi}{2}, \frac{\pi}{2}\right)\). Then the sum of all the solutions of the equation \(\tan^{-1}\left(\frac{6y}{9-y^2}\right) + \cot^{-1}\left(\frac{9-y^2}{6y}\right) = \frac{2\pi}{3}\) for \(0 < |y| < 3\), is equal to:
+<ul class="opts">
+<li>\(2\sqrt{3} - 3\)</li>
+<li>\(3 - 2\sqrt{3}\)</li>
+<li>\(4\sqrt{3} - 6\)</li>
+<li>\(6 - 4\sqrt{3}\)</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 81 | Q1</div><div class="qb"><span class="tag tah">★★★TAH ★★★</span><br/>Let \(f: \mathbb{R} \to \left(0, \frac{\pi}{6}\right]\) be defined as \(f(x) = \sin^{-1}\left(\frac{4}{4x^2-12x+17}\right)\) then \(f(x)\) is :
+<ul class="opts">
+<li>injective as well as surjective</li>
+<li>surjective but not injective</li>
+<li>injective but not surjective</li>
+<li>neither injective nor surjective</li>
+</ul></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 84 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2025 (2 April)</span> <span class="tag tah">★★★TAH ★★★</span><br/>If \(y = \cos\left(\frac{\pi}{3} + \cos^{-1}\frac{x}{2}\right)\), then \((x - y)^2 + 3y^2\) is equal to</div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 86 | Q1</div><div class="qb">Write the following functions in the simplest form:
+<ol class="subq">
+<li>\(\tan^{-1}\left(\frac{\sqrt{1+x^2}-1}{x}\right), x \ne 0\)</li>
+<li>\(\tan^{-1}\left(\frac{1}{\sqrt{x^2-1}}\right), |x| > 1\)</li>
+<li>\(\tan^{-1}\left(\sqrt{\frac{1-\cos x}{1+\cos x}}\right), 0 < x < \pi\)</li>
+<li>\(\tan^{-1}\left(\frac{\cos x - \sin x}{\cos x + \sin x}\right), -\frac{\pi}{4} < x < \frac{3\pi}{4}\)</li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 89 | Q1</div><div class="qb"><span class="tag exam">JEE Mains 2025 (4 April)</span><br/>Considering the principal values of the inverse trigonometric functions,
+\[
+\sin^{-1}\left(\frac{\sqrt{3}}{2}x + \frac{1}{2}\sqrt{1-x^2}\right), \quad -\frac{1}{2} < x < \frac{1}{\sqrt{2}},
+\]
+is equal to
+<ul class="opts">
+<li>\(\frac{-5\pi}{6} - \sin^{-1} x\)</li>
+<li>\(\frac{5\pi}{6} - \sin^{-1} x\)</li>
+<li>\(\frac{\pi}{6} + \sin^{-1} x\)</li>
+<li>\(\frac{\pi}{4} + \sin^{-1} x\)</li>
+</ul></div></div></div>
+
+<h3>Solution to Previous RPP</h3>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 98 | Q1</div><div class="qb">
+<ol class="subq">
+<li>Two sides of a rhombus are along the lines, \(x - y + 1 = 0\) and \(7x - y - 5 = 0\). If its diagonals intersect at \((-1, -2)\), then which one of the following is a vertex of this rhombus? <span class="tag exam">JEE Mains 2016</span>
+<ul class="opts">
+<li>\(\left(-\frac{10}{3}, -\frac{7}{3}\right)\)</li>
+<li>\((-3, -9)\)</li>
+<li>\((-3, -8)\)</li>
+<li>\(\left(\frac{1}{3}, -\frac{8}{3}\right)\)</li>
+</ul></li>
+<li>Let \(k\) be an integer such that triangle with vertices \((k, -3k), (5, k)\) and \((-k, 2)\) has area 28 sq. units. Then the orthocentre of this triangle is at the point: <span class="tag exam">JEE Mains 2017</span>
+<ul class="opts">
+<li>\(\left(2, \frac{1}{2}\right)\)</li>
+<li>\(\left(2, -\frac{1}{2}\right)\)</li>
+<li>\(\left(1, \frac{3}{4}\right)\)</li>
+<li>\(\left(1, -\frac{3}{4}\right)\)</li>
+</ul></li>
+<li>Let the orthocentre and centroid of a triangle be \(A(-3, 5)\) and \(B(3, 3)\) respectively. If \(C\) is the circumcentre of this triangle, then the radius of the circle having line segment \(AC\) as diameter, is: <span class="tag exam">JEE Mains 2018</span>
+<ul class="opts">
+<li>\(\frac{3\sqrt{5}}{2}\)</li>
+<li>\(\sqrt{10}\)</li>
+<li>\(2\sqrt{10}\)</li>
+<li>\(3\sqrt{\frac{5}{2}}\)</li>
+</ul></li>
+</ol></div></div></div>
+
+<div class="q"><div class="qinner"><div class="qh">Pg 104 | Q1</div><div class="qb">
+<ol class="subq" start="4">
+<li>A straight line through a fixed point \((2, 3)\) intersects the coordinate axes at distinct points \(P\) and \(Q\). If \(O\) is the origin and the rectangle \(OPRQ\) is completed, then the locus of \(R\) is: <span class="tag exam">JEE Mains 2018</span>
+<ul class="opts">
+<li>\(3x + 2y = 6xy\)</li>
+<li>\(3x + 2y = 6\)</li>
+<li>\(2x + 3y = xy\)</li>
+<li>\(3x + 2y = xy\)</li>
+</ul></li>
+<li>If in a parallelogram \(ABDC\), the coordinates of \(A, B\) and \(C\) are respectively \((1, 2), (3, 4)\) and \((2, 5)\), then the equation of the diagonal \(AD\) is: <span class="tag exam">JEE Mains 2019</span>
+<ul class="opts">
+<li>\(3x - 5y + 7 = 0\)</li>
+<li>\(5x - 3y + 1 = 0\)</li>
+<li>\(3x + 5y - 13 = 0\)</li>
+<li>\(5x + 3y - 11 = 0\)</li>
+</ul></li>
+<li>If the straight line, \(2x - 3y + 17 = 0\) is perpendicular to the line passing through the points \((7, 17)\) and \((15, \beta)\), then \(\beta\) equals: <span class="tag exam">JEE Mains 2019</span>
+<ul class="opts">
+<li>\(-\frac{35}{3}\)</li>
+<li>\(5\)</li>
+<li>\(\frac{35}{3}\)</li>
+<li>\(-5\)</li>
+</ul></li>
+</ol></div></div></div>
+</body>
+</html>

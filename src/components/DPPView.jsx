@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import QuestionCard from './QuestionCard';
 import SprintView from './SprintView';
 import ThemeToggle from './ThemeToggle';
+import AddSectionModal from './AddSectionModal';
 import { useTimerEngine, formatTime } from '../hooks/useTimerEngine';
 import {
   moveToTrash,
@@ -9,6 +10,13 @@ import {
   getTrashList,
   getQuestionStatuses,
   QUESTION_STATUS,
+  getCustomSections,
+  addCustomSection,
+  deleteCustomSection,
+  getQuestionSection,
+  setQuestionSection,
+  getCollapsedSections,
+  setCollapsedSections,
 } from '../utils/storage';
 
 function loadJSON(key) {
@@ -27,30 +35,38 @@ export default function DPPView({ dppData, onBack, onOpenTrash }) {
   const [isSprintActive, setIsSprintActive] = useState(false);
   const [statuses, setStatuses] = useState(() => getQuestionStatuses());
 
+  // Custom Sections & Collapsed Accordion State
+  const [customSections, setCustomSections] = useState(() => getCustomSections(dppData.id));
+  const [collapsedSections, setCollapsedSectionsState] = useState(() => new Set(getCollapsedSections(dppData.id)));
+  const [isAddSectionOpen, setIsAddSectionOpen] = useState(false);
+
   // Keep storage updated
   useEffect(() => {
     const handleStorageUpdate = () => {
       setTrashCount(getTrashList().length);
       setStatuses(getQuestionStatuses());
+      setCustomSections(getCustomSections(dppData.id));
     };
     window.addEventListener('dpp_storage_updated', handleStorageUpdate);
     return () => window.removeEventListener('dpp_storage_updated', handleStorageUpdate);
-  }, []);
+  }, [dppData.id]);
 
   // Load persisted selections
   const savedSelections = useRef(loadJSON(selKey));
 
-  // Flatten all questions, excluding trashed ones, restoring selections
+  // Flatten all questions, excluding trashed ones, restoring selections and custom sections
   const [questions, setQuestions] = useState(() => {
     const all = [];
     dppData.sections.forEach(sec => {
       sec.questions.forEach(q => {
         if (!isQuestionTrashed(q.id)) {
+          const customSection = getQuestionSection(q.id);
           all.push({
             ...q,
             chapterId: dppData.id,
             chapterTitle: dppData.title,
-            sectionTitle: q.sectionTitle || sec.title,
+            sectionTitle: customSection || q.sectionTitle || sec.title,
+            originalSectionTitle: q.originalSectionTitle || q.sectionTitle || sec.title,
             selectedOption: savedSelections.current[q.id] || null,
           });
         }
@@ -187,14 +203,93 @@ export default function DPPView({ dppData, onBack, onOpenTrash }) {
     });
   }, [questions, selectedTag, statusFilter, showStarredOnly, starred, statuses]);
 
-  // Section titles
-  const sectionTitles = useMemo(() => {
+  // Toggle collapse for a single section
+  const toggleCollapse = useCallback((secTitle) => {
+    setCollapsedSectionsState(prev => {
+      const next = new Set(prev);
+      if (next.has(secTitle)) {
+        next.delete(secTitle);
+      } else {
+        next.add(secTitle);
+      }
+      setCollapsedSections(dppData.id, Array.from(next));
+      return next;
+    });
+  }, [dppData.id]);
+
+  // Section titles (original parsed sections + custom sections + any assigned in questions)
+  const allSectionTitles = useMemo(() => {
     const titles = [];
     dppData.sections.forEach(sec => {
       if (!titles.includes(sec.title)) titles.push(sec.title);
     });
+    customSections.forEach(title => {
+      if (!titles.includes(title)) titles.push(title);
+    });
+    questions.forEach(q => {
+      if (q.sectionTitle && !titles.includes(q.sectionTitle)) {
+        titles.push(q.sectionTitle);
+      }
+    });
     return titles;
-  }, [dppData.sections]);
+  }, [dppData.sections, customSections, questions]);
+
+  // Expand all sections
+  const handleExpandAll = useCallback(() => {
+    setCollapsedSectionsState(new Set());
+    setCollapsedSections(dppData.id, []);
+  }, [dppData.id]);
+
+  // Collapse all sections
+  const handleCollapseAll = useCallback(() => {
+    setCollapsedSectionsState(new Set(allSectionTitles));
+    setCollapsedSections(dppData.id, allSectionTitles);
+  }, [dppData.id, allSectionTitles]);
+
+  // Add new custom section
+  const handleAddSection = useCallback((title) => {
+    const updated = addCustomSection(dppData.id, title);
+    setCustomSections(updated);
+  }, [dppData.id]);
+
+  // Delete custom section
+  const handleDeleteCustomSection = useCallback((secTitle, qCount) => {
+    if (qCount > 0) {
+      const ok = window.confirm(
+        `This section contains ${qCount} question(s). Deleting it will restore those questions back to their original sections. Proceed?`
+      );
+      if (!ok) return;
+      questions.forEach(q => {
+        if (q.sectionTitle === secTitle) {
+          const original = q.originalSectionTitle || 'Questions';
+          setQuestionSection(q.id, original);
+        }
+      });
+      setQuestions(prev => prev.map(q => {
+        if (q.sectionTitle === secTitle) {
+          return { ...q, sectionTitle: q.originalSectionTitle || 'Questions' };
+        }
+        return q;
+      }));
+    } else {
+      const ok = window.confirm(`Remove custom section "${secTitle}"?`);
+      if (!ok) return;
+    }
+    deleteCustomSection(dppData.id, secTitle);
+    setCustomSections(getCustomSections(dppData.id));
+    setCollapsedSectionsState(prev => {
+      const next = new Set(prev);
+      next.delete(secTitle);
+      setCollapsedSections(dppData.id, Array.from(next));
+      return next;
+    });
+  }, [dppData.id, questions]);
+
+  // Move question to section
+  const handleMoveQuestionSection = useCallback((qId, targetSection) => {
+    setQuestionSection(qId, targetSection);
+    setQuestions(prev => prev.map(q => q.id === qId ? { ...q, sectionTitle: targetSection } : q));
+  }, []);
 
   if (isSprintActive) {
     return (
@@ -343,8 +438,40 @@ export default function DPPView({ dppData, onBack, onOpenTrash }) {
         </div>
       )}
 
+      {/* Section Management Toolbar */}
+      <div className="section-toolbar fade-in">
+        <div className="section-toolbar-left">
+          <span className="section-toolbar-label">
+            📑 <strong>{allSectionTitles.length} Section{allSectionTitles.length !== 1 ? 's' : ''}</strong>
+          </span>
+          {collapsedSections.size > 0 && (
+            <span className="section-collapsed-summary">
+              ({collapsedSections.size} minimized)
+            </span>
+          )}
+        </div>
+        <div className="section-toolbar-right">
+          <button
+            type="button"
+            className="btn btn-outline btn-sm section-tool-btn"
+            onClick={collapsedSections.size === allSectionTitles.length ? handleExpandAll : handleCollapseAll}
+            title={collapsedSections.size === allSectionTitles.length ? 'Expand all sections' : 'Minimize all sections'}
+          >
+            {collapsedSections.size === allSectionTitles.length ? '⊞ Expand All' : '⊟ Minimize All'}
+          </button>
+          <button
+            type="button"
+            className="btn btn-primary btn-sm add-section-btn"
+            onClick={() => setIsAddSectionOpen(true)}
+            title="Create a new custom section in this chapter"
+          >
+            ➕ Add Section
+          </button>
+        </div>
+      </div>
+
       {/* Sections + Questions */}
-      {filteredQuestions.length === 0 ? (
+      {filteredQuestions.length === 0 && questions.length === 0 ? (
         <div className="empty-state-card fade-in" style={{ marginTop: '24px' }}>
           <div className="empty-state-icon">🔍</div>
           <div className="empty-state-title">No questions found</div>
@@ -372,39 +499,129 @@ export default function DPPView({ dppData, onBack, onOpenTrash }) {
           </div>
         </div>
       ) : (
-        sectionTitles.map((secTitle, si) => {
+        allSectionTitles.map((secTitle, si) => {
           const sectionQs = filteredQuestions.filter(q => q.sectionTitle === secTitle);
-          if (sectionQs.length === 0) return null;
+          const allSectionQs = questions.filter(q => q.sectionTitle === secTitle);
+          const isCustom = customSections.includes(secTitle);
+          const isCollapsed = collapsedSections.has(secTitle);
+
+          // If a filter is applied and section has 0 matching questions, hide section
+          const isFilterActive = selectedTag !== 'ALL' || statusFilter !== 'ALL' || showStarredOnly;
+          if (isFilterActive && sectionQs.length === 0) return null;
+
+          // Solved count in this section
+          const solvedInSec = sectionQs.filter(q => statuses[q.id] === QUESTION_STATUS.SOLVED).length;
 
           return (
-            <div key={si}>
-              <div className="section-hdr fade-in">{secTitle}</div>
-              {sectionQs.map(q => {
-                const globalIdx = questions.indexOf(q);
-                return (
-                  <QuestionCard
-                    key={q.id}
-                    question={q}
-                    index={globalIdx}
-                    starred={!!starred[q.id]}
-                    chapterId={dppData.id}
-                    chapterTitle={dppData.title}
-                    onSelectOption={handleSelectOption}
-                    onStartTimer={startTimer}
-                    onPauseTimer={pauseTimer}
-                    onResetTimer={resetTimer}
-                    onSetDuration={setDuration}
-                    onToggleStar={toggleStar}
-                    onDeleteQuestion={handleDeleteQuestion}
-                    onUpdateQuestion={handleUpdateQuestion}
-                    onStatusChange={() => setStatuses(getQuestionStatuses())}
-                  />
-                );
-              })}
+            <div key={secTitle || si} className="dpp-section-group fade-in">
+              {/* Clickable Collapsible Section Header */}
+              <div
+                className={`section-hdr ${isCollapsed ? 'is-collapsed' : 'is-expanded'} ${isCustom ? 'is-custom-section' : ''}`}
+                onClick={() => toggleCollapse(secTitle)}
+                title={`Click to ${isCollapsed ? 'maximize' : 'minimize'} this section`}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleCollapse(secTitle);
+                  }
+                }}
+              >
+                <div className="section-hdr-left">
+                  <span className={`section-chevron ${isCollapsed ? 'collapsed' : 'expanded'}`}>
+                    {isCollapsed ? '▶' : '▼'}
+                  </span>
+                  <span className="section-hdr-title">{secTitle}</span>
+                  {isCustom && <span className="custom-section-pill">Custom</span>}
+                </div>
+
+                <div className="section-hdr-right" onClick={(e) => e.stopPropagation()}>
+                  {/* Solved badge */}
+                  {solvedInSec > 0 && (
+                    <span className="section-solved-chip" title={`${solvedInSec} solved in this section`}>
+                      🟢 {solvedInSec}/{sectionQs.length}
+                    </span>
+                  )}
+
+                  {/* Question Count Chip */}
+                  <span className="section-count-chip">
+                    {sectionQs.length} {sectionQs.length === 1 ? 'question' : 'questions'}
+                  </span>
+
+                  {/* Status Indicator */}
+                  {isCollapsed && (
+                    <span className="section-minimized-chip">Minimized</span>
+                  )}
+
+                  {/* Custom Section Delete Button */}
+                  {isCustom && (
+                    <button
+                      type="button"
+                      className="section-delete-btn"
+                      onClick={() => handleDeleteCustomSection(secTitle, allSectionQs.length)}
+                      title={`Delete "${secTitle}" section`}
+                    >
+                      🗑️
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {/* Questions Container (display none when collapsed to preserve MathJax and save space) */}
+              <div
+                className="section-questions-wrapper"
+                style={{ display: isCollapsed ? 'none' : 'block' }}
+              >
+                {sectionQs.length === 0 ? (
+                  <div className="section-empty-box">
+                    <div className="section-empty-icon">📂</div>
+                    <div className="section-empty-title">This section has no questions yet</div>
+                    <p className="section-empty-desc">
+                      Click the <strong>📑</strong> button on any question card to move it into &ldquo;{secTitle}&rdquo;.
+                    </p>
+                  </div>
+                ) : (
+                  sectionQs.map(q => {
+                    const globalIdx = questions.indexOf(q);
+                    return (
+                      <QuestionCard
+                        key={q.id}
+                        question={q}
+                        index={globalIdx}
+                        starred={!!starred[q.id]}
+                        chapterId={dppData.id}
+                        chapterTitle={dppData.title}
+                        onSelectOption={handleSelectOption}
+                        onStartTimer={startTimer}
+                        onPauseTimer={pauseTimer}
+                        onResetTimer={resetTimer}
+                        onSetDuration={setDuration}
+                        onToggleStar={toggleStar}
+                        onDeleteQuestion={handleDeleteQuestion}
+                        onUpdateQuestion={handleUpdateQuestion}
+                        onStatusChange={() => setStatuses(getQuestionStatuses())}
+                        availableSections={allSectionTitles}
+                        onMoveSection={handleMoveQuestionSection}
+                        onAddSection={handleAddSection}
+                      />
+                    );
+                  })
+                )}
+              </div>
             </div>
           );
         })
       )}
+
+      {/* Add Section Modal */}
+      <AddSectionModal
+        isOpen={isAddSectionOpen}
+        onClose={() => setIsAddSectionOpen(false)}
+        onAddSection={handleAddSection}
+        chapterTitle={dppData.title}
+        existingSections={allSectionTitles}
+      />
     </div>
   );
 }

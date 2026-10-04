@@ -12,6 +12,9 @@ export const STORAGE_KEYS = {
   TAGS: 'dpp_custom_tags_v1',
   STATUS: 'dpp_question_status_v1',
   THEME: 'dpp_theme_v1',
+  CUSTOM_SECTIONS: 'dpp_custom_sections_v1',
+  QUESTION_SECTIONS: 'dpp_question_sections_v1',
+  COLLAPSED_SECTIONS: 'dpp_collapsed_sections_v1',
 };
 
 function safeGet(key, fallback = null) {
@@ -374,6 +377,137 @@ export function resetQuestionCustomization(questionId) {
 }
 
 // ──────────────────────────────────────────────────
+// SECTION MANAGEMENT & COLLAPSE PREFERENCES
+// Custom sections: { [chapterId]: string[] }
+// Question section overrides: { [questionId]: string }
+// Collapsed sections: { [chapterId]: string[] }
+// ──────────────────────────────────────────────────
+
+export function getCustomSectionsMap() {
+  return safeGet(STORAGE_KEYS.CUSTOM_SECTIONS, {});
+}
+
+export function getCustomSections(chapterId) {
+  const map = getCustomSectionsMap();
+  return map[chapterId] || [];
+}
+
+export function addCustomSection(chapterId, sectionTitle) {
+  const title = (sectionTitle || '').trim();
+  if (!title) return getCustomSections(chapterId);
+  const map = getCustomSectionsMap();
+  const current = map[chapterId] || [];
+  if (!current.includes(title)) {
+    map[chapterId] = [...current, title];
+    safeSet(STORAGE_KEYS.CUSTOM_SECTIONS, map);
+    window.dispatchEvent(new Event('dpp_storage_updated'));
+  }
+  return map[chapterId];
+}
+
+export function deleteCustomSection(chapterId, sectionTitle) {
+  const map = getCustomSectionsMap();
+  if (map[chapterId]) {
+    map[chapterId] = map[chapterId].filter(t => t !== sectionTitle);
+    safeSet(STORAGE_KEYS.CUSTOM_SECTIONS, map);
+  }
+  // Also clean up any question section assignments pointing to this section
+  const qMap = getQuestionSectionsMap();
+  let qChanged = false;
+  Object.keys(qMap).forEach(qId => {
+    if (qMap[qId] === sectionTitle) {
+      delete qMap[qId];
+      qChanged = true;
+    }
+  });
+  if (qChanged) {
+    safeSet(STORAGE_KEYS.QUESTION_SECTIONS, qMap);
+  }
+  window.dispatchEvent(new Event('dpp_storage_updated'));
+}
+
+export function getQuestionSectionsMap() {
+  return safeGet(STORAGE_KEYS.QUESTION_SECTIONS, {});
+}
+
+export function getQuestionSection(questionId) {
+  const map = getQuestionSectionsMap();
+  return map[questionId] || null;
+}
+
+export function setQuestionSection(questionId, sectionTitle) {
+  const map = getQuestionSectionsMap();
+  const title = (sectionTitle || '').trim();
+  if (!title) {
+    delete map[questionId];
+  } else {
+    map[questionId] = title;
+  }
+  safeSet(STORAGE_KEYS.QUESTION_SECTIONS, map);
+
+  // Also update question instance in folders if it exists
+  const folderItems = getFolderItemsMap();
+  let itemsChanged = false;
+  Object.keys(folderItems).forEach(fId => {
+    folderItems[fId] = folderItems[fId].map(it => {
+      if (it.questionId === questionId) {
+        itemsChanged = true;
+        return {
+          ...it,
+          question: {
+            ...it.question,
+            sectionTitle: title || it.question.sectionTitle,
+          },
+        };
+      }
+      return it;
+    });
+  });
+  if (itemsChanged) {
+    safeSet(STORAGE_KEYS.FOLDER_ITEMS, folderItems);
+  }
+
+  window.dispatchEvent(new Event('dpp_storage_updated'));
+}
+
+export function resetQuestionSection(questionId) {
+  const map = getQuestionSectionsMap();
+  if (map[questionId]) {
+    delete map[questionId];
+    safeSet(STORAGE_KEYS.QUESTION_SECTIONS, map);
+    window.dispatchEvent(new Event('dpp_storage_updated'));
+  }
+}
+
+export function getCollapsedSectionsMap() {
+  return safeGet(STORAGE_KEYS.COLLAPSED_SECTIONS, {});
+}
+
+export function getCollapsedSections(chapterId) {
+  const map = getCollapsedSectionsMap();
+  return map[chapterId] || [];
+}
+
+export function setCollapsedSections(chapterId, collapsedArray) {
+  const map = getCollapsedSectionsMap();
+  map[chapterId] = Array.isArray(collapsedArray) ? collapsedArray : [];
+  safeSet(STORAGE_KEYS.COLLAPSED_SECTIONS, map);
+  window.dispatchEvent(new Event('dpp_storage_updated'));
+}
+
+export function toggleSectionCollapse(chapterId, sectionTitle) {
+  const current = getCollapsedSections(chapterId);
+  let next;
+  if (current.includes(sectionTitle)) {
+    next = current.filter(t => t !== sectionTitle);
+  } else {
+    next = [...current, sectionTitle];
+  }
+  setCollapsedSections(chapterId, next);
+  return next;
+}
+
+// ──────────────────────────────────────────────────
 // 1-CLICK BACKUP & DATA SYNC (EXPORT / IMPORT JSON)
 // ──────────────────────────────────────────────────
 
@@ -389,6 +523,9 @@ export function exportAllData() {
       customizations: getQuestionCustomizations(),
       statuses: getQuestionStatuses(),
       theme: getTheme(),
+      customSections: getCustomSectionsMap(),
+      questionSections: getQuestionSectionsMap(),
+      collapsedSections: getCollapsedSectionsMap(),
     },
   };
 
@@ -436,6 +573,7 @@ export function validateBackup(jsonObj) {
     trashCount: jsonObj.data.trash ? Object.keys(jsonObj.data.trash).length : 0,
     customizationsCount: jsonObj.data.customizations ? Object.keys(jsonObj.data.customizations).length : 0,
     statusesCount: jsonObj.data.statuses ? Object.keys(jsonObj.data.statuses).length : 0,
+    customSectionsCount: jsonObj.data.customSections ? Object.keys(jsonObj.data.customSections).length : 0,
     exportDate: jsonObj.exportDate || 'Unknown',
   };
 }
@@ -451,6 +589,9 @@ export function importAllData(jsonObj, mode = 'merge') {
     if (data.customizations) safeSet(STORAGE_KEYS.CUSTOMIZATIONS, data.customizations);
     if (data.statuses) safeSet(STORAGE_KEYS.STATUS, data.statuses);
     if (data.theme) setTheme(data.theme);
+    if (data.customSections) safeSet(STORAGE_KEYS.CUSTOM_SECTIONS, data.customSections);
+    if (data.questionSections) safeSet(STORAGE_KEYS.QUESTION_SECTIONS, data.questionSections);
+    if (data.collapsedSections) safeSet(STORAGE_KEYS.COLLAPSED_SECTIONS, data.collapsedSections);
 
     if (data.stars) {
       Object.entries(data.stars).forEach(([k, v]) => safeSet(k, v));
@@ -509,7 +650,27 @@ export function importAllData(jsonObj, mode = 'merge') {
       safeSet(STORAGE_KEYS.STATUS, currentStatus);
     }
 
-    // 6. Stars & selections
+    // 6. Custom Sections
+    if (data.customSections && typeof data.customSections === 'object') {
+      const current = getCustomSectionsMap();
+      Object.entries(data.customSections).forEach(([chapId, sections]) => {
+        if (Array.isArray(sections)) {
+          const existing = new Set(current[chapId] || []);
+          sections.forEach(s => existing.add(s));
+          current[chapId] = Array.from(existing);
+        }
+      });
+      safeSet(STORAGE_KEYS.CUSTOM_SECTIONS, current);
+    }
+
+    // 7. Question Sections
+    if (data.questionSections && typeof data.questionSections === 'object') {
+      const currentQSec = getQuestionSectionsMap();
+      Object.assign(currentQSec, data.questionSections);
+      safeSet(STORAGE_KEYS.QUESTION_SECTIONS, currentQSec);
+    }
+
+    // 8. Stars & selections
     if (data.stars && typeof data.stars === 'object') {
       Object.entries(data.stars).forEach(([k, v]) => {
         const existing = safeGet(k, {});

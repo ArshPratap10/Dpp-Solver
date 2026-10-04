@@ -306,18 +306,394 @@ body {
 }
 .dpp-meta-bar strong { font-weight: 800; }
 
-/* ── Section Header ── */
+/* ══════════════════════════════════════════
+   SECTION TOOLBAR & ACCORDION CONTROLS
+   ══════════════════════════════════════════ */
+.section-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 16px;
+  margin: 16px 0 10px;
+  box-shadow: var(--shadow-sm);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.section-toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-toolbar-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.section-collapsed-summary {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  background: var(--bg-secondary);
+  padding: 2px 8px;
+  border-radius: 99px;
+  border: 1px solid var(--border);
+}
+.section-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-tool-btn {
+  font-size: 0.8rem !important;
+  font-weight: 600;
+  padding: 5px 12px;
+}
+.add-section-btn {
+  font-size: 0.8rem !important;
+  font-weight: 700;
+  padding: 5px 14px;
+}
+
+/* ── Collapsible Section Header ── */
+.dpp-section-group {
+  margin-top: 20px;
+}
 .section-hdr {
-  background: linear-gradient(135deg, var(--bg-section) 0%, #2d2b55 100%);
-  color: var(--text-white);
-  font-size: 12px;
+  background: linear-gradient(135deg, var(--bg-section, #1e1b4b) 0%, #2d2b55 100%);
+  color: #ffffff;
+  font-size: 13px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1.4px;
-  padding: 9px 16px;
-  margin: 30px 0 18px;
-  border-radius: 4px;
+  letter-spacing: 1.2px;
+  padding: 11px 18px;
+  margin: 14px 0 12px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.12);
+  transition: all 0.22s var(--ease);
+  position: relative;
 }
+.section-hdr:hover {
+  filter: brightness(1.15);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.section-hdr:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.section-hdr.is-collapsed {
+  margin-bottom: 8px;
+  opacity: 0.92;
+  border-left: 4px solid var(--text-muted);
+}
+.section-hdr.is-expanded {
+  border-left: 4px solid var(--accent);
+}
+.section-hdr.is-custom-section {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+}
+[data-theme="dark"] .section-hdr.is-custom-section {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+.section-hdr-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+.section-chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  width: 20px;
+  height: 20px;
+  transition: transform 0.22s var(--ease);
+  color: rgba(255, 255, 255, 0.9);
+}
+.section-chevron.expanded {
+  transform: rotate(0deg);
+}
+.section-chevron.collapsed {
+  transform: rotate(-90deg);
+}
+.section-hdr-title {
+  font-weight: 800;
+  letter-spacing: 1.1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.custom-section-pill {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+  padding: 2px 7px;
+  border-radius: 99px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+.section-hdr-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.section-count-chip {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 99px;
+  letter-spacing: 0.4px;
+}
+.section-solved-chip {
+  background: rgba(5, 150, 105, 0.4);
+  color: #a7f3d0;
+  border: 1px solid rgba(5, 150, 105, 0.5);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 99px;
+}
+.section-minimized-chip {
+  background: rgba(245, 158, 11, 0.35);
+  color: #fef08a;
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 2px 8px;
+  border-radius: 99px;
+}
+.section-delete-btn {
+  background: transparent;
+  border: none;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  opacity: 0.8;
+  transition: all 0.2s;
+  color: #fff;
+}
+.section-delete-btn:hover {
+  opacity: 1;
+  background: rgba(220, 38, 38, 0.5);
+}
+
+/* ── Section Questions & Empty States ── */
+.section-questions-wrapper {
+  transition: all 0.25s var(--ease);
+}
+.section-empty-box {
+  background: var(--bg-card);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-sm);
+  padding: 24px 20px;
+  text-align: center;
+  margin: 10px 0 16px;
+}
+.section-empty-icon {
+  font-size: 26px;
+  margin-bottom: 6px;
+  opacity: 0.8;
+}
+.section-empty-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.section-empty-desc {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ── Question Card Section Badge & Action ── */
+.q-section-badge {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 8px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.q-section-badge:hover {
+  border-color: var(--accent);
+  background: rgba(79, 70, 229, 0.08);
+}
+[data-theme="dark"] .q-section-badge:hover {
+  background: rgba(99, 102, 241, 0.15);
+}
+.section-btn {
+  font-size: 14px;
+}
+
+/* ── Move Section Modal ── */
+.move-section-dialog {
+  max-width: 480px !important;
+}
+.move-modal-q-meta {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.move-modal-q-header {
+  font-weight: 800;
+  font-size: 0.88rem;
+  color: var(--text);
+}
+.move-modal-curr-sec {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.move-modal-curr-sec strong {
+  color: var(--accent);
+}
+.section-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 250px;
+  overflow-y: auto;
+  padding: 2px;
+}
+.section-option-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+}
+.section-option-row:hover {
+  border-color: var(--accent);
+  background: var(--bg-secondary);
+}
+.section-option-row.selected {
+  border-color: var(--accent);
+  background: rgba(79, 70, 229, 0.06);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+[data-theme="dark"] .section-option-row.selected {
+  background: rgba(99, 102, 241, 0.12);
+}
+.section-option-radio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.radio-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--border-input);
+  position: relative;
+  transition: all 0.2s;
+}
+.radio-dot.active {
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: inset 0 0 0 3px var(--bg-card);
+}
+.section-option-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  min-width: 0;
+}
+.section-option-title {
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--text);
+}
+.section-option-badges {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.sec-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 99px;
+}
+.current-badge {
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #10b981;
+}
+[data-theme="dark"] .current-badge {
+  background: rgba(5, 150, 105, 0.25);
+  color: #34d399;
+}
+.original-badge {
+  background: #f1f5f9;
+  color: #64748b;
+  border: 1px solid #cbd5e1;
+}
+[data-theme="dark"] .original-badge {
+  background: rgba(100, 116, 139, 0.25);
+  color: #94a3b8;
+}
+.create-section-inline-box {
+  margin-top: 14px;
+}
+.full-width-btn {
+  width: 100%;
+  padding: 8px;
+  font-weight: 600;
+  border-style: dashed !important;
+}
+.btn-link-action {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 4px;
+  transition: color 0.2s;
+}
+.btn-link-action:hover {
+  color: var(--accent);
+}
+
 
 /* ══════════════════════════════════════════
    QUESTION CARD — Paper Style

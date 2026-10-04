@@ -1,4 +1,4 @@
-import { getQuestionCustomization } from './storage';
+import { getQuestionCustomization, getQuestionSection } from './storage';
 
 let _qCounter = 0;
 
@@ -135,11 +135,14 @@ function parseSingleQuestion(qEl, chapterId, chapterTitle, sectionTitle = 'Quest
     if (Array.isArray(custom.tags)) tags = custom.tags;
   }
 
+  const customSection = getQuestionSection(id);
+
   return {
     id,
     chapterId,
     chapterTitle,
-    sectionTitle,
+    sectionTitle: customSection || sectionTitle,
+    originalSectionTitle: sectionTitle,
     header: headerText,
     originalHeader: qhEl ? qhEl.textContent.trim() : '',
     tags,

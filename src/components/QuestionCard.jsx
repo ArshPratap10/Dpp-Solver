@@ -9,6 +9,7 @@ import {
 } from '../utils/storage';
 import EditHeadingModal from './EditHeadingModal';
 import AddToFolderModal from './AddToFolderModal';
+import MoveSectionModal from './MoveSectionModal';
 
 const PRESETS = [
   { label: '3m', sec: 180 },
@@ -39,10 +40,14 @@ export default function QuestionCard({
   isTrashMode = false,
   onRestoreQuestion,
   onDeletePermanent,
+  availableSections = [],
+  onMoveSection,
+  onAddSection,
 }) {
   const cardRef = useRef(null);
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [isFolderOpen, setIsFolderOpen] = useState(false);
+  const [isSectionOpen, setIsSectionOpen] = useState(false);
   const [folderCount, setFolderCount] = useState(0);
   const [status, setStatus] = useState(() => getQuestionStatus(question.id));
 
@@ -140,6 +145,22 @@ export default function QuestionCard({
           })}
         </div>
 
+        {/* Section Badge */}
+        {question.sectionTitle && (
+          <span
+            className="q-section-badge"
+            title={`Section: ${question.sectionTitle}${onMoveSection ? ' • Click to change section' : ''}`}
+            onClick={(e) => {
+              if (!isTrashMode && onMoveSection) {
+                e.stopPropagation();
+                setIsSectionOpen(true);
+              }
+            }}
+          >
+            📑 {question.sectionTitle}
+          </span>
+        )}
+
         {/* Action Controls */}
         <div className="q-actions-group">
           {isTrashMode ? (
@@ -229,6 +250,21 @@ export default function QuestionCard({
               >
                 📁 {folderCount > 0 && <span className="folder-count-badge">{folderCount}</span>}
               </button>
+
+              {/* Move Section Button */}
+              {onMoveSection && (
+                <button
+                  type="button"
+                  className="icon-action-btn card-action-btn section-btn"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsSectionOpen(true);
+                  }}
+                  title={`Section: ${question.sectionTitle || 'Default'} — Click to move to another section`}
+                >
+                  📑
+                </button>
+              )}
 
               {/* Remove from folder (only when in Folder View) */}
               {onRemoveFromFolder && (
@@ -388,6 +424,18 @@ export default function QuestionCard({
           const fIds = getFoldersForQuestion(question.id);
           setFolderCount(fIds.length);
         }}
+      />
+
+      <MoveSectionModal
+        question={question}
+        chapterId={chapterId || question.chapterId}
+        chapterTitle={chapterTitle || question.chapterTitle}
+        availableSections={availableSections}
+        currentSection={question.sectionTitle}
+        isOpen={isSectionOpen}
+        onClose={() => setIsSectionOpen(false)}
+        onMoveSection={onMoveSection}
+        onAddSection={onAddSection}
       />
     </div>
   );

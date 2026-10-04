@@ -112,6 +112,15 @@ const CHAPTERS = [
     questionCount: 71,
     tags: ['Lectures 11–13', 'Transformations of Graphs', 'Periodic Functions', 'TAH', 'BPP'],
   },
+  {
+    id: 'itf-1-5',
+    icon: '📐',
+    title: 'Inverse Trigonometric Functions (ITF 1–5)',
+    subject: 'Mathematics',
+    file: '/dpps/itf_1_5.html',
+    questionCount: 135,
+    tags: ['Lectures 1–5', 'Principal Values', 'Properties of ITF', 'Sum & Difference Series', 'TAH'],
+  },
 ];
 
 const EMOJI_OPTIONS = ['📁', '🔥', '⚡', '🎯', '📚', '💎', '💡', '🧮', '📐', '⭐'];
